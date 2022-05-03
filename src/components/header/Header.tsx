@@ -149,16 +149,17 @@ const Headers = () => {
     <header className={styles.header}>
       <div className={cn("container", styles.container)}>
         <Link
-          // className={styles.logo}
           href="/"
           onClick={() => setVisibleNav(false)}
         >
-          <Image
-            className={styles.pic}
-            src="/images/logo-dark.svg"
-            srcDark="/images/logo-light.svg"
-            alt="Fitness Pro"
-          />
+          <a className={styles.logo}>
+            <Image
+              className={styles.pic}
+              src="/images/logo-dark.svg"
+              srcDark="/images/logo-light.svg"
+              alt="Fitness Pro"
+            />
+          </a>          
         </Link>
         <div className={cn(styles.wrap, { [styles.active]: visibleNav })}>
           <nav className={styles.nav}>
@@ -205,19 +206,17 @@ const Headers = () => {
                 </a>
               ))}
             </div>
-            <Link
-              className={cn("button-stroke button-small", styles.button)}
+            <Link              
               href="/"
             >
-              Get free trial
+              <a className={cn("button-stroke button-small", styles.button)}> Get free trial </a>              
             </Link>
           </div>
         </div>
         <Link
-          className={cn("button-stroke button-small", styles.button)}
           href="/"
         >
-          Get free trial
+          <a className={cn("button-stroke button-small", styles.button)}> Get free trial </a>          
         </Link>
         <button
           className={cn(styles.burger, { [styles.active]: visibleNav })}
