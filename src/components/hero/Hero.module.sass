@@ -1,0 +1,139 @@
+@import ../../../styles/helpers
+
+.hero
+    position: relative
+    display: flex
+    align-items: center
+    min-height: 880px
+    padding: 34px 0 130px
+    +x
+        min-height: 800px
+    +d
+        min-height: 624px
+    +m
+        min-height: auto
+        padding: 64px 0 152px
+
+.wrap
+    position: relative
+    z-index: 3
+    max-width: 450px
+    +t
+        max-width: 340px
+    +m
+        max-width: 100%
+        margin-bottom: 80px
+
+.title
+    margin-bottom: 20px
+    color: $neutrals2
+
+.text
+    margin-bottom: 40px
+    color: $neutrals2
+
+.btns
+    display: flex
+    +m
+        display: block
+
+.button
+    +m
+        width: 100%
+    &:not(:last-child)
+        margin-right: 16px
+        +m
+            margin: 0 0 16px
+    
+.scroll
+    position: absolute
+    bottom: 96px
+    +d
+        bottom: 48px
+    +m
+        bottom: 64px
+
+.gallery
+    position: absolute
+    top: 50%
+    right: calc(50% - 465px)
+    width: 512px
+    transform: translateY(-58%)
+    pointer-events: none
+    +x
+        right: calc(50% - 425px)
+        width: 450px
+    +d
+        right: calc(50% - 365px)
+        width: 320px
+    +t
+        right: calc(50% - 300px)
+    +m
+        position: relative
+        top: auto
+        right: auto
+        left: -16px
+        margin: 0 auto
+        transform: translate(0,0)
+        pointer-events: all
+
+.preview
+    &:first-child
+        position: relative
+        z-index: 2
+    &:nth-child(2)
+        top: 36%
+        right: -18%
+        z-index: 3
+        width: 45%
+    &:nth-child(3)
+        top: -12%
+        right: -7%
+        z-index: 1
+        width: 45%
+    &:nth-child(4)
+        left: 11%
+        bottom: 13%
+        z-index: 3
+        width: 18%
+    &:not(:first-child)
+        position: absolute
+    img
+        width: 100%
+
+.col
+    flex: 0 0 calc(50% - 24px)
+    width: calc(50% - 24px)
+    margin: 0 12px
+    +d
+        margin: 0
+    &:first-child
+        +d
+            flex: 1 0 auto
+            width: auto
+            padding-right: 32px
+        +m
+            flex: 0 0 100%
+            width: 100%
+            padding: 0
+    &:nth-child(2)
+        +d
+            flex: 0 0 528px
+            width: 528px
+        +t
+            flex: 0 0 400px
+            width: 400px
+        +m
+            flex: 0 0 100%
+            width: 100%
+
+.bg
+    position: relative
+    background: $neutrals6
+    border-radius: 24px
+    +dark
+        background: $neutrals3
+    img
+        width: 100%
+    & > img
+        border-radius: 24px

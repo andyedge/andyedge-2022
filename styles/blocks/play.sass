@@ -3,8 +3,8 @@
     top: 50%
     left: 50%
     z-index: 3
-    width: 80px
-    height: 80px
+    width: 160px
+    height: 160px
     transform: translate(-50%,-50%)
     box-shadow: 0px 8px 16px -8px rgba(15, 15, 15, 0.2)
     border-radius: 50%
@@ -13,7 +13,7 @@
         width: 48px
         height: 48px
     svg
-        fill: $neutrals4
+        fill: $red
         transition: all .2s
         +m
             width: 12px
@@ -21,7 +21,7 @@
     &:hover
         svg
             transform: scale(1.3)
-            fill: $blue
+            fill: darken($red, 10)
 
 .play-small
     width: 48px
