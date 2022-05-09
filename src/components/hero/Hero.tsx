@@ -3,12 +3,12 @@ import Link from "next/link";
 import cn from "classnames";
 import styles from "./Hero.module.sass";
 import Icon from "../icon/Icon";
-import ScrollButton from "../scrollButton/scrollButton";
+import ScrollButton from "../scrollButton/ScrollButton";
 import Image from "../image/Image";
 //import ScrollParallax from "../../../components/ScrollParallax";
 
-const Hero = ({ pageProps }: any, scrollToRef: any) => {
-  
+const Hero = ({ pageProps, scrollToRef }: any) => {
+
   return (
     <div className={styles.hero}>
       <img
