@@ -1,6 +1,7 @@
 //import type { NextPage } from 'next';
 import Hero from '../src/components/hero/Hero';
 import { createClient } from 'contentful';
+import { useRef } from 'react';
 
 export const getStaticProps = async () => {
 
@@ -20,12 +21,17 @@ export const getStaticProps = async () => {
   }
 }
 
-const Home = ({ pageContent }: any) => (
-  <>
-    <Hero
-      pageProps={pageContent.heroContainer.fields}
-    />
-  </>
-)
+const Home = ({ pageContent }: any) => {
+  const scrollToRef = useRef(null);
+  
+  return (
+    <>
+      <Hero
+        pageProps={pageContent.heroContainer.fields}
+        scrollToRef={scrollToRef}
+      />
+    </>
+  )
+}
 
 export default Home
