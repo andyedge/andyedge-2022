@@ -1,8 +1,10 @@
 //import type { NextPage } from 'next';
+import { useRef } from 'react';
+import { createClient } from 'contentful';
 import Hero from '../src/components/hero/Hero';
 import Steps from '../src/components/steps/Steps';
-import { createClient } from 'contentful';
-import { useRef } from 'react';
+import CardBullets from '../src/components/cardBullets/CardBullets';
+
 
 export const getStaticProps = async () => {
 
@@ -12,7 +14,8 @@ export const getStaticProps = async () => {
   });
 
   const res = await contentfulClient.getEntries({
-    content_type: 'whatPage'
+    content_type: 'whatPage',
+    include: 10
   });
 
   return {
@@ -36,6 +39,9 @@ const Home = ({ pageContent }: any) => {
         stepsText={pageContent.stepsContainerText}
         stepsArray={pageContent.stepsSection}
         scrollToRef={scrollToRef}
+      />
+      <CardBullets 
+        contents={pageContent.standardContainer1}
       />
     </>
   )

@@ -4,18 +4,22 @@ import cn from "classnames";
 import styles from "./Hero.module.sass";
 import Icon from "../icon/Icon";
 import ScrollButton from "../scrollButton/ScrollButton";
+import ScrollParallax from "../ScrollParallax";
 import Image from "../image/Image";
-//import ScrollParallax from "../../../components/ScrollParallax";
 
 const Hero = ({ pageProps, scrollToRef }: any) => {
 
   return (
     <div className={styles.hero}>
-      <img
-        src={pageProps.backgroundImage.fields.file.url}
-      />
+      {'backgroundImage' in pageProps ?
+        <img
+          src={pageProps.backgroundImage.fields.file.url}
+        />
+        :
+        null
+      }
       <div className={cn("container", styles.container)}>
-        <div className={styles.wrap}>
+        <ScrollParallax className={styles.wrap}>
           <div className={cn("stage", styles.stage)}>
             {pageProps.preTitle}
           </div>
@@ -34,7 +38,7 @@ const Hero = ({ pageProps, scrollToRef }: any) => {
             :
             null
           }
-        </div>
+        </ScrollParallax>
         <ScrollButton
           onScroll={() =>
             scrollToRef.current.scrollIntoView({ behavior: "smooth" })

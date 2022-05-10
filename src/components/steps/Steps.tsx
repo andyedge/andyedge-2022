@@ -1,6 +1,7 @@
 import React from "react";
 import cn from "classnames";
 import styles from "./Steps.module.sass";
+import ScrollParallax from "../ScrollParallax";
 import Image from 'next/image';
 
 const Steps = ({ stepsTitle, stepsText, stepsArray, scrollToRef }: any) => {
@@ -16,7 +17,7 @@ const Steps = ({ stepsTitle, stepsText, stepsArray, scrollToRef }: any) => {
         </div>
         <div className={styles.list}>
           {stepsArray.map((step: any, index: any) => (            
-            <div className={styles.item} key={index}>
+            <ScrollParallax className={styles.item} key={index}>
               <div
                 className={styles.preview}
               >
@@ -29,7 +30,7 @@ const Steps = ({ stepsTitle, stepsText, stepsArray, scrollToRef }: any) => {
               <div className={styles.number}> {step.fields.preTitle} </div>
               <div className={styles.subtitle}> {step.fields.title} </div>
               <div className={styles.content}> {step.fields.stepText} </div>
-            </div>
+            </ScrollParallax>
           ))}
         </div>
       </div>
