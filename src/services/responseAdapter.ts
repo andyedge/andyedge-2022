@@ -15,16 +15,20 @@ const adapatImage = (image: Item): Image => {
 
 const adaptStandardContainer = (data: Item): StandardContainer => {
     const { fields } = data
+    
     return {
         preTitle: fields.preTitle ? fields.preTitle : null,
         title: fields.title,
-        subtitle: fields.subtitle,
+        subtitle: fields.subtitle ? fields.subtitle : null,
         bulletsContainer: adaptStepsSection(fields.bulletsContainer),
         logo: fields.logo ? adapatImage(fields.logo) : {},
+        text: fields.text ? fields.text : null,
         ctaText: fields.ctaText ? fields.ctaText : null,
         ctaPageLink: fields.ctaPageLink ? fields.ctaPageLink : null,
+        ctaVideoLink: fields.ctaVideoLink ? fields.ctaVideoLink : null,
         image: fields.image ? adapatImage(fields.image) : {},
         backgroundImage: fields.backgroundImage ? adapatImage(fields.backgroundImage) : {},
+        videoUrl: fields.videoUrl ? fields.videoUrl : null,
         mediaPosition: fields.mediaPosition ? fields.mediaPosition : null
     }
 }
@@ -36,8 +40,8 @@ const adaptStepsSection = (data: Item[]): StepsContainer[] => {
             return {
                 title: fields.title,
                 preTitle: fields.preTitle ? fields.preTitle : null,
-                text: fields.stepText,
-                image: adapatImage(fields.image),
+                text: fields.stepText ? fields.stepText : null,
+                image: fields.image ? adapatImage(fields.image) : {},
             }
         })
     } else {
@@ -55,5 +59,8 @@ export const adaptWhatpage = (data: Entry): Whatpage => {
         stepsText: fields.stepsContainerText,
         stepsSection: adaptStepsSection(fields.stepsSection),
         standardContainer1: adaptStandardContainer(fields.standardContainer1),
+        standardContainer2: adaptStandardContainer(fields.standardContainer2),
+        standardContainer3: adaptStandardContainer(fields.standardContainer3),
+        standardContainer4: adaptStandardContainer(fields.standardContainer4)
     }
 }

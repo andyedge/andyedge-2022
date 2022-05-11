@@ -8,4 +8,7 @@ export default interface Whatpage {
     stepsText: string
     stepsSection: StepsContainer[]
     standardContainer1: StandardContainer
+    standardContainer2: StandardContainer
+    standardContainer3: StandardContainer
+    standardContainer4: StandardContainer
 }

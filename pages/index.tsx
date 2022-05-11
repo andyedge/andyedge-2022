@@ -4,6 +4,7 @@ import { getWhatpage } from '../src/services/fetch';
 import Hero from '../src/components/hero/Hero';
 import Steps from '../src/components/steps/Steps';
 import CardBullets from '../src/components/cardBullets/CardBullets';
+import TextBullets from '../src/components/textBullets/TextBullets';
 
 
 export const getStaticProps = async () => {  
@@ -24,6 +25,7 @@ const Home = ({ pageContent }: any) => {
       <Hero
         contents={pageContent.hero}
         scrollToRef={scrollToRef}
+        scroll={true}
       />
       <Steps
         stepsTitle={pageContent.stepsTitle}
@@ -33,6 +35,17 @@ const Home = ({ pageContent }: any) => {
       />
       <CardBullets 
         contents={pageContent.standardContainer1}
+      />
+      <CardBullets 
+        contents={pageContent.standardContainer2}
+      />
+      <Hero
+        contents={pageContent.standardContainer3}
+        scrollToRef={scrollToRef}
+        scroll={false}
+      />
+      <TextBullets
+        contents={pageContent.standardContainer4}
       />
     </>
   )

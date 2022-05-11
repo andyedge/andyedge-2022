@@ -7,10 +7,13 @@ declare interface StandardContainer {
     subtitle?: string
     bulletsContainer?: StepsContainer[]
     logo: Image | {}
+    text?: any
     ctaText?: string
     ctaPageLink?: string
+    ctaVideoLink?: string
     image: Image | {}
     backgroundImage: Image | {}
+    videoUrl?: string
     mediaPosition: 'left' | 'right'
 }
 
