@@ -16,27 +16,33 @@ const adapatImage = (image: Item): Image => {
 const adaptStandardContainer = (data: Item): StandardContainer => {
     const { fields } = data
     return {
+        preTitle: fields.preTitle ? fields.preTitle : null,
         title: fields.title,
         subtitle: fields.subtitle,
+        bulletsContainer: adaptStepsSection(fields.bulletsContainer),
         logo: fields.logo ? adapatImage(fields.logo) : {},
-        ctaText: fields.ctaText,
-        ctaPageLink: fields.ctaPageLink,
+        ctaText: fields.ctaText ? fields.ctaText : null,
+        ctaPageLink: fields.ctaPageLink ? fields.ctaPageLink : null,
         image: fields.image ? adapatImage(fields.image) : {},
         backgroundImage: fields.backgroundImage ? adapatImage(fields.backgroundImage) : {},
-        mediaPosition: fields.mediaPosition
+        mediaPosition: fields.mediaPosition ? fields.mediaPosition : null
     }
 }
 
-const adapatStepsSection = (data: Item[]): StepsContainer[] => {
-    return data.map((item: Item) => {
-        const { fields } = item
-        return {
-            title: fields.title,
-            preTitle: fields.pretitle,
-            text: fields.stepText,
-            image: adapatImage(fields.image),
-        }
-    })
+const adaptStepsSection = (data: Item[]): StepsContainer[] => {
+    if (data) {
+        return data.map((item: Item) => {
+            const { fields } = item
+            return {
+                title: fields.title,
+                preTitle: fields.preTitle ? fields.preTitle : null,
+                text: fields.stepText,
+                image: adapatImage(fields.image),
+            }
+        })
+    } else {
+        return []
+    }  
 }
 
 export const adaptWhatpage = (data: Entry): Whatpage => {
@@ -47,7 +53,7 @@ export const adaptWhatpage = (data: Entry): Whatpage => {
         hero: adaptStandardContainer(fields.heroContainer),
         stepsTitle: fields.stepsContainerTitle,
         stepsText: fields.stepsContainerText,
-        stepsSection: adapatStepsSection(fields.stepsSection),
+        stepsSection: adaptStepsSection(fields.stepsSection),
         standardContainer1: adaptStandardContainer(fields.standardContainer1),
     }
 }

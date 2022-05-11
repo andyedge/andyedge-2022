@@ -22,14 +22,14 @@ const Steps = ({ stepsTitle, stepsText, stepsArray, scrollToRef }: any) => {
                 className={styles.preview}
               >
                 <Image 
-                  src={'https:' + step.fields.image.fields.file.url} 
-                  alt={step.fields.image.fields.description}
+                  src={'https:' + step.image.url} 
+                  alt={step.image.description}
                   layout='fill'
                 />
               </div>
-              <div className={styles.number}> {step.fields.preTitle} </div>
-              <div className={styles.subtitle}> {step.fields.title} </div>
-              <div className={styles.content}> {step.fields.stepText} </div>
+              <div className={styles.number}> {step.preTitle} </div>
+              <div className={styles.subtitle}> {step.title} </div>
+              <div className={styles.content}> {step.text} </div>
             </ScrollParallax>
           ))}
         </div>

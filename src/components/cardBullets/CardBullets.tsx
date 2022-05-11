@@ -7,7 +7,7 @@ import ScrollParallax from "../ScrollParallax";
 
 
 const CardBullets = ({ contents }: any) => {
-  const bulletsContent = contents.fields.bulletsContainer;
+  const bulletsContent = contents.bulletsContainer;
 
   return (
     <div className={cn("section-bg", styles.section)}>
@@ -19,8 +19,8 @@ const CardBullets = ({ contents }: any) => {
             offset={300}
           >
             <img
-              src={contents.fields.logo.fields.file.url}
-              alt={contents.fields.logo.fields.description}
+              src={contents.logo.url}
+              alt={contents.logo.description}
             />
           </ScrollParallax>
           <ScrollParallax
@@ -29,15 +29,15 @@ const CardBullets = ({ contents }: any) => {
             offset={300}
           >
             <img
-              src={contents.fields.image.fields.file.url}
-              alt={contents.fields.image.fields.description}
+              src={contents.image.url}
+              alt={contents.image.description}
             />
           </ScrollParallax>
         </div>
         <div className={styles.wrap}>
-          <h2 className={cn("h2", styles.title)}> {contents.fields.title} </h2>
+          <h2 className={cn("h2", styles.title)}> {contents.title} </h2>
           <div className={styles.info}>
-            {contents.fields.subtitle}
+            {contents.subtitle}
           </div>
           <div className={styles.list}>
             {bulletsContent.map((content: any, index: number) => (
@@ -46,21 +46,21 @@ const CardBullets = ({ contents }: any) => {
                   className={styles.icon}
                 >
                   <img 
-                    src={content.fields.image.fields.file.url}
-                    alt={content.fields.image.fields.description}
+                    src={content.image.url}
+                    alt={content.image.description}
                   />
                 </div>
                 <div className={styles.details}>
-                  <div className={styles.subtitle}>{content.fields.title}</div>
-                  <div className={styles.content}>{content.fields.stepText}</div>
+                  <div className={styles.subtitle}>{content.title}</div>
+                  <div className={styles.content}>{content.text}</div>
                 </div>
               </div>
             ))}
           </div>
           <div className={styles.btns}>
-            <Link href={`/${contents.fields.ctaPageLink}`}>
+            <Link href={`/${contents.ctaPageLink}`}>
               <a className={cn("button", styles.button)}>
-                {contents.fields.ctaText}
+                {contents.ctaText}
                 <Icon name="arrow-right" size="20" />
               </a>
             </Link>
