@@ -1,4 +1,4 @@
-import Image from './image.model'
+import ImageType from './image.model'
 import StepsContainer from './stepsContainer.model'
 
 declare interface StandardContainer {
@@ -6,13 +6,13 @@ declare interface StandardContainer {
     title: string
     subtitle?: string
     bulletsContainer?: StepsContainer[]
-    logo: Image | {}
+    logo: ImageType | {}
     text?: any
     ctaText?: string
     ctaPageLink?: string
     ctaVideoLink?: string
-    image: Image | {}
-    backgroundImage: Image | {}
+    images?: ImageType[]
+    backgroundImage: ImageType | {}
     videoUrl?: string
     mediaPosition: 'left' | 'right'
 }

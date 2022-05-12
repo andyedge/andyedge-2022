@@ -4,31 +4,32 @@ import styles from "./TextBullets.module.sass";
 import ScrollParallax from "../ScrollParallax";
 import RichText from "../RichText";
 import Icon from "../icon/Icon";
+import ImageType from "../../models/image.model";
 
-const items = [
-  "Fitness Pro Cloud",
-  "Syncs with Google Fit",
-  "Syncs with Apple Health",
-  "Track your progress easily",
-  "Intuitive and clean design",
-];
 
 const TextBullets = ({ contents }: any) => {
   const bulletsContent = contents.bulletsContainer;
+  const images = contents.images;
 
   return (
     <div className={styles.section}>
       <div className={cn("container", styles.container)}>
         <div className={styles.gallery}>
-          <div className={styles.preview}>
-            <img />
-          </div>
-          <ScrollParallax className={styles.preview} animateIn="fadeInUp">
-            <img />
-          </ScrollParallax>
-          <ScrollParallax className={styles.preview} animateIn="fadeInUp">
-            <img />
-          </ScrollParallax>
+          {
+            images.map((image: ImageType) => (
+              <>
+                <ScrollParallax
+                  className={styles.preview}
+                  animateIn="fadeInUp"
+                >
+                  <img
+                    src={image.url}
+                    alt={image.description}
+                  />
+                </ScrollParallax>
+              </>
+            ))
+          }
         </div>
         <div className={styles.wrap}>
           <h2 className={cn("h2", styles.title)}>

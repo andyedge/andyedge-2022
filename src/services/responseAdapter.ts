@@ -1,10 +1,10 @@
 import Entry, { Item } from '../models/entry.model'
-import Image from '../models/image.model'
+import ImageType from '../models/image.model'
 import Whatpage from '../models/whatpage.model'
 import StandardContainer from '../models/standardContainer.model'
 import StepsContainer from '../models/stepsContainer.model'
 
-const adapatImage = (image: Item): Image => {
+const adaptImage = (image: Item): ImageType => {
     const fields = image.fields || {}
     return {
         url: fields?.file?.url,
@@ -13,21 +13,31 @@ const adapatImage = (image: Item): Image => {
     }
 }
 
+const adaptImages = (images: Item[]): ImageType[] => {
+    if (images) {
+        return images.map((image: Item) => {
+            return adaptImage(image)
+        })
+    } else {
+        return []
+    }
+}
+
 const adaptStandardContainer = (data: Item): StandardContainer => {
     const { fields } = data
-    
+
     return {
         preTitle: fields.preTitle ? fields.preTitle : null,
         title: fields.title,
         subtitle: fields.subtitle ? fields.subtitle : null,
         bulletsContainer: adaptStepsSection(fields.bulletsContainer),
-        logo: fields.logo ? adapatImage(fields.logo) : {},
+        logo: fields.logo ? adaptImage(fields.logo) : {},
         text: fields.text ? fields.text : null,
         ctaText: fields.ctaText ? fields.ctaText : null,
         ctaPageLink: fields.ctaPageLink ? fields.ctaPageLink : null,
         ctaVideoLink: fields.ctaVideoLink ? fields.ctaVideoLink : null,
-        image: fields.image ? adapatImage(fields.image) : {},
-        backgroundImage: fields.backgroundImage ? adapatImage(fields.backgroundImage) : {},
+        images: adaptImages(fields.images),
+        backgroundImage: fields.backgroundImage ? adaptImage(fields.backgroundImage) : {},
         videoUrl: fields.videoUrl ? fields.videoUrl : null,
         mediaPosition: fields.mediaPosition ? fields.mediaPosition : null
     }
@@ -41,7 +51,7 @@ const adaptStepsSection = (data: Item[]): StepsContainer[] => {
                 title: fields.title,
                 preTitle: fields.preTitle ? fields.preTitle : null,
                 text: fields.stepText ? fields.stepText : null,
-                image: fields.image ? adapatImage(fields.image) : {},
+                image: fields.image ? adaptImage(fields.image) : {},
             }
         })
     } else {

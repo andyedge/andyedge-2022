@@ -4,35 +4,33 @@ import Icon from "../icon/Icon";
 import Image from "../image/Image";
 import styles from "./CardBullets.module.sass"
 import ScrollParallax from "../ScrollParallax";
+import ImageType from "../../models/image.model";
 
 
 const CardBullets = ({ contents }: any) => {
   const bulletsContent = contents.bulletsContainer;
+  const images = contents.images;
 
   return (
     <div className={cn("section-bg", styles.section)}>
       <div className={cn("container", styles.container)}>
         <div className={styles.gallery}>
-          <ScrollParallax
-            className={styles.preview}
-            animateIn="fadeInUp"
-            offset={300}
-          >
-            <img
-              src={contents.logo.url}
-              alt={contents.logo.description}
-            />
-          </ScrollParallax>
-          <ScrollParallax
-            className={styles.preview}
-            animateIn="fadeInUp"
-            offset={300}
-          >
-            <img
-              src={contents.image.url}
-              alt={contents.image.description}
-            />
-          </ScrollParallax>
+          {
+            images.map((image: ImageType) => (
+              <>
+                <ScrollParallax
+                  className={styles.preview}
+                  animateIn="fadeInUp"
+                  offset={300}
+                >
+                  <img
+                    src={image.url}
+                    alt={image.description}
+                  />
+                </ScrollParallax>
+              </>
+            ))
+          }
         </div>
         <div className={styles.wrap}>
           <h2 className={cn("h2", styles.title)}> {contents.title} </h2>
