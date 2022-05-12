@@ -2,34 +2,39 @@ import cn from "classnames";
 import Icon from "../icon/Icon";
 import Link from "next/link";
 import styles from "./Solution.module.sass";
-import ScrollParallax from "../ScrollParallax";
-import ImageType from "../../models/image.model";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const items = [
-  {
-    title: "Program Videos",
-    url: "/class01",
-    color: "#45B26B",
-    images: "/images/content/lightning.svg",
-    alt: "lightning",
-  },
-  {
-    title: "Premium Class",
-    url: "/class02",
-    color: "#9757D7",
-    images: "/images/content/lightning.svg",
-    alt: "lightning",
-  },
-  {
-    title: "Exclusive Trainers",
-    url: "/class02",
-    color: "#3772FF",
-    images: "/images/content/lightning.svg",
-    alt: "lightning",
-  },
-];
+interface solutionImagesType {
+  url: string
+  description: string
+  style: any
+}
 
 const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps, solutionImages }: any) => {
+  const [solutionImagesState, setSolutionImagesState] = useState<solutionImagesType[]>([]);
+
+  useEffect(() => {
+    const solutionImgs: solutionImagesType[] = [];
+    
+    solutionImages.map((image: any, index: number) => {
+      const imageForState: solutionImagesType = {
+        url: image.url,
+        description: image.description,
+        style: {opacity: 0}
+      }
+      solutionImgs.push(imageForState);
+    });
+
+    setSolutionImagesState(solutionImgs);
+  }, []);
+
+  const showImage = (index: number) => {
+    const solutionImgs = JSON.parse(JSON.stringify(solutionImagesState));
+    const imgOpacity = solutionImgs[index].style.opacity;
+    solutionImgs[index].style = imgOpacity === 1 ? {opacity: 0} : {opacity: 1};
+    setSolutionImagesState(solutionImgs);
+  }
 
   return (
     <div className={cn("section-bg", styles.book)}>
@@ -51,7 +56,7 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
                   <div 
                     className={styles.item} 
                     key={index}
-                    onClick={() => {console.log('Hola')}}
+                    onClick={() => {showImage(index)}}
                   >
                     <div className={styles.link}>
                       <div
@@ -71,8 +76,9 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
             <div className={styles.col}>
               <div className={styles.preview}>
                 {
-                  solutionImages.map((image: ImageType) => (
+                  solutionImagesState.map((image: any) => (
                     <img
+                      style={image.style}
                       src={image.url}
                       alt={image.description}
                     />
