@@ -1,7 +1,9 @@
 import cn from "classnames";
 import Icon from "../icon/Icon";
+import Link from "next/link";
 import styles from "./Solution.module.sass";
 import ScrollParallax from "../ScrollParallax";
+import ImageType from "../../models/image.model";
 
 const items = [
   {
@@ -27,30 +29,37 @@ const items = [
   },
 ];
 
-const Solution = () => {
+const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps, solutionImages }: any) => {
+
   return (
     <div className={cn("section-bg", styles.book)}>
       <div className={cn("container", styles.container)}>
         <div className={styles.card}>
           <h2 className={styles.title}>
-            Explore fitness pro program
+            {solutionTitle}
           </h2>
           <p className={styles.paragraph}>
-            Establishing a coherent experience for your users will help you diminish their desire to jump onto another option.
+            {solutionText}
           </p>
           <div className={styles.wrap}>
-            <div className={styles.col}>              
+            <div className={styles.col}>
+              <div className={cn("stage-small", styles.stage)}>
+                {solutionSubtitle}
+              </div>
               <div className={styles.list}>
-                {items.map((x, index) => (
-                  <div className={styles.item} key={index}>
+                {solutionSteps.map((step: any, index: number) => (
+                  <div 
+                    className={styles.item} 
+                    key={index}
+                    onClick={() => {console.log('Hola')}}
+                  >
                     <div className={styles.link}>
                       <div
                         className={styles.icon}
-                        style={{ backgroundColor: x.color }}
                       >
-                        <img src={x.images} alt={x.alt} />
+                        <img src={step.image.url} alt={step.image.description} />
                       </div>
-                      <div className={styles.subtitle}>{x.title}</div>
+                      <div className={styles.subtitle}>{step.title}</div>
                       <div className={styles.arrow}>
                         <Icon name="arrow-right-empty" size="14" />
                       </div>
@@ -61,12 +70,21 @@ const Solution = () => {
             </div>
             <div className={styles.col}>
               <div className={styles.preview}>
-                <img
-                  srcSet="/images/content/bottle-2@2x.png 2x"
-                  src="/images/content/bottle-2.png"
-                  alt="Bottle"
-                />
+                {
+                  solutionImages.map((image: ImageType) => (
+                    <img
+                      src={image.url}
+                      alt={image.description}
+                    />
+                  ))
+                }
               </div>
+              <Link href="/">
+                <a className={cn("button", styles.button)}>
+                  Pearson case study
+                  <Icon name="arrow-right" size="20" />
+                </a>
+              </Link>
             </div>
           </div>
         </div>

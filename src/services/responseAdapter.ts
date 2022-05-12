@@ -71,6 +71,11 @@ export const adaptWhatpage = (data: Entry): Whatpage => {
         standardContainer1: adaptStandardContainer(fields.standardContainer1),
         standardContainer2: adaptStandardContainer(fields.standardContainer2),
         standardContainer3: adaptStandardContainer(fields.standardContainer3),
-        standardContainer4: adaptStandardContainer(fields.standardContainer4)
+        standardContainer4: adaptStandardContainer(fields.standardContainer4),
+        solutionTitle: fields.solutionTitle,
+        solutionText: fields.solutionText,
+        solutionSubtitle: fields.solutionSubtitle,
+        solutionSteps: adaptStepsSection(fields.solutionSteps),
+        solutionImages: adaptImages(fields.solutionImages)
     }
 }

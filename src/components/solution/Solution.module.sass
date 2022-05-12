@@ -46,7 +46,6 @@
 
 .stage
     margin-bottom: 24px
-    padding-left: 24px
     +m
         margin-bottom: 16px
         padding-left: 10px
@@ -65,16 +64,17 @@
     display: flex
     align-items: center
     padding: 20px
-    border-radius: 16px
+    border-radius: 8px
     +body-1
     font-weight: 600
-    color: $neutrals2
+    color: $neutrals1
     transition: background .2s
+    cursor: pointer
     +m
         padding: 10px
         font-size: 18px
     &:hover
-        background: $neutrals7
+        background: $neutrals6
     +dark
         background: $neutrals2
         color: $neutrals8
@@ -88,25 +88,16 @@
         fill: $neutrals4
 
 .icon
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-shrink: 0
-    width: 48px
-    height: 48px
     margin-right: 20px
-    border-radius: 12px
     +m
         margin-right: 12px
-    img
-        max-width: 24px
-        max-height: 24px
     
 .preview
     margin-bottom: 42px
     +m
         margin-bottom: 32px
     img
+        border-radius: 16px
         max-width: 400px
         +d
             max-width: 240px

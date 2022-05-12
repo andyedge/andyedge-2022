@@ -48,7 +48,13 @@ const Home = ({ pageContent }: any) => {
       <TextBullets
         contents={pageContent.standardContainer4}
       />
-      <Solution />
+      <Solution
+        solutionTitle={pageContent.solutionTitle}
+        solutionText={pageContent.solutionText}
+        solutionSubtitle={pageContent.solutionSubtitle}
+        solutionSteps={pageContent.solutionSteps}
+        solutionImages={pageContent.solutionImages}
+      />
     </>
   )
 }

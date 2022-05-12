@@ -1,3 +1,4 @@
+import ImageType from './image.model'
 import StandardContainer from  './standardContainer.model'
 import StepsContainer from './stepsContainer.model'
 
@@ -11,4 +12,9 @@ export default interface Whatpage {
     standardContainer2: StandardContainer
     standardContainer3: StandardContainer
     standardContainer4: StandardContainer
+    solutionTitle: string
+    solutionText: string
+    solutionSubtitle: string
+    solutionSteps: StepsContainer[]
+    solutionImages: ImageType[]
 }
