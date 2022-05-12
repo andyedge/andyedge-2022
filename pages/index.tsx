@@ -1,8 +1,9 @@
 //import type { NextPage } from 'next';
 import { useRef } from 'react';
-import { getWhatpage } from '../src/services/fetch';
 import Hero from '../src/components/hero/Hero';
 import Steps from '../src/components/steps/Steps';
+import { getWhatpage } from '../src/services/fetch';
+import Solution from '../src/components/solution/Solution';
 import CardBullets from '../src/components/cardBullets/CardBullets';
 import TextBullets from '../src/components/textBullets/TextBullets';
 
@@ -47,6 +48,7 @@ const Home = ({ pageContent }: any) => {
       <TextBullets
         contents={pageContent.standardContainer4}
       />
+      <Solution />
     </>
   )
 }
