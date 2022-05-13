@@ -2,10 +2,9 @@ import { useRef, useState } from "react";
 import cn from "classnames";
 import Link from "next/link";
 import Icon from "../icon/Icon";
-import ImageComp from "../image/Image";
 import RichText from "../RichText";
+import ImageComp from "../image/Image";
 import styles from "./Hero.module.sass";
-import ScrollParallax from "../ScrollParallax";
 import ScrollButton from "../scrollButton/ScrollButton";
 import StandardContainer from "../../models/standardContainer.model";
 
@@ -108,9 +107,10 @@ const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
                   className={styles.hero_video}
                   style={playing ? {cursor: 'pointer'} : {cursor: 'default'}}                  
                   src={contents.videoUrl}
+                  onPlay={() => setPlaying(true)}
+                  onPause={() => setPlaying(false)}
                   onClick={(e) => videoHandler(e)}
                   onDoubleClick={() => videoFullscreen()}
-                  onPlay={() => setPlaying(true)}
                 ></video>
                 <button 
                   className={cn("play", styles.play)}
