@@ -11,9 +11,8 @@ interface solutionImagesType {
   style: any
 }
 
-const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps, solutionImages }: any) => {
+const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps, solutionImages, solutionBackgroundImage }: any) => {
   const [solutionImagesState, setSolutionImagesState] = useState<solutionImagesType[]>([]);
-
   useEffect(() => {
     const solutionImgs: solutionImagesType[] = [];
 
@@ -37,7 +36,17 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
   }
 
   return (
-    <div className={cn("section-bg", styles.book)}>
+    <div className={cn("section-bg", styles.book)} style={{background: 'none', marginBottom: '104px'}}>
+      {Object.keys(solutionBackgroundImage).length > 0 ?
+        <div className={styles.bg_div}>
+          <ImageComp
+            src={solutionBackgroundImage.url}
+            alt={solutionBackgroundImage.description}
+          />
+        </div>
+        :
+        null
+      }
       <div className={cn("container", styles.container)}>
         <div className={styles.card}>
           <h2 className={styles.title}>
@@ -83,7 +92,6 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
                         src={image.url}
                         alt={image.description}
                         style={{borderRadius: '16px'}}
-                        priority={index === 0 ? true : false}
                       />
                     </div>
                   ))

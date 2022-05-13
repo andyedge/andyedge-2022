@@ -18,5 +18,6 @@ export default interface Whatpage {
     solutionSubtitle: string
     solutionSteps: StepsContainer[]
     solutionImages: ImageType[]
+    solutionBackgroundImage1: ImageType
     contactContainer: ContactContainer
 }

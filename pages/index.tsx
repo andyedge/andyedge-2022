@@ -55,6 +55,7 @@ const Home = ({ pageContent }: any) => {
         solutionSubtitle={pageContent.solutionSubtitle}
         solutionSteps={pageContent.solutionSteps}
         solutionImages={pageContent.solutionImages}
+        solutionBackgroundImage={pageContent.solutionBackgroundImage1}
       />
       <Contact 
         contents={pageContent.contactContainer}

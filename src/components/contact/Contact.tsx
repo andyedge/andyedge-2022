@@ -7,7 +7,6 @@ import ContactField from "../contactField/ContactField";
 
 
 const Contact = ({ contents }: any) => {
-  console.log(contents.contactVideoUrl);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
