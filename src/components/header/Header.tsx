@@ -3,7 +3,7 @@ import Link from "next/link";
 import cn from "classnames";
 import styles from "./Header.module.sass";
 import Icon from "../icon/Icon";
-import Image from "../image/Image";
+import ImageComp from "../image/Image";
 
 const navLinks = [
   {
@@ -153,10 +153,10 @@ const Headers = () => {
           onClick={() => setVisibleNav(false)}
         >
           <a className={styles.logo}>
-            <Image
+            <img
               className={styles.pic}
               src="/images/logo-dark.svg"
-              srcDark="/images/logo-light.svg"
+              //srcDark="/images/logo-light.svg"
               alt="Fitness Pro"
             />
           </a>          

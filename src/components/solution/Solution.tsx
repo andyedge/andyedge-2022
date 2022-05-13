@@ -2,7 +2,7 @@ import cn from "classnames";
 import Icon from "../icon/Icon";
 import Link from "next/link";
 import styles from "./Solution.module.sass";
-import Image from "next/image";
+import ImageComp from "../image/Image";
 import { useEffect, useState } from "react";
 
 interface solutionImagesType {
@@ -16,12 +16,12 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
 
   useEffect(() => {
     const solutionImgs: solutionImagesType[] = [];
-    
+
     solutionImages.map((image: any, index: number) => {
       const imageForState: solutionImagesType = {
         url: image.url,
         description: image.description,
-        style: {opacity: 0}
+        style: { opacity: 0 }
       }
       solutionImgs.push(imageForState);
     });
@@ -32,7 +32,7 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
   const showImage = (index: number) => {
     const solutionImgs = JSON.parse(JSON.stringify(solutionImagesState));
     const imgOpacity = solutionImgs[index].style.opacity;
-    solutionImgs[index].style = imgOpacity === 1 ? {opacity: 0} : {opacity: 1};
+    solutionImgs[index].style = imgOpacity === 1 ? { opacity: 0 } : { opacity: 1 };
     setSolutionImagesState(solutionImgs);
   }
 
@@ -53,10 +53,10 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
               </div>
               <div className={styles.list}>
                 {solutionSteps.map((step: any, index: number) => (
-                  <div 
-                    className={styles.item} 
+                  <div
+                    className={styles.item}
                     key={index}
-                    onClick={() => {showImage(index)}}
+                    onClick={() => { showImage(index) }}
                   >
                     <div className={styles.link}>
                       <div
@@ -77,11 +77,14 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
               <div className={styles.preview}>
                 {
                   solutionImagesState.map((image: any) => (
-                    <img
-                      style={image.style}
-                      src={image.url}
-                      alt={image.description}
-                    />
+                    <div className={styles.solution_images} style={image.style}>
+                      <ImageComp
+                        srcSet={image.url}
+                        src={image.url}
+                        alt={image.description}
+                        style={{borderRadius: '16px'}}
+                      />
+                    </div>
                   ))
                 }
               </div>

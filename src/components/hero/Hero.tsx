@@ -2,7 +2,7 @@ import React from "react";
 import cn from "classnames";
 import Link from "next/link";
 import Icon from "../icon/Icon";
-import Image from "../image/Image";
+import ImageComp from "../image/Image";
 import RichText from "../RichText";
 import styles from "./Hero.module.sass";
 import ScrollParallax from "../ScrollParallax";

@@ -96,15 +96,16 @@
     margin-bottom: 42px
     +m
         margin-bottom: 32px
-    img
-        border-radius: 16px
-        max-width: 400px
-        transition: opacity .5s ease-out
-        &:not(:first-child)
-            position: absolute
-            left: 50%
-        +d
-            max-width: 240px
+
+.solution_images
+    max-width: 400px
+    transition: opacity .5s ease-out
+    &:not(:first-child)
+        position: absolute
+        transform: translateX(-50%)
+        transform: translateY(-100%)
+    +d
+        max-width: 240px
 
 .info
     max-width: 380px
