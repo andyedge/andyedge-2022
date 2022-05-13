@@ -21,7 +21,7 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
       const imageForState: solutionImagesType = {
         url: image.url,
         description: image.description,
-        style: { opacity: 0 }
+        style: index === 0 ? { opacity: 1 } : { opacity: 0 }
       }
       solutionImgs.push(imageForState);
     });
@@ -76,13 +76,14 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
             <div className={styles.col}>
               <div className={styles.preview}>
                 {
-                  solutionImagesState.map((image: any) => (
+                  solutionImagesState.map((image: any, index: number) => (
                     <div className={styles.solution_images} style={image.style}>
                       <ImageComp
                         srcSet={image.url}
                         src={image.url}
                         alt={image.description}
                         style={{borderRadius: '16px'}}
+                        priority={index === 0 ? true : false}
                       />
                     </div>
                   ))

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 //import useDarkMode from "use-dark-mode";
 
-const ImageComp = ({ className, src, srcDark, srcSet, srcSetDark, alt, style }: any) => {
+const ImageComp = ({ className, src, srcDark, srcSet, srcSetDark, alt, style, priority=false }: any) => {
   // const darkMode = useDarkMode(false);
 
   return (
@@ -12,6 +12,7 @@ const ImageComp = ({ className, src, srcDark, srcSet, srcSetDark, alt, style }: 
       alt={alt}
       layout={'fill'}
       style={style}
+      priority={priority}
     />
   );
 };
