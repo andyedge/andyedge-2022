@@ -94,18 +94,21 @@
     
 .preview
     margin-bottom: 42px
+    position: relative
     +m
         margin-bottom: 32px
 
 .solution_images
-    max-width: 400px
+    max-width: 500px
+    width: 500px
+    height: 300px
     transition: opacity .5s ease-out
+    position: relative
     &:not(:first-child)
         position: absolute
-        transform: translateX(-50%)
         transform: translateY(-100%)
-    +d
-        max-width: 240px
+    +d        
+        max-width: 240px        
 
 .info
     max-width: 380px

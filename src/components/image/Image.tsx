@@ -10,8 +10,7 @@ const ImageComp = ({ className, src, srcDark, srcSet, srcSetDark, alt, style }: 
       className={className}
       src={'https:' + src}
       alt={alt}
-      width={'500px'}
-      height={'300px'}
+      layout={'fill'}
       style={style}
     />
   );
