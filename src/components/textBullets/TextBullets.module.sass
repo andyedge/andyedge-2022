@@ -79,20 +79,33 @@
         transform: translateY(0)
 
 .preview
-    &:first-child
+    width: 100%
+    overflow-x: hidden
+    &:first-child        
         position: relative
-        z-index: 1        
+        z-index: 1
+        width: 75%
         left: 10%
+        height: 500px        
         transform: translateY(-30%)
+        +d
+            transform: translateY(-20%)
     &:nth-child(2)
-        top: 30%
         z-index: 2
-        img
-            width: 100%
+        left: -26%
+        top: -9%
+        width: 150%
+        height: 800px
+        +d
+            left: -22%
+            top: 5%
+            width: 150%
+            height: 700px            
     &:nth-child(3)
         top: 32%
         right: 2.5%
         z-index: 2
     &:not(:first-child)
         position: absolute
+       
     
