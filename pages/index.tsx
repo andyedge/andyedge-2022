@@ -41,13 +41,13 @@ const Home = ({ pageContent }: any) => {
       <CardBullets 
         contents={pageContent.standardContainer2}
       />
-      <Hero
+      <TextBullets
         contents={pageContent.standardContainer3}
-        scrollToRef={scrollToRef}
-        scroll={false}
+        section={'IdentityDesign'}
       />
       <TextBullets
         contents={pageContent.standardContainer4}
+        section={'DesignThinking'}
       />
       <Solution
         solutionTitle={pageContent.solutionTitle}

@@ -9,7 +9,7 @@ import ImageComp from "../image/Image";
 import { Fragment } from "react";
 
 
-const TextBullets = ({ contents }: any) => {
+const TextBullets = ({ contents, section }: any) => {
   const bulletsContent = contents.bulletsContainer;
   const images = contents.images;
 
@@ -21,7 +21,7 @@ const TextBullets = ({ contents }: any) => {
             images.map((image: ImageType, index: number) => (
               <Fragment key={'imgTxtBullet_' + index}>
                 <ScrollParallax
-                  className={styles.preview}
+                  className={section === 'IdentityDesign' ? styles.preview_id_design : styles.preview}
                   animateIn="fadeInUp"
                 >
                   <ImageComp
