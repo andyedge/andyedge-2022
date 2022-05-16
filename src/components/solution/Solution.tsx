@@ -2,37 +2,51 @@ import cn from "classnames";
 import Icon from "../icon/Icon";
 import Link from "next/link";
 import styles from "./Solution.module.sass";
-import ScrollParallax from "../ScrollParallax";
-import ImageType from "../../models/image.model";
+import ImageComp from "../image/Image";
+import { useEffect, useState } from "react";
 
-const items = [
-  {
-    title: "Program Videos",
-    url: "/class01",
-    color: "#45B26B",
-    images: "/images/content/lightning.svg",
-    alt: "lightning",
-  },
-  {
-    title: "Premium Class",
-    url: "/class02",
-    color: "#9757D7",
-    images: "/images/content/lightning.svg",
-    alt: "lightning",
-  },
-  {
-    title: "Exclusive Trainers",
-    url: "/class02",
-    color: "#3772FF",
-    images: "/images/content/lightning.svg",
-    alt: "lightning",
-  },
-];
+interface solutionImagesType {
+  url: string
+  description: string
+  style: any
+}
 
-const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps, solutionImages }: any) => {
+const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps, solutionImages, solutionBackgroundImage }: any) => {
+  const [solutionImagesState, setSolutionImagesState] = useState<solutionImagesType[]>([]);
+  useEffect(() => {
+    const solutionImgs: solutionImagesType[] = [];
+
+    solutionImages.map((image: any, index: number) => {
+      const imageForState: solutionImagesType = {
+        url: image.url,
+        description: image.description,
+        style: index === 0 ? { opacity: 1 } : { opacity: 0 }
+      }
+      solutionImgs.push(imageForState);
+    });
+
+    setSolutionImagesState(solutionImgs);
+  }, []);
+
+  const showImage = (index: number) => {
+    const solutionImgs = JSON.parse(JSON.stringify(solutionImagesState));
+    const imgOpacity = solutionImgs[index].style.opacity;
+    solutionImgs[index].style = imgOpacity === 1 ? { opacity: 0 } : { opacity: 1 };
+    setSolutionImagesState(solutionImgs);
+  }
 
   return (
-    <div className={cn("section-bg", styles.book)}>
+    <div className={cn("section-bg", styles.book)} style={{background: 'none', marginBottom: '104px'}}>
+      {Object.keys(solutionBackgroundImage).length > 0 ?
+        <div className={styles.bg_div}>
+          <ImageComp
+            src={solutionBackgroundImage.url}
+            alt={solutionBackgroundImage.description}
+          />
+        </div>
+        :
+        null
+      }
       <div className={cn("container", styles.container)}>
         <div className={styles.card}>
           <h2 className={styles.title}>
@@ -48,10 +62,10 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
               </div>
               <div className={styles.list}>
                 {solutionSteps.map((step: any, index: number) => (
-                  <div 
-                    className={styles.item} 
+                  <div
+                    className={styles.item}
                     key={index}
-                    onClick={() => {console.log('Hola')}}
+                    onClick={() => { showImage(index) }}
                   >
                     <div className={styles.link}>
                       <div
@@ -71,11 +85,15 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
             <div className={styles.col}>
               <div className={styles.preview}>
                 {
-                  solutionImages.map((image: ImageType) => (
-                    <img
-                      src={image.url}
-                      alt={image.description}
-                    />
+                  solutionImagesState.map((image: any, index: number) => (
+                    <div className={styles.solution_images} style={image.style}>
+                      <ImageComp
+                        srcSet={image.url}
+                        src={image.url}
+                        alt={image.description}
+                        style={{borderRadius: '16px'}}
+                      />
+                    </div>
                   ))
                 }
               </div>

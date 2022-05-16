@@ -5,9 +5,11 @@ import ScrollParallax from "../ScrollParallax";
 import RichText from "../RichText";
 import Icon from "../icon/Icon";
 import ImageType from "../../models/image.model";
+import ImageComp from "../image/Image";
+import { Fragment } from "react";
 
 
-const TextBullets = ({ contents }: any) => {
+const TextBullets = ({ contents, section }: any) => {
   const bulletsContent = contents.bulletsContainer;
   const images = contents.images;
 
@@ -16,18 +18,18 @@ const TextBullets = ({ contents }: any) => {
       <div className={cn("container", styles.container)}>
         <div className={styles.gallery}>
           {
-            images.map((image: ImageType) => (
-              <>
+            images.map((image: ImageType, index: number) => (
+              <Fragment key={'imgTxtBullet_' + index}>
                 <ScrollParallax
-                  className={styles.preview}
+                  className={section === 'IdentityDesign' ? styles.preview_id_design : styles.preview}
                   animateIn="fadeInUp"
                 >
-                  <img
+                  <ImageComp
                     src={image.url}
                     alt={image.description}
                   />
                 </ScrollParallax>
-              </>
+              </Fragment>
             ))
           }
         </div>

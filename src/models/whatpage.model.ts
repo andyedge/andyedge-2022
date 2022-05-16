@@ -1,3 +1,4 @@
+import ContactContainer from './contact.model'
 import ImageType from './image.model'
 import StandardContainer from  './standardContainer.model'
 import StepsContainer from './stepsContainer.model'
@@ -17,4 +18,6 @@ export default interface Whatpage {
     solutionSubtitle: string
     solutionSteps: StepsContainer[]
     solutionImages: ImageType[]
+    solutionBackgroundImage1: ImageType
+    contactContainer: ContactContainer
 }

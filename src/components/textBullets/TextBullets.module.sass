@@ -78,21 +78,64 @@
         margin: 0 auto 42px
         transform: translateY(0)
 
-.preview
-    &:first-child
+.preview_id_design
+    width: 100%
+    overflow-x: hidden
+    &:first-child        
         position: relative
         z-index: 1
+        width: 92%
+        left: 10%
+        height: 400px
     &:nth-child(2)
-        top: 30%
-        left: -20%
         z-index: 2
-        width: 125%
+        left: 1%
+        top: -6%
+        width: 120%
+        height: 550px         
+    &:nth-child(3)
+        top: 69%
+        height: 250px
+        width: 50%
+        left: -15%
+        z-index: 2
+    &:nth-child(4)
+        top: 95%
+        height: 150px
+        width: 50%
+        left: -40%
+        z-index: 2
+    &:not(:first-child)
+        position: absolute
+
+.preview
+    width: 100%
+    overflow-x: hidden
+    &:first-child        
+        position: relative
+        z-index: 1
+        width: 75%
+        left: 10%
+        height: 500px        
+        transform: translateY(-30%)
+        +d
+            transform: translateY(-20%)
+    &:nth-child(2)
+        z-index: 2
+        left: -26%
+        top: -9%
+        width: 150%
+        height: 800px
+        +d
+            left: -22%
+            top: 5%
+            width: 150%
+            height: 700px            
     &:nth-child(3)
         top: 32%
         right: 2.5%
         z-index: 2
-        width: 14.5%
     &:not(:first-child)
         position: absolute
-    img
-        width: 100%
+       
+    

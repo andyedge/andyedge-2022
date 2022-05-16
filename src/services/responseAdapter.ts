@@ -3,6 +3,7 @@ import ImageType from '../models/image.model'
 import Whatpage from '../models/whatpage.model'
 import StandardContainer from '../models/standardContainer.model'
 import StepsContainer from '../models/stepsContainer.model'
+import ContactContainer from '../models/contact.model'
 
 const adaptImage = (image: Item): ImageType => {
     const fields = image.fields || {}
@@ -43,6 +44,20 @@ const adaptStandardContainer = (data: Item): StandardContainer => {
     }
 }
 
+const adaptContactContainer = (data: Item): ContactContainer => {
+    const { fields } = data
+
+    return {
+        preTitle: fields.preTitle ? fields.preTitle : null,
+        title: fields.title,
+        text: fields.text ? fields.text : null,
+        contactImage: fields.contactImage ? adaptImage(fields.contactImage) : {},        
+        contactVideoUrl: fields.contactVideoUrl ? fields.contactVideoUrl : null,
+        ctaText: fields.ctaText ? fields.ctaText : null,
+        ctaPageLink: fields.ctaPageLink ? fields.ctaPageLink : null,
+    }
+}
+
 const adaptStepsSection = (data: Item[]): StepsContainer[] => {
     if (data) {
         return data.map((item: Item) => {
@@ -76,6 +91,8 @@ export const adaptWhatpage = (data: Entry): Whatpage => {
         solutionText: fields.solutionText,
         solutionSubtitle: fields.solutionSubtitle,
         solutionSteps: adaptStepsSection(fields.solutionSteps),
-        solutionImages: adaptImages(fields.solutionImages)
+        solutionImages: adaptImages(fields.solutionImages),
+        solutionBackgroundImage1: adaptImage(fields.solutionBackgroundImage1),
+        contactContainer: adaptContactContainer(fields.contactContainer)
     }
 }

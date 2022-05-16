@@ -10,18 +10,30 @@
     +m
         padding: 0 16px
 
+
+.gallery_left
+    left: calc(50% - 640px)
+    +x
+        left: calc(50% - 610px)
+    +d
+        left: calc(50% - 560px)
+
+.gallery_right
+    right: calc(50% - 640px)
+    +x
+        right: calc(50% - 610px)
+    +d
+        right: calc(50% - 560px)
+
+
 .gallery
     position: absolute
-    top: 30%
-    left: calc(50% - 640px)
+    top: 30%    
     width: 624px
     transform: translateY(-50%)
     pointer-events: none
-    +x
-        left: calc(50% - 610px)
-        width: 580px
-    +d
-        left: calc(50% - 560px)
+    +x        
+        width: 580px    
     +m
         position: relative
         top: auto
@@ -56,7 +68,6 @@
     position: relative
     z-index: 3
     max-width: 545px
-    margin-left: auto
     padding: 48px
     background: $neutrals8
     box-shadow: 24px 64px 64px 24px rgba(15, 15, 15, 0.1)

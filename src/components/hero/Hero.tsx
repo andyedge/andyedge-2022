@@ -1,11 +1,10 @@
-import React from "react";
+import { useRef, useState } from "react";
 import cn from "classnames";
 import Link from "next/link";
 import Icon from "../icon/Icon";
-import Image from "../image/Image";
 import RichText from "../RichText";
+import ImageComp from "../image/Image";
 import styles from "./Hero.module.sass";
-import ScrollParallax from "../ScrollParallax";
 import ScrollButton from "../scrollButton/ScrollButton";
 import StandardContainer from "../../models/standardContainer.model";
 
@@ -15,7 +14,36 @@ interface HeroProps {
   scroll: boolean
 }
 
-const Hero = ({contents, scrollToRef, scroll}: HeroProps) => {
+const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  const videoHandler = (e: any) => {
+    const elementName = e.target.localName;
+
+    switch (elementName) {
+      case 'path':
+        if (!playing) {
+          videoRef.current?.play();
+          setPlaying(true);
+        } else {
+          videoRef.current?.pause();
+          setPlaying(false);    
+        }        
+        break;
+    
+      default:
+        if (playing) {
+          videoRef.current?.pause();
+          setPlaying(false);
+        }
+        break;
+    }    
+  };
+
+  const videoFullscreen = () => {
+    videoRef.current?.requestFullscreen();
+  }
 
   return (
     <div className={styles.hero}>
@@ -28,7 +56,7 @@ const Hero = ({contents, scrollToRef, scroll}: HeroProps) => {
         null
       }
       <div className={cn("container", styles.container)}>
-        <ScrollParallax className={styles.wrap}>
+        <div className={styles.wrap}>
           <div className={cn("stage", styles.stage)}>
             {contents.preTitle}
           </div>
@@ -41,14 +69,14 @@ const Hero = ({contents, scrollToRef, scroll}: HeroProps) => {
           {
             contents.text !== null ?
               <div className={styles.paragraph}>
-                <RichText 
+                <RichText
                   richText={contents.text}
                 />
               </div>
               :
               null
           }
-          {contents.ctaText !== null && (contents.ctaPageLink !== null  || contents.ctaVideoLink !== null) ?
+          {contents.ctaText !== null && (contents.ctaPageLink !== null || contents.ctaVideoLink !== null) ?
             <div className={styles.btns}>
               <Link href={`/${contents.ctaPageLink}`}>
                 <a className={cn("button", styles.button)}> {contents.ctaText} </a>
@@ -57,30 +85,47 @@ const Hero = ({contents, scrollToRef, scroll}: HeroProps) => {
             :
             null
           }
-        </ScrollParallax>
+        </div>
         {
           scroll ?
-          <ScrollButton
-            onScroll={() =>
-              scrollToRef.current.scrollIntoView({ behavior: "smooth" })
-            }
-            className={styles.scroll}
-          />
-          :
-          null
-        }        
+            <ScrollButton
+              onScroll={() =>
+                scrollToRef.current.scrollIntoView({ behavior: "smooth" })
+              }
+              className={styles.scroll}
+            />
+            :
+            null
+        }
         <div className={styles.gallery}>
           {
             contents.videoUrl !== null ?
-              <button className={cn("play", styles.play)}>
-                <Icon name="play" size="40" />
-              </button>
+              <div key={'video-div'}>
+                <video
+                  id="hero_video"
+                  ref={videoRef}
+                  className={styles.hero_video}
+                  style={playing ? {cursor: 'pointer'} : {cursor: 'default'}}                  
+                  src={contents.videoUrl}
+                  onPlay={() => setPlaying(true)}
+                  onPause={() => setPlaying(false)}
+                  onClick={(e) => videoHandler(e)}
+                  onDoubleClick={() => videoFullscreen()}
+                ></video>
+                <button 
+                  className={cn("play", styles.play)}
+                  style={playing ? {opacity: 0} : {opacity: 1}}
+                  onClick={(e) => videoHandler(e)}
+                >
+                  <Icon name="play" size="40" />
+                </button>
+              </div>
               :
               null
-          }          
+          }
         </div>
       </div>
-    </div> 
+    </div>
   );
 };
 
