@@ -86,7 +86,7 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
               <div className={styles.preview}>
                 {
                   solutionImagesState.map((image: any, index: number) => (
-                    <div className={styles.solution_images} style={image.style}>
+                    <div className={styles.solution_images} style={image.style} key={'imgstate_' + index}>
                       <ImageComp
                         srcSet={image.url}
                         src={image.url}
