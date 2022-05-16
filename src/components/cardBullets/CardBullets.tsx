@@ -10,11 +10,17 @@ import ImageType from "../../models/image.model";
 const CardBullets = ({ contents }: any) => {
   const bulletsContent = contents.bulletsContainer;
   const images = contents.images;
+  const mediaPosition = contents.mediaPosition;
+  const galleryClasses = mediaPosition.toLowerCase() === 'right' ? cn(styles.gallery, styles.gallery_right) :
+    cn(styles.gallery, styles.gallery_left);
+  const wrapStyle = mediaPosition.toLowerCase() === 'right' ? { marginRight: 'auto' } : { marginLeft: 'auto' };
 
   return (
     <div className={cn("section-bg", styles.section)}>
       <div className={cn("container", styles.container)}>
-        <div className={styles.gallery}>
+        <div
+          className={galleryClasses}
+        >
           {
             images.map((image: ImageType) => (
               <>
@@ -32,7 +38,7 @@ const CardBullets = ({ contents }: any) => {
             ))
           }
         </div>
-        <div className={styles.wrap}>
+        <div className={styles.wrap} style={wrapStyle}>
           <h2 className={cn("h2", styles.title)}> {contents.title} </h2>
           <div className={styles.info}>
             {contents.subtitle}
@@ -43,7 +49,7 @@ const CardBullets = ({ contents }: any) => {
                 <div
                   className={styles.icon}
                 >
-                  <img 
+                  <img
                     src={content.image.url}
                     alt={content.image.description}
                   />
