@@ -5,6 +5,7 @@ import ImageComp from "../image/Image";
 import styles from "./CardBullets.module.sass"
 import ScrollParallax from "../ScrollParallax";
 import ImageType from "../../models/image.model";
+import { Fragment } from "react";
 
 
 const CardBullets = ({ contents }: any) => {
@@ -22,8 +23,8 @@ const CardBullets = ({ contents }: any) => {
           className={galleryClasses}
         >
           {
-            images.map((image: ImageType) => (
-              <>
+            images.map((image: ImageType, index: number) => (
+              <Fragment key={'galleryimg_' + index}>
                 <ScrollParallax
                   className={styles.preview}
                   animateIn="fadeInUp"
@@ -34,7 +35,7 @@ const CardBullets = ({ contents }: any) => {
                     alt={image.description}
                   />
                 </ScrollParallax>
-              </>
+              </Fragment>
             ))
           }
         </div>
