@@ -1,6 +1,7 @@
 import Entry, { Item } from '../models/entry.model'
 import ImageType from '../models/image.model'
 import Whatpage from '../models/whatpage.model'
+import Whypage from '../models/whypage.model'
 import StandardContainer from '../models/standardContainer.model'
 import StepsContainer from '../models/stepsContainer.model'
 import ContactContainer from '../models/contact.model'
@@ -43,6 +44,16 @@ const adaptStandardContainer = (data: Item): StandardContainer => {
         mediaPosition: fields.mediaPosition ? fields.mediaPosition : null
     }
 }
+
+const adaptStandardContainers = (dataArray: Item[]): StandardContainer[] => {
+    if (dataArray && dataArray.length > 0) {
+        return dataArray.map((data: Item) => {
+            return adaptStandardContainer(data)
+        })
+    } else {
+        return []
+    }    
+} 
 
 const adaptContactContainer = (data: Item): ContactContainer => {
     const { fields } = data
@@ -94,5 +105,21 @@ export const adaptWhatpage = (data: Entry): Whatpage => {
         solutionImages: adaptImages(fields.solutionImages),
         solutionBackgroundImage1: adaptImage(fields.solutionBackgroundImage1),
         contactContainer: adaptContactContainer(fields.contactContainer)
+    }
+}
+
+export const adaptWhypage = (data: Entry): Whypage => {
+    const [whyPage] = data.items
+    const { fields } = whyPage
+    return {
+        name: fields.name,
+        standardContainers: adaptStandardContainers(fields.standardContainers),
+        standardContainer1: adaptStandardContainer(fields.standardContainer1),
+        title1: fields.title1,
+        stepsContainer: adaptStepsSection(fields.stepsContainer),
+        title2: fields.title2,
+        subtitle: fields.subtitle,
+        buttonText: fields.buttonText ? fields.buttonText : null,
+        buttonLink: fields.buttonLink ? fields.buttonLink : null
     }
 }

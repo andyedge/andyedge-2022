@@ -1,0 +1,55 @@
+import cn from "classnames";
+import Icon from "../icon/Icon";
+import ImageComp from "../image/Image";
+import styles from "./Platform.module.sass";
+import ScrollParallax from "../ScrollParallax";
+
+
+const Platform = ({title1, stepsContainer}: any) => {
+  return (
+    <div className={cn("section", styles.section)}>
+      <div className={cn("container", styles.container)}>
+        <h2 className={cn("h2", styles.title)}> {title1} </h2>
+        <div className={styles.list}>
+          {stepsContainer.map((step: any, index: number) => (
+            <ScrollParallax className={styles.item} key={index}>
+              <div
+                className={styles.preview}
+              >
+                <ImageComp
+                  src={step.image.url}
+                  alt={step.image.description}
+                />
+              </div>
+              <div className={styles.details}>
+                <div
+                  className={cn("status-stroke-black", styles.status)}
+                >
+                  DESIGN THINKING
+                </div>
+                <div className={styles.subtitle}>{step.title}</div>
+                <div className={styles.description}>{step.text}</div>
+                <a
+                  href="/#"
+                  className={cn("button-small", styles.button)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span>Discover</span>
+                  <Icon name="arrow-right" size="10" />
+                </a>
+              </div>
+            </ScrollParallax>
+          ))}
+        </div>
+        <div className={styles.btns}>
+          <button className={cn("button-stroke", styles.button)}>
+            See the plan
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Platform;
