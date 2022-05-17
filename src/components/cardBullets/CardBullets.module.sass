@@ -42,12 +42,16 @@
         transform: translate(-50%,0)
 
 .preview
+    height: 400px
     &:first-child
         position: relative
-        z-index: 2
-        width: 50%
-        left: 20%
+        z-index: 2        
+        width: 90%
+        left: 10%
     &:nth-child(2)
+        width: 60%
+        left: 20%
+        top: 60%
         z-index: 3
     &:nth-child(3)
         top: 46%
@@ -103,6 +107,7 @@
         margin-bottom: 4px
 
 .icon
+    position: relative
     display: flex
     justify-content: center
     align-items: center

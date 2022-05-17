@@ -1,11 +1,11 @@
 import cn from "classnames";
 import Link from "next/link";
 import Icon from "../icon/Icon";
+import { Fragment } from "react";
 import ImageComp from "../image/Image";
 import styles from "./CardBullets.module.sass"
 import ScrollParallax from "../ScrollParallax";
 import ImageType from "../../models/image.model";
-import { Fragment } from "react";
 
 
 const CardBullets = ({ contents }: any) => {
@@ -30,7 +30,7 @@ const CardBullets = ({ contents }: any) => {
                   animateIn="fadeInUp"
                   offset={300}
                 >
-                  <img
+                  <ImageComp
                     src={image.url}
                     alt={image.description}
                   />
@@ -50,7 +50,7 @@ const CardBullets = ({ contents }: any) => {
                 <div
                   className={styles.icon}
                 >
-                  <img
+                  <ImageComp
                     src={content.image.url}
                     alt={content.image.description}
                   />
