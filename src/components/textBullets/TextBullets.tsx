@@ -7,12 +7,12 @@ import ImageComp from "../image/Image";
 import { Fragment } from "react";
 import Button from '../button/Button';
 
-const TextBullets = ({ contents, section }: any) => {
+const TextBullets = ({ contents, section, bg }: any) => {
   const bulletsContent = contents.bulletsContainer;
   const images = contents.images;
 
   return (
-    <div className={styles.section}>
+    <div style={{backgroundColor: bg}} className={styles.section}>
       <div className={cn("container", "container-full", styles.container)}>
         <div className={styles.wrap}>
           <h2 className={cn("h2", styles.title)}>

@@ -41,17 +41,21 @@ const Home: NextPage<WhatPageProps> = ({ pageContent } : WhatPageProps ) => {
       />
       <CardBullets 
         contents={pageContent.standardContainer1}
+        bg={'#FFFFFF'}
       />
       <CardBullets 
         contents={pageContent.standardContainer2}
+        bg={'#FAFAFA'}
       />
       <TextBullets
         contents={pageContent.standardContainer3}
         section={'IdentityDesign'}
+        bg={'#F4F4F4'}
       />
       <TextBullets
         contents={pageContent.standardContainer4}
         section={'DesignThinking'}
+        bg={'#FAFAFA'}
       />
       <Solution
         solutionTitle={pageContent.solutionTitle}
