@@ -1,14 +1,14 @@
 import cn from "classnames";
 import Link from "next/link";
 import Icon from "../icon/Icon";
+import { Fragment } from "react";
 import ImageComp from "../image/Image";
 import styles from "./CardBullets.module.sass"
 import ScrollParallax from "../ScrollParallax";
 import ImageType from "../../models/image.model";
-import { Fragment } from "react";
+import Button from '../button/Button';
 
-
-const CardBullets = ({ contents }: any) => {
+const CardBullets = ({ contents, bg }: any) => {
   const bulletsContent = contents.bulletsContainer;
   const images = contents.images;
   const mediaPosition = contents.mediaPosition;
@@ -17,7 +17,7 @@ const CardBullets = ({ contents }: any) => {
   const wrapStyle = mediaPosition.toLowerCase() === 'right' ? { marginRight: 'auto' } : { marginLeft: 'auto' };
 
   return (
-    <div className={cn("section-bg", styles.section)}>
+    <div style={{backgroundColor: bg}} className={cn("section-bg", styles.section)}>
       <div className={cn("container", styles.container)}>
         <div
           className={galleryClasses}
@@ -30,7 +30,7 @@ const CardBullets = ({ contents }: any) => {
                   animateIn="fadeInUp"
                   offset={300}
                 >
-                  <img
+                  <ImageComp
                     src={image.url}
                     alt={image.description}
                   />
@@ -50,7 +50,7 @@ const CardBullets = ({ contents }: any) => {
                 <div
                   className={styles.icon}
                 >
-                  <img
+                  <ImageComp
                     src={content.image.url}
                     alt={content.image.description}
                   />
@@ -62,14 +62,7 @@ const CardBullets = ({ contents }: any) => {
               </div>
             ))}
           </div>
-          <div className={styles.btns}>
-            <Link href={`/${contents.ctaPageLink}`}>
-              <a className={cn("button", styles.button)}>
-                {contents.ctaText}
-                <Icon name="arrow-right" size="20" />
-              </a>
-            </Link>
-          </div>
+          <Button link={contents.ctaPageLink} text={contents.ctaText} />
         </div>
       </div>
     </div>
