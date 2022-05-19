@@ -9,7 +9,7 @@ const PortfolioItem = ({ item, className }: any) => {
     <Link href={item.url}>
       <div className={cn(styles.item, className)}>
         <div className={styles.preview}>
-          <img srcSet={`${item.image2x} 2x`} src={item.image} alt={item.status} />
+          <img src={item.image} alt={item.status} />
         </div>
         <div
           className={cn(

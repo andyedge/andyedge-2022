@@ -42,11 +42,6 @@ const Platform = ({title1, stepsContainer}: any) => {
             </ScrollParallax>
           ))}
         </div>
-        <div className={styles.btns}>
-          <button className={cn("button-stroke", styles.button)}>
-            See the plan
-          </button>
-        </div>
       </div>
     </div>
   );
