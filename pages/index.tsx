@@ -1,4 +1,4 @@
-//import type { NextPage } from 'next';
+import type { NextPage } from 'next';
 import { useRef } from 'react';
 import Hero from '../src/components/hero/Hero';
 import Steps from '../src/components/steps/Steps';
@@ -7,7 +7,7 @@ import Contact from '../src/components/contact/Contact';
 import Solution from '../src/components/solution/Solution';
 import CardBullets from '../src/components/cardBullets/CardBullets';
 import TextBullets from '../src/components/textBullets/TextBullets';
-
+import Whatpage from '../src/models/whatpage.model';
 
 export const getStaticProps = async () => {  
   const res = await getWhatpage();
@@ -19,7 +19,11 @@ export const getStaticProps = async () => {
   }
 }
 
-const Home = ({ pageContent }: any) => {
+declare interface WhatPageProps {
+  pageContent: Whatpage
+}
+
+const Home: NextPage<WhatPageProps> = ({ pageContent } : WhatPageProps ) => {
   const scrollToRef = useRef(null);
 
   return (
