@@ -1,6 +1,6 @@
 import { getWhypage } from "../src/services/fetch";
 import Platform from "../src/components/platform/Platform";
-import PortfolioItem from "../src/components/portfolioItem/PortfolioItem";
+import ImageTextComp from "../src/components/imageText/ImageTextComp";
 import WhyMainSection from "../src/components/whyMainSection/WhyMainSection";
 import PortfolioContainer from "../src/components/portfolioContainer/portfolioContainer";
 
@@ -20,6 +20,9 @@ const Why = ({pageContent}: any) => {
     <>
       <WhyMainSection
         contents={pageContent.standardContainers}
+      />
+      <ImageTextComp
+        content={pageContent.standardContainer1}
       />
       <Platform
         title1={pageContent.title1}

@@ -9,6 +9,7 @@ const WhyMainSection = ({ contents }: any) => {
         contents.map((content: any, index: number) => (
           <ImageTextComp
             content={content}
+            isFirst={index === 0 ? true : false}
             key={index}
           />
         ))
