@@ -1,0 +1,98 @@
+@import ../../../styles/helpers
+
+.section
+    position: relative
+    display: flex
+    align-items: center
+    min-height: 600px
+    +d
+        min-height: 600px
+        padding: 80px 0
+    +m
+        display: block
+        min-height: auto
+        padding: 8px 0 64px
+
+.wrap
+    position: relative
+    z-index: 3
+    max-width: 450px
+    +t
+        max-width: 360px
+
+.title
+    margin-bottom: 32px
+
+.text
+    margin-bottom: 40px
+    +body-1
+    color: $neutrals3
+
+.background_div
+    position: absolute
+    max-width: inherit
+    width: 100%
+    transform: translateY(-20%)    
+    height: 617px
+
+.gallery_left
+    left: calc(50% - 541px)
+    +x
+        left: calc(50% - 541px)
+    +d
+        left: calc(50% - 440px)
+    +t 
+        left: calc(50% - 380px)
+    +m
+        left: auto
+
+.gallery_right
+    right: calc(50% - 541px)
+    +x
+        right: calc(50% - 541px)
+    +d
+        right: calc(50% - 440px)
+    +t 
+        right: calc(50% - 380px)
+    +m
+        right: auto
+
+.gallery
+    position: absolute
+    top: 53%
+    width: 584px
+    transform: translateY(-40%)
+    pointer-events: none
+    +d
+        width: 390px
+        transform: translateY(-44%)
+    +t
+        width: 300px
+    +m
+        position: relative
+        top: auto
+        left: -15px
+        margin: 96px auto 24px
+        transform: translateY(20%)
+
+.preview
+    transform: translateY(-20%)
+    max-height: 423px
+    height: 423px
+    &:first-child
+        position: relative
+        z-index: 2
+    &:nth-child(2)
+        top: -27%
+        left: 4%
+        z-index: 1
+        width: 33%
+    &:nth-child(3)
+        top: -18%
+        right: 31%
+        z-index: 1
+        width: 33%
+    &:not(:first-child)
+        position: absolute
+    img
+        width: 100%
