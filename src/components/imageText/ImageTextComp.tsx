@@ -28,19 +28,7 @@ const ImageTextComp = ({ content, isFirst, isLast }: any) => {
     <>
       <div className={styles.section}>
         <div className={cn("container", styles.container)}>
-          <div className={galleryClasses}>
-            {
-              images.map((image: ImageType, index: number) => (
-                <div className={styles.preview} key={'txtImg_' + index}>
-                  <ImageComp
-                    src={image.url}
-                    alt={image.description}
-                  />
-                </div>
-              ))
-            }
-          </div>
-          <div className={wrapClasses} >
+        <div className={wrapClasses}>
             {
               isFirst ?
                 <h1 className={titleClass}>
@@ -57,6 +45,18 @@ const ImageTextComp = ({ content, isFirst, isLast }: any) => {
                 richText={content.text}
               />
             </div>
+          </div>
+          <div className={galleryClasses}>
+            {
+              images.map((image: ImageType, index: number) => (
+                <div className={styles.preview} key={'txtImg_' + index}>
+                  <ImageComp
+                    src={image.url}
+                    alt={image.description}
+                  />
+                </div>
+              ))
+            }
           </div>
         </div>
       </div>

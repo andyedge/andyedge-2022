@@ -1,8 +1,10 @@
+import cn from "classnames";
+import styles from './WhyMainSection.module.sass';
 import ImageTextComp from "../imageText/ImageTextComp";
 
 const WhyMainSection = ({ contents }: any) => {
   return (
-    <div>
+    <div className={cn(styles.main_div)}>
       {
         contents.map((content: any, index: number) => (
             <ImageTextComp

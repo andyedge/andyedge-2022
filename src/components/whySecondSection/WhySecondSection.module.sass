@@ -7,10 +7,14 @@
     overflow: hidden
     +x
         padding: 144px 80px 144px 0
+    +d
+        padding: 104px 80px 144px 0
     +t
+        min-height: 512px
         padding: 0 0 64px 0px
     +m
         padding: 0 0 64px 0
+        max-height: 512px 
         //padding: 0 32px 64px 32px
 
 .section
@@ -18,8 +22,7 @@
     align-items: center
     min-height: 600px
     +d
-        min-height: 600px
-        padding: 80px 0
+        min-height: 512px
     +m
         display: block
         min-height: auto
@@ -29,16 +32,16 @@
     position: relative
     z-index: 3
     max-width: 450px
-    transform: translate(-39%, -13%)
+    transform: translate(-39%, -15%)
     +d
-        transform: translateY(14%)
+        transform: translateY(-22%)
     +t
         max-width: 360px
-        transform: translate(-10%, 30%)
+        transform: translate(-19%, 20%)
     +m
-        padding: 0 32px
+        padding: 0 32px 32px
         max-width: 100%
-        transform: translateY(-30%)
+        transform: translateY(0)
 
 .title
     margin-bottom: 32px
@@ -52,13 +55,29 @@
     position: absolute
     max-width: inherit
     width: 100%
-    transform: translateY(-20%)
+    transform: translateY(-57%)
     height: 617px
+    z-index: 1
+    +d
+        transform: translateY(-67%)
+    +t
+        transform: translateY(-58%)
     +m
         position: relative
         top: auto
         margin: 96px auto 24px
-        height: 320px
+        height: 480px
+
+.lines
+    position: absolute
+    transform: translateY(-74%)
+    width: 100%
+    +d
+       transform: translateY(-90%)
+    +t
+       transform: translateY(-82%) 
+    +m
+        display: none
 
 .preview
     transform: translateY(-20%)
