@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
-//import useDarkMode from "use-dark-mode";
+import useDarkMode from "@fisch0920/use-dark-mode";
 
 const ImageComp = ({ className, src, srcDark, srcSet, srcSetDark, alt, style, priority=false }: any) => {
-  // const darkMode = useDarkMode(false);
+  const darkMode = useDarkMode(false);
 
   return (
     <Image
