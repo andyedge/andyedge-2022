@@ -4,14 +4,17 @@
     position: relative
     display: flex
     align-items: center
-    min-height: 600px
+    min-height: 512px
     +d
-        min-height: 600px
+        min-height: 480px
         padding: 80px 0
+    +t
+        min-height: 424px
+        padding: 40px 0
     +m
         display: block
         min-height: auto
-        padding: 8px 0 64px
+        padding: 8px 0 24px
 
 .wrap
     position: relative
@@ -19,6 +22,19 @@
     max-width: 450px
     +t
         max-width: 360px
+
+.wrap_left
+    margin-left: auto
+    transform: translate(-20%, -10%)
+    +d
+        transform: translateY(-10%)
+    +t
+        transform: translate(-5%, -10%)
+    +m
+        transform: none
+
+.wrap_right
+    margin-right: auto
 
 .title
     margin-bottom: 32px
@@ -28,21 +44,14 @@
     +body-1
     color: $neutrals3
 
-.background_div
-    position: absolute
-    max-width: inherit
-    width: 100%
-    transform: translateY(-20%)    
-    height: 617px
-
 .gallery_left
-    left: calc(50% - 541px)
+    left: calc(50% - 576px)
     +x
-        left: calc(50% - 541px)
+        left: calc(50% - 576px)
     +d
         left: calc(50% - 440px)
-    +t 
-        left: calc(50% - 380px)
+    +t
+        left: calc(50% - 360px)
     +m
         left: auto
 
@@ -52,7 +61,7 @@
         right: calc(50% - 541px)
     +d
         right: calc(50% - 440px)
-    +t 
+    +t
         right: calc(50% - 380px)
     +m
         right: auto
@@ -69,16 +78,19 @@
     +t
         width: 300px
     +m
+        height: 360px
         position: relative
         top: auto
         left: -15px
-        margin: 96px auto 24px
-        transform: translateY(20%)
+        margin: 0 auto 24px
+        transform: translateY(10%)
 
 .preview
-    transform: translateY(-20%)
+    transform: translateY(-30%)
     max-height: 423px
     height: 423px
+    +d
+        transform: translateY(-20%)
     &:first-child
         position: relative
         z-index: 2
@@ -96,3 +108,33 @@
         position: absolute
     img
         width: 100%
+
+.line_left
+    &:nth-of-type(2)
+        z-index: -1
+        position: absolute
+        transform: translate(35%, -55%)
+        +d
+            transform: translate(13%, -55%)
+    &:nth-of-type(6)
+        z-index: -1
+        position: absolute
+        transform: translate(29%, -55%)
+        +d
+            transform: translate(15%, -50%)
+    +t
+        display: none
+    +m
+        display: none
+
+.line_right
+    &:nth-of-type(4)
+        z-index: -1
+        position: absolute
+        transform: translate(29%, -45%)
+        +d
+            transform: translate(15%, -55%)
+    +t
+        display: none
+    +m
+        display: none
