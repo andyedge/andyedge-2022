@@ -32,9 +32,15 @@ const WhySecondSection = ({ content }: any) => {
                 <div className={styles.lines}>
                   <img
                     src='/images/bg-line-03.svg'
+                    alt='bg-line-03'
+                  />
+                </div>                
+                <div className={styles.lighthouse}>
+                  <img
+                    src='/images/lighthouse-light.svg'
+                    alt='lighthouse-light'
                   />
                 </div>
-
               </>
               :
               null
