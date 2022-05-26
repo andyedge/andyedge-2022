@@ -25,7 +25,7 @@ const Platform = ({title1, stepsContainer}: any) => {
                 <div
                   className={cn("status-stroke-black", styles.status)}
                 >
-                  DESIGN THINKING
+                  {step.preTitle}
                 </div>
                 <div className={styles.subtitle}>{step.title}</div>
                 <div className={styles.description}>{step.text}</div>
