@@ -95,9 +95,9 @@ const adaptStandardCardContainer = (data: Item): StandardCardContainer => {
         icon: fields.icon ? adaptImage(fields.icon) : {},
         title: fields.title,
         subtitle: fields.subtitle ? fields.subtitle : null,
-        text: fields.text,
-        leftCtaText: fields.leftCtaText,
-        leftCtaLink: fields.leftCtaLink,
+        text: fields.text ? fields.text : null,
+        leftCtaText: fields.leftCtaText ? fields.leftCtaText : null,
+        leftCtaLink: fields.leftCtaLink ? fields.leftCtaLink : null,
         rightCtaText: fields.rightCtaText ? fields.rightCtaText : null,
         rightCtaLink: fields.rightCtaLink ? fields.rightCtaLink : null
     }
@@ -177,7 +177,7 @@ export const adaptEcamppage = (data: Entry): Ecamp => {
     const [ecamp] = data.items
     const { fields } = ecamp
     return {
-        heroContainer: adaptStandardContainer(fields.heroContainer),
+        hero: adaptStandardContainer(fields.heroContainer),
         cardsContainer: adaptStandardCardContainers(fields.cardsContainer),
         cardModal1: adaptStandardCardContainer(fields.cardModal1),
         cardModal2: adaptStandardCardContainer(fields.cardModal2),

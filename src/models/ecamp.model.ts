@@ -4,7 +4,7 @@ import StandardCardContainer from "./standardCardContainer.model";
 import StandardContainer from "./standardContainer.model";
 
 declare interface Ecamp {
-    heroContainer: StandardContainer
+    hero: StandardContainer
     cardsContainer: StandardCardContainer[]
     cardModal1: StandardCardContainer
     cardModal2: StandardCardContainer

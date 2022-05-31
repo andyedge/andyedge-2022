@@ -1,5 +1,5 @@
 import client from './contentful'
-import { adaptWhatpage, adaptWhypage } from './responseAdapter'
+import { adaptEcamppage, adaptWhatpage, adaptWhypage } from './responseAdapter'
 
 export const getWhatpage = async () => adaptWhatpage(await client.getEntries({ 
     content_type: 'whatPage',
@@ -8,5 +8,10 @@ export const getWhatpage = async () => adaptWhatpage(await client.getEntries({
 
 export const getWhypage = async () => adaptWhypage(await client.getEntries({ 
     content_type: 'whyPage',
+    include: 10
+}))
+
+export const getEcamp = async () => adaptEcamppage(await client.getEntries({ 
+    content_type: 'ecamp',
     include: 10
 }))
