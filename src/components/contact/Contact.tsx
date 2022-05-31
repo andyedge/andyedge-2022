@@ -2,10 +2,15 @@ import cn from "classnames";
 import ImageComp from "../image/Image";
 import styles from "./Contact.module.sass";
 import ContactField from "../contactField/ContactField";
-import VideoComponent from "../videoComponent/VideoComponent";
+import VideoComponent from "../VideoComponent";
 
 
 const Contact = ({ contents }: any) => {
+  const videoClassnamesObj = {
+    videoDivClassname: styles.video_div,
+    videoClassname: styles.contact_video,
+    playButtonClassname: cn("play", styles.play_button)
+  }
 
   return (
     <div className={cn("section-pb", styles.section)}>
@@ -15,6 +20,7 @@ const Contact = ({ contents }: any) => {
             contents.contactVideoUrl ?
               <VideoComponent
                 videoUrl={contents.contactVideoUrl}
+                videoClassnames={videoClassnamesObj}
               />
               :
               <div className={styles.contact_image}>

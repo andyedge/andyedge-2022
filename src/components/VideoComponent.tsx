@@ -1,11 +1,10 @@
-import cn from "classnames";
-import Icon from "../icon/Icon";
+import Icon from "./icon/Icon";
 import { useRef, useState } from "react";
-import styles from "./VideoComponent.module.sass";
 
-const VideoComponent = ({ videoUrl }: any) => {
+const VideoComponent = ({ videoUrl, videoClassnames }: any) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
+  const { videoDivClassname, videoClassname, playButtonClassname } = videoClassnames;
 
   const videoHandler = (e: any) => {
     const elementName = e.target.localName;
@@ -35,11 +34,11 @@ const VideoComponent = ({ videoUrl }: any) => {
   }
 
   return (
-    <div key={'video-div'} className={styles.video_div}>
+    <div key={'video-div'} className={videoDivClassname}>
       <video
         id="contact_video"
         ref={videoRef}
-        className={styles.contact_video}
+        className={videoClassname}
         style={playing ? { cursor: 'pointer' } : { cursor: 'default' }}
         src={videoUrl}
         onPlay={() => setPlaying(true)}
@@ -48,7 +47,7 @@ const VideoComponent = ({ videoUrl }: any) => {
         onDoubleClick={() => videoFullscreen()}
       ></video>
       <button
-        className={cn("play", styles.play_button)}
+        className={playButtonClassname}
         style={playing ? { opacity: 0 } : { opacity: 1 }}
         onClick={(e) => videoHandler(e)}
       >
