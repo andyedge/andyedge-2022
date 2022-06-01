@@ -5,6 +5,7 @@ import Hero from '../src/components/hero/Hero';
 import { getEcamp } from '../src/services/fetch';
 import Steps from '../src/components/steps/Steps';
 import Contact from '../src/components/contact/Contact';
+import CardsContainer from '../src/components/cardsContainer/CardsContainer';
 
 export const getStaticProps = async () => {
   const res = await getEcamp();
@@ -29,6 +30,9 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent }: EcampProps) => {
         contents={pageContent.hero}
         scrollToRef={scrollToRef}
         scroll={true}
+      />
+      <CardsContainer
+        contents={pageContent.cardsContainer}
       />
       <Contact 
         contents={pageContent.contactContainer}
