@@ -197,6 +197,7 @@ export const adaptEcamppage = (data: Entry): Ecamp => {
         pageSubtitle: fields.pageSubtitle,
         pageText: fields.pageText,
         sliderImages: adaptImages(fields.sliderImages),
+        textSliderItems: adaptTextSliders(fields.textSliderItems),
         contactContainer: adaptContactContainer(fields.contactContainer)
     }
 }

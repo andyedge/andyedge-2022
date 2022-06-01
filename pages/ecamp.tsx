@@ -6,6 +6,7 @@ import { getEcamp } from '../src/services/fetch';
 import Steps from '../src/components/steps/Steps';
 import Contact from '../src/components/contact/Contact';
 import CardsContainer from '../src/components/cardsContainer/CardsContainer';
+import TextSlider from '../src/components/textSlider/TextSlider';
 
 export const getStaticProps = async () => {
   const res = await getEcamp();
@@ -33,6 +34,10 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent }: EcampProps) => {
       />
       <CardsContainer
         contents={pageContent.cardsContainer}
+      />
+      <TextSlider
+        contents={pageContent.textSliderItems}
+        className={'section'}
       />
       <Contact 
         contents={pageContent.contactContainer}

@@ -2,6 +2,7 @@ import ImageType from "./image.model";
 import ContactContainer from "./contact.model"
 import StandardCardContainer from "./standardCardContainer.model";
 import StandardContainer from "./standardContainer.model";
+import TextSlider from "./textSlider.model";
 
 declare interface Ecamp {
     hero: StandardContainer
@@ -24,6 +25,7 @@ declare interface Ecamp {
     pageSubtitle: string
     pageText: string
     sliderImages: ImageType[]
+    textSliderItems: TextSlider[]
     contactContainer: ContactContainer
 }
 
