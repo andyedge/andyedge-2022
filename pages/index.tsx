@@ -8,6 +8,7 @@ import Solution from '../src/components/solution/Solution';
 import CardBullets from '../src/components/cardBullets/CardBullets';
 import TextBullets from '../src/components/textBullets/TextBullets';
 import Whatpage from '../src/models/whatpage.model';
+import useDarkMode from "@fisch0920/use-dark-mode";
 
 export const getStaticProps = async () => {  
   const res = await getWhatpage();
@@ -25,7 +26,9 @@ declare interface WhatPageProps {
 
 const Home: NextPage<WhatPageProps> = ({ pageContent } : WhatPageProps ) => {
   const scrollToRef = useRef(null);
-
+  const darkMode = useDarkMode(false);
+  const isDarkModeActive = darkMode.value;
+  
   return (
     <>
       <Hero
@@ -41,21 +44,21 @@ const Home: NextPage<WhatPageProps> = ({ pageContent } : WhatPageProps ) => {
       />
       <CardBullets
         contents={pageContent.standardContainer1}
-        bg={'#FFFFFF'}
+        bg={isDarkModeActive ? '#000000' : '#FFFFFF'}
       />
       <CardBullets 
         contents={pageContent.standardContainer2}
-        bg={'#FAFAFA'}
+        bg={isDarkModeActive ? '#000000' : '#FAFAFA'}
       />
       <TextBullets
         contents={pageContent.standardContainer3}
         section={'IdentityDesign'}
-        bg={'#F4F4F4'}
+        bg={isDarkModeActive ? '#000000' : '#F4F4F4'}
       />
       <TextBullets
         contents={pageContent.standardContainer4}
         section={'DesignThinking'}
-        bg={'#FAFAFA'}
+        bg={isDarkModeActive ? '#000000' : '#FAFAFA'}
       />
       <Solution
         solutionTitle={pageContent.solutionTitle}
