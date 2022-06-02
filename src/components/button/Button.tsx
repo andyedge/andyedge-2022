@@ -5,17 +5,21 @@ import styles from './button.module.sass'
 import Icon from '../icon/Icon';
 
 declare interface ButtonProps {
-    link: string
-    text: string
+    link: string | undefined
+    text: string | undefined
+    showIcon?: boolean
+    size?: 'default' | 'small' | 'tiny'
 }
 
-const Button: FC<ButtonProps> = ({ link, text } : ButtonProps) => {
+const Button: FC<ButtonProps> = ({ link, text, size = 'default', showIcon = true } : ButtonProps) => {
     return (
-        <div className={styles.container}>
+        <div className={cn(styles.container, styles[size])}>
             <Link href={`/${link}`}>
             <a className={cn('button', styles.button)}>
                 {text}
-                <Icon name='arrow-right' size='20' />
+                {showIcon && (
+                    <Icon name='arrow-right' size='20' />
+                )}
             </a>                
             </Link>
         </div>

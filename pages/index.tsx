@@ -39,7 +39,7 @@ const Home: NextPage<WhatPageProps> = ({ pageContent } : WhatPageProps ) => {
         stepsArray={pageContent.stepsSection}
         scrollToRef={scrollToRef}
       />
-      <CardBullets 
+      <CardBullets
         contents={pageContent.standardContainer1}
         bg={'#FFFFFF'}
       />

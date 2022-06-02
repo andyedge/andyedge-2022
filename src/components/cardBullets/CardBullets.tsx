@@ -1,20 +1,22 @@
 import cn from "classnames";
-import Link from "next/link";
-import Icon from "../icon/Icon";
-import { Fragment } from "react";
+import { Fragment, FC } from "react";
 import ImageComp from "../image/Image";
 import styles from "./CardBullets.module.sass"
 import ScrollParallax from "../ScrollParallax";
 import ImageType from "../../models/image.model";
 import Button from '../button/Button';
+import StandardContainer from '../../models/standardContainer.model';
 
-const CardBullets = ({ contents, bg }: any) => {
-  const bulletsContent = contents.bulletsContainer;
-  const images = contents.images;
-  const mediaPosition = contents.mediaPosition;
-  const galleryClasses = mediaPosition.toLowerCase() === 'right' ? cn(styles.gallery, styles.gallery_right) :
-    cn(styles.gallery, styles.gallery_left);
-  const wrapStyle = mediaPosition.toLowerCase() === 'right' ? { marginRight: 'auto' } : { marginLeft: 'auto' };
+declare interface CardBulletsProps {
+  contents: StandardContainer
+  bg?: string
+}
+
+const CardBullets: FC<CardBulletsProps> = ({ contents, bg } : CardBulletsProps) => {
+  const { mediaPosition } = contents
+  const isRightOriented = mediaPosition?.toLowerCase() === 'right'
+  const galleryClasses = cn(styles.gallery, isRightOriented ? styles.gallery_right : styles.gallery_left);
+  const wrapStyle = isRightOriented ? { marginRight: 'auto' } : { marginLeft: 'auto' };
 
   return (
     <div style={{backgroundColor: bg}} className={cn("section-bg", styles.section)}>
@@ -23,7 +25,7 @@ const CardBullets = ({ contents, bg }: any) => {
           className={galleryClasses}
         >
           {
-            images.map((image: ImageType, index: number) => (
+            contents.images?.map((image: ImageType, index: number) => (
               <Fragment key={'galleryimg_' + index}>
                 <ScrollParallax
                   className={styles.preview}
@@ -45,7 +47,7 @@ const CardBullets = ({ contents, bg }: any) => {
             {contents.subtitle}
           </div>
           <div className={styles.list}>
-            {bulletsContent.map((content: any, index: number) => (
+            {contents.bulletsContainer?.map((content: any, index: number) => (
               <div className={styles.item} key={index}>
                 <div
                   className={styles.icon}

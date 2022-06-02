@@ -4,15 +4,17 @@ import StepsContainer from './stepsContainer.model'
 declare interface StandardContainer {
     preTitle?: string
     title: string
+    strikeThroughTitle?: string
+    complementTitle?: string
     subtitle?: string
     bulletsContainer?: StepsContainer[]
-    logo: ImageType | {}
+    logo: ImageType
     text?: any
     ctaText?: string
     ctaPageLink?: string
     ctaVideoLink?: string
     images?: ImageType[]
-    backgroundImage: ImageType | {}
+    backgroundImage: ImageType
     videoUrl?: string
     mediaPosition: 'left' | 'right'
 }
