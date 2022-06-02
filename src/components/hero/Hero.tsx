@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 import cn from "classnames";
 import Icon from "../icon/Icon";
 import RichText from "../RichText";
@@ -13,7 +13,7 @@ declare interface HeroProps {
   scroll: boolean
 }
 
-const Hero = ({ contents, scrollToRef, scroll } : HeroProps) => {
+const Hero: FC<HeroProps> = ({ contents, scrollToRef, scroll } : HeroProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 

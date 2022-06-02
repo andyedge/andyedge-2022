@@ -6,7 +6,7 @@ import Icon from '../icon/Icon';
 
 declare interface ButtonProps {
     link: string | undefined
-    text: string
+    text: string | undefined
     showIcon?: boolean
     size?: 'default' | 'small' | 'tiny'
 }

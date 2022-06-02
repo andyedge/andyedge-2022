@@ -1,13 +1,19 @@
 import cn from "classnames";
-import { Fragment } from "react";
+import { Fragment, FC } from "react";
 import ImageComp from "../image/Image";
 import styles from "./CardBullets.module.sass"
 import ScrollParallax from "../ScrollParallax";
 import ImageType from "../../models/image.model";
 import Button from '../button/Button';
+import StandardContainer from '../../models/standardContainer.model';
 
-const CardBullets = ({ contents, bg } : any) => {
-  const { bulletsContainer, images, mediaPosition } = contents
+declare interface CardBulletsProps {
+  contents: StandardContainer
+  bg?: string
+}
+
+const CardBullets: FC<CardBulletsProps> = ({ contents, bg } : CardBulletsProps) => {
+  const { mediaPosition } = contents
   const isRightOriented = mediaPosition?.toLowerCase() === 'right'
   const galleryClasses = cn(styles.gallery, isRightOriented ? styles.gallery_right : styles.gallery_left);
   const wrapStyle = isRightOriented ? { marginRight: 'auto' } : { marginLeft: 'auto' };
@@ -19,7 +25,7 @@ const CardBullets = ({ contents, bg } : any) => {
           className={galleryClasses}
         >
           {
-            images.map((image: ImageType, index: number) => (
+            contents.images?.map((image: ImageType, index: number) => (
               <Fragment key={'galleryimg_' + index}>
                 <ScrollParallax
                   className={styles.preview}
@@ -41,7 +47,7 @@ const CardBullets = ({ contents, bg } : any) => {
             {contents.subtitle}
           </div>
           <div className={styles.list}>
-            {bulletsContainer.map((content: any, index: number) => (
+            {contents.bulletsContainer?.map((content: any, index: number) => (
               <div className={styles.item} key={index}>
                 <div
                   className={styles.icon}

@@ -4,9 +4,14 @@
     position: relative
     display: flex
     align-items: center
-    padding: 64px 0 130px
+    min-height: 880px
+    padding-bottom: 130px
+    padding-top: 32px
+    +xw
+        padding-top: 64px
+        min-height: unset
     +m
-        padding: 64px 0 152px
+        padding-top: 64px
     img
         position: absolute
         height: 75%

@@ -1,19 +1,28 @@
 @import ../../../styles/helpers
+@import ../../../styles/colors
+@import ../../../styles/measurements
 
+.section 
+    margin-bottom: $container-spacing-bottom-small
+    +m
+        margin-bottom: $container-spacing-mobile
 .head
-    max-width: 400px
-    margin: 0 auto 80px
+    max-width: 544px
+    margin: 0 auto 72px
     text-align: center
     +d
         margin-bottom: 64px
     +m
-        margin-bottom: 40px
+        margin-bottom: 0px
 
 .title
-    margin-bottom: 20px
+    margin-bottom: 8px
 
 .info
-    color: $neutrals3
+    color: $light-black
+    font-size: 18px
+    letter-spacing: 0px
+    font-family: +poppins
     +dark
         color: $neutrals6
 
@@ -35,6 +44,9 @@
             flex-shrink: 0
             width: 40px
             height: 1px
+    +m
+        flex-direction: column
+        margin: auto
 
 .item
     position: relative
@@ -47,7 +59,9 @@
         width: 256px
         margin: 0
     +m
-        text-align: left
+        width: 100%
+        margin: 0 auto
+
     &:after
         content: ""
         position: absolute
@@ -68,20 +82,30 @@
             right: -79px
             width: 120px
         +m
-            right: 11px
+            top: 413px
+            right: unset
+            transform: translateX(-48%)
     &:first-child
         .preview
             &:before
                 display: none
+                +m
+                    display: unset
     &:last-child
         &:after
             display: none
+            +m
+                display: unset
         .preview
             &:after
                 display: none
+                +m
+                    display: unset
     &:not(:last-child)
         +t
             margin-right: 32px
+        +m
+            margin-right: unset
 
 .preview
     position: relative
@@ -93,7 +117,7 @@
     margin: 0 auto 80px
     border-radius: 24px
     +m
-        margin: 0 0 32px 0
+        margin: 128px auto 32px auto
     &:before,
     &:after
         content: ""
@@ -103,7 +127,10 @@
         height: 12px
         transform: translateY(-50%)
         border-radius: 50%
-        border: 2px solid $neutrals5
+        border: 2px solid #B1B5C3
+        +m 
+            top: 280px
+            transform: unset
     &:before
         left: -36px
     &:after
@@ -113,14 +140,18 @@
     margin-bottom: 32px
     +caption-2
     font-weight: 700
-    color: $neutrals4
+    color: #777e90
+    font-size: 13px
 
 .subtitle
     margin-bottom: 16px
-    font-weight: 600
+    font-size: 18px
+    color: $black
 
 .content
     +caption-1
-    color: $neutrals3
+    color: #353945
+    line-height: 1.5
+    font-size: 16px
     +dark
         color: $neutrals6
