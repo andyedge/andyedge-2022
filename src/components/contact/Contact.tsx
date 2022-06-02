@@ -3,7 +3,7 @@ import ImageComp from "../image/Image";
 import styles from "./Contact.module.sass";
 import ContactField from "../contactField/ContactField";
 import VideoComponent from "../VideoComponent";
-
+import Link from 'next/link';
 
 const Contact = ({ contents }: any) => {
   const videoClassnamesObj = {
@@ -43,8 +43,10 @@ const Contact = ({ contents }: any) => {
           placeholder="Enter your email"
         />
         <div className={styles.note}>
-          By click sign in you, you agree with Stacks <a href="/#">terms</a> and{" "}
-          <a href="/#">policy</a>
+          By click sign in you, you agree with Stacks <Link href="/#"><a>terms</a></Link> and{" "}
+          <Link href="/">
+            <a>policy</a>
+          </Link>
         </div>
       </div>
     </div>
