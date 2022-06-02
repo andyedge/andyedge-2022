@@ -112,17 +112,17 @@ const navLinks = [
 const socials = [
   {
     title: "facebook",
-    size: "16",
+    size: 16,
     url: "https://www.facebook.com/ui8.net/",
   },
   {
     title: "twitter",
-    size: "18",
+    size: 18,
     url: "https://twitter.com/ui8",
   },
   {
     title: "instagram",
-    size: "16",
+    size: 16,
     url: "https://www.instagram.com/ui8net/",
   },
 ];

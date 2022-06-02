@@ -18,7 +18,7 @@ const Button: FC<ButtonProps> = ({ link, text, size = 'default', showIcon = true
             <a className={cn('button', styles.button)}>
                 {text}
                 {showIcon && (
-                    <Icon name='arrow-right' size='20' />
+                    <Icon name='arrow-right' size={20} />
                 )}
             </a>                
             </Link>

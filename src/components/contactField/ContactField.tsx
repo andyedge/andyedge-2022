@@ -26,7 +26,7 @@ const ContactField = ({ className, placeholder }: any) => {
         required
       />
       <button className={styles.btn}>
-        <Icon name="arrow-right" size="14" />
+        <Icon name="arrow-right" size={14} />
       </button>
     </form>
   );

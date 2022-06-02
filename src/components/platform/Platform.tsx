@@ -36,7 +36,7 @@ const Platform = ({title1, stepsContainer}: any) => {
                   rel="noopener noreferrer"
                 >
                   <span>Discover</span>
-                  <Icon name="arrow-right" size="10" />
+                  <Icon name="arrow-right" size={10} />
                 </a>
               </div>
             </ScrollParallax>

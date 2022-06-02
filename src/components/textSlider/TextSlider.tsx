@@ -16,12 +16,12 @@ const TextSlider = ({ contents, className }: any) => {
     adaptiveHeight: true,
     nextArrow: (
       <SlickArrow>
-        <Icon name="arrow-next" size="14" />
+        <Icon name="arrow-next" size={14} />
       </SlickArrow>
     ),
     prevArrow: (
       <SlickArrow>
-        <Icon name="arrow-prev" size="14" />
+        <Icon name="arrow-prev" size={14} />
       </SlickArrow>
     ),
   };

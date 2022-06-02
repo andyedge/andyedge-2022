@@ -51,7 +51,7 @@ const VideoComponent = ({ videoUrl, videoClassnames }: any) => {
         style={playing ? { opacity: 0 } : { opacity: 1 }}
         onClick={(e) => videoHandler(e)}
       >
-        <Icon name="play" size="40" />
+        <Icon name="play" size={40} />
       </button>
     </div>
   )

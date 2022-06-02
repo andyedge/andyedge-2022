@@ -56,7 +56,7 @@ const EcampStandardContainer = ({ contents, title }: any) => {
         <div className={styles.gallery}>
           {
             images.map((image: ImageType, index: number) => (
-              <div className={styles.preview}>
+              <div className={styles.preview} key={index}>
                 <ImageComp
                   src={image.url}
                   alt={image.description}

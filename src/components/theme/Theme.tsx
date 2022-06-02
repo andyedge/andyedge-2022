@@ -17,8 +17,8 @@ const Theme = ({ className }: any) => {
       <span className={styles.inner}>
         <span className={styles.box}></span>
         <span className={styles.icon}>
-          <Icon name="moon" size="24" />
-          <Icon name="sun" size="24" />
+          <Icon name="moon" size={24} />
+          <Icon name="sun" size={24} />
         </span>
       </span>
     </label>

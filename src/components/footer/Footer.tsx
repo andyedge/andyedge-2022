@@ -33,27 +33,27 @@ const menu = [
 const socials = [
   {
     title: "facebook",
-    size: "16",
+    size: 16,
     url: "https://www.facebook.com/ui8.net/",
   },
   {
     title: "twitter",
-    size: "18",
+    size: 18,
     url: "https://twitter.com/ui8",
   },
   {
     title: "instagram",
-    size: "16",
+    size: 16,
     url: "https://www.instagram.com/ui8net/",
   },
   {
     title: "dribbble",
-    size: "16",
+    size: 16,
     url: "https://dribbble.com/ui8",
   },
   {
     title: "behance",
-    size: "20",
+    size: 20,
     url: "https://www.behance.net/ui8",
   },
 ];
@@ -87,7 +87,7 @@ const Footer = () => {
                 onClick={() => setVisible(!visible)}
               >
                 footer nav
-                <Icon name="arrow-bottom" size="9" />
+                <Icon name="arrow-bottom" size={9} />
               </div>
               {/*
               <div className={styles.menu}>

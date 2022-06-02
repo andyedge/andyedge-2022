@@ -75,7 +75,7 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
                       </div>
                       <div className={styles.subtitle}>{step.title}</div>
                       <div className={styles.arrow}>
-                        <Icon name="arrow-right-empty" size="14" />
+                        <Icon name="arrow-right-empty" size={14} />
                       </div>
                     </div>
                   </div>
@@ -100,7 +100,7 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
               <Link href="/">
                 <a className={cn("button", styles.button)}>
                   Pearson case study
-                  <Icon name="arrow-right" size="20" />
+                  <Icon name="arrow-right" size={20} />
                 </a>
               </Link>
             </div>
