@@ -54,10 +54,10 @@ const Hero = ({ contents, scrollToRef, scroll } : HeroProps) => {
       )}
       <div className={cn("container", styles.container)}>
         <div className={styles.wrap}>
-          <div className={cn("stage", styles.stage)}>
+          <h1 className={cn("stage", styles.stage)}>
             {contents.preTitle}
-          </div>
-          <h1 className={cn("h1", styles.title)}>
+          </h1>
+          <h2 className={cn("h1", styles.title)}>
             {contents.title}
             {contents.strikeThroughTitle && (
               <>
@@ -66,14 +66,14 @@ const Hero = ({ contents, scrollToRef, scroll } : HeroProps) => {
                 {` ${contents.complementTitle}`}
               </>
             )}
-          </h1>
-          <div className={styles.text}>
+          </h2>
+          <p className={styles.text}>
             {contents.subtitle}
-          </div>
+          </p>
           {contents.text && (
-            <div className={styles.paragraph}>
+            <p className={styles.paragraph}>
               <RichText richText={contents.text} />
-            </div>
+            </p>
           )}
           {contents.ctaText && (
             <Button link={contents.ctaPageLink} text={contents.ctaText} size='small' showIcon={false} />
