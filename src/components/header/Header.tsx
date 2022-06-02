@@ -150,12 +150,12 @@ const Headers = () => {
       <div className={cn("container", styles.container)}>
         <Link
           href="/"
-          onClick={() => setVisibleNav(false)}
+          // onClick={() => setVisibleNav(false)}
         >
           <a className={styles.logo}>
             <img
               className={styles.pic}
-              src="/images/logo-dark.svg"
+              src="/images/logo-andyedge.svg"
               //srcDark="/images/logo-light.svg"
               alt="Fitness Pro"
             />
