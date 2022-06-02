@@ -5,6 +5,9 @@ import Whypage from '../models/whypage.model'
 import StandardContainer from '../models/standardContainer.model'
 import StepsContainer from '../models/stepsContainer.model'
 import ContactContainer from '../models/contact.model'
+import StandardCardContainer from '../models/standardCardContainer.model'
+import TextSlider from '../models/textSlider.model'
+import Ecamp from '../models/ecamp.model'
 
 const adaptImage = (image: Item): ImageType => {
     if(!image) {
@@ -92,7 +95,53 @@ const adaptStepsSection = (data: Item[]): StepsContainer[] => {
         })
     } else {
         return []
-    }  
+    }
+}
+
+const adaptStandardCardContainer = (data: Item): StandardCardContainer => {
+    const { fields } = data
+
+    return {
+        icon: fields.icon ? adaptImage(fields.icon) : {},
+        title: fields.title,
+        subtitle: fields.subtitle ? fields.subtitle : null,
+        text: fields.text ? fields.text : null,
+        leftCtaText: fields.leftCtaText ? fields.leftCtaText : null,
+        leftCtaLink: fields.leftCtaLink ? fields.leftCtaLink : null,
+        rightCtaText: fields.rightCtaText ? fields.rightCtaText : null,
+        rightCtaLink: fields.rightCtaLink ? fields.rightCtaLink : null
+    }
+}
+
+const adaptStandardCardContainers = (dataArray: Item[]): StandardCardContainer[] => {
+    if (dataArray && dataArray.length > 0) {
+        return dataArray.map((data: Item) => {
+            return adaptStandardCardContainer(data)
+        })
+    } else {
+        return []
+    }
+}
+
+const adaptTextSlider = (data: Item): TextSlider => {
+    const { fields } = data
+
+    return {
+        image: fields.image ? adaptImage(fields.image) : {},
+        text: fields.text,
+        smallText1: fields.smallText1,
+        smallText2: fields.smallText2
+    }
+}
+
+const adaptTextSliders = (dataArray: Item[]): TextSlider[] => {
+    if (dataArray && dataArray.length > 0) {
+        return dataArray.map((data: Item) => {
+            return adaptTextSlider(data)
+        })
+    } else {
+        return []
+    }
 }
 
 export const adaptWhatpage = (data: Entry): Whatpage => {
@@ -131,5 +180,34 @@ export const adaptWhypage = (data: Entry): Whypage => {
         subtitle: fields.subtitle,
         buttonText: fields.buttonText ? fields.buttonText : null,
         buttonLink: fields.buttonLink ? fields.buttonLink : null
+    }
+}
+
+export const adaptEcamppage = (data: Entry): Ecamp => {
+    const [ecamp] = data.items
+    const { fields } = ecamp
+    return {
+        hero: adaptStandardContainer(fields.heroContainer),
+        cardsContainer: adaptStandardCardContainers(fields.cardsContainer),
+        cardModal1: adaptStandardCardContainer(fields.cardModal1),
+        cardModal2: adaptStandardCardContainer(fields.cardModal2),
+        cardModal3: adaptStandardCardContainer(fields.cardModal3),
+        bigTitle1: fields.bigTitle1,
+        standardContainer1: adaptStandardContainer(fields.standardContainer1),
+        standardContainer2: adaptStandardContainer(fields.standardContainer2),
+        standardContainer3: adaptStandardContainer(fields.standardContainer3),
+        standardContainer4: adaptStandardContainer(fields.standardContainer4),
+        standardContainer5: adaptStandardContainer(fields.standardContainer5),
+        standardContainer6: adaptStandardContainer(fields.standardContainer6),
+        standardContainer7: adaptStandardContainer(fields.standardContainer7),
+        standardContainer8: adaptStandardContainer(fields.standardContainer8),
+        standardContainer9: adaptStandardContainer(fields.standardContainer9),
+        bigTitle2: fields.bigTitle2,
+        pageImages: adaptImages(fields.pageImages),
+        pageSubtitle: fields.pageSubtitle,
+        pageText: fields.pageText,
+        sliderImages: adaptImages(fields.sliderImages),
+        textSliderItems: adaptTextSliders(fields.textSliderItems),
+        contactContainer: adaptContactContainer(fields.contactContainer)
     }
 }

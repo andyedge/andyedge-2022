@@ -1,11 +1,10 @@
-import { FC, useRef, useState } from "react";
 import cn from "classnames";
-import Icon from "../icon/Icon";
 import RichText from "../RichText";
 import styles from "./Hero.module.sass";
 import ScrollButton from "../scrollButton/ScrollButton";
 import StandardContainer from "../../models/standardContainer.model";
 import Button from '../button/Button';
+import VideoComponent from "../VideoComponent";
 
 declare interface HeroProps {
   contents: StandardContainer
@@ -13,35 +12,11 @@ declare interface HeroProps {
   scroll: boolean
 }
 
-const Hero: FC<HeroProps> = ({ contents, scrollToRef, scroll } : HeroProps) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
-
-  const videoHandler = (e: any) => {
-    const elementName = e.target.localName;
-
-    switch (elementName) {
-      case 'path':
-        if (!playing) {
-          videoRef.current?.play();
-          setPlaying(true);
-        } else {
-          videoRef.current?.pause();
-          setPlaying(false);    
-        }        
-        break;
-    
-      default:
-        if (playing) {
-          videoRef.current?.pause();
-          setPlaying(false);
-        }
-        break;
-    }    
-  };
-
-  const videoFullscreen = () => {
-    videoRef.current?.requestFullscreen();
+const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
+  const videoClassnamesObj = {
+    videoDivClassname: '',
+    videoClassname: styles.hero_video,
+    playButtonClassname: cn("play", styles.play)
   }
 
   return (
@@ -90,26 +65,10 @@ const Hero: FC<HeroProps> = ({ contents, scrollToRef, scroll } : HeroProps) => {
         <div className={styles.gallery}>
           {
             contents.videoUrl !== null ?
-              <div key={'video-div'}>
-                <video
-                  id="hero_video"
-                  ref={videoRef}
-                  className={styles.hero_video}
-                  style={playing ? {cursor: 'pointer'} : {cursor: 'default'}}                  
-                  src={contents.videoUrl}
-                  onPlay={() => setPlaying(true)}
-                  onPause={() => setPlaying(false)}
-                  onClick={(e) => videoHandler(e)}
-                  onDoubleClick={() => videoFullscreen()}
-                ></video>
-                <button 
-                  className={cn("play", styles.play)}
-                  style={playing ? {opacity: 0} : {opacity: 1}}
-                  onClick={(e) => videoHandler(e)}
-                >
-                  <Icon name="play" size="40" />
-                </button>
-              </div>
+              <VideoComponent
+                videoUrl={contents.videoUrl}
+                videoClassnames={videoClassnamesObj}
+              />
               :
               null
           }
