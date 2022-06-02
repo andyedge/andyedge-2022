@@ -1,6 +1,4 @@
 import cn from "classnames";
-import Link from "next/link";
-import Icon from "../icon/Icon";
 import { Fragment } from "react";
 import ImageComp from "../image/Image";
 import styles from "./CardBullets.module.sass"
@@ -8,13 +6,11 @@ import ScrollParallax from "../ScrollParallax";
 import ImageType from "../../models/image.model";
 import Button from '../button/Button';
 
-const CardBullets = ({ contents, bg }: any) => {
-  const bulletsContent = contents.bulletsContainer;
-  const images = contents.images;
-  const mediaPosition = contents.mediaPosition;
-  const galleryClasses = mediaPosition.toLowerCase() === 'right' ? cn(styles.gallery, styles.gallery_right) :
-    cn(styles.gallery, styles.gallery_left);
-  const wrapStyle = mediaPosition.toLowerCase() === 'right' ? { marginRight: 'auto' } : { marginLeft: 'auto' };
+const CardBullets = ({ contents, bg } : any) => {
+  const { bulletsContainer, images, mediaPosition } = contents
+  const isRightOriented = mediaPosition?.toLowerCase() === 'right'
+  const galleryClasses = cn(styles.gallery, isRightOriented ? styles.gallery_right : styles.gallery_left);
+  const wrapStyle = isRightOriented ? { marginRight: 'auto' } : { marginLeft: 'auto' };
 
   return (
     <div style={{backgroundColor: bg}} className={cn("section-bg", styles.section)}>
@@ -45,7 +41,7 @@ const CardBullets = ({ contents, bg }: any) => {
             {contents.subtitle}
           </div>
           <div className={styles.list}>
-            {bulletsContent.map((content: any, index: number) => (
+            {bulletsContainer.map((content: any, index: number) => (
               <div className={styles.item} key={index}>
                 <div
                   className={styles.icon}

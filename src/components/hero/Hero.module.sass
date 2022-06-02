@@ -4,14 +4,8 @@
     position: relative
     display: flex
     align-items: center
-    min-height: 880px
-    padding: 34px 0 130px
-    +x
-        min-height: 800px
-    +d
-        min-height: 624px
+    padding: 64px 0 130px
     +m
-        min-height: auto
         padding: 64px 0 152px
     img
         position: absolute
@@ -22,20 +16,29 @@
 .wrap
     position: relative
     z-index: 3
-    max-width: 450px
+    max-width: 490px
     +t
         max-width: 340px
     +m
         max-width: 100%
         margin-bottom: 80px
 
+    .stage
+        margin-bottom: 22px
+
 .title
-    margin-bottom: 20px
+    margin-bottom: 32px
     color: $neutrals2
 
+    .strike_through
+        text-decoration: line-through
+        text-decoration-thickness: 3px
+
 .text
-    margin-bottom: 40px
+    margin-bottom: 16px
     color: $neutrals2
+    font-size: 18px
+    max-width: 350px
 
 .paragraph
     margin-bottom: 32px
@@ -57,11 +60,9 @@
     
 .scroll
     position: absolute
-    bottom: 96px
-    +d
-        bottom: 48px
+    bottom: -128px
     +m
-        bottom: 64px
+        bottom: -336px
 
 .gallery
     position: absolute

@@ -7,6 +7,14 @@ import StepsContainer from '../models/stepsContainer.model'
 import ContactContainer from '../models/contact.model'
 
 const adaptImage = (image: Item): ImageType => {
+    if(!image) {
+        return {
+            url: '',
+            title: '',
+            description: ''
+        }
+    }
+
     const fields = image.fields || {}
     return {
         url: fields?.file?.url,
@@ -31,15 +39,17 @@ const adaptStandardContainer = (data: Item): StandardContainer => {
     return {
         preTitle: fields.preTitle ? fields.preTitle : null,
         title: fields.title,
+        strikeThroughTitle: fields.strikethroughTitle || null,
+        complementTitle: fields.titleComplement || null,
         subtitle: fields.subtitle ? fields.subtitle : null,
         bulletsContainer: adaptStepsSection(fields.bulletsContainer),
-        logo: fields.logo ? adaptImage(fields.logo) : {},
+        logo: adaptImage(fields.logo),
         text: fields.text ? fields.text : null,
         ctaText: fields.ctaText ? fields.ctaText : null,
         ctaPageLink: fields.ctaPageLink ? fields.ctaPageLink : null,
         ctaVideoLink: fields.ctaVideoLink ? fields.ctaVideoLink : null,
         images: adaptImages(fields.images),
-        backgroundImage: fields.backgroundImage ? adaptImage(fields.backgroundImage) : {},
+        backgroundImage: adaptImage(fields.backgroundImage),
         videoUrl: fields.videoUrl ? fields.videoUrl : null,
         mediaPosition: fields.mediaPosition ? fields.mediaPosition : null
     }

@@ -1,20 +1,19 @@
 import { useRef, useState } from "react";
 import cn from "classnames";
-import Link from "next/link";
 import Icon from "../icon/Icon";
 import RichText from "../RichText";
-import ImageComp from "../image/Image";
 import styles from "./Hero.module.sass";
 import ScrollButton from "../scrollButton/ScrollButton";
 import StandardContainer from "../../models/standardContainer.model";
+import Button from '../button/Button';
 
-interface HeroProps {
+declare interface HeroProps {
   contents: StandardContainer
   scrollToRef: any
   scroll: boolean
 }
 
-const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
+const Hero = ({ contents, scrollToRef, scroll } : HeroProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -47,14 +46,12 @@ const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
 
   return (
     <div className={styles.hero}>
-      {Object.keys(contents.backgroundImage).length > 0 ?
+      {contents.backgroundImage.url && (
         <img
           src={contents.backgroundImage.url}
           alt={contents.backgroundImage.description}
         />
-        :
-        null
-      }
+      )}
       <div className={cn("container", styles.container)}>
         <div className={styles.wrap}>
           <div className={cn("stage", styles.stage)}>
@@ -62,41 +59,34 @@ const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
           </div>
           <h1 className={cn("h1", styles.title)}>
             {contents.title}
+            {contents.strikeThroughTitle && (
+              <>
+                <br />
+                <span className={styles.strike_through}> {contents.strikeThroughTitle}</span> 
+                {` ${contents.complementTitle}`}
+              </>
+            )}
           </h1>
           <div className={styles.text}>
             {contents.subtitle}
           </div>
-          {
-            contents.text !== null ?
-              <div className={styles.paragraph}>
-                <RichText
-                  richText={contents.text}
-                />
-              </div>
-              :
-              null
-          }
-          {contents.ctaText !== null && (contents.ctaPageLink !== null || contents.ctaVideoLink !== null) ?
-            <div className={styles.btns}>
-              <Link href={`/${contents.ctaPageLink}`}>
-                <a className={cn("button", styles.button)}> {contents.ctaText} </a>
-              </Link>
+          {contents.text && (
+            <div className={styles.paragraph}>
+              <RichText richText={contents.text} />
             </div>
-            :
-            null
-          }
-        </div>
-        {
-          scroll ?
+          )}
+          {contents.ctaText && (
+            <Button link={contents.ctaPageLink} text={contents.ctaText} size='small' showIcon={false} />
+          )}
+          {scroll && (
             <ScrollButton
               onScroll={() =>
                 scrollToRef.current.scrollIntoView({ behavior: "smooth" })
               }
               className={styles.scroll}
             />
-            :
-            null
-        }
+          )}
+        </div>
         <div className={styles.gallery}>
           {
             contents.videoUrl !== null ?
