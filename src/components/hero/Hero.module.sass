@@ -1,0 +1,130 @@
+@import ../../../styles/helpers
+@import ../../../styles/colors
+
+.hero
+    position: relative
+    display: flex
+    align-items: center
+    min-height: 880px
+    padding-bottom: 130px
+    padding-top: 32px
+    +xw
+        padding-top: 64px
+        min-height: unset
+    +m
+        padding-top: 64px
+    img
+        position: absolute
+        height: 75%
+        width: 100%
+        opacity: 0.3
+
+.wrap
+    position: relative
+    z-index: 3
+    max-width: 490px
+    +t
+        max-width: 340px
+    +m
+        max-width: 100%
+        margin-bottom: 80px
+
+    .stage
+        margin-bottom: 22px
+        font-size: 16px
+        +dark
+            color: $gray3
+
+.title
+    margin-bottom: 32px
+    color: $neutrals2
+    +dark
+        color: $white
+
+    .strike_through
+        text-decoration: line-through
+        text-decoration-thickness: 3px
+
+.text
+    margin-bottom: 16px
+    color: $neutrals2
+    font-size: 18px
+    max-width: 350px
+    +dark
+        color: $gray3
+
+.paragraph
+    margin-bottom: 32px
+    text-align: justify
+    +body-1
+
+.btns
+    display: flex
+    +m
+        display: block
+
+.button
+    +m
+        width: 100%
+    &:not(:last-child)
+        margin-right: 16px
+        +m
+            margin: 0 0 16px
+    
+.scroll
+    position: absolute
+    bottom: -128px
+    +m
+        bottom: -336px
+
+.gallery
+    position: absolute
+    top: 50%
+    right: calc(50% - 465px)
+    width: 512px
+    transform: translateY(-58%)
+    +x
+        right: calc(50% - 425px)
+        width: 450px
+    +d
+        right: calc(50% - 365px)
+        width: 320px
+    +t
+        right: calc(50% - 300px)
+    +m
+        position: relative
+        top: auto
+        right: auto
+        left: -16px
+        margin: 0 auto
+        transform: translate(0,0)
+        pointer-events: all
+
+.preview
+    &:first-child
+        position: relative
+        z-index: 2
+    &:nth-child(2)
+        top: 36%
+        right: -18%
+        z-index: 3
+        width: 45%
+    &:nth-child(3)
+        top: -12%
+        right: -7%
+        z-index: 1
+        width: 45%
+    &:nth-child(4)
+        left: 11%
+        bottom: 13%
+        z-index: 3
+        width: 18%
+    &:not(:first-child)
+        position: absolute
+    img
+        width: 100%
+
+.hero_video
+    width: 100%
+    border-radius: 16px
+    

@@ -1,17 +1,20 @@
 import React from "react";
-// import useDarkMode from "use-dark-mode";
+import Image from "next/image";
+import useDarkMode from "@fisch0920/use-dark-mode";
 
-const Image = ({ className, src, srcDark, srcSet, srcSetDark, alt }) => {
-  // const darkMode = useDarkMode(false);
+const ImageComp = ({ className, src, srcDark, srcSet, srcSetDark, alt, style, priority=false }: any) => {
+  const darkMode = useDarkMode(false);
 
   return (
-    <img
+    <Image
       className={className}
-      srcSet={srcSet}
-      src={src}
+      src={'https:' + src}
       alt={alt}
+      layout={'fill'}
+      style={style}
+      priority={priority}
     />
   );
 };
 
-export default Image;
+export default ImageComp;

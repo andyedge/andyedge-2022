@@ -3,7 +3,7 @@ import Link from "next/link";
 import cn from "classnames";
 import styles from "./Header.module.sass";
 import Icon from "../icon/Icon";
-import Image from "../image/Image";
+import ImageComp from "../image/Image";
 
 const navLinks = [
   {
@@ -112,17 +112,17 @@ const navLinks = [
 const socials = [
   {
     title: "facebook",
-    size: "16",
+    size: 16,
     url: "https://www.facebook.com/ui8.net/",
   },
   {
     title: "twitter",
-    size: "18",
+    size: 18,
     url: "https://twitter.com/ui8",
   },
   {
     title: "instagram",
-    size: "16",
+    size: 16,
     url: "https://www.instagram.com/ui8net/",
   },
 ];
@@ -150,13 +150,13 @@ const Headers = () => {
       <div className={cn("container", styles.container)}>
         <Link
           href="/"
-          onClick={() => setVisibleNav(false)}
+          // onClick={() => setVisibleNav(false)}
         >
           <a className={styles.logo}>
-            <Image
+            <img
               className={styles.pic}
-              src="/images/logo-dark.svg"
-              srcDark="/images/logo-light.svg"
+              src="/images/logo-andyedge.svg"
+              //srcDark="/images/logo-light.svg"
               alt="Fitness Pro"
             />
           </a>          
