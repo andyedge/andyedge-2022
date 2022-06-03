@@ -1,6 +1,6 @@
 import cn from "classnames";
 import RichText from "../RichText";
-import ImageComp from "../image/Image";
+import CustomImage from "../image/Image";
 import ImageType from "../../models/image.model";
 import styles from "./ImageTextComp.module.sass";
 
@@ -50,10 +50,7 @@ const ImageTextComp = ({ content, isFirst, isLast }: any) => {
             {
               images.map((image: ImageType, index: number) => (
                 <div className={styles.preview} key={'txtImg_' + index}>
-                  <ImageComp
-                    src={image.url}
-                    alt={image.description}
-                  />
+                  <CustomImage src={image}/>
                 </div>
               ))
             }

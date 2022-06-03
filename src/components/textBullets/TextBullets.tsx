@@ -3,7 +3,7 @@ import styles from "./TextBullets.module.sass";
 import ScrollParallax from "../ScrollParallax";
 import RichText from "../RichText";
 import ImageType from "../../models/image.model";
-import ImageComp from "../image/Image";
+import CustomImage from "../image/Image";
 import { Fragment } from "react";
 import Button from '../button/Button';
 
@@ -46,10 +46,7 @@ const TextBullets = ({ contents, section, bg }: any) => {
                   className={section === 'IdentityDesign' ? styles.preview_id_design : styles.preview}
                   animateIn="fadeInUp"
                 >
-                  <ImageComp
-                    src={image.url}
-                    alt={image.description}
-                  />
+                  <CustomImage src={image}/>
                 </ScrollParallax>
               </Fragment>
             ))
