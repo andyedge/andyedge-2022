@@ -1,7 +1,7 @@
 import cn from "classnames";
 import Link from "next/link";
 import RichText from "../RichText";
-import ImageComp from "../image/Image";
+import CustomImage from "../image/Image";
 import VideoComponent from "../VideoComponent";
 import ImageType from "../../models/image.model";
 import styles from "./EcampStandardContainer.module.sass";
@@ -57,10 +57,7 @@ const EcampStandardContainer = ({ contents, title }: any) => {
           {
             images.map((image: ImageType, index: number) => (
               <div className={styles.preview} key={index}>
-                <ImageComp
-                  src={image.url}
-                  alt={image.description}
-                />
+                <CustomImage src={image}/>
               </div>
             ))
           }

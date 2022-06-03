@@ -1,5 +1,5 @@
 import cn from "classnames";
-import ImageComp from "../image/Image";
+import CustomImage from "../image/Image";
 import styles from "./Contact.module.sass";
 import ContactField from "../contactField/ContactField";
 import VideoComponent from "../VideoComponent";
@@ -24,10 +24,7 @@ const Contact = ({ contents }: any) => {
               />
               :
               <div className={styles.contact_image}>
-                <ImageComp
-                  src={contents.contactImage.url}
-                  alt={contents.contactImage.description}
-                />                
+                <CustomImage src={contents.contactImage} />         
               </div>
           }
         </div>

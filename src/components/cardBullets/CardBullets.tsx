@@ -1,6 +1,6 @@
 import cn from "classnames";
 import { Fragment, FC } from "react";
-import ImageComp from "../image/Image";
+import CustomImage from "../image/Image";
 import styles from "./CardBullets.module.sass"
 import ScrollParallax from "../ScrollParallax";
 import ImageType from "../../models/image.model";
@@ -32,10 +32,7 @@ const CardBullets: FC<CardBulletsProps> = ({ contents, bg } : CardBulletsProps) 
                   animateIn="fadeInUp"
                   offset={300}
                 >
-                  <ImageComp
-                    src={image.url}
-                    alt={image.description}
-                  />
+                  <CustomImage src={image} />
                 </ScrollParallax>
               </Fragment>
             ))
@@ -52,10 +49,7 @@ const CardBullets: FC<CardBulletsProps> = ({ contents, bg } : CardBulletsProps) 
                 <div
                   className={styles.icon}
                 >
-                  <ImageComp
-                    src={content.image.url}
-                    alt={content.image.description}
-                  />
+                  <CustomImage src={content.image} />
                 </div>
                 <div className={styles.details}>
                   <div className={styles.subtitle}>{content.title}</div>
