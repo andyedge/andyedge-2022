@@ -2,35 +2,39 @@ import type { NextPage } from 'next';
 import { useRef } from 'react';
 import Hero from '../src/components/hero/Hero';
 import Steps from '../src/components/steps/Steps';
-import { getWhatpage } from '../src/services/fetch';
+import { getWhatpage, getHeader } from '../src/services/fetch';
 import Contact from '../src/components/contact/Contact';
 import Solution from '../src/components/solution/Solution';
 import CardBullets from '../src/components/cardBullets/CardBullets';
 import TextBullets from '../src/components/textBullets/TextBullets';
 import Whatpage from '../src/models/whatpage.model';
 import useDarkMode from "@fisch0920/use-dark-mode";
+import Layout from '../src/components/layout/Layout';
+import Header from '../src/models/header.model';
 
 export const getStaticProps = async () => {  
-  const res = await getWhatpage();
-
+  const whatPage = await getWhatpage();
+  const header = await getHeader();
   return {
     props: {
-      pageContent: res
+      pageContent: whatPage,
+      header
     }
   }
 }
 
 declare interface WhatPageProps {
-  pageContent: Whatpage
+  pageContent: Whatpage,
+  header: Header
 }
 
-const Home: NextPage<WhatPageProps> = ({ pageContent } : WhatPageProps ) => {
+const Home: NextPage<WhatPageProps> = ({ pageContent, header } : WhatPageProps ) => {
   const scrollToRef = useRef(null);
   const darkMode = useDarkMode(false);
   const isDarkModeActive = darkMode.value;
   
   return (
-    <>
+    <Layout header={header}>
       <Hero
         contents={pageContent.hero}
         scrollToRef={scrollToRef}
@@ -71,7 +75,7 @@ const Home: NextPage<WhatPageProps> = ({ pageContent } : WhatPageProps ) => {
       <Contact 
         contents={pageContent.contactContainer}
       />
-    </>
+    </Layout>
   )
 }
 

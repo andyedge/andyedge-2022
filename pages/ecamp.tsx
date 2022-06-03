@@ -2,31 +2,35 @@ import { useRef } from 'react';
 import type { NextPage } from 'next';
 import Ecamp from '../src/models/ecamp.model';
 import Hero from '../src/components/hero/Hero';
-import { getEcamp } from '../src/services/fetch';
+import { getEcamp, getHeader } from '../src/services/fetch';
 import Contact from '../src/components/contact/Contact';
 import TextSlider from '../src/components/textSlider/TextSlider';
 import CardsContainer from '../src/components/cardsContainer/CardsContainer';
 import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer';
+import Layout from '../src/components/layout/Layout';
+import Header from '../src/models/header.model';
 
 export const getStaticProps = async () => {
-  const res = await getEcamp();
-
+  const ecampPage = await getEcamp();
+  const header = await getHeader();
   return {
     props: {
-      pageContent: res
+      pageContent: ecampPage,
+      header
     }
   }
 }
 
 declare interface EcampProps {
   pageContent: Ecamp
+  header: Header
 }
 
-const Ecamp: NextPage<EcampProps> = ({ pageContent }: EcampProps) => {
+const Ecamp: NextPage<EcampProps> = ({ pageContent, header } : EcampProps) => {
   const scrollToRef = useRef(null);
 
   return (
-    <>
+    <Layout header={header}>
       <Hero
         contents={pageContent.hero}
         scrollToRef={scrollToRef}
@@ -74,7 +78,7 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent }: EcampProps) => {
       <Contact 
         contents={pageContent.contactContainer}
       />
-    </>
+    </Layout>
   )
 }
 
