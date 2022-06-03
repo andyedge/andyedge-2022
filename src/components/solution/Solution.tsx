@@ -2,7 +2,7 @@ import cn from "classnames";
 import Icon from "../icon/Icon";
 import Link from "next/link";
 import styles from "./Solution.module.sass";
-import ImageComp from "../image/Image";
+import CustomImage from "../image/Image";
 import { useEffect, useState } from "react";
 
 interface solutionImagesType {
@@ -39,10 +39,7 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
     <div className={cn("section-bg", styles.book)} style={{background: 'none', marginBottom: '104px'}}>
       {Object.keys(solutionBackgroundImage).length > 0 ?
         <div className={styles.bg_div}>
-          <ImageComp
-            src={solutionBackgroundImage.url}
-            alt={solutionBackgroundImage.description}
-          />
+          <CustomImage src={solutionBackgroundImage}/>
         </div>
         :
         null
@@ -87,12 +84,7 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
                 {
                   solutionImagesState.map((image: any, index: number) => (
                     <div className={styles.solution_images} style={image.style} key={'imgstate_' + index}>
-                      <ImageComp
-                        srcSet={image.url}
-                        src={image.url}
-                        alt={image.description}
-                        style={{borderRadius: '16px'}}
-                      />
+                      <CustomImage src={image} props={{style: {borderRadius: '16px'}}}/>
                     </div>
                   ))
                 }

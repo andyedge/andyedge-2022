@@ -1,20 +1,28 @@
-import React from "react";
-import Image from "next/image";
-import useDarkMode from "@fisch0920/use-dark-mode";
+import Image from 'next/image'
+// import useDarkMode from '@fisch0920/use-dark-mode'
+import ImageModel from '../../models/image.model'
 
-const ImageComp = ({ className, src, srcDark, srcSet, srcSetDark, alt, style, priority=false }: any) => {
-  const darkMode = useDarkMode(false);
+declare interface CustomImageProps {
+  src: ImageModel
+  props?: {
+    className?: string
+    style?: Object
+    priority?: boolean
+  }
+}
 
+const CustomImage = ({ src, props } : CustomImageProps) => {
+  // const darkMode = useDarkMode(false);
   return (
     <Image
-      className={className}
-      src={'https:' + src}
-      alt={alt}
+      className={props?.className}
+      src={'https:' + src.url}
+      alt={src.description}
       layout={'fill'}
-      style={style}
-      priority={priority}
+      style={props?.style}
+      priority={props?.priority}
     />
-  );
-};
+  )
+}
 
-export default ImageComp;
+export default CustomImage;

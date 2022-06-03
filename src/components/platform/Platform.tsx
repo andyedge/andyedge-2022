@@ -1,6 +1,6 @@
 import cn from "classnames";
 import Icon from "../icon/Icon";
-import ImageComp from "../image/Image";
+import CustomImage from "../image/Image";
 import styles from "./Platform.module.sass";
 import ScrollParallax from "../ScrollParallax";
 
@@ -16,10 +16,7 @@ const Platform = ({title1, stepsContainer}: any) => {
               <div
                 className={styles.preview}
               >
-                <ImageComp
-                  src={step.image.url}
-                  alt={step.image.description}
-                />
+                <CustomImage src={step.image}/>
               </div>
               <div className={styles.details}>
                 <div

@@ -1,6 +1,6 @@
 import cn from "classnames";
 import RichText from "../RichText";
-import ImageComp from "../image/Image";
+import CustomImage from "../image/Image";
 import styles from "./WhySecondSection.module.sass";
 import ScrollParallax from "../ScrollParallax";
 
@@ -25,10 +25,7 @@ const WhySecondSection = ({ content }: any) => {
             Object.keys(content.backgroundImage).length > 0 ?
               <>
                 <ScrollParallax className={styles.background_div} animateIn="fadeInUp">
-                  <ImageComp
-                    src={content.backgroundImage.url}
-                    alt={content.backgroundImage.description}
-                  />
+                  <CustomImage src={content.backgroundImage}/>
                 </ScrollParallax>
                 <ScrollParallax className={styles.lines} animateIn="fadeInUp" delay={500}>
                   <img

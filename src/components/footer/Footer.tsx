@@ -3,7 +3,7 @@ import Link from "next/link";
 import Icon from "../icon/Icon";
 import { useState } from "react";
 import Theme from "../theme/Theme";
-import ImageComp from "../image/Image";
+import CustomImage from "../image/Image";
 import styles from "./Footer.module.sass";
 import ContactField from "../contactField/ContactField";
 

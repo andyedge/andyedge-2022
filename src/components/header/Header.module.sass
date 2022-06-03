@@ -16,6 +16,9 @@
 
 .logo
     margin-right: 48px
+    width: 129px
+    height: 32px
+    position: relative
     +d
         margin-right: auto
 
@@ -23,7 +26,7 @@
     display: flex
     align-items: center
     flex-grow: 1
-    padding-left: 48px
+    padding-left: 330px
     border-left: 1px solid $neutrals6
     +x
         padding-left: 0
@@ -81,9 +84,9 @@
 .group,
 .nav > div
     &:not(:last-child)
-        margin-right: 32px
+        margin-right: 16px
         +x
-            margin-right: 24px
+            margin-right: 12px
         +d
             margin: 0 0 48px
         +m
@@ -101,10 +104,10 @@
         line-height: 1.2
         letter-spacing: -.01em
     +t
-        font-size: 32px
-    +m
-        padding: 18px 32px 
         font-size: 24px
+    +m
+        padding: 8px 32px 
+        font-size: 16px
     &:hover
         color: $neutrals2
         +dark
