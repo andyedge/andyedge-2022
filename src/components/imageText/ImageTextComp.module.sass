@@ -1,4 +1,5 @@
 @import ../../../styles/helpers
+@import ../../../styles/measurements
 
 .section
     position: relative
@@ -43,6 +44,8 @@
     margin-bottom: 40px
     +body-1
     color: $neutrals3
+    p
+        margin-bottom: $text-spacing
 
 .gallery_left
     left: calc(50% - 576px)
@@ -83,7 +86,7 @@
         top: auto
         left: -15px
         margin: 0 auto 24px
-        transform: translateY(10%)
+        transform: translateY(-5%)
 
 .preview
     transform: translateY(-30%)
