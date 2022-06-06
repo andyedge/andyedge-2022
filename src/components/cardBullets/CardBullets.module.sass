@@ -12,6 +12,8 @@
     position: relative
     +m
         padding: 0 16px
+    +s
+        max-height: 1100px
 
 
 .gallery_left
@@ -21,14 +23,18 @@
             height: 76px
             z-index: 2
             +m 
-                display: none
+                width: 100%
+
         &:nth-child(2)
             width: 940px
             height: 726px
             left: -30%
             z-index: 3
-            +m 
-                display: none
+            +m
+                width: 564px
+                height: 435.6px
+                left: -25%
+                top: -50px
 
 .gallery_right
     right: calc(60% - 640px)
@@ -36,6 +42,8 @@
         right: calc(60% - 610px)
     +d
         right: calc(60% - 560px)
+    +m  
+        right: unset
     .preview
         &:first-child
             top: -168px
@@ -44,7 +52,11 @@
             height: 701px
             z-index: 2
             +m 
-                display: none
+                width: 490.5px
+                height: 350.5px
+                top: 0
+                left: -15%
+
         &:nth-child(2)
             width: 395px
             height: 469px
@@ -52,7 +64,10 @@
             bottom: -700px
             left: 30%
             +m 
-                display: none
+                width: 237px
+                height: 281.4px
+                top: -180px
+                left: 22%
 
 .gallery
     position: absolute
@@ -61,23 +76,25 @@
     transform: translateY(-50%)
     pointer-events: none
     +x        
-        width: 580px    
-    +m
+        width: 580px
+    +d
         position: relative
-        top: auto
-        left: 50%
-        width: 500px
-        transform: translate(-50%,0)
+        top: unset
+        width: 100%
+        transform: unset
+        margin-top: 32px
 
 .preview
     &
         position: absolute
+        +m
+            position: relative
 
 .wrap
     position: relative
     z-index: 3
     max-width: 545px
-    padding: 48px
+    padding: 58px 62px
     background: $neutrals8
     box-shadow: 24px 64px 64px 24px rgba(15, 15, 15, 0.1)
     border-radius: 20px
@@ -105,7 +122,7 @@
 
 .item
     display: flex
-    padding: 24px
+    padding: 24px 0
     border-radius: 12px
     transition: box-shadow .2s
     &:hover
@@ -125,6 +142,12 @@
     height: 40px
     margin-right: 24px
     border-radius: 50%
+    top: -8px
+    +s
+        width: 32px
+        height: 32px
+        margin-right: 12px
+        top: -4px
 
 .details
     flex-grow: 1
@@ -137,10 +160,12 @@
         color: $white
 
 .content
-    max-width: 260px
+    max-width: 294px
     +caption-1
     font-size: 15px
     color: $light-black
+    +s
+        max-width: unset
     +dark
         color: $gray3
 
