@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import cn from 'classnames'
 import styles from './Header.module.sass'
@@ -8,6 +9,7 @@ import MegaMenu from '../megaMenu/MegaMenu'
 
 const HeaderComponent = ({ data } : { data: Header}) => {
   const [visibleNav, setVisibleNav] = useState(false);
+  const router = useRouter();
   return (
     <header className={styles.header}>
       <div className={cn('container', styles.container)}>
@@ -19,7 +21,7 @@ const HeaderComponent = ({ data } : { data: Header}) => {
         <div className={cn(styles.wrap, { [styles.active]: visibleNav })}>
           <nav className={styles.nav}>
             {data.links.map((link, index) => {
-              const isActive = false
+              const isActive = router.pathname === link.url
               return (
                 <Link
                   href={link.url}
