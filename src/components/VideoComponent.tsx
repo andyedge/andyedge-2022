@@ -1,16 +1,17 @@
 import Icon from "./icon/Icon";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const VideoComponent = ({ videoUrl, videoClassnames }: any) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState <boolean> (false);
+  const [topPosition, setTopPosition] = useState <number> (0);
   const { videoDivClassname, videoClassname, playButtonClassname } = videoClassnames;
 
   const videoHandler = (e: any) => {
     const elementName = e.target.localName;
-
     switch (elementName) {
       case 'path':
+      case 'button':
         if (!playing) {
           videoRef.current?.play();
           setPlaying(true);
@@ -33,6 +34,17 @@ const VideoComponent = ({ videoUrl, videoClassnames }: any) => {
     videoRef.current?.requestFullscreen();
   }
 
+  const resizeEvent = () => {
+    const top = videoRef.current?.clientHeight || 0
+    setTopPosition(top / 2);
+  }
+  
+  useEffect(() => {
+    resizeEvent()
+    window.addEventListener('resize', resizeEvent)
+    return () => window.removeEventListener('resize', resizeEvent)
+  }, [])
+
   return (
     <div key={'video-div'} className={videoDivClassname}>
       <video
@@ -48,7 +60,10 @@ const VideoComponent = ({ videoUrl, videoClassnames }: any) => {
       ></video>
       <button
         className={playButtonClassname}
-        style={playing ? { opacity: 0 } : { opacity: 1 }}
+        style={{
+          top: topPosition,
+          opacity: playing ? 0 : 1,
+        }}
         onClick={(e) => videoHandler(e)}
       >
         <Icon name="play" size={40} />
