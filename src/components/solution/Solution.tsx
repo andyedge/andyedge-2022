@@ -4,7 +4,8 @@ import Link from "next/link";
 import styles from "./Solution.module.sass";
 import CustomImage from "../image/Image";
 import { useEffect, useState } from "react";
-import { Solution } from "../../models/whatpage.model";
+import Solution from "../../models/solution.model";
+import Button from "../button/Button";
 
 declare interface solutionImagesType {
   url: string
@@ -12,14 +13,16 @@ declare interface solutionImagesType {
   style: any
 }
 
-const Solution = ({ 
-  solutionTitle,
-  solutionText,
-  solutionSubtitle,
-  solutionSteps,
-  solutionImages,
-  solutionBackgroundImage
-} : Solution ) => {
+const Solution = ({ data } : { data: Solution } ) => {
+  const {
+    solutionTitle,
+    solutionText,
+    solutionSubtitle,
+    solutionSteps,
+    solutionImages,
+    solutionBackgroundImage,
+    solutionCta
+  } = data;
   const [solutionImagesState, setSolutionImagesState] = useState<solutionImagesType[]>([]);
 
   useEffect(() => {
@@ -96,12 +99,7 @@ const Solution = ({
                   ))
                 }
               </div>
-              <Link href="/">
-                <a className={cn("button", styles.button)}>
-                  Pearson case study
-                  <Icon name="arrow-right" size={20} />
-                </a>
-              </Link>
+              <Button link={solutionCta.url} text={solutionCta.text}/>
             </div>
           </div>
         </div>

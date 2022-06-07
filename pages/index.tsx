@@ -64,13 +64,8 @@ const Home: NextPage<WhatPageProps> = ({ pageContent, header } : WhatPageProps )
         section={'design_thinking'}
         bg={isDarkModeActive ? '#000000' : '#FAFAFA'}
       />
-      <Solution
-        solutionTitle={pageContent.solutionTitle}
-        solutionText={pageContent.solutionText}
-        solutionSubtitle={pageContent.solutionSubtitle}
-        solutionSteps={pageContent.solutionSteps}
-        solutionImages={pageContent.solutionImages}
-        solutionBackgroundImage={pageContent.solutionBackgroundImage}
+      <Solution 
+        data={pageContent.solution}
       />
       <Contact 
         contents={pageContent.contactContainer}
