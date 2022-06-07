@@ -28,18 +28,20 @@ const Why = ({ pageContent, header } : WhyPageProps) => {
 
   return (
     <Layout header={header}>
-      <WhyMainSection
-        contents={pageContent.standardContainers}
-      />
-      <WhySecondSection
-        content={pageContent.standardContainer1}
-      />
-      <Platform
-        title1={pageContent.title1}
-        stepsContainer={pageContent.stepsContainer}
-      />
-      <PortfolioContainer />
-    </Layout>
+      <div className="container-1440">
+        <WhyMainSection
+          contents={pageContent.standardContainers}
+        />
+        <WhySecondSection
+          content={pageContent.standardContainer1}
+        />
+        <Platform
+          title1={pageContent.title1}
+          stepsContainer={pageContent.stepsContainer}
+        />
+        <PortfolioContainer />
+      </div>
+    </Layout>    
   );
 }
 

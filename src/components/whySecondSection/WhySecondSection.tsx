@@ -2,6 +2,7 @@ import cn from "classnames";
 import RichText from "../RichText";
 import CustomImage from "../image/Image";
 import styles from "./WhySecondSection.module.sass";
+import ScrollParallax from "../ScrollParallax";
 
 const WhySecondSection = ({ content }: any) => {
   const wrapStyle = content.mediaPosition?.toLowerCase() === 'right' ? { marginRight: 'auto' } : { marginLeft: 'auto' };
@@ -23,21 +24,21 @@ const WhySecondSection = ({ content }: any) => {
           {
             Object.keys(content.backgroundImage).length > 0 ?
               <>
-                <div className={styles.background_div}>
+                <ScrollParallax className={styles.background_div} animateIn="fadeInUp">
                   <CustomImage src={content.backgroundImage}/>
-                </div>
-                <div className={styles.lines}>
+                </ScrollParallax>
+                <ScrollParallax className={styles.lines} animateIn="fadeInUp" delay={500}>
                   <img
                     src='/images/bg-line-03.svg'
                     alt='bg-line-03'
                   />
-                </div>                
-                <div className={styles.lighthouse}>
+                </ScrollParallax>                
+                <ScrollParallax className={styles.lighthouse} animateIn="fadeInUp" delay={800}>
                   <img
                     src='/images/lighthouse-light.svg'
                     alt='lighthouse-light'
                   />
-                </div>
+                </ScrollParallax>
               </>
               :
               null
