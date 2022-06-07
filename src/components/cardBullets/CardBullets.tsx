@@ -21,23 +21,6 @@ const CardBullets: FC<CardBulletsProps> = ({ contents, bg } : CardBulletsProps) 
   return (
     <div style={{backgroundColor: bg}} className={cn("section-bg", styles.section)}>
       <div className={cn("container", styles.container)}>
-        <div
-          className={galleryClasses}
-        >
-          {
-            contents.images?.map((image: ImageType, index: number) => (
-              <Fragment key={'galleryimg_' + index}>
-                <ScrollParallax
-                  className={styles.preview}
-                  animateIn="fadeInUp"
-                  offset={300}
-                >
-                  <CustomImage src={image} />
-                </ScrollParallax>
-              </Fragment>
-            ))
-          }
-        </div>
         <div className={styles.wrap} style={wrapStyle}>
           <h2 className={cn("h2", styles.title)}> {contents.title} </h2>
           <div className={styles.info}>
@@ -59,6 +42,23 @@ const CardBullets: FC<CardBulletsProps> = ({ contents, bg } : CardBulletsProps) 
             ))}
           </div>
           <Button link={contents.ctaPageLink} text={contents.ctaText} />
+        </div>
+        <div
+          className={galleryClasses}
+        >
+          {
+            contents.images?.map((image: ImageType, index: number) => (
+              <Fragment key={'galleryimg_' + index}>
+                <ScrollParallax
+                  className={styles.preview}
+                  animateIn="fadeInUp"
+                  offset={300}
+                >
+                  <CustomImage src={image} />
+                </ScrollParallax>
+              </Fragment>
+            ))
+          }
         </div>
       </div>
     </div>

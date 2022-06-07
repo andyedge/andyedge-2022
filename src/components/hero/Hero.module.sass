@@ -19,14 +19,19 @@
         width: 100%
         opacity: 0.3
 
+.container
+    display: grid
+    grid-template-columns: 1fr 640px
+    position: relative
+    +t
+        grid-template-columns: 1fr 340px
+    +m
+        grid-template-columns: 100%
+
 .wrap
     position: relative
     z-index: 3
-    max-width: 490px
-    +t
-        max-width: 340px
     +m
-        max-width: 100%
         margin-bottom: 80px
 
     .stage
@@ -78,27 +83,13 @@
         bottom: -336px
 
 .gallery
-    position: absolute
-    top: 50%
-    right: calc(50% - 465px)
-    width: 512px
-    transform: translateY(-58%)
-    +x
-        right: calc(50% - 425px)
-        width: 450px
-    +d
-        right: calc(50% - 365px)
-        width: 320px
-    +t
-        right: calc(50% - 300px)
+    position: relative
     +m
-        position: relative
-        top: auto
-        right: auto
-        left: -16px
         margin: 0 auto
-        transform: translate(0,0)
         pointer-events: all
+
+    .play
+        transform: translate(-50%, -50%)
 
 .preview
     &:first-child

@@ -56,12 +56,12 @@ const Home: NextPage<WhatPageProps> = ({ pageContent, header } : WhatPageProps )
       />
       <TextBullets
         contents={pageContent.standardContainer3}
-        section={'IdentityDesign'}
+        section={'identity_design'}
         bg={isDarkModeActive ? '#000000' : '#F4F4F4'}
       />
       <TextBullets
         contents={pageContent.standardContainer4}
-        section={'DesignThinking'}
+        section={'design_thinking'}
         bg={isDarkModeActive ? '#000000' : '#FAFAFA'}
       />
       <Solution
@@ -70,7 +70,7 @@ const Home: NextPage<WhatPageProps> = ({ pageContent, header } : WhatPageProps )
         solutionSubtitle={pageContent.solutionSubtitle}
         solutionSteps={pageContent.solutionSteps}
         solutionImages={pageContent.solutionImages}
-        solutionBackgroundImage={pageContent.solutionBackgroundImage1}
+        solutionBackgroundImage={pageContent.solutionBackgroundImage}
       />
       <Contact 
         contents={pageContent.contactContainer}
