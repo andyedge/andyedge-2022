@@ -7,13 +7,13 @@ import CustomImage from "../image/Image";
 import { Fragment } from "react";
 import Button from '../button/Button';
 
-const TextBullets = ({ contents, section, bg }: any) => {
+const TextBullets = ({ contents, section }: any) => {
   const bulletsContent = contents.bulletsContainer;
   const images = contents.images;
   const isIdentityDesign = section === 'identity_design';
 
   return (
-    <div style={{backgroundColor: bg}} className={cn(styles.section, !isIdentityDesign && styles.reduced_padding)}>
+    <div className={cn(styles.section, styles[section])}>
       <div className={cn("container", "container-full", styles.container)}>
         <div className={styles.wrap}>
           <h2 className={cn("h2", styles.title)}>

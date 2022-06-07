@@ -9,17 +9,17 @@ import StandardContainer from '../../models/standardContainer.model';
 
 declare interface CardBulletsProps {
   contents: StandardContainer
-  bg?: string
+  section: string
 }
 
-const CardBullets: FC<CardBulletsProps> = ({ contents, bg } : CardBulletsProps) => {
+const CardBullets: FC<CardBulletsProps> = ({ contents, section } : CardBulletsProps) => {
   const { mediaPosition } = contents
   const isRightOriented = mediaPosition?.toLowerCase() === 'right'
   const galleryClasses = cn(styles.gallery, isRightOriented ? styles.gallery_right : styles.gallery_left);
   const wrapStyle = isRightOriented ? { marginRight: 'auto' } : { marginLeft: 'auto' };
 
   return (
-    <div style={{backgroundColor: bg}} className={cn("section-bg", styles.section)}>
+    <div className={cn("section-bg", styles.section, styles[section])}>
       <div className={cn("container", styles.container)}>
         <div className={styles.wrap} style={wrapStyle}>
           <h2 className={cn("h2", styles.title)}> {contents.title} </h2>

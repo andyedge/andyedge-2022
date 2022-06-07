@@ -2,6 +2,19 @@
 @import ../../../styles/colors
 @import ../../../styles/measurements
     
+.identity_design
+    background-color: $gray4
+    +dark
+        background-color: $black
+
+.design_thinking
+    padding-bottom: 0
+    background-color: $white
+    +d
+        padding-bottom: unset
+    +dark
+        background-color: $black
+
 .section
     position: relative
     display: flex
@@ -15,11 +28,6 @@
     +m
         min-height: auto
         padding: 64px 0
-
-.reduced_padding
-    padding-bottom: 0
-    +d
-        padding-bottom: unset
 
 .wrap
     margin-left: $container-padding

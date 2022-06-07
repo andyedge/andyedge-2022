@@ -1,3 +1,4 @@
+import { useState } from "react";
 import cn from "classnames";
 import Icon from "../icon/Icon";
 import styles from "./Theme.module.sass";
@@ -12,6 +13,7 @@ const Theme = ({ className }: any) => {
         className={styles.input}
         checked={darkMode.value}
         onChange={darkMode.toggle}
+        onClick={darkMode.toggle}
         type="checkbox"
       />
       <span className={styles.inner}>

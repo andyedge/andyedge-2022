@@ -31,7 +31,6 @@ declare interface WhatPageProps {
 const Home: NextPage<WhatPageProps> = ({ pageContent, header } : WhatPageProps ) => {
   const scrollToRef = useRef(null);
   const darkMode = useDarkMode(false);
-  const isDarkModeActive = darkMode.value;
   
   return (
     <Layout header={header}>
@@ -48,21 +47,19 @@ const Home: NextPage<WhatPageProps> = ({ pageContent, header } : WhatPageProps )
       />
       <CardBullets
         contents={pageContent.standardContainer1}
-        bg={isDarkModeActive ? '#000000' : '#FFFFFF'}
+        section={'design_system'}
       />
       <CardBullets 
         contents={pageContent.standardContainer2}
-        bg={isDarkModeActive ? '#000000' : '#FAFAFA'}
+        section={'visual_language'}
       />
       <TextBullets
         contents={pageContent.standardContainer3}
         section={'identity_design'}
-        bg={isDarkModeActive ? '#000000' : '#F4F4F4'}
       />
       <TextBullets
         contents={pageContent.standardContainer4}
         section={'design_thinking'}
-        bg={isDarkModeActive ? '#000000' : '#FAFAFA'}
       />
       <Solution
         solutionTitle={pageContent.solutionTitle}
