@@ -10,9 +10,10 @@ import Button from '../button/Button';
 const TextBullets = ({ contents, section, bg }: any) => {
   const bulletsContent = contents.bulletsContainer;
   const images = contents.images;
+  const isIdentityDesign = section === 'identity_design';
 
   return (
-    <div style={{backgroundColor: bg}} className={styles.section}>
+    <div style={{backgroundColor: bg}} className={cn(styles.section, !isIdentityDesign && styles.reduced_padding)}>
       <div className={cn("container", "container-full", styles.container)}>
         <div className={styles.wrap}>
           <h2 className={cn("h2", styles.title)}>
@@ -43,7 +44,7 @@ const TextBullets = ({ contents, section, bg }: any) => {
             images.map((image: ImageType, index: number) => (
               <Fragment key={'imgTxtBullet_' + index}>
                 <ScrollParallax
-                  className={section === 'IdentityDesign' ? styles.preview_id_design : styles.preview}
+                  className={isIdentityDesign ? styles.preview_id_design : styles.preview}
                   animateIn="fadeInUp"
                 >
                   <CustomImage src={image}/>

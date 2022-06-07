@@ -1,17 +1,27 @@
 @import '../../../styles/helpers'
 @import '../../../styles/colors'
 
+.container
+    background-color: unset
+    padding-top: 368px
+    max-width: 1440px
+    margin: 0 auto
+    position: relative
+
+    +m
+        padding-top: 36px
+
 .bg_div
     position: absolute
     z-index: -1
     width: 100%
-    height: 130%
-    transform: translateY(-10%)
+    height: 1200px
     overflow-x: hidden
+    top: 100px
 
 
 .card
-    padding: 48px 76px 64px
+    padding: 36px 96px
     background: $neutrals8
     +dark
         background: $black
@@ -19,16 +29,26 @@
     border-radius: 24px
     overflow: hidden
 
+    +m
+        padding: 24px
+
 .title
     font-size: 48px
     letter-spacing: -0.96px
     line-height: 1
+
+    +m
+        font-size: 40px
 
 .paragraph
     width: 75%
     line-height: 1.2
     font-size: 24px
     margin-top: 16px
+    +m 
+        font-size: 16px
+        line-height: unset
+        width: 100%
     
 .wrap
     margin-top: 64px
@@ -41,6 +61,8 @@
     +m
         display: block
         border-radius: 16px
+        margin-top: unset
+        padding: 48px 0
     +dark
         background: $neutrals1
 

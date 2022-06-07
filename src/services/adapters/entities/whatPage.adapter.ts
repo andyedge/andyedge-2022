@@ -23,7 +23,7 @@ export const adaptWhatpage = (data: Entry): Whatpage => {
         solutionSubtitle: fields.solutionSubtitle,
         solutionSteps: adaptStepsSection(fields.solutionSteps),
         solutionImages: adaptImages(fields.solutionImages),
-        solutionBackgroundImage1: adaptImage(fields.solutionBackgroundImage1),
+        solutionBackgroundImage: adaptImage(fields.solutionBackgroundImage1),
         contactContainer: adaptContactContainer(fields.contactContainer)
     }
 }

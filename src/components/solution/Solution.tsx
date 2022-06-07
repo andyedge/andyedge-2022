@@ -4,15 +4,24 @@ import Link from "next/link";
 import styles from "./Solution.module.sass";
 import CustomImage from "../image/Image";
 import { useEffect, useState } from "react";
+import { Solution } from "../../models/whatpage.model";
 
-interface solutionImagesType {
+declare interface solutionImagesType {
   url: string
   description: string
   style: any
 }
 
-const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps, solutionImages, solutionBackgroundImage }: any) => {
+const Solution = ({ 
+  solutionTitle,
+  solutionText,
+  solutionSubtitle,
+  solutionSteps,
+  solutionImages,
+  solutionBackgroundImage
+} : Solution ) => {
   const [solutionImagesState, setSolutionImagesState] = useState<solutionImagesType[]>([]);
+
   useEffect(() => {
     const solutionImgs: solutionImagesType[] = [];
 
@@ -36,15 +45,13 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
   }
 
   return (
-    <div className={cn("section-bg", styles.book)} style={{background: 'none', marginBottom: '104px'}}>
-      {Object.keys(solutionBackgroundImage).length > 0 ?
+    <div className={cn("section-bg", styles.container)}>
+      {solutionBackgroundImage && (
         <div className={styles.bg_div}>
           <CustomImage src={solutionBackgroundImage}/>
         </div>
-        :
-        null
-      }
-      <div className={cn("container", styles.container)}>
+      )}
+      <div className={cn("container")}>
         <div className={styles.card}>
           <h2 className={styles.title}>
             {solutionTitle}
