@@ -61,13 +61,8 @@ const Home: NextPage<WhatPageProps> = ({ pageContent, header } : WhatPageProps )
         contents={pageContent.standardContainer4}
         section={'design_thinking'}
       />
-      <Solution
-        solutionTitle={pageContent.solutionTitle}
-        solutionText={pageContent.solutionText}
-        solutionSubtitle={pageContent.solutionSubtitle}
-        solutionSteps={pageContent.solutionSteps}
-        solutionImages={pageContent.solutionImages}
-        solutionBackgroundImage={pageContent.solutionBackgroundImage}
+      <Solution 
+        data={pageContent.solution}
       />
       <Contact 
         contents={pageContent.contactContainer}
