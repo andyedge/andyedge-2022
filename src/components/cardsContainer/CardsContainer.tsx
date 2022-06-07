@@ -20,6 +20,7 @@ const CardsContainer = ({ contents, scrollToRef }: CardsContainerProps) => {
   const settings = {
     infinite: false,
     speed: 500,
+    initialSlide: 0,
     slidesToShow: 3,
     slidesToScroll: 1,
     adaptiveHeight: true,

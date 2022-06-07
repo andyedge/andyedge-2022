@@ -10,6 +10,7 @@ import { getEcamp, getHeader } from '../src/services/fetch';
 import TextSlider from '../src/components/textSlider/TextSlider';
 import EcampPageText from '../src/components/ecampPageText/EcampPageText';
 import CardsContainer from '../src/components/cardsContainer/CardsContainer';
+import EcampImgTextComp from '../src/components/ecampImgTextComp/EcampImgTextComp';
 import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer';
 
 export const getStaticProps = async () => {
@@ -43,6 +44,9 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent, header } : EcampProps) => {
       <CardsContainer
         contents={pageContent.cardsContainer}
         scrollToRef={scrollToRef}
+      />
+      <EcampImgTextComp
+        contents={pageContent.standardContainer1}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer2}

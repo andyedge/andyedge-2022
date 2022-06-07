@@ -1,0 +1,57 @@
+import cn from "classnames";
+import styles from "./EcampImgTextComp.module.sass";
+import StandardContainer from "../../models/standardContainer.model";
+import RichText from "../RichText";
+import CustomImage from "../image/Image";
+import ImageType from "../../models/image.model";
+
+declare interface EcampImgTextCompProps {
+  contents: StandardContainer
+}
+
+const EcampImgTextComp = ({contents}: EcampImgTextCompProps) => {
+  const bulletsContent = contents.bulletsContainer;
+  const images = contents.images;
+
+  return (
+    <div className={cn("section", styles.section)}>
+      <div className={cn("container", styles.container)}>
+        <div className={styles.head}>
+          <div className={styles.preview}>
+            {
+              images?.map((image: ImageType) => (
+                <div className={styles.image_div}>
+                  <CustomImage
+                    src={image}
+                  />
+                </div>             
+              ))
+            }
+          </div>
+        </div>
+        <div className={styles.row}>
+          <div className={styles.col}>
+            <div className={styles.content}>
+              <RichText
+                richText={contents.text}
+              />
+            </div>
+          </div>
+          <div className={styles.col}>
+            {!!bulletsContent?.length && (
+              <ul className={styles.list}>
+                {bulletsContent.map((content: any, index: number) => (
+                  <li className={styles.item} key={index}>
+                    {content.title}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default EcampImgTextComp;
