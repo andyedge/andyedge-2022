@@ -14,13 +14,13 @@ const EcampImgTextComp = ({contents}: EcampImgTextCompProps) => {
   const images = contents.images;
 
   return (
-    <div className={cn("section", styles.section)}>
+    <div className={styles.section}>
       <div className={cn("container", styles.container)}>
         <div className={styles.head}>
           <div className={styles.preview}>
             {
-              images?.map((image: ImageType) => (
-                <div className={styles.image_div}>
+              images?.map((image: ImageType, index: number) => (
+                <div className={styles.image_div} key={index}>
                   <CustomImage
                     src={image}
                   />

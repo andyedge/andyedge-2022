@@ -12,6 +12,7 @@ import EcampPageText from '../src/components/ecampPageText/EcampPageText';
 import CardsContainer from '../src/components/cardsContainer/CardsContainer';
 import EcampImgTextComp from '../src/components/ecampImgTextComp/EcampImgTextComp';
 import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer';
+import TitleShare from '../src/components/titleShare/TitleShare';
 
 export const getStaticProps = async () => {
   const ecampPage = await getEcamp();
@@ -44,6 +45,10 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent, header } : EcampProps) => {
       <CardsContainer
         contents={pageContent.cardsContainer}
         scrollToRef={scrollToRef}
+      />
+      <TitleShare
+        title={pageContent.bigTitle1}
+        section={'first_title'}
       />
       <EcampImgTextComp
         contents={pageContent.standardContainer1}
@@ -95,6 +100,10 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent, header } : EcampProps) => {
         title={false}
         bg={isDarkModeActive ? '#161616' : '#F4F4F4'}
         isNewSection={false}
+      />
+      <TitleShare
+        title={pageContent.bigTitle2}
+        section={'second_title'}
       />
       <EcampPageText
         title={pageContent.pageSubtitle}
