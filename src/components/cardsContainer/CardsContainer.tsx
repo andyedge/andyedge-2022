@@ -4,45 +4,23 @@ import Icon from "../icon/Icon";
 import Slider from "react-slick";
 import styles from "./CardsContainer.module.sass";
 import ScrollParallax from "../ScrollParallax";
+import StandardCardContainer from "../../models/standardCardContainer.model";
+import { MutableRefObject } from "react";
 
-const items = [
-  {
-    title: "Beginners",
-    url: "/class02-details",
-    color: "#45B26B",
-    image: "/images/content/user.svg",
-    alt: "user",
-    content:
-      "A 7-days training program designed to boost your strength & endurance over the course of a week.",
-  },
-  {
-    title: "Advanced",
-    url: "/class02-details",
-    color: "#9757D7",
-    image: "/images/content/medal-1.svg",
-    alt: "medal",
-    content:
-      "A 7-days training program designed to boost your strength & endurance over the course of a week.",
-  },
-  {
-    title: "Premium",
-    url: "/class02-details",
-    color: "#3772FF",
-    image: "/images/content/lightning.svg",
-    alt: "lightning",
-    content:
-      "A 7-days training program designed to boost your strength & endurance over the course of a week.",
-  },
-];
+declare interface CardsContainerProps {
+  contents: StandardCardContainer[]
+  scrollToRef: MutableRefObject<null>
+}
 
 const SlickArrow = ({ currentSlide, slideCount, children, ...props }: any) => (
   <button {...props}>{children}</button>
 );
 
-const CardsContainer = ({ contents, scrollToRef }: any) => {
+const CardsContainer = ({ contents, scrollToRef }: CardsContainerProps) => {
   const settings = {
     infinite: false,
     speed: 500,
+    initialSlide: 0,
     slidesToShow: 3,
     slidesToScroll: 1,
     adaptiveHeight: true,
@@ -58,7 +36,7 @@ const CardsContainer = ({ contents, scrollToRef }: any) => {
     ),
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 769,
         settings: {
           slidesToShow: 2,
         },
@@ -73,7 +51,7 @@ const CardsContainer = ({ contents, scrollToRef }: any) => {
   };
 
   return (
-    <div className={cn("section-pb", styles.section)}>
+    <div className={cn("section", styles.section)}>
       <div className={styles.anchor} ref={scrollToRef}></div>
       <div className={cn("container", styles.container)}>
         <div className={styles.wrap}>

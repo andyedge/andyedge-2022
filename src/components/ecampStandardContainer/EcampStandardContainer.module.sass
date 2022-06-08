@@ -19,12 +19,18 @@
         width: 100%
         opacity: 0.3
 
+.new_section
+    padding: 240px 80px 0px 80px
+
+.group_section
+    padding: 0 80px
+
 .wrap
     position: relative
     z-index: 3
     max-width: 450px
     +t
-        max-width: 340px
+        max-width: 320px
     +m
         max-width: 100%
         margin-bottom: 80px
@@ -95,6 +101,16 @@
 .preview
     width: 544px
     height: 408px
+    +d
+        width: 424px
+        height: 320px
+    +t
+        width: 360px
+        height: 300px
+    +m
+        width: 320px
+        height: 240px
+        
     &:first-child
         position: relative
         z-index: 2
