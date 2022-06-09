@@ -6,10 +6,11 @@ import styles from "./CardsContainer.module.sass";
 import ScrollParallax from "../ScrollParallax";
 import StandardCardContainer from "../../models/standardCardContainer.model";
 import { MutableRefObject } from "react";
+import CustomImage from '../image/Image';
 
 declare interface CardsContainerProps {
   contents: StandardCardContainer[]
-  scrollToRef: MutableRefObject<null>
+  scrollToRef: MutableRefObject<null> | null
 }
 
 const SlickArrow = ({ currentSlide, slideCount, children, ...props }: any) => (
@@ -59,16 +60,20 @@ const CardsContainer = ({ contents, scrollToRef }: CardsContainerProps) => {
             {contents.map((content: any, index: number) => (
               <ScrollParallax className={styles.slide} key={index}>
                 <div className={cn("programs-item", styles.item)}>
-                  <div className={styles.icon}>
-                    <img src={content.icon.url} alt={content.icon.description} />
-                  </div>
-                  <div className={styles.subtitle}>{content.title}</div>
-                  <div className={styles.content}>{content.text}</div>
-                  <Link href={`/${content.leftCtaLink}`}>
-                    <div className={cn("button-stroke", styles.button, styles.button_card)}>
-                      {content.leftCtaText}
+                  <div>
+                    <div className={styles.icon}>
+                      <CustomImage src={content.icon} />
                     </div>
-                  </Link>
+                    <h5 className={styles.subtitle}>{content.title}</h5>
+                    <p className={styles.content}>{content.text}</p>
+                  </div>
+                  {content.leftCtaText && (
+                    <Link href={`/${content.leftCtaLink}`}>
+                      <div className={cn("button-stroke", styles.button, styles.button_card)}>
+                        {content.leftCtaText}
+                      </div>
+                    </Link>
+                  )}
                 </div>
               </ScrollParallax>
             ))}

@@ -1,4 +1,5 @@
 @import ../../../styles/helpers
+@import ../../../styles/colors
 
 .section
     position: relative
@@ -41,21 +42,27 @@
 
 .item
     height: 100%
-    padding: 64px 32px
+    padding: 48px 32px
     background: #F4F5F6
     border-radius: 20px
     transition: all .2s
+    display: flex
+    flex-direction: column
+    justify-content: space-between
     +d
-        padding: 48px 24px
+        padding: 32px 24px
     +m
-        padding: 64px 24px
+        padding: 48px 24px
     &:hover
-        box-shadow: 8px 64px 64px -16px rgba(15, 15, 15, 0.1)
+        box-shadow: 8px 64px 64px 8px rgba(15, 15, 15, 0.1)
+        +dark
+            box-shadow: 8px 64px 64px 8px rgba(243, 242, 242, 0.9)
         background: $neutrals8
         .button
             background: $red
             box-shadow: 0 0 0 2px $red inset
             color: $neutrals8
+            border-width: 1px
             &:hover
                 background: darken($red, 10)
                 box-shadow: 0 0 0 2px darken($red, 10) inset
@@ -67,13 +74,10 @@
             box-shadow: inset 0 0 0 1px $neutrals2
 
 .icon
-    display: flex
-    justify-content: center
-    align-items: center
     width: 48px
     height: 48px
-    margin-bottom: 32px
-    border-radius: 50%
+    position: relative
+    margin-bottom: 48px
 
 .subtitle
     margin-bottom: 16px
@@ -81,12 +85,13 @@
 
 .content
     margin-bottom: 32px
-    +caption-1
-    color: $neutrals4
+    max-width: 288px
+    +dark
+        color: $gray4
 
 .button_card
     border-style: solid
-    border-width: 1px
+    border-width: 2px
     border-color: #E6E8EC
     width: 139px
     height: 48px
