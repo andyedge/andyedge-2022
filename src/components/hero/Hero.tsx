@@ -46,9 +46,9 @@ const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
             {contents.subtitle}
           </p>
           {contents.text && (
-            <p className={styles.paragraph}>
+            <div className={styles.paragraph}>
               <RichText richText={contents.text} />
-            </p>
+            </div>
           )}
           {contents.ctaText && (
             <Button link={contents.ctaPageLink} text={contents.ctaText} size='small' showIcon={false} />
