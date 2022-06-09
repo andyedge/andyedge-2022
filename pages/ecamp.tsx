@@ -58,49 +58,49 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent, header } : EcampProps) => {
         contents={pageContent.standardContainer2}
         title={true}
         bg={isDarkModeActive ? '#161616' : '#FFFFFF'}
-        isNewSection={false}
+        section={'standard'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer3}
         title={true}
         bg={isDarkModeActive ? '#161616' : '#FFFFFF'}
-        isNewSection={false}
+        section={'standard'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer4}
         title={true}
         bg={isDarkModeActive ? '#161616' : '#FFFFFF'}
-        isNewSection={false}
+        section={'standard'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer5}
         title={true}
         bg={isDarkModeActive ? '#161616' : '#FFFFFF'}
-        isNewSection={false}
+        section={'prototype'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer6}
         title={true}
         bg={isDarkModeActive ? '#161616' : '#FAFAFA'}
-        isNewSection={true}
+        section={'standard'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer7}
-        title={false}
+        title={true}
         bg={isDarkModeActive ? '#161616' : '#F4F4F4'}
-        isNewSection={true}
+        section={'no_title'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer8}
         title={false}
         bg={isDarkModeActive ? '#161616' : '#F4F4F4'}
-        isNewSection={false}
+        section={'no_title'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer9}
         title={false}
         bg={isDarkModeActive ? '#161616' : '#F4F4F4'}
-        isNewSection={false}
+        section={'no_title'}
       />
       <TitleShare
         title={pageContent.bigTitle2}
