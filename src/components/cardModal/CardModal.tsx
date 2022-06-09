@@ -11,10 +11,10 @@ const CardModal = ({ item, visible, onClose }: any) => {
       onClose={onClose}
     >
       <div className={styles.avatar}>
-        <img src={item.image} alt={item.name} />
+        {/*img src={item.icon.url} alt={item.icon.description} />*/}
       </div>
-      <div className={cn("h3", styles.trainer)}>{item.name}</div>
-      <div className={styles.position}>{item.position}</div>
+      <div className={cn("h3", styles.trainer)}>{item.title}</div>
+      <div className={styles.position}>{item.subtitle}</div>
       <div className={styles.wrap}>
       </div>
       <div className={styles.btns}>

@@ -71,7 +71,7 @@ const CardsContainer = ({ contents, modals, scrollToRef }: CardsContainerProps) 
                     <div className={styles.content}>{content.text}</div>
                     <div 
                       className={cn("button-stroke", styles.button, styles.button_card)}
-                      onClick={() => {console.log('abc')}}
+                      onClick={() => setVisibleModal(true)}
                       >
                       {content.leftCtaText}
                     </div>

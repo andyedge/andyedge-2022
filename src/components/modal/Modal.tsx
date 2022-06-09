@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { ReactPortal, useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import OutsideClickHandler from "react-outside-click-handler";
@@ -21,6 +21,8 @@ const Modal = ({
     },
     [onClose]
   );
+  
+  const [portal, setPortal] = useState<ReactPortal | JSX.Element>(<div></div>);
 
   useEffect(() => {
     document.addEventListener("keydown", escFunction, false);
@@ -32,26 +34,35 @@ const Modal = ({
   const scrollRef = useRef(null);
 
   useEffect(() => {
-    visible ? disableBodyScroll(scrollRef) : enableBodyScroll(scrollRef);
+    const htmlRef = scrollRef.current as any as HTMLElement
+    visible ? disableBodyScroll(htmlRef) : enableBodyScroll(htmlRef);
   }, [visible]);
 
-  return createPortal(
-    visible && (
-      <div className={styles.modal} ref={scrollRef}>
-        <div className={cn(styles.outer, outerClassName)}>
-          <OutsideClickHandler onOutsideClick={onClose}>
-            <div className={cn(styles.container, containerClassName)}>
-              {children}
-              <button className={styles.close} onClick={onClose}>
-                <Icon name="close" size={14} />
-              </button>
+  useEffect(() => {    
+    if (document) {
+      setPortal(
+        createPortal(
+          visible && (
+            <div className={styles.modal} ref={scrollRef}>
+              <div className={cn(styles.outer, outerClassName)}>
+                <OutsideClickHandler onOutsideClick={onClose}>
+                  <div className={cn(styles.container, containerClassName)}>
+                    {children}
+                    <button className={styles.close} onClick={onClose}>
+                      <Icon name="close" size={14} />
+                    </button>
+                  </div>
+                </OutsideClickHandler>
+              </div>
             </div>
-          </OutsideClickHandler>
-        </div>
-      </div>
-    ),
-    document.body
-  );
+          ),
+          document.body
+        )
+      )      
+    }
+  }, []);
+
+  return portal;
 };
 
 export default Modal;
