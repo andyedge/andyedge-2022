@@ -1,4 +1,6 @@
 // common styles
+@import './colors'
+
 body
     min-width: 375px
     background: $neutrals8
@@ -49,3 +51,26 @@ img
         display: none !important
         +m
             display: block !important
+
+
+.main-title
+    font-size: 64px
+    line-height: 1
+    letter-spacing: -1.28px
+    +m
+        font-size: 48px
+
+.secondary-title
+    font-size: 48px
+    line-height: 1
+    letter-spacing: -0.96px
+    +m
+        font-size: 32px
+
+.info-text
+    font-size: 24px
+    letter-spacing: -0.24px
+    color: $gray
+    +m
+        font-size: 18px
+        letter-spacing: unset

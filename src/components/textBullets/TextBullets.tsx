@@ -14,7 +14,7 @@ const TextBullets = ({ contents, section }: any) => {
 
   return (
     <div className={cn(styles.section, styles[section])}>
-      <div className={cn("container", "container-full", styles.container)}>
+      <div className={cn("container", styles.container)}>
         <div className={styles.wrap}>
           <h2 className={cn("h2", styles.title)}>
             {contents.title}

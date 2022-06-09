@@ -1,0 +1,58 @@
+@import ../../../../styles/helpers
+
+.container
+    margin-bottom: 80px
+    h1
+        max-width: 900px
+        margin: 160px 0
+        +x
+            margin: 80px 0
+        +s
+            margin: 40px 0
+
+.hero_info
+    display: flex
+    justify-content: space-between
+    +s
+        flex-direction: column
+
+    .logo
+        position: relative
+        width: 192px
+        height: 192px
+        +s
+            margin: auto
+            margin-top: 16px
+
+    .text_section
+        max-width: 736px
+        +x
+            width: 90%
+        +d
+            padding-left: 32px
+        +s
+            margin-top: 48px
+            padding-left: unset
+            width: auto
+
+    h2
+        margin-bottom: 32px
+        +x
+            margin-bottom: 16px
+
+    p
+        max-width: 600px
+        margin-bottom: 108px
+        +d
+            max-width: unset
+
+.images_container
+    position: relative
+    margin-left: auto
+    width: 736px
+    height: 736px
+    +x
+        margin: auto
+    +t
+        width: 100%
+        height: 300px

@@ -28,7 +28,7 @@ const Why = ({ pageContent, header } : WhyPageProps) => {
 
   return (
     <Layout header={header}>
-      <div className="container-1440">
+      <div className="container-fluid">
         <WhyMainSection
           contents={pageContent.standardContainers}
         />

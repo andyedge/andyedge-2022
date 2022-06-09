@@ -1,7 +1,18 @@
 @import ../../../styles/helpers
 @import ../../../styles/colors
 @import ../../../styles/measurements
-    
+
+.container
+  padding: 282px 80px 282px 0
+  position: relative
+  overflow: hidden
+  +x
+    padding: 144px 80px 144px 0
+  +t
+    padding: 0 0 64px 40px
+  +m
+    padding: 0 32px 64px 32px
+
 .identity_design
     background-color: $gray4
     +dark
