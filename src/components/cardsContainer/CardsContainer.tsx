@@ -5,10 +5,12 @@ import Slider from "react-slick";
 import styles from "./CardsContainer.module.sass";
 import ScrollParallax from "../ScrollParallax";
 import StandardCardContainer from "../../models/standardCardContainer.model";
-import { MutableRefObject } from "react";
+import { MutableRefObject, useState } from "react";
+import CardModal from "../cardModal/CardModal";
 
 declare interface CardsContainerProps {
   contents: StandardCardContainer[]
+  modals: StandardCardContainer[]
   scrollToRef: MutableRefObject<null>
 }
 
@@ -16,7 +18,9 @@ const SlickArrow = ({ currentSlide, slideCount, children, ...props }: any) => (
   <button {...props}>{children}</button>
 );
 
-const CardsContainer = ({ contents, scrollToRef }: CardsContainerProps) => {
+const CardsContainer = ({ contents, modals, scrollToRef }: CardsContainerProps) => {  
+  const [visibleModal, setVisibleModal] = useState(false);
+  console.log(modals);
   const settings = {
     infinite: false,
     speed: 500,
@@ -57,20 +61,28 @@ const CardsContainer = ({ contents, scrollToRef }: CardsContainerProps) => {
         <div className={styles.wrap}>
           <Slider className="programs-slider" {...settings}>
             {contents.map((content: any, index: number) => (
-              <ScrollParallax className={styles.slide} key={index}>
-                <div className={cn("programs-item", styles.item)}>
-                  <div className={styles.icon}>
-                    <img src={content.icon.url} alt={content.icon.description} />
-                  </div>
-                  <div className={styles.subtitle}>{content.title}</div>
-                  <div className={styles.content}>{content.text}</div>
-                  <Link href={`/${content.leftCtaLink}`}>
-                    <div className={cn("button-stroke", styles.button, styles.button_card)}>
+              <>
+                <ScrollParallax className={styles.slide} key={index}>
+                  <div className={cn("programs-item", styles.item)}>
+                    <div className={styles.icon}>
+                      <img src={content.icon.url} alt={content.icon.description} />
+                    </div>
+                    <div className={styles.subtitle}>{content.title}</div>
+                    <div className={styles.content}>{content.text}</div>
+                    <div 
+                      className={cn("button-stroke", styles.button, styles.button_card)}
+                      onClick={() => {console.log('abc')}}
+                      >
                       {content.leftCtaText}
                     </div>
-                  </Link>
-                </div>
-              </ScrollParallax>
+                  </div>
+                </ScrollParallax>
+                <CardModal
+                  visible={visibleModal}
+                  item={modals[index]}
+                  onClose={() => setVisibleModal(false)}
+                />
+              </>
             ))}
           </Slider>
         </div>

@@ -45,6 +45,7 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent, header } : EcampProps) => {
       />
       <CardsContainer
         contents={pageContent.cardsContainer}
+        modals={pageContent.cardsModalContainer}
         scrollToRef={scrollToRef}
       />
       <TitleShare
