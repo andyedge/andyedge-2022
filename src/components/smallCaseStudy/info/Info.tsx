@@ -52,7 +52,9 @@ const SmallCaseHero = ({ data } : { data : StudyCaseInfo }) => (
                         ))}
                     </div>
                 </div>
-                <Button link={data.primaryCta?.url} text={data.primaryCta?.text} size='small'/>
+                {data.primaryCta?.text && (
+                    <Button link={data.primaryCta?.url} text={data.primaryCta?.text} size='small'/>
+                )}
             </div>
         </div>
     </div>
