@@ -2,7 +2,6 @@ import cn from "classnames";
 import Link from "next/link";
 import RichText from "../RichText";
 import CustomImage from "../image/Image";
-import VideoComponent from "../VideoComponent";
 import ImageType from "../../models/image.model";
 import styles from "./EcampStandardContainer.module.sass";
 import StandardContainer from "../../models/standardContainer.model";
@@ -11,26 +10,17 @@ import StandardContainer from "../../models/standardContainer.model";
 declare interface EcampStandardContainerProps {
   contents: StandardContainer
   title: boolean
-  bg: string
-  isNewSection: boolean
+  section: string
 }
 
-const EcampStandardContainer = ({ contents, title, bg, isNewSection }: EcampStandardContainerProps) => {
-  const videoClassnamesObj = {
-    videoDivClassname: '',
-    videoClassname: styles.hero_video,
-    playButtonClassname: cn("play", styles.play)
-  }
-
+const EcampStandardContainer = ({ contents, title, section }: EcampStandardContainerProps) => {
   const images = contents.images;
-  const containerClasses = isNewSection ? cn("container", styles.container, styles.new_section) :
-    cn("container", styles.container, styles.group_section);
 
   return (
-    <div className={styles.hero} style={{ backgroundColor: bg }}>
+    <div className={cn(styles[`hero_${section}`], styles[section])}>
       <div className={cn("container", styles.container)}>
         <div className={styles.wrap}>
-          <div className={cn("stage", styles.stage)}>
+          <div className={cn("stage", styles.stage, styles.pretitle)}>
             {contents.preTitle}
           </div>
           {
@@ -39,7 +29,7 @@ const EcampStandardContainer = ({ contents, title, bg, isNewSection }: EcampStan
                 {contents.title}
               </h2>
               :
-              null
+              <div className={styles.empty_title}></div>
           }
           <div className={styles.text}>
             {contents.subtitle}
@@ -67,7 +57,7 @@ const EcampStandardContainer = ({ contents, title, bg, isNewSection }: EcampStan
         <div className={styles.gallery}>
           {
             images?.map((image: ImageType, index: number) => (
-              <div className={styles.preview} key={index}>
+              <div className={styles[`preview_${section}`]} key={index}>
                 <CustomImage src={image}/>
               </div>
             ))

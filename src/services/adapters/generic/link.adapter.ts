@@ -5,8 +5,8 @@ export const adaptLink = (data: Item): Link => {
     const { fields } = data
 
     return {
-        text: fields.text,
-        url: fields.url,
+        text: fields.text || '',
+        url: fields.url || '',
         newTab: fields.opensInANewTab
     }
 }
