@@ -38,17 +38,23 @@ declare interface SmallCaseStudyProps {
 }
 
 
-const SmallCase: NextPage<SmallCaseStudyProps> = ({ pageContent, header }: SmallCaseStudyProps) => (
-    <Layout header={header}>
-        <div className='container-fluid'>
-            <SmallCaseHero data={pageContent.hero} />
-            <CardsContainer contents={pageContent.cards} scrollToRef={null} smallSpaccing={true}/>
-            <Banner src={pageContent.banner} />
-            <SmallCaseInfo data={pageContent.caseStudyInfo} />
-            <TextSlider contents={[pageContent.textSlider]} />
-            <PortfolioContainer />
-        </div>
-    </Layout>
-)
+const SmallCase: NextPage<SmallCaseStudyProps> = ({ pageContent, header }: SmallCaseStudyProps) => {
+    if(!pageContent) {
+        return <h1>Case study is in construction</h1>
+    }
+
+    return (
+        <Layout header={header}>
+            <div className='container-fluid'>
+                <SmallCaseHero data={pageContent.hero} />
+                <CardsContainer contents={pageContent.cards} scrollToRef={null} smallSpaccing={true}/>
+                <Banner src={pageContent.banner} />
+                <SmallCaseInfo data={pageContent.caseStudyInfo} />
+                <TextSlider contents={[pageContent.textSlider]} />
+                <PortfolioContainer />
+            </div>
+        </Layout>
+    )
+}
 
 export default SmallCase
