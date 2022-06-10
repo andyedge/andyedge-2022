@@ -1,13 +1,13 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
-import { getSmallCaseStudies, searchSmallCaseStudy, getHeader } from '../src/services/fetch'
-import Header from '../src/models/header.model'
-import Entry from '../src/models/entry.model'
-import SmallCaseStudy from '../src/models/smallCaseStudy'
-import Layout from '../src/components/layout/Layout'
-import SmallCaseHero from '../src/components/smallCaseStudy/hero/HeroTranstion'
-import CardsContainer from '../src/components/cardsContainer/CardsContainer'
-import TextSlider from '../src/components/textSlider/TextSlider'
-import Banner from '../src/components/banner/Banner'
+import { getSmallCaseStudies, searchSmallCaseStudy, getHeader } from '../../src/services/fetch'
+import Header from '../../src/models/header.model'
+import Entry from '../../src/models/entry.model'
+import SmallCaseStudy from '../../src/models/smallCaseStudy'
+import Layout from '../../src/components/layout/Layout'
+import SmallCaseHero from '../../src/components/smallCaseStudy/hero/Hero'
+import CardsContainer from '../../src/components/cardsContainer/CardsContainer'
+import TextSlider from '../../src/components/textSlider/TextSlider'
+import Banner from '../../src/components/banner/Banner'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const smallCaseStudies: Entry = await getSmallCaseStudies()
@@ -39,10 +39,10 @@ declare interface SmallCaseStudyProps {
 const SmallCase: NextPage<SmallCaseStudyProps> = ({ pageContent, header }: SmallCaseStudyProps) => (
     <Layout header={header}>
         <div className='container-1440'>
-            <SmallCaseHero data={pageContent.hero} />
-            <CardsContainer contents={pageContent.cards} scrollToRef={null} smallSpaccing={true}/>
-            <Banner src={pageContent.banner} />
-            <TextSlider contents={[pageContent.textSlider]} />
+            {pageContent.hero && <SmallCaseHero data={pageContent.hero} /> }
+            {pageContent.cards.length && <CardsContainer contents={pageContent.cards} scrollToRef={null} smallSpaccing={true}/> }
+            {pageContent.textSlider && <TextSlider data={pageContent.textSlider} /> }
+            {pageContent.banner && <Banner src={pageContent.banner} /> }
         </div>
     </Layout>
 )

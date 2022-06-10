@@ -1,5 +1,4 @@
 import client from './contentful'
-import { adaptEcamppage, adaptWhatpage, adaptWhypage, adaptHeaderData,  } from './adapters'
 import { adaptEcamppage, adaptWhatpage, adaptWhypage, adaptHeaderData, adaptBomou, adaptSmallCaseStudies } from './adapters'
 
 const NESTING_LEVEL = 5

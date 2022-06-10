@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import cn from "classnames";
 import Link from "next/link";
 import Icon from "../icon/Icon";
@@ -53,21 +54,19 @@ const settings = {
   ]
 }
     
-const CardsContainer = ({ contents, modals, scrollToRef }: CardsContainerProps) => {  
-  const [visibleModal, setVisibleModal] = useState<number | null> (null);
-
-const CardsContainer = ({ contents, scrollToRef, smallSpaccing }: CardsContainerProps) => {
-
+const CardsContainer = ({ contents, scrollToRef, modals, smallSpaccing }: CardsContainerProps) => {
+  const [currentModal, setCurrentModal] = useState<number | null> (null);
+  const isVisible = currentModal !== null;
   return (
     <div className={cn("section", styles.section, smallSpaccing && styles.small_spacing)}>
       <div className={styles.anchor} ref={scrollToRef}></div>
       <div className={cn("container", styles.container)}>
         <div className={styles.wrap}>
-          {!!visibleModal && (
+          {isVisible && (
             <CardModal
-              visible={!!visibleModal}
-              item={visibleModal && modals[visibleModal]}
-              onClose={() => setVisibleModal(null)}
+              visible={isVisible}
+              item={currentModal && modals && modals[currentModal]}
+              onClose={() => setCurrentModal(null)}
             />
           )}
           <Slider className="programs-slider" {...settings}>
@@ -82,14 +81,12 @@ const CardsContainer = ({ contents, scrollToRef, smallSpaccing }: CardsContainer
                     <p className={styles.content}>{content.text}</p>
                   </div>
                   {content.leftCtaText && (
-                    <Link href={`/${content.leftCtaLink}`}>
-                      <div 
-                        className={cn("button-stroke", styles.button, styles.button_card)}
-                        onClick={() => setVisibleModal(index)}
-                       >
-                        {content.leftCtaText}
-                      </div>
-                    </Link>
+                    <div 
+                      className={cn("button-stroke", styles.button, styles.button_card)}
+                      onClick={() => setCurrentModal(index)}
+                      >
+                      {content.leftCtaText}
+                    </div>
                   )}
                 </div>
               </ScrollParallax>
