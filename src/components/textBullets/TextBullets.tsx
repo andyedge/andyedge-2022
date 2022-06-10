@@ -11,10 +11,12 @@ const TextBullets = ({ contents, section }: any) => {
   const bulletsContent = contents.bulletsContainer;
   const images = contents.images;
   const isIdentityDesign = section === 'identity_design';
+  const isBomou = section === 'bomou';
+  const containerClasses = cn("container", styles.container, isBomou ? "container-full-no-top-padding" : "container-full")
 
   return (
-    <div className={cn(styles.section, styles[section])}>
-      <div className={cn("container", styles.container)}>
+    <div className={cn(styles.section, styles[section], styles[`section_${section}`])}>
+      <div className={containerClasses}>
         <div className={styles.wrap}>
           <h2 className={cn("h2", styles.title)}>
             {contents.title}
@@ -33,13 +35,13 @@ const TextBullets = ({ contents, section }: any) => {
               ))}
             </ul>
           )}
-          {contents.ctaText !== null && (contents.ctaPageLink !== null || contents.ctaVideoLink !== null) ?
+          {contents.ctaText !== null ?
             <Button link={contents.ctaPageLink} text={contents.ctaText} />
             :
             null
           }
         </div>
-        <div className={styles.gallery}>
+        <div className={isBomou ? styles.gallery_bomou : styles.gallery}>
           {
             images.map((image: ImageType, index: number) => (
               <Fragment key={'imgTxtBullet_' + index}>

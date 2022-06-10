@@ -7,6 +7,7 @@ import TextSlider from "./textSlider.model";
 declare interface Ecamp {
     hero: StandardContainer
     cardsContainer: StandardCardContainer[]
+    cardsModalContainer: StandardCardContainer[]
     cardModal1: StandardCardContainer
     cardModal2: StandardCardContainer
     cardModal3: StandardCardContainer

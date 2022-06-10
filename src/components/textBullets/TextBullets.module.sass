@@ -18,7 +18,7 @@
     +dark
         background-color: $black
 
-.design_thinking
+.design_thinking, .bomou
     padding-bottom: 0
     background-color: $white
     +d
@@ -32,6 +32,20 @@
     align-items: center
     min-height: 1096px
     padding: 100px 0
+    +x
+        min-height: 960px
+    +d
+        min-height: 840px
+    +m
+        min-height: auto
+        padding: 64px 0
+
+.section_bomou
+    position: relative
+    display: flex
+    align-items: center
+    height: 800px
+    padding: 0 0 100px
     +x
         min-height: 960px
     +d
@@ -98,6 +112,18 @@
     top: 50%
     right: 0
     transform: translateY(-50%)
+    pointer-events: none
+    +t
+        position: relative
+        top: auto
+        right: auto
+        margin: 0 auto 42px
+        transform: translateY(0)
+
+.gallery_bomou
+    position: absolute
+    top: 25%
+    right: 0
     pointer-events: none
     +t
         position: relative
