@@ -34,7 +34,6 @@ declare interface EcampProps {
 const Ecamp: NextPage<EcampProps> = ({ pageContent, header } : EcampProps) => {
   const scrollToRef = useRef(null);
   const darkMode = useDarkMode(false);
-  const isDarkModeActive = darkMode.value;
 
   return (
     <Layout header={header}>
@@ -57,49 +56,41 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent, header } : EcampProps) => {
       <EcampStandardContainer
         contents={pageContent.standardContainer2}
         title={true}
-        bg={isDarkModeActive ? '#161616' : '#FFFFFF'}
         section={'standard'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer3}
         title={true}
-        bg={isDarkModeActive ? '#161616' : '#FFFFFF'}
         section={'standard'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer4}
         title={true}
-        bg={isDarkModeActive ? '#161616' : '#FFFFFF'}
         section={'standard'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer5}
         title={true}
-        bg={isDarkModeActive ? '#161616' : '#FFFFFF'}
         section={'prototype'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer6}
         title={true}
-        bg={isDarkModeActive ? '#161616' : '#FAFAFA'}
-        section={'standard'}
+        section={'test'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer7}
         title={true}
-        bg={isDarkModeActive ? '#161616' : '#F4F4F4'}
         section={'no_title'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer8}
         title={false}
-        bg={isDarkModeActive ? '#161616' : '#F4F4F4'}
         section={'no_title'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer9}
         title={false}
-        bg={isDarkModeActive ? '#161616' : '#F4F4F4'}
         section={'no_title'}
       />
       <TitleShare

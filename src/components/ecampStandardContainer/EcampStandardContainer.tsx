@@ -10,18 +10,17 @@ import StandardContainer from "../../models/standardContainer.model";
 declare interface EcampStandardContainerProps {
   contents: StandardContainer
   title: boolean
-  bg: string
   section: string
 }
 
-const EcampStandardContainer = ({ contents, title, bg, section }: EcampStandardContainerProps) => {
+const EcampStandardContainer = ({ contents, title, section }: EcampStandardContainerProps) => {
   const images = contents.images;
 
   return (
-    <div className={styles[`hero_${section}`]} style={{ backgroundColor: bg }}>
+    <div className={cn(styles[`hero_${section}`], styles[section])}>
       <div className={cn("container", styles.container)}>
         <div className={styles.wrap}>
-          <div className={cn("stage", styles.stage)}>
+          <div className={cn("stage", styles.stage, styles.pretitle)}>
             {contents.preTitle}
           </div>
           {
