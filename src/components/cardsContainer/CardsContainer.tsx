@@ -19,7 +19,7 @@ const SlickArrow = ({ currentSlide, slideCount, children, ...props }: any) => (
 );
 
 const CardsContainer = ({ contents, modals, scrollToRef }: CardsContainerProps) => {  
-  const [visibleModal, setVisibleModal] = useState(false);
+  const [visibleModal, setVisibleModal] = useState<number | null> (null);
   console.log(modals);
   const settings = {
     infinite: false,
@@ -59,9 +59,15 @@ const CardsContainer = ({ contents, modals, scrollToRef }: CardsContainerProps) 
       <div className={styles.anchor} ref={scrollToRef}></div>
       <div className={cn("container", styles.container)}>
         <div className={styles.wrap}>
+          {!!visibleModal && (
+            <CardModal
+              visible={!!visibleModal}
+              item={visibleModal && modals[visibleModal]}
+              onClose={() => setVisibleModal(null)}
+            />
+          )}
           <Slider className="programs-slider" {...settings}>
             {contents.map((content: any, index: number) => (
-              <>
                 <ScrollParallax className={styles.slide} key={index}>
                   <div className={cn("programs-item", styles.item)}>
                     <div className={styles.icon}>
@@ -71,18 +77,12 @@ const CardsContainer = ({ contents, modals, scrollToRef }: CardsContainerProps) 
                     <div className={styles.content}>{content.text}</div>
                     <div 
                       className={cn("button-stroke", styles.button, styles.button_card)}
-                      onClick={() => setVisibleModal(true)}
+                      onClick={() => setVisibleModal(index)}
                       >
                       {content.leftCtaText}
                     </div>
                   </div>
                 </ScrollParallax>
-                <CardModal
-                  visible={visibleModal}
-                  item={modals[index]}
-                  onClose={() => setVisibleModal(false)}
-                />
-              </>
             ))}
           </Slider>
         </div>

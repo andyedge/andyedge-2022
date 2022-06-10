@@ -35,7 +35,9 @@ const Modal = ({
 
   useEffect(() => {
     const htmlRef = scrollRef.current as any as HTMLElement
-    visible ? disableBodyScroll(htmlRef) : enableBodyScroll(htmlRef);
+    if(htmlRef) {
+      visible ? disableBodyScroll(htmlRef) : enableBodyScroll(htmlRef);
+    }
   }, [visible]);
 
   useEffect(() => {    
