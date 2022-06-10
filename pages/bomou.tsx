@@ -9,6 +9,8 @@ import CardsContainer from '../src/components/cardsContainer/CardsContainer'
 import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer'
 import Layout from '../src/components/layout/Layout'
 import Header from '../src/models/header.model'
+import TextBullets from '../src/components/textBullets/TextBullets'
+import TitleShare from '../src/components/titleShare/TitleShare'
 
 export const getStaticProps = async () => {
   const bomou = await getBomou();
@@ -38,14 +40,20 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
       />
       <CardsContainer
         contents={pageContent.cards}
+        scrollToRef={scrollToRef}
       />
-      <EcampStandardContainer
+      <TitleShare
+        title={pageContent.bigTitle1.text}
+        section={'first_title'}
+      />
+      <TextBullets
         contents={pageContent.standardContainer2}
-        title={true}
+        section={'bomou'}
       />
       <EcampStandardContainer
         contents={pageContent.standardContainer3}
         title={true}
+        section={'standard'}
       />
       <TextSlider
         contents={[pageContent.textSlider]}
