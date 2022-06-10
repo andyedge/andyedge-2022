@@ -1,10 +1,28 @@
 @import ../../../styles/helpers
+@import ../../../styles/colors
 
-.hero
+
+.standard, .prototype
+    background-color: $ultra-white
+    +dark
+        background-color: $black
+
+.test
+    background-color: #FAFAFA
+    +dark
+        background-color: $black
+
+.no_title
+    background-color: $gray4
+    +dark
+        background-color: $black
+
+
+.hero_standard, .hero_test
     position: relative
     display: flex
     align-items: center
-    min-height: 680px
+    min-height: 800px
     padding: 34px 0 128px
     +x
         min-height: 800px
@@ -19,26 +37,75 @@
         width: 100%
         opacity: 0.3
 
-.new_section
-    padding: 240px 80px 0px 80px
+.hero_no_title
+    position: relative
+    display: flex
+    align-items: center
+    min-height: 680px
+    padding: 34px 0 128px
+    +x
+        min-height: 800px
+    +d
+        min-height: 624px
+    +t
+        padding: 34px 0 64px
+    +m
+        min-height: auto
+        padding: 64px 0 104px
+    img
+        position: absolute
+        height: 75%
+        width: 100%
+        opacity: 0.3
 
-.group_section
-    padding: 0 80px
+.hero_prototype
+    position: relative
+    display: flex
+    align-items: center
+    min-height: 1000px
+    padding: 0 0 128px
+    +x
+        min-height: 800px
+    +d
+        min-height: 800px
+    +m
+        min-height: auto
+        padding: 64px 0 152px
+    img
+        position: absolute
+        height: 75%
+        width: 100%
+        opacity: 0.3
 
 .wrap
     position: relative
     z-index: 3
-    max-width: 450px
+    max-width: 480px
+    +d
+        max-width: 400px
     +t
-        max-width: 320px
+        max-width: 336px
     +m
         max-width: 100%
         margin-bottom: 80px
+
+.empty_title
+    height: 64px
+    margin-bottom: 48px
+    margin-top: 20px
+    +m
+        display: none
+
+.pretitle
+    +dark
+        color: $ultra-white
 
 .title
     margin-bottom: 48px
     margin-top: 20px
     color: $neutrals2
+    +dark
+        color: $ultra-white
 
 .text
     margin-bottom: 48px
@@ -47,12 +114,19 @@
     font-weight: 300
     letter-spacing: -0.4px
     line-height: 1.1
+    +dark
+        color: $gray3
 
 .paragraph
+    max-width: 448px
     margin-bottom: 64px
     text-align: left
     color: $neutrals3
     +body-1
+    +dark
+        color: $gray3
+    +t
+        max-width: auto
 
 .btns
     display: flex
@@ -77,10 +151,9 @@
 
 .gallery
     position: absolute
-    top: 50%
+    top: 33%
     right: calc(50% - 465px)
     width: 512px
-    transform: translateY(-58%)
     +x
         right: calc(50% - 425px)
         width: 450px
@@ -89,6 +162,7 @@
         width: 320px
     +t
         right: calc(50% - 300px)
+        top: 30%
     +m
         position: relative
         top: auto
@@ -98,36 +172,64 @@
         transform: translate(0,0)
         pointer-events: all
 
-.preview
+.preview_standard, .preview_test
+    position: relative
+    left: 15%
+    z-index: 2
     width: 544px
     height: 408px
     +d
         width: 424px
         height: 320px
+        left: 0%
     +t
-        width: 360px
-        height: 300px
+        width: 340px
+        height: 240px
+        left: 10%
     +m
         width: 320px
-        height: 240px
-        
+        height: 224px
+        left: 5%
+    img
+        width: 100%
+        opacity: 1
+        border-radius: 24px
+
+.preview_prototype, .preview_no_title
     &:first-child
         position: relative
-        z-index: 2
+        width: 544px
+        height: 304px
+        left: 15%
+        z-index: 2        
+        +d
+            left: 0%
+            width: 424px
+            height: 320px
+        +t
+            width: 340px
+            height: 200px
+            left: 10%
+        +m
+            width: 320px
+            height: 240px
+            left: 5%
     &:nth-child(2)
         top: 36%
         z-index: 1
-        width: 100%
-    &:nth-child(3)
-        top: -12%
-        right: -7%
-        z-index: 3
-        width: 45%
-    &:nth-child(4)
-        left: 11%
-        bottom: 13%
-        z-index: 3
-        width: 18%
+        width: 760px
+        height: 456px
+        +d
+            width: 516px
+            height: 320px
+            left: -15%
+        +t
+            width: 392px
+            left: 4%
+        +m
+            left: -5%
+        +s
+            width: 376px
     &:not(:first-child)
         position: absolute
     img

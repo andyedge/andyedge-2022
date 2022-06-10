@@ -1,5 +1,6 @@
 import client from './contentful'
-import { adaptEcamppage, adaptWhatpage, adaptWhypage, adaptHeaderData, adaptSmallCaseStudies } from './adapters'
+import { adaptEcamppage, adaptWhatpage, adaptWhypage, adaptHeaderData,  } from './adapters'
+import { adaptEcamppage, adaptWhatpage, adaptWhypage, adaptHeaderData, adaptBomou, adaptSmallCaseStudies } from './adapters'
 
 const NESTING_LEVEL = 5
 
@@ -35,3 +36,8 @@ export const searchSmallCaseStudy = async (slug: string) => {
     })
     return adaptSmallCaseStudies(matchedSmallCaseStudy)
 }
+
+export const getBomou = async () => adaptBomou(await client.getEntries({ 
+    content_type: 'bomou',
+    include: NESTING_LEVEL
+}))
