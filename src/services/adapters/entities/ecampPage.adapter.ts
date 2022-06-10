@@ -12,6 +12,7 @@ export const adaptEcamppage = (data: Entry): Ecamp => {
     return {
         hero: adaptStandardContainer(fields.heroContainer),
         cardsContainer: adaptStandardCardContainers(fields.cardsContainer),
+        cardsModalContainer: adaptStandardCardContainers(fields.cardsModalContainer),
         cardModal1: adaptStandardCardContainer(fields.cardModal1),
         cardModal2: adaptStandardCardContainer(fields.cardModal2),
         cardModal3: adaptStandardCardContainer(fields.cardModal3),
