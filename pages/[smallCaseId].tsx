@@ -6,6 +6,8 @@ import SmallCaseStudy from '../src/models/smallCaseStudy'
 import Layout from '../src/components/layout/Layout'
 import SmallCaseHero from '../src/components/smallCaseStudy/hero/Hero'
 import CardsContainer from '../src/components/cardsContainer/CardsContainer'
+import TextSlider from '../src/components/textSlider/TextSlider'
+import Banner from '../src/components/banner/Banner'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const smallCaseStudies: Entry = await getSmallCaseStudies()
@@ -38,7 +40,9 @@ const SmallCase: NextPage<SmallCaseStudyProps> = ({ pageContent, header }: Small
     <Layout header={header}>
         <div className='container-1440'>
             <SmallCaseHero data={pageContent.hero} />
-            <CardsContainer contents={pageContent.cards} scrollToRef={null}/>
+            <CardsContainer contents={pageContent.cards} scrollToRef={null} smallSpaccing={true}/>
+            <Banner src={pageContent.banner} />
+            <TextSlider contents={[pageContent.textSlider]} />
         </div>
     </Layout>
 )

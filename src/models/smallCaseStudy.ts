@@ -8,5 +8,5 @@ export default interface SmallCaseStudy {
     hero: StandardContainer
     cards: StandardCardContainer[]
     banner: ImageType
-    textSlider: TextSlider[]
+    textSlider: TextSlider
 }

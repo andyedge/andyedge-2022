@@ -3,7 +3,7 @@ import SmallCaseStudy from '../../../models/smallCaseStudy'
 import { adaptStandardContainer } from '../generic/standardContainer.adapter'
 import { adaptImage } from '../generic/image.adapter'
 import { adaptStandardCardContainers } from '../generic/cardContainer.adapter'
-import { adaptTextSliders } from '../generic/textSlider.adapter'
+import { adaptTextSlider } from '../generic/textSlider.adapter'
 
 export const adaptSmallCaseStudies = (data: Entry): SmallCaseStudy[] => {
     if(!data.items.length) {
@@ -17,7 +17,7 @@ export const adaptSmallCaseStudies = (data: Entry): SmallCaseStudy[] => {
             hero: adaptStandardContainer(fields.hero),
             cards: adaptStandardCardContainers(fields.cards),
             banner: adaptImage(fields.banner),
-            textSlider: adaptTextSliders(fields.textSlider),
+            textSlider: adaptTextSlider(fields.textSlider),
         }
     })
 }
