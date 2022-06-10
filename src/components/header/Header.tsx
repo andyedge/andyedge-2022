@@ -36,6 +36,7 @@ const HeaderComponent = ({ data } : { data: Header}) => {
               item={{}}
               text={data.megaMenu}
               setValue={setVisibleNav}
+              isActive={visibleNav}
             />
           </nav>
         </div>
