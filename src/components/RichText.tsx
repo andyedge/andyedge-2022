@@ -1,8 +1,12 @@
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, MARKS } from '@contentful/rich-text-types'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
-const Text = ({children}: any) => <p>{children}</p>;
-const Bold = ({children}: any) => <strong>{children}</strong>
+declare interface ReactChildrenElement {
+    children: JSX.Element
+}
+
+const Text = ({ children } : ReactChildrenElement) => <p>{children}</p>
+const Bold = ({ children } : ReactChildrenElement) => <strong>{children}</strong>
 
 const options = {
     renderMark: {
@@ -13,14 +17,9 @@ const options = {
     }
 }
 
-const RichText = ({richText}: any) => {
-    const richTextElement = documentToReactComponents(richText, options);
-
-    return (
-        <>
-            {richTextElement}
-        </>
-    )    
+const RichText = ({ richText } : any) => {
+    const richTextElement = documentToReactComponents(richText, options)
+    return (<>{richTextElement}</>)
 }
 
-export default RichText;
+export default RichText

@@ -12,8 +12,7 @@ const TextBullets = ({ contents, section }: any) => {
   const images = contents.images;
   const isIdentityDesign = section === 'identity_design';
   const isBomou = section === 'bomou';
-  const containerClasses = isBomou ? cn("container", "container-full-no-top-padding", styles.container) :
-  cn("container", "container-full", styles.container)
+  const containerClasses = cn("container", styles.container, isBomou ? "container-full-no-top-padding" : "container-full")
 
   return (
     <div className={cn(styles.section, styles[section], styles[`section_${section}`])}>
