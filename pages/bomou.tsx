@@ -11,6 +11,7 @@ import Layout from '../src/components/layout/Layout'
 import Header from '../src/models/header.model'
 import TextBullets from '../src/components/textBullets/TextBullets'
 import TitleShare from '../src/components/titleShare/TitleShare'
+import EcampPageText from '../src/components/ecampPageText/EcampPageText'
 
 export const getStaticProps = async () => {
   const bomou = await getBomou();
@@ -46,6 +47,10 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
         title={pageContent.bigTitle1.text}
         section={'first_title'}
       />
+      <TitleShare
+        title={pageContent.bigTitle2.text}
+        section={'first_title'}
+      />
       <TextBullets
         contents={pageContent.standardContainer2}
         section={'bomou'}
@@ -54,6 +59,22 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
         contents={pageContent.standardContainer3}
         title={true}
         section={'standard'}
+      />
+      <TitleShare
+        title={pageContent.bigTitle3.text}
+        section={'first_title'}
+      />
+      <EcampStandardContainer
+        contents={pageContent.standardContainer4}
+        title={true}
+        section={'no_title'}
+      />
+      <EcampPageText
+        title={pageContent.imagesBottomTitle}
+      />
+      <TitleShare
+        title={pageContent.bigTitle4.text}
+        section={'first_title'}
       />
       <TextSlider
         contents={[pageContent.textSlider]}
