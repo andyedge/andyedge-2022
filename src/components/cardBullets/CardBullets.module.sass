@@ -32,7 +32,10 @@
             width: 253px
             height: 76px
             z-index: 2
-            +m 
+            +t
+                top: 100px
+            +m
+                top: unset
                 width: 100%
 
         &:nth-child(2)
@@ -40,6 +43,10 @@
             height: 726px
             left: -30%
             z-index: 3
+            +t
+                width: calc(940px * 0.7)
+                height: calc(726px * 0.7)
+                top: 100px
             +m
                 width: 564px
                 height: 435.6px
@@ -61,11 +68,18 @@
             width: 981px
             height: 701px
             z-index: 2
-            +m 
+            +t
+                width: calc(981px * 0.7)
+                height: calc(701px * 0.7)
+                top: -100px
+                right: -50px
+                left: unset
+            +m
                 width: 490.5px
                 height: 350.5px
                 top: 0
                 left: -15%
+                right: unset
 
         &:nth-child(2)
             width: 395px
