@@ -1,8 +1,5 @@
 import ImageType from './image.model'
-import StandardCardContainer from './standardCardContainer.model'
-import StandardContainer from './standardContainer.model'
 import StepsContainer from './stepsContainer.model'
-import TextSlider from './textSlider.model'
 import Link from './link.model'
 
 export interface CaseStudyProperties {
@@ -11,7 +8,7 @@ export interface CaseStudyProperties {
     value: string
 }
 
-export interface StudyCaseInfo {
+export interface CaseStudyInfo {
     title: string
     description: string
     carousel: ImageType[]
@@ -22,13 +19,4 @@ export interface StudyCaseInfo {
     secondaryCta?: Link
     playStoreCta?: Link
     appStoreCta?: Link
-}
-
-export default interface SmallCaseStudy {
-    slug: string
-    hero: StandardContainer
-    cards: StandardCardContainer[]
-    banner: ImageType
-    caseStudyInfo: StudyCaseInfo
-    textSlider: TextSlider
 }

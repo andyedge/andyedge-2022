@@ -7,10 +7,10 @@ import Contact from '../src/components/contact/Contact';
 import Solution from '../src/components/solution/Solution';
 import CardBullets from '../src/components/cardBullets/CardBullets';
 import TextBullets from '../src/components/textBullets/TextBullets';
-import Whatpage from '../src/models/whatpage.model';
+import Whatpage from '../src/models/entities/whatpage.model';
 import useDarkMode from "@fisch0920/use-dark-mode";
 import Layout from '../src/components/layout/Layout';
-import Header from '../src/models/header.model';
+import Header from '../src/models/entities/header.model';
 
 export const getStaticProps = async () => {  
   const whatPage = await getWhatpage();

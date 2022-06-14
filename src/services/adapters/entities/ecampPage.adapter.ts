@@ -1,5 +1,5 @@
-import Entry from '../../../models/entry.model'
-import Ecamp from '../../../models/ecamp.model'
+import Entry from '../../../models/generic/entry.model'
+import Ecamp from '../../../models/entities/ecamp.model'
 import { adaptStandardContainer } from '../generic/standardContainer.adapter'
 import { adaptStandardCardContainer, adaptStandardCardContainers } from '../generic/cardContainer.adapter'
 import { adaptImages } from '../generic/image.adapter'

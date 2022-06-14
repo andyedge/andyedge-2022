@@ -1,9 +1,9 @@
 import cn from "classnames";
 import styles from "./EcampImgTextComp.module.sass";
-import StandardContainer from "../../models/standardContainer.model";
+import StandardContainer from "../../models/generic/standardContainer.model";
 import RichText from "../RichText";
 import CustomImage from "../image/Image";
-import ImageType from "../../models/image.model";
+import ImageType from "../../models/generic/image.model";
 
 declare interface EcampImgTextCompProps {
   contents: StandardContainer

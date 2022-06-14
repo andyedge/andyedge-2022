@@ -1,8 +1,9 @@
 import { FC } from 'react'
+import cn from 'classnames'
+
 import CustomImage from '../image/Image'
 import styles from './Banner.module.sass'
-import Image from '../../models/image.model'
-import cn from 'classnames'
+import Image from '../../models/generic/image.model'
 
 declare interface BannerProps {
     src: Image

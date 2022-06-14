@@ -4,7 +4,7 @@ import Link from 'next/link'
 import cn from 'classnames'
 import styles from './Header.module.sass'
 import Image from '../image/Image'
-import Header from '../../models/header.model'
+import Header from '../../models/entities/header.model'
 import MegaMenu from '../megaMenu/MegaMenu'
 
 const HeaderComponent = ({ data } : { data: Header}) => {

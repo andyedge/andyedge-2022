@@ -2,7 +2,7 @@ import cn from "classnames";
 import RichText from "../RichText";
 import styles from "./Hero.module.sass";
 import ScrollButton from "../scrollButton/ScrollButton";
-import StandardContainer from "../../models/standardContainer.model";
+import StandardContainer from "../../models/generic/standardContainer.model";
 import Button from '../button/Button';
 import VideoComponent from "../VideoComponent";
 

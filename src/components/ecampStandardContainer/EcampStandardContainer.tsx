@@ -2,9 +2,9 @@ import cn from "classnames";
 import Link from "next/link";
 import RichText from "../RichText";
 import CustomImage from "../image/Image";
-import ImageType from "../../models/image.model";
+import ImageType from "../../models/generic/image.model";
 import styles from "./EcampStandardContainer.module.sass";
-import StandardContainer from "../../models/standardContainer.model";
+import StandardContainer from "../../models/generic/standardContainer.model";
 
 
 declare interface EcampStandardContainerProps {

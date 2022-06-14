@@ -3,9 +3,9 @@ import { Fragment, FC } from "react";
 import CustomImage from "../image/Image";
 import styles from "./CardBullets.module.sass"
 import ScrollParallax from "../ScrollParallax";
-import ImageType from "../../models/image.model";
+import ImageType from "../../models/generic/image.model";
 import Button from '../button/Button';
-import StandardContainer from '../../models/standardContainer.model';
+import StandardContainer from '../../models/generic/standardContainer.model';
 
 declare interface CardBulletsProps {
   contents: StandardContainer

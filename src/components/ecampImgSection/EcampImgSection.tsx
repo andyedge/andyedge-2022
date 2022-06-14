@@ -1,6 +1,6 @@
 import cn from "classnames";
 import CustomImage from "../image/Image";
-import ImageType from "../../models/image.model";
+import ImageType from "../../models/generic/image.model";
 import styles from "./EcampImgSection.module.sass";
 
 declare interface EcampImgSectionProps {

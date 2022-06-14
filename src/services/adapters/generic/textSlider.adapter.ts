@@ -1,5 +1,5 @@
-import { Item } from '../../../models/entry.model'
-import TextSlider from '../../../models/textSlider.model'
+import { Item } from '../../../models/generic/entry.model'
+import TextSlider from '../../../models/generic/textSlider.model'
 import { adaptImage } from './image.adapter'
 
 export const adaptTextSlider = (data: Item): TextSlider => {

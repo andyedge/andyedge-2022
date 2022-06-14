@@ -1,8 +1,8 @@
-import ImageType from "./image.model";
-import ContactContainer from "./contact.model"
-import StandardCardContainer from "./standardCardContainer.model";
-import StandardContainer from "./standardContainer.model";
-import TextSlider from "./textSlider.model";
+import ImageType from "../generic/image.model";
+import ContactContainer from "../generic/contact.model"
+import StandardCardContainer from "../generic/standardCardContainer.model";
+import StandardContainer from "../generic/standardContainer.model";
+import TextSlider from "../generic/textSlider.model";
 
 declare interface Ecamp {
     hero: StandardContainer

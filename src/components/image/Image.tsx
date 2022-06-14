@@ -1,6 +1,6 @@
 import Image from 'next/image'
 // import useDarkMode from '@fisch0920/use-dark-mode'
-import ImageModel from '../../models/image.model'
+import ImageModel from '../../models/generic/image.model'
 
 declare interface CustomImageProps {
   src: ImageModel

@@ -1,5 +1,5 @@
-import { Item } from '../../../models/entry.model'
-import StandardContainer from '../../../models/standardContainer.model'
+import { Item } from '../../../models/generic/entry.model'
+import StandardContainer from '../../../models/generic/standardContainer.model'
 import { adaptImage, adaptImages } from './image.adapter'
 import { adaptStepsSection } from './steps.adapter'
 

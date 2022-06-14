@@ -1,5 +1,6 @@
-import Entry, { Item } from '../../../models/entry.model'
-import SmallCaseStudy, { StudyCaseInfo, CaseStudyProperties } from '../../../models/smallCaseStudy.model'
+import Entry, { Item } from '../../../models/generic/entry.model'
+import SmallCaseStudy from '../../../models/entities/smallCaseStudy.model'
+import { CaseStudyInfo, CaseStudyProperties } from '../../../models/generic/caseStudies.model'
 import { adaptStandardContainer } from '../generic/standardContainer.adapter'
 import { adaptImage, adaptImages } from '../generic/image.adapter'
 import { adaptStandardCardContainers } from '../generic/cardContainer.adapter'
@@ -22,7 +23,7 @@ const adaptCaseStudyProperties = (data: Item[]): CaseStudyProperties[] => {
     })
 }
 
-const adaptCaseStudyInfo = (data: Item): StudyCaseInfo => {
+const adaptCaseStudyInfo = (data: Item): CaseStudyInfo => {
     const { fields } = data
     return {
         title: fields.title,

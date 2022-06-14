@@ -1,7 +1,7 @@
 import{ FC } from 'react';
 import Header from '../header/Header'
 import Footer from '../footer/Footer'
-import HeaderModel from '../../models/header.model'
+import HeaderModel from '../../models/entities/header.model'
 
 declare interface LayoutProps {
   header: HeaderModel,
