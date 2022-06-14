@@ -10,5 +10,5 @@ export default interface SmallCaseStudy {
     cards: StandardCardContainer[]
     banner: ImageType
     caseStudyInfo: CaseStudyInfo
-    textSlider: TextSlider
+    testimonial: TextSlider
 }

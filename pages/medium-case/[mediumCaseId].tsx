@@ -1,8 +1,8 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
-import { getSmallCaseStudies, searchSmallCaseStudy, getHeader } from '../../src/services/fetch'
+import { getMediumCaseStudies, searchMediumCaseStudy, getHeader } from '../../src/services/fetch'
 import Header from '../../src/models/entities/header.model'
 import Entry from '../../src/models/generic/entry.model'
-import SmallCaseStudy from '../../src/models/entities/smallCaseStudy.model'
+import MediumCaseStudy from '../../src/models/entities/mediumCaseStudy.model'
 import Layout from '../../src/components/layout/Layout'
 import SmallCaseHero from '../../src/components/smallCaseStudy/hero/Hero'
 import CardsContainer from '../../src/components/cardsContainer/CardsContainer'
@@ -10,10 +10,11 @@ import TextSlider from '../../src/components/textSlider/TextSlider'
 import Banner from '../../src/components/banner/Banner'
 import SmallCaseInfo from '../../src/components/smallCaseStudy/info/Info'
 import PortfolioContainer from '../../src/components/portfolioContainer/PortfolioContainer'
+import CardBullets from '../../src/components/cardBullets/CardBullets'
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const smallCaseStudies: Entry = await getSmallCaseStudies()
-    const paths = smallCaseStudies?.items.map((value) => ({ params: { smallCaseId: value.fields.slug } }))
+    const mediumCaseStudies: Entry = await getMediumCaseStudies()
+    const paths = mediumCaseStudies?.items.map((value) => ({ params: { mediumCaseId: value.fields.slug } }))
     return {
         paths,
         fallback: true
@@ -21,24 +22,24 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const slug = params?.smallCaseId
-    const [smallCaseStudy]: SmallCaseStudy[] = await searchSmallCaseStudy(slug as string)
+    const slug = params?.mediumCaseId
+    const [mediumCaseStudy]: MediumCaseStudy[] = await searchMediumCaseStudy(slug as string)
     const header = await getHeader()
     return {
         props: {
-            pageContent: smallCaseStudy || {},
+            pageContent: mediumCaseStudy || {},
             header
         },
     }
 }
 
-declare interface SmallCaseStudyProps {
-    pageContent: SmallCaseStudy
+declare interface MediumCaseStudyProps {
+    pageContent: MediumCaseStudy
     header: Header
 }
 
 
-const SmallCase: NextPage<SmallCaseStudyProps> = ({ pageContent, header } : SmallCaseStudyProps) => {
+const MediumCase: NextPage<MediumCaseStudyProps> = ({ pageContent, header } : MediumCaseStudyProps) => {
     if(!pageContent) {
         return <h1>Case study is in construction</h1>
     }
@@ -51,10 +52,11 @@ const SmallCase: NextPage<SmallCaseStudyProps> = ({ pageContent, header } : Smal
                 <Banner src={pageContent.banner} />
                 <SmallCaseInfo data={pageContent.caseStudyInfo} />
                 <TextSlider contents={[pageContent.testimonial]} />
+                <CardBullets contents={pageContent.cardInfo} section={'identity'} />
                 <PortfolioContainer />
             </div>
         </Layout>
     )
 }
 
-export default SmallCase
+export default MediumCase

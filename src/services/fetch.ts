@@ -1,7 +1,20 @@
 import client from './contentful'
-import { adaptEcamppage, adaptWhatpage, adaptWhypage, adaptHeaderData, adaptBomou, adaptSmallCaseStudies } from './adapters'
+import {
+    adaptEcamppage,
+    adaptWhatpage,
+    adaptWhypage,
+    adaptHeaderData,
+    adaptBomou,
+    adaptSmallCaseStudies,
+    adaptMediumCaseStudies
+} from './adapters'
 
 const NESTING_LEVEL = 5
+
+export const getHeader = async () => adaptHeaderData(await client.getEntries({ 
+    content_type: 'header',
+    include: NESTING_LEVEL
+}))
 
 export const getWhatpage = async () => adaptWhatpage(await client.getEntries({ 
     content_type: 'whatPage',
@@ -18,10 +31,23 @@ export const getEcamp = async () => adaptEcamppage(await client.getEntries({
     include: NESTING_LEVEL
 }))
 
-export const getHeader = async () => adaptHeaderData(await client.getEntries({ 
-    content_type: 'header',
+export const getBomou = async () => adaptBomou(await client.getEntries({ 
+    content_type: 'bomou',
     include: NESTING_LEVEL
 }))
+
+export const getMediumCaseStudies = async () => await client.getEntries({
+    content_type: 'mediumCaseStudies'
+})
+
+export const searchMediumCaseStudy = async (slug: string) => {
+    const matchedMediumCaseStudy = await client.getEntries({
+        content_type: 'mediumCaseStudies',
+        'fields.slug': slug,
+        include: NESTING_LEVEL
+    })
+    return adaptMediumCaseStudies(matchedMediumCaseStudy)
+}
 
 export const getSmallCaseStudies = async () => await client.getEntries({
     content_type: 'smallCaseStudies'
@@ -35,8 +61,3 @@ export const searchSmallCaseStudy = async (slug: string) => {
     })
     return adaptSmallCaseStudies(matchedSmallCaseStudy)
 }
-
-export const getBomou = async () => adaptBomou(await client.getEntries({ 
-    content_type: 'bomou',
-    include: NESTING_LEVEL
-}))
