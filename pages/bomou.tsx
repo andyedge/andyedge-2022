@@ -2,16 +2,18 @@ import { useRef } from 'react'
 import type { NextPage } from 'next'
 import Bomou from '../src/models/bomou.model'
 import Hero from '../src/components/hero/Hero'
-import { getBomou, getHeader } from '../src/services/fetch'
+import Header from '../src/models/header.model'
+import Layout from '../src/components/layout/Layout'
 import Contact from '../src/components/contact/Contact'
+import { getBomou, getHeader } from '../src/services/fetch'
+import TitleShare from '../src/components/titleShare/TitleShare'
 import TextSlider from '../src/components/textSlider/TextSlider'
+import TextBullets from '../src/components/textBullets/TextBullets'
+import EcampPageText from '../src/components/ecampPageText/EcampPageText'
 import CardsContainer from '../src/components/cardsContainer/CardsContainer'
 import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer'
-import Layout from '../src/components/layout/Layout'
-import Header from '../src/models/header.model'
-import TextBullets from '../src/components/textBullets/TextBullets'
-import TitleShare from '../src/components/titleShare/TitleShare'
-import EcampPageText from '../src/components/ecampPageText/EcampPageText'
+import RowComponent from '../src/components/rowComponent/RowComponent'
+
 
 export const getStaticProps = async () => {
   const bomou = await getBomou();
@@ -55,10 +57,9 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
         contents={pageContent.standardContainer2}
         section={'bomou'}
       />
-      <EcampStandardContainer
-        contents={pageContent.standardContainer3}
-        title={true}
-        section={'standard'}
+      <RowComponent
+        headContent={pageContent.standardContainer3}
+        items={pageContent.consistencyItems}
       />
       <TitleShare
         title={pageContent.bigTitle3.text}
