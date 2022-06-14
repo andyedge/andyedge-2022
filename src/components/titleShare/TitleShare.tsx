@@ -5,11 +5,14 @@ import styles from "./TitleShare.module.sass";
 declare interface TitleShareProps {
     title: string
     section: string
+    background: string
 }
 
-const TitleShare = ({title, section}: TitleShareProps) => {
+const TitleShare = ({title, section, background}: TitleShareProps) => {
+  const sectionClassnames = cn(styles[section], background !== '' ? styles[`background_${background}`] : '');
+
   return (
-    <div className={styles[section]}>
+    <div className={sectionClassnames}>
       <div className={cn("container", styles.container)}>
         <div className={styles.head}>
           <h1 className={cn("h1", styles.title)}>

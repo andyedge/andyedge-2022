@@ -39,7 +39,6 @@ const SlickArrow = ({ currentSlide, slideCount, children, ...props }: any) => (
 );
 
 const RowComponent = ({ headContent, items }: RowComponentProps) => {
-  console.log(items);
   const settings = {
     infinite: true,
     speed: 500,
