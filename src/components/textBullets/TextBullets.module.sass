@@ -9,7 +9,7 @@
   +x
     padding: 144px 80px 144px 0
   +t
-    padding: 0 0 64px 40px
+    padding: 0 0 64px 0
   +m
     padding: 0 32px 64px 32px
 
@@ -24,7 +24,7 @@
     +d
         padding-bottom: unset
     +dark
-        background-color: $black
+        background-color: $black2
 
 .section
     position: relative
@@ -36,9 +36,11 @@
         min-height: 960px
     +d
         min-height: 840px
+        padding-bottom: 0
     +m
         min-height: auto
         padding: 64px 0
+        padding-bottom: 0
 
 .section_bomou
     position: relative
@@ -66,6 +68,10 @@
     +t
         margin: auto
         margin-bottom: $container-spacing-mobile
+        max-width: unset
+        padding: 0 160px 32px 160px
+    +m
+        padding: 0 0 32px 0
 
 .title
     margin-bottom: 32px
@@ -150,6 +156,10 @@
         +d
             width: calc(800px / 1.8)
             height: calc(548px / 1.8)
+        +s
+            width: calc(800px / 2.5)
+            height: calc(548px / 2.5)
+            right: -10%
     &:nth-child(2)
         z-index: 2
         right: -170px
@@ -167,6 +177,10 @@
             top: -13%
         +t
             right: -10%
+        +s
+            width: calc(1088px / 2.5)
+            height: calc(832px / 2.5)
+            right: -15%
     &:nth-child(3)
         bottom: -130px
         left: -180px
@@ -188,6 +202,10 @@
         +t
             right: 33%
             left: unset
+        +s
+            width: calc(377px / 3)
+            height: calc(296px / 3)
+            right: 45%
     &:nth-child(4)
         bottom: -140px
         left: -320px
@@ -209,6 +227,11 @@
         +t
             left: unset
             right: 55%
+        +s
+            width: calc(160px / 2.2)
+            height: calc(152px / 2.2)
+            bottom: -32%
+            right: 78%
     &:not(:first-child)
         position: absolute
 
