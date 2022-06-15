@@ -1,19 +1,19 @@
 import { useRef } from 'react';
 import type { NextPage } from 'next';
-import Ecamp from '../src/models/entities/ecamp.model';
 import Hero from '../src/components/hero/Hero';
-import Header from '../src/models/entities/header.model';
 import useDarkMode from "@fisch0920/use-dark-mode";
 import Layout from '../src/components/layout/Layout';
+import Ecamp from '../src/models/entities/ecamp.model';
 import Contact from '../src/components/contact/Contact';
+import Header from '../src/models/entities/header.model';
 import { getEcamp, getHeader } from '../src/services/fetch';
 import TextSlider from '../src/components/textSlider/TextSlider';
-import EcampPageText from '../src/components/ecampPageText/EcampPageText';
-import CardsContainer from '../src/components/cardsContainer/CardsContainer';
-import EcampImgTextComp from '../src/components/ecampImgTextComp/EcampImgTextComp';
-import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer';
 import TitleShare from '../src/components/titleShare/TitleShare';
+import CardsContainer from '../src/components/cardsContainer/CardsContainer';
 import EcampImgSection from '../src/components/ecampImgSection/EcampImgSection';
+import EcampImgTextComp from '../src/components/ecampImgTextComp/EcampImgTextComp';
+import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPageText';
+import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer';
 
 export const getStaticProps = async () => {
   const ecampPage = await getEcamp();
@@ -104,9 +104,11 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent, header } : EcampProps) => {
         images={pageContent.pageImages}
         page='ecamp'
       />
-      <EcampPageText
+      <BigCaseStudyPageText
         title={pageContent.pageSubtitle}
         info={pageContent.pageText}
+        size={'size1'}
+        textAlign={'left'}
       />
       <TextSlider
         contents={pageContent.textSliderItems}

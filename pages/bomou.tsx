@@ -10,11 +10,10 @@ import TitleShare from '../src/components/titleShare/TitleShare'
 import TextSlider from '../src/components/textSlider/TextSlider'
 import TextBullets from '../src/components/textBullets/TextBullets'
 import RowComponent from '../src/components/rowComponent/RowComponent'
-import EcampPageText from '../src/components/ecampPageText/EcampPageText'
 import CardsContainer from '../src/components/cardsContainer/CardsContainer'
-import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer'
 import BomouIdGuide from '../src/components/bomouPage/bomouIdGuide/BomouIdGuide'
 import BomouBrandId from '../src/components/bomouPage/bomouBrandId/BomouBrandId'
+import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPageText'
 
 export const getStaticProps = async () => {
   const bomou = await getBomou();
@@ -75,8 +74,15 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
       <BomouBrandId
         contents={pageContent.standardContainer4}
       />
-      <EcampPageText
+      <BigCaseStudyPageText
+        title={pageContent.imagesTitle}
+        size={'size2'}
+        textAlign={'center'}
+      />
+      <BigCaseStudyPageText
         title={pageContent.imagesBottomTitle}
+        size={'size3'}
+        textAlign={'center'}
       />
       <TitleShare
         title={pageContent.bigTitle4}
