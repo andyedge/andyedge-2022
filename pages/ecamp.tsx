@@ -50,6 +50,7 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent, header } : EcampProps) => {
       <TitleShare
         title={pageContent.bigTitle1}
         section={'first_title'}
+        background={''}
       />
       <EcampImgTextComp
         contents={pageContent.standardContainer1}
@@ -97,6 +98,7 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent, header } : EcampProps) => {
       <TitleShare
         title={pageContent.bigTitle2}
         section={'second_title'}
+        background={'white'}
       />
       <EcampImgSection
         images={pageContent.pageImages}

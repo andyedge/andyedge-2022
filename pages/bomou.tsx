@@ -2,15 +2,18 @@ import { useRef } from 'react'
 import type { NextPage } from 'next'
 import Bomou from '../src/models/entities/bomou.model'
 import Hero from '../src/components/hero/Hero'
-import { getBomou, getHeader } from '../src/services/fetch'
+import Header from '../src/models/entities/header.model'
+import Layout from '../src/components/layout/Layout'
 import Contact from '../src/components/contact/Contact'
+import { getBomou, getHeader } from '../src/services/fetch'
+import TitleShare from '../src/components/titleShare/TitleShare'
 import TextSlider from '../src/components/textSlider/TextSlider'
+import TextBullets from '../src/components/textBullets/TextBullets'
+import RowComponent from '../src/components/rowComponent/RowComponent'
+import EcampPageText from '../src/components/ecampPageText/EcampPageText'
 import CardsContainer from '../src/components/cardsContainer/CardsContainer'
 import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer'
-import Layout from '../src/components/layout/Layout'
-import Header from '../src/models/entities/header.model'
-import TextBullets from '../src/components/textBullets/TextBullets'
-import TitleShare from '../src/components/titleShare/TitleShare'
+import BomouIdGuide from '../src/components/bomouPage/bomouIdGuide/BomouIdGuide'
 
 export const getStaticProps = async () => {
   const bomou = await getBomou();
@@ -43,17 +46,43 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
         scrollToRef={scrollToRef}
       />
       <TitleShare
-        title={pageContent.bigTitle1.text}
+        title={pageContent.bigTitle1}
         section={'first_title'}
+        background={''}
+      />
+      <BomouIdGuide
+        contents={pageContent.standardContainer1}
+      />
+      <TitleShare
+        title={pageContent.bigTitle2}
+        section={'first_title'}
+        background={'white'}
       />
       <TextBullets
         contents={pageContent.standardContainer2}
         section={'bomou'}
       />
+      <RowComponent
+        headContent={pageContent.standardContainer3}
+        items={pageContent.consistencyItems}
+      />
+      <TitleShare
+        title={pageContent.bigTitle3}
+        section={'first_title'}
+        background={'gray4'}
+      />
       <EcampStandardContainer
-        contents={pageContent.standardContainer3}
-        title={true}
-        section={'standard'}
+        contents={pageContent.standardContainer4}
+        title={false}
+        section={'no_title'}
+      />
+      <EcampPageText
+        title={pageContent.imagesBottomTitle}
+      />
+      <TitleShare
+        title={pageContent.bigTitle4}
+        section={'first_title'}
+        background={''}
       />
       <TextSlider
         contents={[pageContent.textSlider]}

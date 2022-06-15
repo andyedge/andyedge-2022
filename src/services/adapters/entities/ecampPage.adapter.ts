@@ -5,6 +5,7 @@ import { adaptStandardCardContainer, adaptStandardCardContainers } from '../gene
 import { adaptImages } from '../generic/image.adapter'
 import { adaptContactContainer } from '../generic/contactContainer.adapter'
 import { adaptTextSliders } from '../generic/textSlider.adapter'
+import { adaptLink } from '../generic/link.adapter'
 
 export const adaptEcamppage = (data: Entry): Ecamp => {
     const [ecamp] = data.items
@@ -16,7 +17,7 @@ export const adaptEcamppage = (data: Entry): Ecamp => {
         cardModal1: adaptStandardCardContainer(fields.cardModal1),
         cardModal2: adaptStandardCardContainer(fields.cardModal2),
         cardModal3: adaptStandardCardContainer(fields.cardModal3),
-        bigTitle1: fields.bigTitle1,
+        bigTitle1: adaptLink(fields.bigTitle1),
         standardContainer1: adaptStandardContainer(fields.standardContainer1),
         standardContainer2: adaptStandardContainer(fields.standardContainer2),
         standardContainer3: adaptStandardContainer(fields.standardContainer3),
@@ -26,7 +27,7 @@ export const adaptEcamppage = (data: Entry): Ecamp => {
         standardContainer7: adaptStandardContainer(fields.standardContainer7),
         standardContainer8: adaptStandardContainer(fields.standardContainer8),
         standardContainer9: adaptStandardContainer(fields.standardContainer9),
-        bigTitle2: fields.bigTitle2,
+        bigTitle2: adaptLink(fields.bigTitle2),
         pageImages: adaptImages(fields.pageImages),
         pageSubtitle: fields.pageSubtitle,
         pageText: fields.pageText,

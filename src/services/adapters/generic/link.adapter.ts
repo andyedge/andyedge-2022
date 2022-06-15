@@ -8,6 +8,7 @@ export const adaptLink = (data: Item): Link => {
 
     const { fields } = data
     return {
+        preText: fields.preText || '',
         text: fields.text || '',
         url: fields.url || '',
         newTab: fields.opensInANewTab
