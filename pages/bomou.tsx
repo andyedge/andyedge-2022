@@ -35,7 +35,7 @@ declare interface BomouProps {
 
 const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) => {
   const scrollToRef = useRef(null)
-  const pageImages: ImageType[] = [pageContent.image1, pageContent.image2, pageContent.image3, pageContent.image4, pageContent.image5 ]
+
   return (
     <Layout header={header}>  
       <Hero
@@ -82,7 +82,11 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
         textAlign={'center'}
       />
       <BomouImgSection
-        images={pageImages}
+        image1={pageContent.image1}
+        image2={pageContent.image2}
+        image3={pageContent.image3}
+        image4={pageContent.image4}
+        image5={pageContent.image5}
       />
       <BigCaseStudyPageText
         title={pageContent.imagesBottomTitle}
