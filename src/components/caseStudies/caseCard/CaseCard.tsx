@@ -1,9 +1,22 @@
 import StandardContainer from '../../../models/generic/standardContainer.model'
 import Card from '../../cardBullets/Card'
+import CustomImage from '../../image/Image'
+import styles from './CaseCard.module.sass'
+
+const imageProps = {
+    fit: {
+        objectFit: 'cover',
+        objectPosition: 'center'
+    },
+    classNamne: styles.backgroundImage
+}
 
 const CaseCard = ({ contents } : { contents : StandardContainer }) => (
-    <div>
-        <Card contents={contents} wrapStyle={{ marginLeft: 'auto' }}/>
+    <div className={styles.container}>
+        <div className='container'>
+            <CustomImage src={contents.backgroundImage} props={imageProps} />
+            <Card contents={contents} wrapStyle={{ margin: 'auto 0 auto auto' }}/>
+        </div>
     </div>
 )
 

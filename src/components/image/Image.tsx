@@ -8,6 +8,7 @@ declare interface CustomImageProps {
     className?: string
     style?: Object
     priority?: boolean
+    fit?: Object
   }
 }
 
@@ -21,6 +22,7 @@ const CustomImage = ({ src, props } : CustomImageProps) => {
       layout={'fill'}
       style={props?.style}
       priority={props?.priority}
+     {...props?.fit && props.fit}
     />
   )
 }
