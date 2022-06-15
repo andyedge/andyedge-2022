@@ -1,5 +1,5 @@
 import cn from "classnames";
-import Link from "../../models/link.model";
+import Link from "../../models/generic/link.model";
 import Icon from "../icon/Icon";
 import styles from "./TitleShare.module.sass";
 

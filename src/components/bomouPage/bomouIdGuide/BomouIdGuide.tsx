@@ -3,8 +3,8 @@ import RichText from "../../RichText";
 import Button from "../../button/Button";
 import CustomImage from "../../image/Image";
 import styles from "./BomouIdGuide.module.sass";
-import ImageType from "../../../models/image.model";
-import StandardContainer from "../../../models/standardContainer.model";
+import ImageType from "../../../models/generic/image.model";
+import StandardContainer from "../../../models/generic/standardContainer.model";
 
 declare interface BomouIdGuide {
   contents: StandardContainer
