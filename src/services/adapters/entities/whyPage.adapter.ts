@@ -1,5 +1,5 @@
-import Entry from '../../../models/entry.model'
-import Whypage from '../../../models/whypage.model'
+import Entry from '../../../models/generic/entry.model'
+import Whypage from '../../../models/entities/whypage.model'
 import { adaptStandardContainer, adaptStandardContainers } from '../generic/standardContainer.adapter'
 import { adaptStepsSection } from '../generic/steps.adapter'
 

@@ -1,5 +1,5 @@
-import StandardContainer from  './standardContainer.model'
-import StepsContainer from './stepsContainer.model'
+import StandardContainer from  '../generic/standardContainer.model'
+import StepsContainer from '../generic/stepsContainer.model'
 
 export default interface Whypage {
     name: string

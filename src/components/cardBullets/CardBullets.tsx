@@ -3,9 +3,10 @@ import { Fragment, FC } from "react";
 import CustomImage from "../image/Image";
 import styles from "./CardBullets.module.sass"
 import ScrollParallax from "../ScrollParallax";
-import ImageType from "../../models/image.model";
+import ImageType from "../../models/generic/image.model";
 import Button from '../button/Button';
-import StandardContainer from '../../models/standardContainer.model';
+import StandardContainer from '../../models/generic/standardContainer.model';
+import Card from './Card';
 
 declare interface CardBulletsProps {
   contents: StandardContainer
@@ -21,28 +22,7 @@ const CardBullets: FC<CardBulletsProps> = ({ contents, section } : CardBulletsPr
   return (
     <div className={cn("section-bg", styles.section, styles[section])}>
       <div className={cn("container", styles.container)}>
-        <div className={styles.wrap} style={wrapStyle}>
-          <h2 className={cn("h2", styles.title)}> {contents.title} </h2>
-          <div className={styles.info}>
-            {contents.subtitle}
-          </div>
-          <div className={styles.list}>
-            {contents.bulletsContainer?.map((content: any, index: number) => (
-              <div className={styles.item} key={index}>
-                <div
-                  className={styles.icon}
-                >
-                  <CustomImage src={content.image} />
-                </div>
-                <div className={styles.details}>
-                  <div className={styles.subtitle}>{content.title}</div>
-                  <div className={styles.content}>{content.text}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <Button link={contents.ctaPageLink} text={contents.ctaText} />
-        </div>
+        <Card contents={contents} wrapStyle={wrapStyle}/>
         <div
           className={galleryClasses}
         >

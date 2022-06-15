@@ -1,5 +1,5 @@
-import Entry from '../../../models/entry.model'
-import Bomou from '../../../models/bomou.model'
+import Entry from '../../../models/generic/entry.model'
+import Bomou from '../../../models/entities/bomou.model'
 import { adaptStandardContainer, adaptStandardContainers } from '../generic/standardContainer.adapter'
 import { adaptStandardCardContainers } from '../generic/cardContainer.adapter'
 import { adaptImage, adaptImages } from '../generic/image.adapter'

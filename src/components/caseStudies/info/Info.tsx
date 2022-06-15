@@ -1,4 +1,4 @@
-import { StudyCaseInfo } from '../../../models/smallCaseStudy.model'
+import { CaseStudyInfo } from '../../../models/generic/caseStudies.model'
 import CustomImage from '../../image/Image'
 import styles from './Info.module.sass'
 import Button from '../../button/Button'
@@ -16,7 +16,7 @@ const categories = [{
     name: 'GRAPHIC DESIGN'
 }]
 
-const SmallCaseHero = ({ data } : { data : StudyCaseInfo }) => (
+const SmallCaseHero = ({ data } : { data : CaseStudyInfo }) => (
     <div className={'container'}>
         <div className={styles.container}>
             <div className={styles.left_row}>

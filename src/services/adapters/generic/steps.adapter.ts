@@ -1,5 +1,5 @@
-import { Item } from '../../../models/entry.model'
-import StepsContainer from '../../../models/stepsContainer.model'
+import { Item } from '../../../models/generic/entry.model'
+import StepsContainer from '../../../models/generic/stepsContainer.model'
 import { adaptImage } from './image.adapter'
 
 export const adaptStepsSection = (data: Item[]): StepsContainer[] => {

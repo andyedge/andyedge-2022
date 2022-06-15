@@ -1,7 +1,7 @@
-import ContactContainer from './contact.model'
-import StandardContainer from  './standardContainer.model'
-import StepsContainer from './stepsContainer.model'
-import Solution from './solution.model'
+import ContactContainer from '../generic/contact.model'
+import StandardContainer from  '../generic/standardContainer.model'
+import StepsContainer from '../generic/stepsContainer.model'
+import Solution from '../generic/solution.model'
 
 export default interface Whatpage {
     name: string

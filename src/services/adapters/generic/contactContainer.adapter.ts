@@ -1,5 +1,5 @@
-import { Item } from '../../../models/entry.model'
-import ContactContainer from '../../../models/contact.model'
+import { Item } from '../../../models/generic/entry.model'
+import ContactContainer from '../../../models/generic/contact.model'
 import { adaptImage } from './image.adapter'
 
 export const adaptContactContainer = (data: Item): ContactContainer => {

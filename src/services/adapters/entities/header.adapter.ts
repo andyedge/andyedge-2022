@@ -1,5 +1,5 @@
-import Entry, { Item } from '../../../models/entry.model'
-import Header from '../../../models/header.model'
+import Entry, { Item } from '../../../models/generic/entry.model'
+import Header from '../../../models/entities/header.model'
 import { adaptImage } from '../generic/image.adapter'
 import { adaptLink } from '../generic/link.adapter'
 

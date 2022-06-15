@@ -1,5 +1,5 @@
-import { Item } from '../../../models/entry.model'
-import StandardCardContainer from '../../../models/standardCardContainer.model'
+import { Item } from '../../../models/generic/entry.model'
+import StandardCardContainer from '../../../models/generic/standardCardContainer.model'
 import { adaptImage } from './image.adapter'
 
 export const adaptStandardCardContainer = (data: Item): StandardCardContainer => {

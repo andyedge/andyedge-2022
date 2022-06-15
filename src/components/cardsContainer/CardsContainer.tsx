@@ -5,7 +5,7 @@ import Icon from "../icon/Icon";
 import Slider from "react-slick";
 import styles from "./CardsContainer.module.sass";
 import ScrollParallax from "../ScrollParallax";
-import StandardCardContainer from "../../models/standardCardContainer.model";
+import StandardCardContainer from "../../models/generic/standardCardContainer.model";
 import { MutableRefObject } from "react";
 import CustomImage from '../image/Image';
 import CardModal from "../cardModal/CardModal";

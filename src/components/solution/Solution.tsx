@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "./Solution.module.sass";
 import CustomImage from "../image/Image";
 import { useEffect, useState } from "react";
-import Solution from "../../models/solution.model";
+import Solution from "../../models/generic/solution.model";
 import Button from "../button/Button";
 
 declare interface solutionImagesType {

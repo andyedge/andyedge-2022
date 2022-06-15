@@ -1,5 +1,5 @@
-import ImageType from './image.model'
-import Link from './link.model'
+import ImageType from '../generic/image.model'
+import Link from '../generic/link.model'
 
 export default interface Header {
     logo: ImageType

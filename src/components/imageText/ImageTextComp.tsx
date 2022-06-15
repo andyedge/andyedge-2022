@@ -1,7 +1,7 @@
 import cn from "classnames";
 import RichText from "../RichText";
 import CustomImage from "../image/Image";
-import ImageType from "../../models/image.model";
+import ImageType from "../../models/generic/image.model";
 import styles from "./ImageTextComp.module.sass";
 
 const ImageTextComp = ({ content, isFirst, isLast }: any) => {

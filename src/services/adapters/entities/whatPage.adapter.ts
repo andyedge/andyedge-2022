@@ -1,5 +1,5 @@
-import Entry from '../../../models/entry.model'
-import Whatpage from '../../../models/whatpage.model'
+import Entry from '../../../models/generic/entry.model'
+import Whatpage from '../../../models/entities/whatpage.model'
 import { adaptStandardContainer } from '../generic/standardContainer.adapter'
 import { adaptImage, adaptImages } from '../generic/image.adapter'
 import { adaptStepsSection } from '../generic/steps.adapter'

@@ -1,5 +1,5 @@
-import { Item } from '../../../models/entry.model'
-import Link from '../../../models/link.model'
+import { Item } from '../../../models/generic/entry.model'
+import Link from '../../../models/generic/link.model'
 
 export const adaptLink = (data: Item): Link => {
     if(!data) {

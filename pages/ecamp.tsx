@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import type { NextPage } from 'next';
-import Ecamp from '../src/models/ecamp.model';
+import Ecamp from '../src/models/entities/ecamp.model';
 import Hero from '../src/components/hero/Hero';
-import Header from '../src/models/header.model';
+import Header from '../src/models/entities/header.model';
 import useDarkMode from "@fisch0920/use-dark-mode";
 import Layout from '../src/components/layout/Layout';
 import Contact from '../src/components/contact/Contact';

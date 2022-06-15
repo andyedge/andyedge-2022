@@ -5,7 +5,7 @@ import Icon from "../icon/Icon";
 import Slider from "react-slick";
 import styles from "./RowComponent.module.sass";
 import ScrollParallax from "../ScrollParallax";
-import StandardContainer from "../../models/standardContainer.model";
+import StandardContainer from "../../models/generic/standardContainer.model";
 import RichText from "../RichText";
 
 declare interface RowComponentProps {

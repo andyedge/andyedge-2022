@@ -1,6 +1,6 @@
 import Image from 'next/image'
 // import useDarkMode from '@fisch0920/use-dark-mode'
-import ImageModel from '../../models/image.model'
+import ImageModel from '../../models/generic/image.model'
 
 declare interface CustomImageProps {
   src: ImageModel
@@ -8,6 +8,7 @@ declare interface CustomImageProps {
     className?: string
     style?: Object
     priority?: boolean
+    fit?: Object
   }
 }
 
@@ -21,6 +22,7 @@ const CustomImage = ({ src, props } : CustomImageProps) => {
       layout={'fill'}
       style={props?.style}
       priority={props?.priority}
+     {...props?.fit && props.fit}
     />
   )
 }

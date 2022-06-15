@@ -2,7 +2,7 @@ import cn from "classnames";
 import styles from "./TextBullets.module.sass";
 import ScrollParallax from "../ScrollParallax";
 import RichText from "../RichText";
-import ImageType from "../../models/image.model";
+import ImageType from "../../models/generic/image.model";
 import CustomImage from "../image/Image";
 import { Fragment } from "react";
 import Button from '../button/Button';

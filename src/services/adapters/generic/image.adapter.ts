@@ -1,5 +1,5 @@
-import { Item } from '../../../models/entry.model'
-import ImageType from '../../../models/image.model'
+import { Item } from '../../../models/generic/entry.model'
+import ImageType from '../../../models/generic/image.model'
 
 export const adaptImage = (image: Item): ImageType => {
     if(!image) {

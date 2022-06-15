@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 import type { NextPage } from 'next'
-import Bomou from '../src/models/bomou.model'
+import Bomou from '../src/models/entities/bomou.model'
 import Hero from '../src/components/hero/Hero'
-import Header from '../src/models/header.model'
+import Header from '../src/models/entities/header.model'
 import Layout from '../src/components/layout/Layout'
 import Contact from '../src/components/contact/Contact'
 import { getBomou, getHeader } from '../src/services/fetch'
@@ -14,7 +14,6 @@ import EcampPageText from '../src/components/ecampPageText/EcampPageText'
 import CardsContainer from '../src/components/cardsContainer/CardsContainer'
 import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer'
 import BomouIdGuide from '../src/components/bomouPage/bomouIdGuide/BomouIdGuide'
-
 
 export const getStaticProps = async () => {
   const bomou = await getBomou();
