@@ -58,23 +58,21 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
       <TextBullets
         contents={pageContent.standardContainer2}
         section={'bomou'}
-      />   
+      />
       <RowComponent
         headContent={pageContent.standardContainer3}
         items={pageContent.consistencyItems}
       />
-      <div style={{background: '#F4F4F4'}}>
-        <TitleShare
-          title={pageContent.bigTitle3.text}
-          section={'first_title'}
-          background={'gray4'}
-        />
-        <EcampStandardContainer
-          contents={pageContent.standardContainer4}
-          title={false}
-          section={'no_title'}
-        />
-      </div>      
+      <TitleShare
+        title={pageContent.bigTitle3.text}
+        section={'first_title'}
+        background={'gray4'}
+      />
+      <EcampStandardContainer
+        contents={pageContent.standardContainer4}
+        title={false}
+        section={'no_title'}
+      />
       <EcampPageText
         title={pageContent.imagesBottomTitle}
       />

@@ -64,7 +64,7 @@ const RowComponent = ({ headContent, items }: RowComponentProps) => {
       },
       {
         breakpoint: 100000,
-        settings: "unslick",
+        settings: "unslick" as "unslick",
       },
     ],
   };
