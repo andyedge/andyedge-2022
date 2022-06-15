@@ -9,10 +9,11 @@ import { getBomou, getHeader } from '../src/services/fetch'
 import TitleShare from '../src/components/titleShare/TitleShare'
 import TextSlider from '../src/components/textSlider/TextSlider'
 import TextBullets from '../src/components/textBullets/TextBullets'
+import RowComponent from '../src/components/rowComponent/RowComponent'
 import EcampPageText from '../src/components/ecampPageText/EcampPageText'
 import CardsContainer from '../src/components/cardsContainer/CardsContainer'
 import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer'
-import RowComponent from '../src/components/rowComponent/RowComponent'
+import BomouIdGuide from '../src/components/bomouPage/bomouIdGuide/BomouIdGuide'
 
 
 export const getStaticProps = async () => {
@@ -46,12 +47,15 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
         scrollToRef={scrollToRef}
       />
       <TitleShare
-        title={pageContent.bigTitle1.text}
+        title={pageContent.bigTitle1}
         section={'first_title'}
         background={''}
       />
+      <BomouIdGuide
+        contents={pageContent.standardContainer1}
+      />
       <TitleShare
-        title={pageContent.bigTitle2.text}
+        title={pageContent.bigTitle2}
         section={'first_title'}
         background={'white'}
       />
@@ -64,7 +68,7 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
         items={pageContent.consistencyItems}
       />
       <TitleShare
-        title={pageContent.bigTitle3.text}
+        title={pageContent.bigTitle3}
         section={'first_title'}
         background={'gray4'}
       />
@@ -77,7 +81,7 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
         title={pageContent.imagesBottomTitle}
       />
       <TitleShare
-        title={pageContent.bigTitle4.text}
+        title={pageContent.bigTitle4}
         section={'first_title'}
         background={''}
       />
