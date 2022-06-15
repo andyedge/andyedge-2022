@@ -5,6 +5,7 @@ import Hero from '../src/components/hero/Hero'
 import Header from '../src/models/entities/header.model'
 import Layout from '../src/components/layout/Layout'
 import Contact from '../src/components/contact/Contact'
+import ImageType from '../src/models/generic/image.model'
 import { getBomou, getHeader } from '../src/services/fetch'
 import TitleShare from '../src/components/titleShare/TitleShare'
 import TextSlider from '../src/components/textSlider/TextSlider'
@@ -14,6 +15,7 @@ import CardsContainer from '../src/components/cardsContainer/CardsContainer'
 import BomouIdGuide from '../src/components/bomouPage/bomouIdGuide/BomouIdGuide'
 import BomouBrandId from '../src/components/bomouPage/bomouBrandId/BomouBrandId'
 import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPageText'
+import BomouImgSection from '../src/components/bomouPage/bomouImgSection/BomouImgSection'
 
 export const getStaticProps = async () => {
   const bomou = await getBomou();
@@ -33,7 +35,7 @@ declare interface BomouProps {
 
 const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) => {
   const scrollToRef = useRef(null)
-
+  const pageImages: ImageType[] = [pageContent.image1, pageContent.image2, pageContent.image3, pageContent.image4, pageContent.image5 ]
   return (
     <Layout header={header}>  
       <Hero
@@ -78,6 +80,9 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
         title={pageContent.imagesTitle}
         size={'size2'}
         textAlign={'center'}
+      />
+      <BomouImgSection
+        images={pageImages}
       />
       <BigCaseStudyPageText
         title={pageContent.imagesBottomTitle}
