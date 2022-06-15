@@ -12,7 +12,7 @@ const TextBullets = ({ contents, section }: any) => {
   const images = contents.images;
   const isIdentityDesign = section === 'identity_design';
   const isBomou = section === 'bomou';
-  const containerClasses = cn("container", styles.container, isBomou ? "container-full-no-top-padding" : "container-full")
+  const containerClasses = cn("container", "container-full", isBomou ? styles.container_bomou : styles.container)
 
   return (
     <div className={cn(styles.section, styles[section], styles[`section_${section}`])}>
@@ -46,7 +46,7 @@ const TextBullets = ({ contents, section }: any) => {
             images.map((image: ImageType, index: number) => (
               <Fragment key={'imgTxtBullet_' + index}>
                 <ScrollParallax
-                  className={isIdentityDesign ? styles.preview_id_design : styles.preview}
+                  className={styles[`preview_${section}`]}
                   animateIn="fadeInUp"
                 >
                   <CustomImage src={image}/>

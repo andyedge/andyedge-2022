@@ -2,11 +2,11 @@ import cn from "classnames";
 import styles from "./EcampPageText.module.sass";
 
 declare interface EcampPageTextProps {
-    title: string
-    info: string
+  title: string
+  info?: string
 }
 
-const EcampPageText = ({title, info}: EcampPageTextProps) => {
+const EcampPageText = ({ title, info }: EcampPageTextProps) => {
   return (
     <div className={cn(styles.section, styles.custom_section)}>
       <div className={cn("container", styles.container)}>
@@ -14,9 +14,14 @@ const EcampPageText = ({title, info}: EcampPageTextProps) => {
           <div className={cn("h3", styles.title)}>
             {title}
           </div>
-          <div className={styles.info}>
-            {info}
-          </div>
+          {
+            info ?
+              <div className={styles.info}>
+                {info}
+              </div>
+              :
+              null
+          }
         </div>
       </div>
     </div>

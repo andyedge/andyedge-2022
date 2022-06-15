@@ -1,24 +1,36 @@
 import cn from "classnames";
+import Link from "../../models/link.model";
 import Icon from "../icon/Icon";
 import styles from "./TitleShare.module.sass";
 
 declare interface TitleShareProps {
-    title: string
-    section: string
+  title: Link
+  section: string
+  background: string
 }
 
-const TitleShare = ({title, section}: TitleShareProps) => {
+const TitleShare = ({ title, section, background }: TitleShareProps) => {
+  const sectionClassnames = cn(styles[section], background !== '' ? styles[`background_${background}`] : '');
+
   return (
-    <div className={styles[section]}>
+    <div className={sectionClassnames}>
       <div className={cn("container", styles.container)}>
+        {
+          title.preText ?
+            <div className={cn("stage", styles.stage, styles.preText)}>
+              {title.preText}
+            </div>
+            :
+            null
+        }
         <div className={styles.head}>
-          <h1 className={cn("h1", styles.title)}>
-            {title}
-          </h1>
+          <h2 className={cn("h1", styles.title)}>
+            {title.text}
+          </h2>
           <button className={cn("button-circle-stroke", styles.button)}>
             <Icon name="download" size={22} />
           </button>
-        </div>        
+        </div>
       </div>
     </div>
   );
