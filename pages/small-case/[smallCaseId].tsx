@@ -4,11 +4,11 @@ import Header from '../../src/models/entities/header.model'
 import Entry from '../../src/models/generic/entry.model'
 import SmallCaseStudy from '../../src/models/entities/smallCaseStudy.model'
 import Layout from '../../src/components/layout/Layout'
-import SmallCaseHero from '../../src/components/smallCaseStudy/hero/Hero'
+import SmallCaseHero from '../../src/components/caseStudies/hero/Hero'
 import CardsContainer from '../../src/components/cardsContainer/CardsContainer'
 import TextSlider from '../../src/components/textSlider/TextSlider'
 import Banner from '../../src/components/banner/Banner'
-import SmallCaseInfo from '../../src/components/smallCaseStudy/info/Info'
+import SmallCaseInfo from '../../src/components/caseStudies/info/Info'
 import PortfolioContainer from '../../src/components/portfolioContainer/PortfolioContainer'
 
 export const getStaticPaths: GetStaticPaths = async () => {
