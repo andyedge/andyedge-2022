@@ -14,6 +14,7 @@ import EcampPageText from '../src/components/ecampPageText/EcampPageText'
 import CardsContainer from '../src/components/cardsContainer/CardsContainer'
 import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer'
 import BomouIdGuide from '../src/components/bomouPage/bomouIdGuide/BomouIdGuide'
+import BomouBrandId from '../src/components/bomouPage/bomouBrandId/BomouBrandId'
 
 export const getStaticProps = async () => {
   const bomou = await getBomou();
@@ -71,10 +72,8 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
         section={'first_title'}
         background={'gray4'}
       />
-      <EcampStandardContainer
+      <BomouBrandId
         contents={pageContent.standardContainer4}
-        title={false}
-        section={'no_title'}
       />
       <EcampPageText
         title={pageContent.imagesBottomTitle}
