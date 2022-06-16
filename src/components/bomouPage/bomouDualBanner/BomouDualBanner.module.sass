@@ -1,0 +1,30 @@
+@import ../../../../styles/helpers
+
+.container
+    &:first-child
+        position: relative
+        width: 50%
+        height: 520px
+        +d
+            height: 400px
+        +t
+            height: 304px
+        +s
+            height: 200px
+    &:nth-child(2)
+        position: relative
+        width: 50%
+        height: 520px
+        +d
+            height: 400px
+        +t
+            height: 304px
+        +s
+            height: 200px
+
+.img_wrapper
+    display: flex
+    flex-flow: row wrap
+    margin-bottom: 200px
+    +t
+        margin-bottom: 100px
