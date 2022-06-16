@@ -7,11 +7,11 @@ import StandardContainer from '../../models/generic/standardContainer.model';
 
 declare interface CardProps {
     contents: StandardContainer
-    wrapStyle: Object
+    style: string
 }
 
-const Card = ({ contents, wrapStyle } : CardProps ) => (
-    <div className={styles.wrap} style={wrapStyle}>
+const Card = ({ contents, style } : CardProps ) => (
+    <div className={cn(styles.wrap, style)}>
         <h2 className={cn('h2', styles.title)}> {contents.title} </h2>
         <p className={styles.info}>
             {contents.subtitle}
