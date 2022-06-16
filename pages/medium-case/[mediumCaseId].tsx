@@ -50,7 +50,7 @@ const MediumCase: NextPage<MediumCaseStudyProps> = ({ pageContent, header } : Me
             <div className='container-fluid'>
                 <SmallCaseHero data={pageContent.hero} />
                 <CardsContainer contents={pageContent.cards} scrollToRef={null} smallSpaccing={true}/>
-                <Banner src={pageContent.banner} />
+                <Banner src={pageContent.banner} page={'small_case'}/>
                 <SmallCaseInfo data={pageContent.caseStudyInfo} />
                 <TextSlider contents={[pageContent.testimonial]} />
                 <CaseCard contents={pageContent.cardInfo}/>
