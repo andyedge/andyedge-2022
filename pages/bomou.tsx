@@ -17,6 +17,7 @@ import BomouBrandId from '../src/components/bomouPage/bomouBrandId/BomouBrandId'
 import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPageText'
 import BomouImgSection from '../src/components/bomouPage/bomouImgSection/BomouImgSection'
 import BomouDualBanner from '../src/components/bomouPage/bomouDualBanner/BomouDualBanner'
+import BomouSocialOutreach from '../src/components/bomouPage/bomouSocialOutreach/BomouSocialOutreach'
 
 
 export const getStaticProps = async () => {
@@ -102,6 +103,9 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
         title={pageContent.bigTitle4}
         section={'first_title'}
         background={''}
+      />
+      <BomouSocialOutreach
+        contents={pageContent.standardContainer5}
       />
       <Banner
         src={pageContent.image6}
