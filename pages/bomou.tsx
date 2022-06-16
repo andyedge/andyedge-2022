@@ -70,6 +70,7 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
       <RowComponent
         headContent={pageContent.standardContainer3}
         items={pageContent.consistencyItems}
+        title={'title'}
       />
       <TitleShare
         title={pageContent.bigTitle3}
@@ -106,6 +107,11 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
       />
       <BomouSocialOutreach
         contents={pageContent.standardContainer5}
+      />
+      <RowComponent
+        headContent={pageContent.standardContainer6}
+        items={pageContent.design}
+        title={'subtitle'}
       />
       <Banner
         src={pageContent.image6}
