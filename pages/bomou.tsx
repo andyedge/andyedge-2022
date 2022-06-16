@@ -1,11 +1,11 @@
 import { useRef } from 'react'
 import type { NextPage } from 'next'
-import Bomou from '../src/models/entities/bomou.model'
 import Hero from '../src/components/hero/Hero'
-import Header from '../src/models/entities/header.model'
+import Banner from '../src/components/banner/Banner'
 import Layout from '../src/components/layout/Layout'
+import Bomou from '../src/models/entities/bomou.model'
 import Contact from '../src/components/contact/Contact'
-import ImageType from '../src/models/generic/image.model'
+import Header from '../src/models/entities/header.model'
 import { getBomou, getHeader } from '../src/services/fetch'
 import TitleShare from '../src/components/titleShare/TitleShare'
 import TextSlider from '../src/components/textSlider/TextSlider'
@@ -17,6 +17,7 @@ import BomouBrandId from '../src/components/bomouPage/bomouBrandId/BomouBrandId'
 import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPageText'
 import BomouImgSection from '../src/components/bomouPage/bomouImgSection/BomouImgSection'
 import BomouDualBanner from '../src/components/bomouPage/bomouDualBanner/BomouDualBanner'
+
 
 export const getStaticProps = async () => {
   const bomou = await getBomou();
@@ -101,6 +102,10 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
         title={pageContent.bigTitle4}
         section={'first_title'}
         background={''}
+      />
+      <Banner
+        src={pageContent.image6}
+        page={'bomou'}
       />
       <TextSlider
         contents={[pageContent.textSlider]}
