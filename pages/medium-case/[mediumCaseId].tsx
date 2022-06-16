@@ -10,8 +10,8 @@ import TextSlider from '../../src/components/textSlider/TextSlider'
 import Banner from '../../src/components/banner/Banner'
 import SmallCaseInfo from '../../src/components/caseStudies/info/Info'
 import PortfolioContainer from '../../src/components/portfolioContainer/PortfolioContainer'
-import CardBullets from '../../src/components/cardBullets/CardBullets'
 import CaseCard from '../../src/components/caseStudies/caseCard/CaseCard'
+import CaseVideoExplainer from '../../src/components/caseStudies/videoExplainer/VideoExplainer'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const mediumCaseStudies: Entry = await getMediumCaseStudies()
@@ -54,6 +54,7 @@ const MediumCase: NextPage<MediumCaseStudyProps> = ({ pageContent, header } : Me
                 <SmallCaseInfo data={pageContent.caseStudyInfo} />
                 <TextSlider contents={[pageContent.testimonial]} />
                 <CaseCard contents={pageContent.cardInfo}/>
+                <CaseVideoExplainer contents={pageContent.caseExplanation} />
                 <PortfolioContainer />
             </div>
         </Layout>

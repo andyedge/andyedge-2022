@@ -4,7 +4,6 @@ import CustomImage from "../image/Image";
 import styles from "./CardBullets.module.sass"
 import ScrollParallax from "../ScrollParallax";
 import ImageType from "../../models/generic/image.model";
-import Button from '../button/Button';
 import StandardContainer from '../../models/generic/standardContainer.model';
 import Card from './Card';
 
@@ -17,12 +16,12 @@ const CardBullets: FC<CardBulletsProps> = ({ contents, section } : CardBulletsPr
   const { mediaPosition } = contents
   const isRightOriented = mediaPosition?.toLowerCase() === 'right'
   const galleryClasses = cn(styles.gallery, isRightOriented ? styles.gallery_right : styles.gallery_left);
-  const wrapStyle = isRightOriented ? { marginRight: 'auto' } : { marginLeft: 'auto' };
+  const wrapStyle = isRightOriented ? styles.wrap_right : styles.wrap_left;
 
   return (
     <div className={cn("section-bg", styles.section, styles[section])}>
       <div className={cn("container", styles.container)}>
-        <Card contents={contents} wrapStyle={wrapStyle}/>
+        <Card contents={contents} style={wrapStyle}/>
         <div
           className={galleryClasses}
         >

@@ -15,7 +15,7 @@ const CaseCard = ({ contents } : { contents : StandardContainer }) => (
     <div className={styles.container}>
         <div className='container'>
             <CustomImage src={contents.backgroundImage} props={imageProps} />
-            <Card contents={contents} wrapStyle={{ margin: 'auto 0 auto auto' }}/>
+            <Card contents={contents} style={styles.card}/>
         </div>
     </div>
 )

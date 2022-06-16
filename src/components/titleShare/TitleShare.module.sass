@@ -34,11 +34,17 @@
     +m
         flex-direction: column-reverse
         padding-bottom: 64px
+        +s
+            padding-bottom: 32px
     .title
         max-width: 920px
         margin-right: auto
     .button
-        margin-left: 30px
-        margin-top: 10px
+        margin: auto 0 auto auto
+        box-shadow: 0 0 0 2px $gray3 inset
+        svg
+            fill: $gray
+            +dark
+                fill: $white
         +m
-            margin: 0 0 16px
+            margin: 0 0 8px
