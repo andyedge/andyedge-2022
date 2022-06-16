@@ -1,22 +1,24 @@
 import cn from "classnames";
-import styles from "./EcampPageText.module.sass";
+import styles from "./BigCaseStudyPageText.module.sass";
 
 declare interface EcampPageTextProps {
   title: string
   info?: string
+  size: string
+  textAlign: string
 }
 
-const EcampPageText = ({ title, info }: EcampPageTextProps) => {
+const BigCaseStudyPageText = ({ title, info, size, textAlign }: EcampPageTextProps) => {
   return (
     <div className={cn(styles.section, styles.custom_section)}>
       <div className={cn("container", styles.container)}>
         <div className={styles.head}>
-          <div className={cn("h3", styles.title)}>
+          <div className={cn("h3", styles.title, styles[size], styles[textAlign])}>
             {title}
           </div>
           {
             info ?
-              <div className={styles.info}>
+              <div className={cn(styles.info, styles[size])}>
                 {info}
               </div>
               :
@@ -28,4 +30,4 @@ const EcampPageText = ({ title, info }: EcampPageTextProps) => {
   );
 };
 
-export default EcampPageText;
+export default BigCaseStudyPageText;
