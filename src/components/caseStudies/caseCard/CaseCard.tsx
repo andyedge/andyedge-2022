@@ -4,11 +4,11 @@ import CustomImage from '../../image/Image'
 import styles from './CaseCard.module.sass'
 
 const imageProps = {
-    fit: {
+    customAttr: {
         objectFit: 'cover',
         objectPosition: 'center'
     },
-    classNamne: styles.backgroundImage
+    classNamne: styles.background_image
 }
 
 const CaseCard = ({ contents } : { contents : StandardContainer }) => (
