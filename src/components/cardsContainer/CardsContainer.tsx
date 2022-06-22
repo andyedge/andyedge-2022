@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import cn from "classnames";
 import Link from "next/link";
 import Icon from "../icon/Icon";
@@ -55,8 +55,9 @@ const settings = {
 }
     
 const CardsContainer = ({ contents, scrollToRef, modals, smallSpaccing }: CardsContainerProps) => {
-  const [currentModal, setCurrentModal] = useState<number | null> (null);
-  const isVisible = currentModal !== null;
+  const [modalIndex, setModalIndex] = useState<number | null> (null);
+  const isVisible = modalIndex !== null;
+
   return (
     <div className={cn("section", styles.section, smallSpaccing && styles.small_spacing)}>
       <div className={styles.anchor} ref={scrollToRef}></div>
@@ -65,8 +66,9 @@ const CardsContainer = ({ contents, scrollToRef, modals, smallSpaccing }: CardsC
           {isVisible && (
             <CardModal
               visible={isVisible}
-              item={currentModal && modals && modals[currentModal]}
-              onClose={() => setCurrentModal(null)}
+              modals={modals}
+              modalIndex={(modalIndex !== null) && modalIndex}
+              onClose={() => setModalIndex(null)}
             />
           )}
           <Slider className="programs-slider" {...settings}>
@@ -83,7 +85,7 @@ const CardsContainer = ({ contents, scrollToRef, modals, smallSpaccing }: CardsC
                   {content.leftCtaText && (
                     <div 
                       className={cn("button-stroke", styles.button, styles.button_card)}
-                      onClick={() => setCurrentModal(index)}
+                      onClick={() => setModalIndex(index)}
                       >
                       {content.leftCtaText}
                     </div>

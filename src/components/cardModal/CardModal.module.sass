@@ -1,20 +1,17 @@
+@import ../../../styles/colors
 @import ../../../styles/helpers
+@import ../../../styles/measurements
 
 .avatar
-  width: 128px
-  height: 128px
+  position: relative  
   margin: 0 auto 20px
-  border-radius: 50%
-  background: $neutrals6
-  overflow: hidden
-  +dark
-    background: $neutrals3
-  img
-    width: 100%
-    min-height: 100%
+  width: 68px
+  height: 68px
   
 .trainer
   text-align: center
+  font-weight: 700
+  letter-spacing: -0.04em
 
 .position
   margin-bottom: 20px
@@ -23,11 +20,16 @@
   color: $neutrals4
 
 .wrap
-  margin: 0 -16px
+  margin: 32px 24px 64px 24px
+  max-width: 452px
   +m
     display: none
+  p
+    margin-bottom: $text-spacing
 
 .btns
-  text-align: right
+  margin: auto 24px
+  display: flex
+  justify-content: space-between
   +m
     display: none

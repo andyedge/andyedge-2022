@@ -10,6 +10,7 @@ export const adaptStandardCardContainer = (data: Item): StandardCardContainer =>
         title: fields.title,
         subtitle: fields.subtitle ? fields.subtitle : null,
         text: fields.text ? fields.text : null,
+        modalText: fields.modalText ? fields.modalText : null,
         leftCtaText: fields.leftCtaText ? fields.leftCtaText : null,
         leftCtaLink: fields.leftCtaLink ? fields.leftCtaLink : null,
         rightCtaText: fields.rightCtaText ? fields.rightCtaText : null,

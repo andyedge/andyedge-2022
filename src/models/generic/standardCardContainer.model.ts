@@ -5,6 +5,7 @@ declare interface StandardCardContainer {
     title: string
     subtitle?: string
     text: string
+    modalText: any
     leftCtaText: string
     leftCtaLink: string
     rightCtaText?: string

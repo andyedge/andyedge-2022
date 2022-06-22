@@ -11,6 +11,7 @@ const Modal = ({
   containerClassName,
   visible,
   onClose,
+  activeIndex,
   children,
 }: any) => {
   const escFunction = useCallback(
@@ -23,6 +24,11 @@ const Modal = ({
   );
   
   const [portal, setPortal] = useState<ReactPortal | JSX.Element>(<div></div>);
+  const [index, setIndex] = useState<number>(activeIndex);
+
+  useEffect(() => {
+    setIndex(activeIndex);
+  }, [activeIndex]);
 
   useEffect(() => {
     document.addEventListener("keydown", escFunction, false);
