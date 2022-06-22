@@ -22,8 +22,6 @@
 .wrap
   margin: 32px 24px 64px 24px
   max-width: 452px
-  +m
-    display: none
   p
     margin-bottom: $text-spacing
 
@@ -31,8 +29,12 @@
   margin: auto 24px
   display: flex
   justify-content: space-between
-  +m
-    display: none
+  +a
+    flex-direction: column
+    align-items: center
 
 .button_size
   width: 150px
+  +a
+    margin-bottom: 15px
+    width: 200px
