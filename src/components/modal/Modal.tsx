@@ -24,11 +24,6 @@ const Modal = ({
   );
   
   const [portal, setPortal] = useState<ReactPortal | JSX.Element>(<div></div>);
-  const [index, setIndex] = useState<number>(activeIndex);
-
-  useEffect(() => {
-    setIndex(activeIndex);
-  }, [activeIndex]);
 
   useEffect(() => {
     document.addEventListener("keydown", escFunction, false);
@@ -68,7 +63,7 @@ const Modal = ({
         )
       )      
     }
-  }, []);
+  }, [activeIndex]);
 
   return portal;
 };

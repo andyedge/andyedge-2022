@@ -23,6 +23,20 @@ const CardModal = ({ visible, modals, modalIndex, onClose }: any) => {
     }
   }
 
+  const nextModal = () => {
+    let index = activeIndex;
+
+    if (index === modals.length - 1) {
+      index = 0;
+      setActiveIndex(index);
+      setItem(modals[index]);
+    } else {
+      index = activeIndex + 1;
+      setActiveIndex(index);
+      setItem(modals[index]);
+    }
+  }
+
   return (
     <Modal
       containerClassName={styles.container}
@@ -43,10 +57,10 @@ const CardModal = ({ visible, modals, modalIndex, onClose }: any) => {
         />
       </div>
       <div className={styles.btns}>
-        <button className={cn("button-stroke", styles.button)} onClick={() => prevModal()}>
+        <button className={cn("button-stroke", styles.button, styles.button_size)} onClick={() => prevModal()}>
           {item.leftCtaText}
         </button>
-        <button className={cn("button-stroke", styles.button)}>
+        <button className={cn("button-stroke-red-no-hover", styles.button, styles.button_size)} onClick={() => nextModal()}>
           {item.rightCtaText}
         </button>
       </div>
