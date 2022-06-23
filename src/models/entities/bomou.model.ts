@@ -8,6 +8,7 @@ import Link from '../generic/link.model'
 export default interface Bomou {
     hero: StandardContainer
     cards: StandardCardContainer[]
+    cardsModalContainer: StandardCardContainer[]
     subtitle1: string
     bigTitle1: Link
     standardContainer1: StandardContainer

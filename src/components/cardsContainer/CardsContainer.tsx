@@ -12,7 +12,7 @@ import StandardCardContainer from "../../models/generic/standardCardContainer.mo
 declare interface CardsContainerProps {
   contents: StandardCardContainer[]
   scrollToRef: MutableRefObject<null> | null
-  modals: StandardCardContainer[]
+  modals?: StandardCardContainer[]
   smallSpaccing?: boolean
 }
 
@@ -62,7 +62,7 @@ const CardsContainer = ({ contents, scrollToRef, modals, smallSpaccing }: CardsC
       <div className={styles.anchor} ref={scrollToRef}></div>
       <div className={cn("container", styles.container)}>
         <div className={styles.wrap}>
-          {isVisible && (
+          {isVisible && modals && (
             <CardModal
               visible={isVisible}
               modals={modals}
