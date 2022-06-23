@@ -22,7 +22,7 @@ const BomouBrandId = ({ contents }: BomouBrandIdProps) => {
             {contents.subtitle}
           </div>
           {
-            contents.text !== null ?
+            contents.text ?
               <div className={styles.paragraph}>
                 <RichText
                   richText={contents.text}

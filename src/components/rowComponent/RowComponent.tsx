@@ -66,9 +66,14 @@ const RowComponent = ({ headContent, items, title }: RowComponentProps) => {
               :
               <h3 className={cn("h3", styles.subtitle)}>{headContent.title}</h3>
           }
-          <div className={styles.info}>
-            <RichText richText={headContent.text} />
-          </div>
+          {
+            headContent.text ?
+              <div className={styles.info}>
+                <RichText richText={headContent.text} />
+              </div>
+              :
+              null
+          }
           {
             headContent.ctaText ?
               <Link href="#">
@@ -93,9 +98,14 @@ const RowComponent = ({ headContent, items, title }: RowComponentProps) => {
                     <div className={styles.details}>
                       <div className={styles.number}>{item.title}.</div>
                       <div className={styles.category}>{item.subtitle}</div>
-                      <div className={styles.content}>
-                        <RichText richText={item.text} />
-                      </div>
+                      {
+                        item.text ?
+                          <div className={styles.content}>
+                            <RichText richText={item.text} />
+                          </div>
+                          :
+                          null
+                      }
                     </div>
                   </div>
                   <div className={styles.col}>

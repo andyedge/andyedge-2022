@@ -43,6 +43,20 @@
       box-shadow: 0 0 0 2px $neutrals8 inset
       background: none
 
+.button-stroke-red-no-hover
+  background: $red
+  box-shadow: 0 0 0 2px $neutrals6 inset
+  color: $neutrals8
+  svg
+    fill: $neutrals8
+    transition: fill .2s
+  +dark-common
+    box-shadow: 0 0 0 2px $neutrals4 inset
+    color: $neutrals8
+    svg
+      fill: $neutrals8    
+
+
 .button-small
   height: 40px
   border-radius: 20px

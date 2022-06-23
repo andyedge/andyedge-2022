@@ -9,7 +9,7 @@ declare interface EcampImgTextCompProps {
   contents: StandardContainer
 }
 
-const EcampImgTextComp = ({contents}: EcampImgTextCompProps) => {
+const EcampImgTextComp = ({ contents }: EcampImgTextCompProps) => {
   const bulletsContent = contents.bulletsContainer;
   const images = contents.images;
 
@@ -24,18 +24,23 @@ const EcampImgTextComp = ({contents}: EcampImgTextCompProps) => {
                   <CustomImage
                     src={image}
                   />
-                </div>             
+                </div>
               ))
             }
           </div>
         </div>
         <div className={styles.row}>
           <div className={styles.col}>
-            <div className={styles.content}>
-              <RichText
-                richText={contents.text}
-              />
-            </div>
+            {
+              contents.text ?
+                <div className={styles.content}>
+                  <RichText
+                    richText={contents.text}
+                  />
+                </div>
+                :
+                null
+            }
           </div>
           <div className={styles.col}>
             {!!bulletsContent?.length && (

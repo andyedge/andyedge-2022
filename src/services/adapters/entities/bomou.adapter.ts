@@ -13,6 +13,7 @@ export const adaptBomou = (data: Entry): Bomou => {
     return {
         hero: adaptStandardContainer(fields.hero),
         cards: adaptStandardCardContainers(fields.cardsContainer),
+        cardsModalContainer: adaptStandardCardContainers(fields.cardsModalContainer),
         subtitle1: fields.subtitle1,
         bigTitle1: adaptLink(fields.bigTitle1),
         standardContainer1: adaptStandardContainer(fields.standardContainer1),

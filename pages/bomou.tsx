@@ -48,6 +48,7 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) 
       />
       <CardsContainer
         contents={pageContent.cards}
+        modals={pageContent.cardsModalContainer}
         scrollToRef={scrollToRef}
       />
       <TitleShare
