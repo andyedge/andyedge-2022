@@ -11,11 +11,6 @@ declare interface PearsonHeroProps {
 }
 
 const backgroundImageProps = {
-    customAttr: {
-        objectFit: 'contain',
-        width: '100%',
-        height: '658px',
-    },
     className: styles.background
 }
 

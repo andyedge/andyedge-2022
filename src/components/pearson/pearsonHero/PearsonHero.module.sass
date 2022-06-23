@@ -11,12 +11,24 @@
         min-height: unset
     +m
         padding-top: 64px
+    +t
+        padding-bottom: unset
 
 .background
     opacity: 0.3
+    +d
+        transform: translateY(-50px)
+    +s
+        transform: translateY(-50vh)
+    +m
+        transform: translateY(-25vh)
 
 .bottom_title
     margin-top: 210px
+    +t
+        margin-top: 120px
+    +s
+        display: none
     
 .logo
     position: relative
@@ -28,6 +40,8 @@
     display: grid
     grid-template-columns: 1fr 680px
     position: relative
+    +d
+        grid-template-columns: 1fr 400px
     +t
         grid-template-columns: 1fr 340px
     +m
@@ -84,8 +98,12 @@
 .scroll
     position: absolute
     bottom: 128px
-    +m
-        bottom: 336px
+    +t
+        bottom: 64px
+    +s
+        bottom: 8px
+        right: 0
+    
 
 .gallery
     position: relative
@@ -101,6 +119,10 @@
         height: 474px
         position: relative
         margin-left: auto
+
+        +d
+            width: calc(354px * 0.7)
+            height: calc(474px * 0.7)
 
 .hero_video
     width: 100%
