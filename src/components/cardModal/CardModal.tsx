@@ -1,11 +1,19 @@
-import React, { useEffect, useState } from "react";
 import cn from "classnames";
-import Modal from "../modal/Modal";
-import styles from "./CardModal.module.sass";
 import RichText from "../RichText";
+import Modal from "../modal/Modal";
+import React, { useState } from "react";
 import CustomImage from "../image/Image";
+import styles from "./CardModal.module.sass";
+import StandardCardContainer from "../../models/generic/standardCardContainer.model";
 
-const CardModal = ({ visible, modals, modalIndex, onClose }: any) => {
+declare interface CardModalProps {
+  visible: boolean
+  modals: StandardCardContainer[]
+  modalIndex: number
+  onClose: () => void
+}
+
+const CardModal = ({ visible, modals, modalIndex, onClose }: CardModalProps) => {
   const [activeIndex, setActiveIndex] = useState<number> (modalIndex);
   const [item, setItem] = useState(modals[activeIndex]);
 
@@ -50,7 +58,7 @@ const CardModal = ({ visible, modals, modalIndex, onClose }: any) => {
         />
       </div>
       <div className={cn("h3", styles.trainer)}>{item.title}</div>
-      <div className={styles.position}>{item?.subtitle}</div>
+      <div className={styles.position}>{item.subtitle}</div>
       <div className={styles.wrap}>
         <RichText
           richText={item.modalText}

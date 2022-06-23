@@ -1,19 +1,18 @@
-import { useEffect, useState } from 'react';
 import cn from "classnames";
-import Link from "next/link";
 import Icon from "../icon/Icon";
+import { useState } from 'react';
 import Slider from "react-slick";
-import styles from "./CardsContainer.module.sass";
-import ScrollParallax from "../ScrollParallax";
-import StandardCardContainer from "../../models/generic/standardCardContainer.model";
 import { MutableRefObject } from "react";
 import CustomImage from '../image/Image';
 import CardModal from "../cardModal/CardModal";
+import ScrollParallax from "../ScrollParallax";
+import styles from "./CardsContainer.module.sass";
+import StandardCardContainer from "../../models/generic/standardCardContainer.model";
 
 declare interface CardsContainerProps {
   contents: StandardCardContainer[]
   scrollToRef: MutableRefObject<null> | null
-  modals?: StandardCardContainer[]
+  modals: StandardCardContainer[]
   smallSpaccing?: boolean
 }
 
@@ -67,7 +66,7 @@ const CardsContainer = ({ contents, scrollToRef, modals, smallSpaccing }: CardsC
             <CardModal
               visible={isVisible}
               modals={modals}
-              modalIndex={(modalIndex !== null) && modalIndex}
+              modalIndex={modalIndex !== null ? modalIndex : 0}
               onClose={() => setModalIndex(null)}
             />
           )}

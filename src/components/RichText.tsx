@@ -1,8 +1,12 @@
-import { BLOCKS, MARKS } from '@contentful/rich-text-types'
+import { BLOCKS, Document, MARKS } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 declare interface ReactChildrenElement {
     children: JSX.Element
+}
+
+declare interface RichTextProps {
+    richText: Document
 }
 
 const Text = ({ children } : ReactChildrenElement) => <p>{children}</p>
@@ -17,7 +21,7 @@ const options = {
     }
 }
 
-const RichText = ({ richText } : any) => {
+const RichText = ({ richText } : RichTextProps) => {
     const richTextElement = documentToReactComponents(richText, options)
     return (<>{richTextElement}</>)
 }

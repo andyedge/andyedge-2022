@@ -15,24 +15,29 @@ const WhySecondSection = ({ content }: any) => {
             <h2 className={cn("h2", styles.title)}>
               {content.title}
             </h2>
-            <div className={styles.text}>
-              <RichText
-                richText={content.text}
-              />
-            </div>
+            {
+              content.text ?
+                <div className={styles.text}>
+                  <RichText
+                    richText={content.text}
+                  />
+                </div>
+                :
+                null
+            }
           </div>
           {
             Object.keys(content.backgroundImage).length > 0 ?
               <>
                 <ScrollParallax className={styles.background_div} animateIn="fadeInUp">
-                  <CustomImage src={content.backgroundImage}/>
+                  <CustomImage src={content.backgroundImage} />
                 </ScrollParallax>
                 <ScrollParallax className={styles.lines} animateIn="fadeInUp" delay={500}>
                   <img
                     src='/images/bg-line-03.svg'
                     alt='bg-line-03'
                   />
-                </ScrollParallax>                
+                </ScrollParallax>
                 <ScrollParallax className={styles.lighthouse} animateIn="fadeInUp" delay={800}>
                   <img
                     src='/images/lighthouse-light.svg'

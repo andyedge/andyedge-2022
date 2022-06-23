@@ -1,11 +1,12 @@
 import ImageType from './image.model'
+import { Document } from '@contentful/rich-text-types'
 
 declare interface StandardCardContainer {
-    icon: ImageType | {}
+    icon: ImageType
     title: string
     subtitle?: string
     text: string
-    modalText: any
+    modalText: Document
     leftCtaText: string
     leftCtaLink: string
     rightCtaText?: string

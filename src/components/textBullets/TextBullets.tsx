@@ -21,11 +21,16 @@ const TextBullets = ({ contents, section }: any) => {
           <h2 className={cn("h2", styles.title)}>
             {contents.title}
           </h2>
-          <div className={styles.info}>
-            <RichText
-              richText={contents.text}
-            />
-          </div>
+          {
+            contents.text ?
+              <div className={styles.info}>
+                <RichText
+                  richText={contents.text}
+                />
+              </div>
+              :
+              null
+          }
           {!!bulletsContent.length && (
             <ul className={styles.list}>
               {bulletsContent.map((content: any, index: number) => (
@@ -49,7 +54,7 @@ const TextBullets = ({ contents, section }: any) => {
                   className={styles[`preview_${section}`]}
                   animateIn="fadeInUp"
                 >
-                  <CustomImage src={image}/>
+                  <CustomImage src={image} />
                 </ScrollParallax>
               </Fragment>
             ))

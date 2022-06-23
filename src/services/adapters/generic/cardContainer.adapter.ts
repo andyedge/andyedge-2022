@@ -6,7 +6,7 @@ export const adaptStandardCardContainer = (data: Item): StandardCardContainer =>
     const { fields } = data
 
     return {
-        icon: fields.icon ? adaptImage(fields.icon) : {},
+        icon: adaptImage(fields.icon),
         title: fields.title,
         subtitle: fields.subtitle ? fields.subtitle : null,
         text: fields.text ? fields.text : null,

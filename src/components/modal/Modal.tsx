@@ -1,10 +1,10 @@
-import React, { ReactPortal, useCallback, useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import OutsideClickHandler from "react-outside-click-handler";
 import cn from "classnames";
-import styles from "./Modal.module.sass";
 import Icon from "../icon/Icon";
+import styles from "./Modal.module.sass";
+import { createPortal } from "react-dom";
+import OutsideClickHandler from "react-outside-click-handler";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import React, { ReactPortal, useCallback, useEffect, useRef, useState } from "react";
 
 const Modal = ({
   outerClassName,
