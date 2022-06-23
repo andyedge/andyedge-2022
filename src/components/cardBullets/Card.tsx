@@ -8,10 +8,12 @@ import StandardContainer from '../../models/generic/standardContainer.model';
 declare interface CardProps {
     contents: StandardContainer
     style: string
+    hasCardStyle?: boolean
 }
 
-const Card = ({ contents, style } : CardProps ) => (
-    <div className={cn(styles.wrap, style)}>
+const Card = ({ contents, style, hasCardStyle = true } : CardProps ) => (
+    <div className={cn(styles.wrap, hasCardStyle && styles.card, style)}>
+        {contents.preTitle && <h6>{contents.preTitle}</h6>}
         <h2 className={cn('h2', styles.title)}> {contents.title} </h2>
         <p className={styles.info}>
             {contents.subtitle}

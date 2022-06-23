@@ -18,7 +18,7 @@ import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPa
 import BomouImgSection from '../src/components/bomouPage/bomouImgSection/BomouImgSection'
 import BomouDualBanner from '../src/components/bomouPage/bomouDualBanner/BomouDualBanner'
 import BomouSocialOutreach from '../src/components/bomouPage/bomouSocialOutreach/BomouSocialOutreach'
-import CardBullets from '../src/components/cardBullets/CardBullets'
+import BulletPointsContainer from '../src/components/pearson/bulletPointsContainer/BulletPointsContainer'
 
 export const getStaticProps = async () => {
     const bomou = await getPearson()
@@ -49,13 +49,23 @@ const BomouPage: NextPage<PearsonProps> = ({ pageContent, header }: PearsonProps
                 contents={pageContent.cards}
                 scrollToRef={scrollToRef}
             />
-            <CardBullets contents={pageContent.standardContainer1} section='pearson'/>
-            {/* <TitleShare
+            <BulletPointsContainer contents={pageContent.standardContainer1} />
+            <TitleShare
                 title={pageContent.bigTitle1}
                 section={'first_title'}
                 background={''}
             />
-            <BomouIdGuide
+            <TitleShare
+                title={pageContent.bigTitle2}
+                section={'first_title'}
+                background={''}
+            />
+            <TitleShare
+                title={pageContent.bigTitle3}
+                section={'first_title'}
+                background={''}
+            />
+            {/* <BomouIdGuide
                 contents={pageContent.standardContainer1}
             />
             <TitleShare

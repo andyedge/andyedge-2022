@@ -1,9 +1,7 @@
 import cn from 'classnames'
-import RichText from '../../RichText'
 import styles from './PearsonHero.module.sass'
 import ScrollButton from '../../scrollButton/ScrollButton'
 import StandardContainer from '../../../models/generic/standardContainer.model'
-import Button from '../../button/Button'
 import CustomImage from '../../image/Image'
 
 declare interface PearsonHeroProps {
