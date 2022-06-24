@@ -19,6 +19,7 @@ import BomouImgSection from '../src/components/bomouPage/bomouImgSection/BomouIm
 import BomouDualBanner from '../src/components/bomouPage/bomouDualBanner/BomouDualBanner'
 import BomouSocialOutreach from '../src/components/bomouPage/bomouSocialOutreach/BomouSocialOutreach'
 import BulletPointsContainer from '../src/components/pearson/bulletPointsContainer/BulletPointsContainer'
+import PearsonInfo from '../src/components/pearson/pearsonInfo/PearsonInfo'
 
 export const getStaticProps = async () => {
     const bomou = await getPearson()
@@ -50,21 +51,7 @@ const BomouPage: NextPage<PearsonProps> = ({ pageContent, header }: PearsonProps
                 scrollToRef={scrollToRef}
             />
             <BulletPointsContainer contents={pageContent.standardContainer1} />
-            <TitleShare
-                title={pageContent.bigTitle1}
-                section={'first_title'}
-                background={''}
-            />
-            <TitleShare
-                title={pageContent.bigTitle2}
-                section={'first_title'}
-                background={''}
-            />
-            <TitleShare
-                title={pageContent.bigTitle3}
-                section={'first_title'}
-                background={''}
-            />
+            <PearsonInfo contents={pageContent} />
             {/* <BomouIdGuide
                 contents={pageContent.standardContainer1}
             />

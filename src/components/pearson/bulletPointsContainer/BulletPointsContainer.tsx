@@ -55,7 +55,7 @@ const CardBullets: FC<BulletPointsContainerProps> = ({ contents } : BulletPoints
                             <ScrollParallax
                                 className={styles.card_image}
                                 animateIn='fadeInUp'
-                                delay={index * 200}
+                                delay={(index + 1) * 200}
                             >
                                 <CustomImage src={image} />
                             </ScrollParallax>
