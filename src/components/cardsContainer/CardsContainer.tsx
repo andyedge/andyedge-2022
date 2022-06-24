@@ -1,14 +1,13 @@
-import { useState } from 'react';
 import cn from "classnames";
-import Link from "next/link";
 import Icon from "../icon/Icon";
+import { useState } from 'react';
 import Slider from "react-slick";
-import styles from "./CardsContainer.module.sass";
-import ScrollParallax from "../ScrollParallax";
-import StandardCardContainer from "../../models/generic/standardCardContainer.model";
 import { MutableRefObject } from "react";
 import CustomImage from '../image/Image';
 import CardModal from "../cardModal/CardModal";
+import ScrollParallax from "../ScrollParallax";
+import styles from "./CardsContainer.module.sass";
+import StandardCardContainer from "../../models/generic/standardCardContainer.model";
 
 declare interface CardsContainerProps {
   contents: StandardCardContainer[]
@@ -55,18 +54,20 @@ const settings = {
 }
     
 const CardsContainer = ({ contents, scrollToRef, modals, smallSpaccing }: CardsContainerProps) => {
-  const [currentModal, setCurrentModal] = useState<number | null> (null);
-  const isVisible = currentModal !== null;
+  const [modalIndex, setModalIndex] = useState<number | null> (null);
+  const isVisible = modalIndex !== null;
+
   return (
     <div className={cn("section", styles.section, smallSpaccing && styles.small_spacing)}>
       <div className={styles.anchor} ref={scrollToRef}></div>
       <div className={cn("container", styles.container)}>
         <div className={styles.wrap}>
-          {isVisible && (
+          {isVisible && modals && (
             <CardModal
               visible={isVisible}
-              item={currentModal && modals && modals[currentModal]}
-              onClose={() => setCurrentModal(null)}
+              modals={modals}
+              modalIndex={modalIndex !== null ? modalIndex : 0}
+              onClose={() => setModalIndex(null)}
             />
           )}
           <Slider className="programs-slider" {...settings}>
@@ -83,7 +84,7 @@ const CardsContainer = ({ contents, scrollToRef, modals, smallSpaccing }: CardsC
                   {content.leftCtaText && (
                     <div 
                       className={cn("button-stroke", styles.button, styles.button_card)}
-                      onClick={() => setCurrentModal(index)}
+                      onClick={() => setModalIndex(index)}
                       >
                       {content.leftCtaText}
                     </div>

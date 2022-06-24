@@ -22,7 +22,7 @@ const BomouSocialOutreach = ({ contents }: BomouSocialOutreachProps) => {
             {contents.title}
           </div>
           {
-            contents.text !== null ?
+            contents.text ?
               <div className={styles.paragraph}>
                 <RichText
                   richText={contents.text}

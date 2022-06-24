@@ -7,38 +7,19 @@ import styles from "./RowComponent.module.sass";
 import ScrollParallax from "../ScrollParallax";
 import StandardContainer from "../../models/generic/standardContainer.model";
 import RichText from "../RichText";
+import CustomImage from "../image/Image";
 
 declare interface RowComponentProps {
   headContent: StandardContainer
   items: StandardContainer[]
+  title: string
 }
-
-const itemsC = [
-  {
-    title: "The Fitness Pro Philosophy",
-    image: "/images/lifestyle-pic-1.png",
-    content:
-      "Whether you’re a complete beginner or you want to step up your routine, get the full studio experience at home with thousands of classes for body, mind.",
-  },
-  {
-    title: "Quickly find the class you want",
-    image: "/images/lifestyle-pic-2.png",
-    content:
-      "Whether you’re a complete beginner or you want to step up your routine, get the full studio experience at home with thousands of classes for body, mind.",
-  },
-  {
-    title: "Keep track of calories & macros",
-    image: "/images/lifestyle-pic-3.png",
-    content:
-      "Whether you’re a complete beginner or you want to step up your routine, get the full studio experience at home with thousands of classes for body, mind.",
-  },
-];
 
 const SlickArrow = ({ currentSlide, slideCount, children, ...props }: any) => (
   <button {...props}>{children}</button>
 );
 
-const RowComponent = ({ headContent, items }: RowComponentProps) => {
+const RowComponent = ({ headContent, items, title }: RowComponentProps) => {
   const settings = {
     infinite: true,
     speed: 500,
@@ -79,16 +60,31 @@ const RowComponent = ({ headContent, items }: RowComponentProps) => {
               :
               null
           }
-          <h2 className={cn("h2", styles.title)}>{headContent.title}</h2>
-          <div className={styles.info}>
-            <RichText richText={headContent.text} />            
-          </div>
-          <Link href="#">
-            <a className={cn("button-stroke", styles.button)}>
-              <span>{headContent.ctaText}</span>
-              <Icon name="arrow-right" size={10} />
-            </a>
-          </Link>
+          {
+            title === 'title' ?
+              <h2 className={cn("h2", styles.title)}>{headContent.title}</h2>
+              :
+              <h3 className={cn("h3", styles.subtitle)}>{headContent.title}</h3>
+          }
+          {
+            headContent.text ?
+              <div className={styles.info}>
+                <RichText richText={headContent.text} />
+              </div>
+              :
+              null
+          }
+          {
+            headContent.ctaText ?
+              <Link href="#">
+                <a className={cn("button-stroke", styles.button)}>
+                  <span>{headContent.ctaText}</span>
+                  <Icon name="arrow-right" size={10} />
+                </a>
+              </Link>
+              :
+              null
+          }
         </div>
         <div className={styles.wrap}>
           <Slider
@@ -102,9 +98,14 @@ const RowComponent = ({ headContent, items }: RowComponentProps) => {
                     <div className={styles.details}>
                       <div className={styles.number}>{item.title}.</div>
                       <div className={styles.category}>{item.subtitle}</div>
-                      <div className={styles.content}>
-                        <RichText richText={item.text} />
-                      </div>
+                      {
+                        item.text ?
+                          <div className={styles.content}>
+                            <RichText richText={item.text} />
+                          </div>
+                          :
+                          null
+                      }
                     </div>
                   </div>
                   <div className={styles.col}>
