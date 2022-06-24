@@ -6,7 +6,7 @@ declare interface ReactChildrenElement {
 }
 
 declare interface RichTextProps {
-    richText: Document
+    richText?: Document
 }
 
 const Text = ({ children } : ReactChildrenElement) => <p>{children}</p>
@@ -22,7 +22,7 @@ const options = {
 }
 
 const RichText = ({ richText } : RichTextProps) => {
-    const richTextElement = documentToReactComponents(richText, options)
+    const richTextElement = documentToReactComponents(richText as Document, options)
     return (<>{richTextElement}</>)
 }
 

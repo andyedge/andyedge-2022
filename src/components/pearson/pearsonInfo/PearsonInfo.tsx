@@ -14,7 +14,6 @@ declare interface PearsonInfoProps {
     contents: Pearson
 }
 
-
 const PearsonInfo: FC<PearsonInfoProps> = ({ contents }: PearsonInfoProps) => {
     return (
         <section className={styles.container}>
@@ -64,20 +63,38 @@ const PearsonInfo: FC<PearsonInfoProps> = ({ contents }: PearsonInfoProps) => {
                 <div className={styles.image1}>
                     <CustomImage src={contents.bigImage} />
                 </div>
-                <section className={styles.explore_section}>
-                    <h6>{contents.standardContainer3.preTitle}</h6>
-                    <h3 className='h2'>{contents.standardContainer3.title}</h3>
-                    <div>
-                        <RichText richText={contents.standardContainer3.text} />
-                    </div>
-                    <Button text={contents.standardContainer3.ctaText} link={contents.standardContainer3.ctaPageLink} size='tiny'/>
-                </section>
             </div>
-            {/* <RowComponent items={contents.caseFeatures} headContent={contents.standardContainer4}/> */}
+            <RowComponent
+                items={contents.caseFeatures}
+                headContent={contents.standardContainer3}
+                isTitle={true}
+                isPearson={true}
+            />
+            <div className='container'>
+                <div className={styles.overlapped_images}>
+                    <ScrollParallax animateIn='fadeInUp' delay={100}>
+                        <CustomImage src={contents.underlappedImage}/>
+                    </ScrollParallax>
+                    <ScrollParallax animateIn='fadeInUp' delay={300}>
+                        <CustomImage src={contents.overlappedImage}/>
+                    </ScrollParallax>
+                </div>
+            </div>
             <TitleShare
                 title={contents.bigTitle3}
-                section={'first_title'}
+                section={'two_rows_title'}
                 background={''}
+            />
+            <div className='container-fluid'>
+                <div className={styles.solution_banner}>
+                    <CustomImage src={contents.bigImage2}/>
+                </div>
+            </div>
+            <RowComponent
+                items={contents.solutionList}
+                headContent={contents.standardContainer4}
+                isTitle={true}
+                isPearson={true}
             />
         </section>
     )

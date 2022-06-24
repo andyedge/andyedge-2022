@@ -3,6 +3,7 @@ import StandardCardContainer from '../generic/standardCardContainer.model'
 import StandardContainer from '../generic/standardContainer.model'
 import TextSlider from '../generic/textSlider.model'
 import Link from '../generic/link.model'
+import ContactContainer from '../generic/contact.model'
 
 export default interface Pearson {
     hero: StandardContainer
@@ -22,5 +23,5 @@ export default interface Pearson {
     standardContainer4: StandardContainer
     solutionList: StandardContainer[]
     testimonial: TextSlider
-    // bottomSection: ContactContainer
+    bottomSection: ContactContainer
 }

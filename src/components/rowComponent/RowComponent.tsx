@@ -12,59 +12,59 @@ import CustomImage from "../image/Image";
 declare interface RowComponentProps {
   headContent: StandardContainer
   items: StandardContainer[]
-  title: string
+  isTitle?: boolean
+  isPearson?: boolean
 }
 
 const SlickArrow = ({ currentSlide, slideCount, children, ...props }: any) => (
   <button {...props}>{children}</button>
 );
 
-const RowComponent = ({ headContent, items, title }: RowComponentProps) => {
-  const settings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    adaptiveHeight: true,
-    nextArrow: (
-      <SlickArrow>
-        <Icon name="arrow-next" size={14} />
-      </SlickArrow>
-    ),
-    prevArrow: (
-      <SlickArrow>
-        <Icon name="arrow-prev" size={14} />
-      </SlickArrow>
-    ),
-    responsive: [
-      {
-        breakpoint: 767,
-        settings: {
-          slidesToShow: 1,
-        },
+const settings = {
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  adaptiveHeight: true,
+  nextArrow: (
+    <SlickArrow>
+      <Icon name="arrow-next" size={14} />
+    </SlickArrow>
+  ),
+  prevArrow: (
+    <SlickArrow>
+      <Icon name="arrow-prev" size={14} />
+    </SlickArrow>
+  ),
+  responsive: [
+    {
+      breakpoint: 767,
+      settings: {
+        slidesToShow: 1,
       },
-      {
-        breakpoint: 100000,
-        settings: "unslick" as "unslick",
-      },
-    ],
-  };
+    },
+    {
+      breakpoint: 100000,
+      settings: "unslick" as "unslick",
+    },
+  ],
+};
 
+const RowComponent = ({ headContent, items, isTitle, isPearson } : RowComponentProps) => {
   return (
-    <div className={cn("section-pb", styles.section)}>
+    <section className={cn("section-pb", styles.section)}>
       <div className={cn("container", styles.container)}>
-        <div className={styles.head}>
+        <div className={cn(styles.head, isPearson && styles.head_extra_margin)}>
           {
             headContent.preTitle ?
-              <div className={cn("stage-small", styles.stage)}>{headContent.preTitle}</div>
+              <h6>{headContent.preTitle}</h6>
               :
               null
           }
-          {
-            title === 'title' ?
-              <h2 className={cn("h2", styles.title)}>{headContent.title}</h2>
-              :
-              <h3 className={cn("h3", styles.subtitle)}>{headContent.title}</h3>
+          {isTitle ?
+            <h2 className={cn("h2", styles.title)}>{headContent.title}</h2>
+            :
+            <h3 className={cn("h3", styles.subtitle)}>{headContent.title}</h3>
           }
           {
             headContent.text ?
@@ -96,8 +96,8 @@ const RowComponent = ({ headContent, items, title }: RowComponentProps) => {
                 <div className={styles.row}>
                   <div className={styles.col}>
                     <div className={styles.details}>
-                      <div className={styles.number}>{item.title}.</div>
-                      <div className={styles.category}>{item.subtitle}</div>
+                      <h4 className={styles.number}>{item.title}</h4>
+                      <h6 className={styles.category}>{item.subtitle}</h6>
                       {
                         item.text ?
                           <div className={styles.content}>
@@ -110,6 +110,7 @@ const RowComponent = ({ headContent, items, title }: RowComponentProps) => {
                   </div>
                   <div className={styles.col}>
                     <img
+                      className={isPearson ? styles.image_shadow : styles.image_default}
                       src={item.logo.url}
                       alt={item.logo.description}
                     />
@@ -120,7 +121,7 @@ const RowComponent = ({ headContent, items, title }: RowComponentProps) => {
           </Slider>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

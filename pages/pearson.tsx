@@ -52,69 +52,13 @@ const BomouPage: NextPage<PearsonProps> = ({ pageContent, header }: PearsonProps
             />
             <BulletPointsContainer contents={pageContent.standardContainer1} />
             <PearsonInfo contents={pageContent} />
-            {/* <BomouIdGuide
-                contents={pageContent.standardContainer1}
-            />
-            <TitleShare
-                title={pageContent.bigTitle2}
-                section={'first_title'}
-                background={'white'}
-            />
-            <TextBullets
-                contents={pageContent.standardContainer2}
-                section={'bomou'}
-            />
-            <RowComponent
-                headContent={pageContent.standardContainer3}
-                items={pageContent.consistencyItems}
-            />
-            <TitleShare
-                title={pageContent.bigTitle3}
-                section={'first_title'}
-                background={'gray4'}
-            />
-            <BomouBrandId
-                contents={pageContent.standardContainer4}
-            />
-            <BigCaseStudyPageText
-                title={pageContent.imagesTitle}
-                size={'size2'}
-                textAlign={'center'}
-            />
-            <BomouImgSection
-                image1={pageContent.image1}
-                image2={pageContent.image2}
-                image3={pageContent.image3}
-                image4={pageContent.image4}
-                image5={pageContent.image5}
-            />
-            <BigCaseStudyPageText
-                title={pageContent.imagesBottomTitle}
-                size={'size3'}
-                textAlign={'center'}
-            />
-            <BomouDualBanner
-                images={pageContent.bannerImages}
-            />
-            <TitleShare
-                title={pageContent.bigTitle4}
-                section={'first_title'}
-                background={''}
-            />
-            <BomouSocialOutreach
-                contents={pageContent.standardContainer5}
-            />
-            <Banner
-                src={pageContent.image6}
-                page={'bomou'}
-            /> */}
             <TextSlider
                 contents={[pageContent.testimonial]}
                 className={'section'}
             />
-            {/* <Contact
-                contents={pageContent.contact}
-            /> */}
+            <Contact
+                contents={pageContent.bottomSection}
+            />
         </Layout>
     )
 }

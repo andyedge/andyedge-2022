@@ -5,6 +5,7 @@ import { adaptStandardCardContainers } from '../generic/cardContainer.adapter'
 import { adaptImage } from '../generic/image.adapter'
 import { adaptTextSlider } from '../generic/textSlider.adapter'
 import { adaptLink } from '../generic/link.adapter'
+import { adaptContactContainer } from '../generic/contactContainer.adapter'
 
 export const adaptPearson = (data: Entry): Pearson => {
     const [pearson] = data.items
@@ -26,6 +27,7 @@ export const adaptPearson = (data: Entry): Pearson => {
         bigImage2:  adaptImage(fields.bigImage2),
         standardContainer4: adaptStandardContainer(fields.standardContainer4),
         solutionList: adaptStandardContainers(fields.solutionList),
-        testimonial: adaptTextSlider(fields.testimonial)
+        testimonial: adaptTextSlider(fields.testimonial),
+        bottomSection: adaptContactContainer(fields.bottomSection)
     }
 }
