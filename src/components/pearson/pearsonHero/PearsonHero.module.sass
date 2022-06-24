@@ -1,0 +1,130 @@
+@import ../../../../styles/helpers
+@import ../../../../styles/colors
+
+.hero
+    position: relative
+    min-height: 880px
+    padding-bottom: 80px
+    padding-top: 32px
+    +xw
+        padding-top: 64px
+        min-height: unset
+    +m
+        padding-top: 64px
+    +t
+        padding-bottom: unset
+
+.background
+    opacity: 0.3
+    +d
+        transform: translateY(-50px)
+    +s
+        transform: translateY(-50vh)
+    +m
+        transform: translateY(-25vh)
+
+.bottom_title
+    margin-top: 210px
+    +t
+        margin-top: 120px
+    +s
+        display: none
+    
+.logo
+    position: relative
+    width: 178px
+    height: 54px
+    margin-top: 24px
+
+.container
+    display: grid
+    grid-template-columns: 1fr 680px
+    position: relative
+    +d
+        grid-template-columns: 1fr 400px
+    +t
+        grid-template-columns: 1fr 340px
+    +m
+        grid-template-columns: 100%
+
+.wrap
+    position: relative
+    z-index: 3
+    +m
+        margin-bottom: 80px
+
+    .stage
+        margin-bottom: 22px
+        font-size: 16px
+        +dark
+            color: $gray3
+
+.title
+    margin-bottom: 32px
+    color: $neutrals2
+    +dark
+        color: $white
+
+    .strike_through
+        text-decoration: line-through
+        text-decoration-thickness: 3px
+
+.text
+    margin-bottom: 16px
+    color: $neutrals2
+    font-size: 18px
+    max-width: 380px
+    +dark
+        color: $gray3
+
+.paragraph
+    margin-bottom: 32px
+    text-align: justify
+    +body-1
+
+.btns
+    display: flex
+    +m
+        display: block
+
+.button
+    +m
+        width: 100%
+    &:not(:last-child)
+        margin-right: 16px
+        +m
+            margin: 0 0 16px
+    
+.scroll
+    position: absolute
+    bottom: 128px
+    +t
+        bottom: 64px
+    +s
+        bottom: 8px
+        right: 0
+    
+
+.gallery
+    position: relative
+    +m
+        margin: 0 auto
+        pointer-events: all
+
+    .play
+        transform: translate(-50%, -50%)
+
+    .gallery_img
+        width: 354px
+        height: 474px
+        position: relative
+        margin-left: auto
+
+        +d
+            width: calc(354px * 0.7)
+            height: calc(474px * 0.7)
+
+.hero_video
+    width: 100%
+    border-radius: 16px
+    

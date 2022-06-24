@@ -119,13 +119,20 @@
         +m
             position: relative
 
+.card
+    background: $neutrals8
+    box-shadow: 24px 64px 64px 24px rgba(15, 15, 15, 0.1)
+    +s
+        box-shadow: 24px 16px 64px 24px rgba(15, 15, 15, 0.1)
+    +dark
+        background: $neutrals1
+        box-shadow: 16px 16px 64px 8px $shadow-dark-mode
+
 .wrap
     position: relative
     z-index: 3
     max-width: 545px
     padding: 58px 48px
-    background: $neutrals8
-    box-shadow: 24px 64px 64px 24px rgba(15, 15, 15, 0.1)
     border-radius: 20px
     +x
         max-width: 500px
@@ -134,10 +141,6 @@
         padding: 32px
     +s
         margin-top: 64px
-        box-shadow: 24px 16px 64px 24px rgba(15, 15, 15, 0.1)
-    +dark
-        background: $neutrals1
-        box-shadow: 16px 16px 64px 8px $shadow-dark-mode
 
 .title
     margin-bottom: 16px

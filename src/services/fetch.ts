@@ -6,7 +6,8 @@ import {
     adaptHeaderData,
     adaptBomou,
     adaptSmallCaseStudies,
-    adaptMediumCaseStudies
+    adaptMediumCaseStudies,
+    adaptPearson
 } from './adapters'
 
 const NESTING_LEVEL = 5
@@ -33,6 +34,11 @@ export const getEcamp = async () => adaptEcamppage(await client.getEntries({
 
 export const getBomou = async () => adaptBomou(await client.getEntries({ 
     content_type: 'bomou',
+    include: NESTING_LEVEL
+}))
+
+export const getPearson = async () => adaptPearson(await client.getEntries({ 
+    content_type: 'pearson',
     include: NESTING_LEVEL
 }))
 

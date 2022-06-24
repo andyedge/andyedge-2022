@@ -10,9 +10,10 @@ import Card from './Card';
 declare interface CardBulletsProps {
   contents: StandardContainer
   section: string
+  hasCardStyle?: boolean
 }
 
-const CardBullets: FC<CardBulletsProps> = ({ contents, section } : CardBulletsProps) => {
+const CardBullets: FC<CardBulletsProps> = ({ contents, section, hasCardStyle } : CardBulletsProps) => {
   const { mediaPosition } = contents
   const isRightOriented = mediaPosition?.toLowerCase() === 'right'
   const galleryClasses = cn(styles.gallery, isRightOriented ? styles.gallery_right : styles.gallery_left);
@@ -21,7 +22,7 @@ const CardBullets: FC<CardBulletsProps> = ({ contents, section } : CardBulletsPr
   return (
     <div className={cn("section-bg", styles.section, styles[section])}>
       <div className={cn("container", styles.container)}>
-        <Card contents={contents} style={wrapStyle}/>
+        <Card contents={contents} style={wrapStyle} hasCardStyle={hasCardStyle}/>
         <div
           className={galleryClasses}
         >
