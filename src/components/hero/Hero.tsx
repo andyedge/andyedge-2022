@@ -4,6 +4,7 @@ import styles from "./Hero.module.sass";
 import ScrollButton from "../scrollButton/ScrollButton";
 import StandardContainer from "../../models/generic/standardContainer.model";
 import Button from '../button/Button';
+import NewButton from "../button/NewButton";
 import VideoComponent from "../VideoComponent";
 
 declare interface HeroProps {
@@ -37,7 +38,7 @@ const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
             {contents.strikeThroughTitle && (
               <>
                 <br />
-                <span className={styles.strike_through}> {contents.strikeThroughTitle}</span> 
+                <span className={styles.strike_through}> {contents.strikeThroughTitle}</span>
                 {` ${contents.complementTitle}`}
               </>
             )}
@@ -50,8 +51,8 @@ const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
               <RichText richText={contents.text} />
             </div>
           )}
-          {contents.ctaText && (
-            <Button link={contents.ctaPageLink} text={contents.ctaText} size='small' showIcon={false} />
+          {contents.buttonCta && (
+            <NewButton link={contents.buttonCta} />
           )}
           {scroll && (
             <ScrollButton

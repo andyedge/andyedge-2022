@@ -1,9 +1,9 @@
 import ImageType from '../generic/image.model'
-import Link from '../generic/link.model'
+import LinkType from '../generic/link.model'
 
 export default interface Header {
     logo: ImageType
-    links: Link[]
+    links: LinkType[]
     megaMenu: string
-    ctaButton: Link
+    ctaButton: LinkType
 }

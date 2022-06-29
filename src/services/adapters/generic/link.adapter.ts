@@ -1,9 +1,9 @@
 import { Item } from '../../../models/generic/entry.model'
-import Link from '../../../models/generic/link.model'
+import LinkType from '../../../models/generic/link.model'
 
-export const adaptLink = (data: Item): Link => {
+export const adaptLink = (data: Item): LinkType => {
     if(!data) {
-        return {} as Link
+        return {} as LinkType
     }
 
     const { fields } = data
@@ -11,6 +11,7 @@ export const adaptLink = (data: Item): Link => {
         preText: fields.preText || '',
         text: fields.text || '',
         url: fields.url || '',
+        action: fields.action || '',
         newTab: fields.opensInANewTab
     }
 }
