@@ -1,18 +1,13 @@
-import{ FC } from 'react';
+import{ FC } from 'react'
 import Header from '../header/Header'
 import Footer from '../footer/Footer'
-import HeaderModel from '../../models/entities/header.model'
+import LayoutModel from '../../models/generic/layout.model'
 
-declare interface LayoutProps {
-  header: HeaderModel,
-  children: JSX.Element | JSX.Element[]
-}
-
-const Layout: FC<LayoutProps> = (props: LayoutProps) => (
+const Layout: FC<LayoutModel> = (props: LayoutModel) => (
   <>
     <Header data={props.header}/>
-      {props.children}
-    <Footer />
+    {props.children}
+    <Footer data={props.footer}/>
   </>
 )
 

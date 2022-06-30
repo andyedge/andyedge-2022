@@ -5,8 +5,7 @@ import useDarkMode from "@fisch0920/use-dark-mode";
 import Layout from '../src/components/layout/Layout';
 import Ecamp from '../src/models/entities/ecamp.model';
 import Contact from '../src/components/contact/Contact';
-import Header from '../src/models/entities/header.model';
-import { getEcamp, getHeader } from '../src/services/fetch';
+import { getEcamp, getHeader, getFooter } from '../src/services/fetch';
 import TextSlider from '../src/components/textSlider/TextSlider';
 import TitleShare from '../src/components/titleShare/TitleShare';
 import CardsContainer from '../src/components/cardsContainer/CardsContainer';
@@ -14,29 +13,31 @@ import EcampImgSection from '../src/components/ecampImgSection/EcampImgSection';
 import EcampImgTextComp from '../src/components/ecampImgTextComp/EcampImgTextComp';
 import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPageText';
 import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer';
+import LayoutModel from '../src/models/generic/layout.model';
 
 export const getStaticProps = async () => {
   const ecampPage = await getEcamp();
   const header = await getHeader();
+  const footer = await getFooter();
   return {
     props: {
       pageContent: ecampPage,
-      header
+      header,
+      footer
     }
   }
 }
 
-declare interface EcampProps {
+declare interface EcampProps extends LayoutModel {
   pageContent: Ecamp
-  header: Header
 }
 
-const Ecamp: NextPage<EcampProps> = ({ pageContent, header } : EcampProps) => {
+const Ecamp: NextPage<EcampProps> = ({ pageContent, header, footer } : EcampProps) => {
   const scrollToRef = useRef(null);
   const darkMode = useDarkMode(false);
 
   return (
-    <Layout header={header}>
+    <Layout header={header} footer={footer}>
       <Hero
         contents={pageContent.hero}
         scrollToRef={scrollToRef}

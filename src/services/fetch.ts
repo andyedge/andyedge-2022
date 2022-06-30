@@ -4,6 +4,7 @@ import {
     adaptWhatpage,
     adaptWhypage,
     adaptHeaderData,
+    adaptFooterData,
     adaptBomou,
     adaptSmallCaseStudies,
     adaptMediumCaseStudies,
@@ -14,6 +15,11 @@ const NESTING_LEVEL = 5
 
 export const getHeader = async () => adaptHeaderData(await client.getEntries({ 
     content_type: 'header',
+    include: NESTING_LEVEL
+}))
+
+export const getFooter = async () => adaptFooterData(await client.getEntries({ 
+    content_type: 'footer',
     include: NESTING_LEVEL
 }))
 
