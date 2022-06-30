@@ -4,7 +4,6 @@ import { adaptImage } from '../generic/image.adapter'
 import { adaptLink } from '../generic/link.adapter'
 
 export const adaptFooterData = (data: Entry): Footer => {
-    console.log('--------------------')
     const [header] = data.items
     const { fields } = header
     return {
