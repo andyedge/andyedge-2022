@@ -1,46 +1,37 @@
 import { useRef } from 'react'
 import type { NextPage } from 'next'
 import PearsonHero from '../src/components/pearson/pearsonHero/PearsonHero'
-import Banner from '../src/components/banner/Banner'
 import Layout from '../src/components/layout/Layout'
 import Pearson from '../src/models/entities/pearson.model'
 import Contact from '../src/components/contact/Contact'
-import Header from '../src/models/entities/header.model'
-import { getPearson, getHeader } from '../src/services/fetch'
-import TitleShare from '../src/components/titleShare/TitleShare'
+import { getPearson, getHeader, getFooter } from '../src/services/fetch'
 import TextSlider from '../src/components/textSlider/TextSlider'
-import TextBullets from '../src/components/textBullets/TextBullets'
-import RowComponent from '../src/components/rowComponent/RowComponent'
 import CardsContainer from '../src/components/cardsContainer/CardsContainer'
-import BomouIdGuide from '../src/components/bomouPage/bomouIdGuide/BomouIdGuide'
-import BomouBrandId from '../src/components/bomouPage/bomouBrandId/BomouBrandId'
-import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPageText'
-import BomouImgSection from '../src/components/bomouPage/bomouImgSection/BomouImgSection'
-import BomouDualBanner from '../src/components/bomouPage/bomouDualBanner/BomouDualBanner'
-import BomouSocialOutreach from '../src/components/bomouPage/bomouSocialOutreach/BomouSocialOutreach'
 import BulletPointsContainer from '../src/components/pearson/bulletPointsContainer/BulletPointsContainer'
 import PearsonInfo from '../src/components/pearson/pearsonInfo/PearsonInfo'
+import LayoutModel from '../src/models/generic/layout.model'
 
 export const getStaticProps = async () => {
     const bomou = await getPearson()
     const header = await getHeader()
+    const footer = await getFooter()
     return {
         props: {
             pageContent: bomou,
-            header
+            header,
+            footer
         }
     }
 }
 
-declare interface PearsonProps {
+declare interface PearsonProps extends LayoutModel {
     pageContent: Pearson
-    header: Header
 }
 
-const BomouPage: NextPage<PearsonProps> = ({ pageContent, header }: PearsonProps) => {
+const BomouPage: NextPage<PearsonProps> = ({ pageContent, header, footer } : PearsonProps) => {
     const scrollToRef = useRef(null)
     return (
-        <Layout header={header}>
+        <Layout header={header} footer={footer}>
             <PearsonHero
                 contents={pageContent.hero}
                 scrollToRef={scrollToRef}

@@ -1,33 +1,34 @@
 import Whypage from "../src/models/entities/whypage.model";
-import { getWhypage, getHeader } from "../src/services/fetch";
+import { getWhypage, getHeader, getFooter } from "../src/services/fetch";
 import Platform from "../src/components/platform/Platform";
 import ImageTextComp from "../src/components/imageText/ImageTextComp";
 import WhyMainSection from "../src/components/whyMainSection/WhyMainSection";
 import PortfolioContainer from "../src/components/portfolioContainer/PortfolioContainer";
 import WhySecondSection from "../src/components/whySecondSection/WhySecondSection";
 import Layout from '../src/components/layout/Layout';
-import Header from '../src/models/entities/header.model';
+import LayoutModel from '../src/models/generic/layout.model';
 
 export const getStaticProps = async () => {  
   const whyPage = await getWhypage();
   const header = await getHeader();
+  const footer = await getFooter();
   return {
     props: {
       pageContent: whyPage,
-      header
+      header,
+      footer
     }
   }
 }
 
-declare interface WhyPageProps {
+declare interface WhyPageProps extends LayoutModel {
   pageContent: Whypage
-  header: Header
 }
 
-const Why = ({ pageContent, header } : WhyPageProps) => {
+const Why = ({ pageContent, header, footer } : WhyPageProps) => {
 
   return (
-    <Layout header={header}>
+    <Layout header={header} footer={footer}>
       <div className="container-fluid">
         <WhyMainSection
           contents={pageContent.standardContainers}
