@@ -1,16 +1,16 @@
-import type { NextPage } from 'next';
 import { useRef } from 'react';
+import type { NextPage } from 'next';
 import Hero from '../src/components/hero/Hero';
 import Steps from '../src/components/steps/Steps';
-import { getWhatpage, getHeader } from '../src/services/fetch';
-import Contact from '../src/components/contact/Contact';
-import Solution from '../src/components/solution/Solution';
-import CardBullets from '../src/components/cardBullets/CardBullets';
-import TextBullets from '../src/components/textBullets/TextBullets';
-import Whatpage from '../src/models/entities/whatpage.model';
 import useDarkMode from "@fisch0920/use-dark-mode";
 import Layout from '../src/components/layout/Layout';
+import Contact from '../src/components/contact/Contact';
 import Header from '../src/models/entities/header.model';
+import Solution from '../src/components/solution/Solution';
+import Whatpage from '../src/models/entities/whatpage.model';
+import { getWhatpage, getHeader } from '../src/services/fetch';
+import CardBullets from '../src/components/cardBullets/CardBullets';
+import TextBullets from '../src/components/textBullets/TextBullets';
 
 export const getStaticProps = async () => {  
   const whatPage = await getWhatpage();
@@ -36,6 +36,7 @@ const Home: NextPage<WhatPageProps> = ({ pageContent, header } : WhatPageProps )
     <Layout header={header}>
       <Hero
         contents={pageContent.hero}
+        functionType={''}
         scrollToRef={scrollToRef}
         scroll={true}
       />

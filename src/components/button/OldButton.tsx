@@ -11,7 +11,7 @@ declare interface ButtonProps {
   size?: 'default' | 'small' | 'tiny'
 }
 
-const Button: FC<ButtonProps> = ({ link, text, size = 'default', showIcon = true }: ButtonProps) => {
+const OldButton: FC<ButtonProps> = ({ link, text, size = 'default', showIcon = true }: ButtonProps) => {
   return (
     <div className={cn(styles.container, styles[size])}>
       <Link href={`/${link}`}>
@@ -26,4 +26,4 @@ const Button: FC<ButtonProps> = ({ link, text, size = 'default', showIcon = true
   )
 }
 
-export default Button
+export default OldButton

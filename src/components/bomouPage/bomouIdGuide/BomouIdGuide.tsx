@@ -1,7 +1,7 @@
 import cn from "classnames";
 import RichText from "../../RichText";
-import Button from "../../button/Button";
 import CustomImage from "../../image/Image";
+import Button from "../../button/NewButton";
 import styles from "./BomouIdGuide.module.sass";
 import ImageType from "../../../models/generic/image.model";
 import StandardContainer from "../../../models/generic/standardContainer.model";
@@ -30,8 +30,11 @@ const BomouIdGuide = ({ contents }: BomouIdGuide) => {
               <RichText richText={contents.text} />
             </div>
           )}
-          {contents.ctaText && (
-            <Button link={contents.ctaPageLink} text={contents.ctaText} size='small' showIcon={false} />
+          {contents.buttonCta && (
+            <Button
+              link={contents.buttonCta}
+              size={'small'}
+            />
           )}
           <p className={styles.text}>
             {contents.subtitle}

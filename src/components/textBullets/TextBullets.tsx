@@ -1,11 +1,11 @@
 import cn from "classnames";
+import { Fragment } from "react";
+import RichText from "../RichText";
+import CustomImage from "../image/Image";
+import Button from "../button/NewButton";
 import styles from "./TextBullets.module.sass";
 import ScrollParallax from "../ScrollParallax";
-import RichText from "../RichText";
 import ImageType from "../../models/generic/image.model";
-import CustomImage from "../image/Image";
-import { Fragment } from "react";
-import Button from '../button/Button';
 
 const TextBullets = ({ contents, section }: any) => {
   const bulletsContent = contents.bulletsContainer;
@@ -40,11 +40,11 @@ const TextBullets = ({ contents, section }: any) => {
               ))}
             </ul>
           )}
-          {contents.ctaText !== null ?
-            <Button link={contents.ctaPageLink} text={contents.ctaText} />
-            :
-            null
-          }
+          {contents.buttonCta && (
+            <Button
+              link={contents.buttonCta}
+            />
+          )}
         </div>
         <div className={isBomou ? styles.gallery_bomou : styles.gallery}>
           {

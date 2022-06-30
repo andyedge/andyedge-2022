@@ -1,8 +1,7 @@
-import cn from 'classnames'
-
-import CustomImage from '../image/Image'
-import styles from './CardBullets.module.sass'
-import Button from '../button/Button'
+import cn from 'classnames';
+import CustomImage from '../image/Image';
+import Button from '../button/NewButton';
+import styles from './CardBullets.module.sass';
 import StandardContainer from '../../models/generic/standardContainer.model';
 
 declare interface CardProps {
@@ -31,7 +30,11 @@ const Card = ({ contents, style, hasCardStyle = true } : CardProps ) => (
                 </div>
             ))}
         </div>
-        {contents.ctaText && <Button link={contents.ctaPageLink} text={contents.ctaText} />}
+        {contents.buttonCta && (
+            <Button
+              link={contents.buttonCta}
+            />
+          )}
     </div>
 )
 

@@ -1,11 +1,10 @@
 import cn from "classnames";
 import Icon from "../icon/Icon";
-import Link from "next/link";
-import styles from "./Solution.module.sass";
+import Button from "../button/NewButton";
 import CustomImage from "../image/Image";
 import { useEffect, useState } from "react";
+import styles from "./Solution.module.sass";
 import Solution from "../../models/generic/solution.model";
-import Button from "../button/Button";
 
 declare interface solutionImagesType {
   url: string
@@ -99,7 +98,7 @@ const Solution = ({ data } : { data: Solution } ) => {
                   ))
                 }
               </div>
-              <Button link={solutionCta.url} text={solutionCta.text}/>
+              <Button link={solutionCta}/>
             </div>
           </div>
         </div>

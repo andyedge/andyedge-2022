@@ -7,7 +7,7 @@ import ScrollParallax from '../../ScrollParallax'
 import ImageType from '../../../models/generic/image.model'
 import StandardContainer from '../../../models/generic/standardContainer.model'
 import styles from './BulletPointsContainer.module.sass'
-import Button from '../../button/Button'
+import OldButton from '../../button/OldButton'
 
 declare interface BulletPointsContainerProps {
     contents: StandardContainer
@@ -40,11 +40,11 @@ const CardBullets: FC<BulletPointsContainerProps> = ({ contents } : BulletPoints
                     </div>
                     <div className={styles.buttons_container}>
                         <div>
-                            {contents.ctaText && <Button link={contents.ctaPageLink} text={contents.ctaText} size='default' />}
+                            {contents.ctaText && <OldButton link={contents.ctaPageLink} text={contents.ctaText} size='default' />}
                         </div>
                         {contents.ctaVideoLink && (
                             <div>
-                                <Button link={contents.ctaVideoLink} text={contents.ctaVideoLink} size='default' />
+                                <OldButton link={contents.ctaVideoLink} text={contents.ctaVideoLink} size='default' />
                             </div>
                         )}
                     </div>

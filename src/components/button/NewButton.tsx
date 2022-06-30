@@ -7,46 +7,45 @@ import LinkType from '../../models/generic/link.model';
 
 declare interface ButtonProps {
   link: LinkType
-  func?: () => {}
+  func?: () => void
   size?: 'default' | 'small' | 'tiny'
 }
 
-const NewButton: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) => {
+const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) => {
 
   switch (link.action) {
     case 'Redirect':
       return (
-        <div className={cn(styles.container, styles[size])}>
+        <button className={cn(styles.container, styles[size])}>
           <Link href={`/${link.url}`}>
             <a className={cn('button', styles.button)}>
               {link.text}
               <Icon name='arrow-right' size={20} />
             </a>
           </Link>
-        </div>
+        </button>
       )
     case 'External':
       return (
-        <div className={cn(styles.container, styles[size])}>
+        <button className={cn(styles.container, styles[size])}>
           <a className={cn('button', styles.button)} href={link.url}>
             {link.text}
             <Icon name='arrow-right' size={20} />
           </a>
-        </div>
+        </button>
       )
     case 'Function':
       return (
-        <div
+        <button
           className={cn(styles[size], 'button', styles.button)}
-          style={{ cursor: 'pointer' }}
           onClick={func}>
           {link.text}
-          <Icon name='arrow-right' size={20} />
-        </div>
+          <Icon name='play' size={20} />
+        </button>
       )
     default:
       return null
   }
 }
 
-export default NewButton
+export default Button
