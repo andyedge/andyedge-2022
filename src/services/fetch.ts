@@ -4,16 +4,32 @@ import {
     adaptWhatpage,
     adaptWhypage,
     adaptHeaderData,
+    adaptMegaMenu,
+    adaptFooterData,
     adaptBomou,
     adaptSmallCaseStudies,
     adaptMediumCaseStudies,
-    adaptPearson
+    adaptPearson,
 } from './adapters'
 
 const NESTING_LEVEL = 5
 
-export const getHeader = async () => adaptHeaderData(await client.getEntries({ 
-    content_type: 'header',
+export const getHeader = async () => {
+    const megaMenu = adaptMegaMenu(await client.getEntries({ 
+        content_type: 'megaMenu',
+        include: NESTING_LEVEL
+    }))
+
+    const header = await client.getEntries({ 
+        content_type: 'header',
+        include: NESTING_LEVEL
+    })
+    
+    return adaptHeaderData({data: header, megaMenu})
+}
+
+export const getFooter = async () => adaptFooterData(await client.getEntries({ 
+    content_type: 'footer',
     include: NESTING_LEVEL
 }))
 

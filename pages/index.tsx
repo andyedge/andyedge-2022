@@ -2,38 +2,36 @@ import { useRef } from 'react';
 import type { NextPage } from 'next';
 import Hero from '../src/components/hero/Hero';
 import Steps from '../src/components/steps/Steps';
-import useDarkMode from "@fisch0920/use-dark-mode";
 import Layout from '../src/components/layout/Layout';
 import Contact from '../src/components/contact/Contact';
-import Header from '../src/models/entities/header.model';
 import Solution from '../src/components/solution/Solution';
 import Whatpage from '../src/models/entities/whatpage.model';
-import { getWhatpage, getHeader } from '../src/services/fetch';
+import LayoutModel from '../src/models/generic/layout.model';
 import CardBullets from '../src/components/cardBullets/CardBullets';
 import TextBullets from '../src/components/textBullets/TextBullets';
+import { getWhatpage, getHeader, getFooter } from '../src/services/fetch';
 
 export const getStaticProps = async () => {  
   const whatPage = await getWhatpage();
   const header = await getHeader();
+  const footer = await getFooter();
   return {
     props: {
       pageContent: whatPage,
-      header
+      header,
+      footer
     }
   }
 }
 
-declare interface WhatPageProps {
-  pageContent: Whatpage,
-  header: Header
+declare interface WhatPageProps extends LayoutModel {
+  pageContent: Whatpage
 }
 
-const Home: NextPage<WhatPageProps> = ({ pageContent, header } : WhatPageProps ) => {
+const Home: NextPage<WhatPageProps> = ({ pageContent, header, footer } : WhatPageProps ) => {
   const scrollToRef = useRef(null);
-  const darkMode = useDarkMode(false);
-  
   return (
-    <Layout header={header}>
+    <Layout header={header} footer={footer}>
       <Hero
         contents={pageContent.hero}
         functionType={''}

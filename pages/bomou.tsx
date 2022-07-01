@@ -5,8 +5,7 @@ import Banner from '../src/components/banner/Banner'
 import Layout from '../src/components/layout/Layout'
 import Bomou from '../src/models/entities/bomou.model'
 import Contact from '../src/components/contact/Contact'
-import Header from '../src/models/entities/header.model'
-import { getBomou, getHeader } from '../src/services/fetch'
+import { getBomou, getHeader, getFooter } from '../src/services/fetch'
 import TitleShare from '../src/components/titleShare/TitleShare'
 import TextSlider from '../src/components/textSlider/TextSlider'
 import TextBullets from '../src/components/textBullets/TextBullets'
@@ -18,29 +17,30 @@ import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPa
 import BomouImgSection from '../src/components/bomouPage/bomouImgSection/BomouImgSection'
 import BomouDualBanner from '../src/components/bomouPage/bomouDualBanner/BomouDualBanner'
 import BomouSocialOutreach from '../src/components/bomouPage/bomouSocialOutreach/BomouSocialOutreach'
-
+import LayoutModel from '../src/models/generic/layout.model'
 
 export const getStaticProps = async () => {
   const bomou = await getBomou();
   const header = await getHeader();
+  const footer = await getFooter();
   return {
     props: {
       pageContent: bomou,
-      header
+      header,
+      footer
     }
   }
 }
 
-declare interface BomouProps {
+declare interface BomouProps extends LayoutModel {
   pageContent: Bomou
-  header: Header
 }
 
-const BomouPage : NextPage<BomouProps> = ({ pageContent, header } : BomouProps) => {
+const BomouPage : NextPage<BomouProps> = ({ pageContent, header, footer } : BomouProps) => {
   const scrollToRef = useRef(null)
 
   return (
-    <Layout header={header}>  
+    <Layout header={header} footer={footer}>  
       <Hero
         contents={pageContent.hero}
         functionType={'video'}

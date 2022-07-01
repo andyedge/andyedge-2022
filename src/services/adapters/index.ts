@@ -1,4 +1,6 @@
 export * from './entities/header.adapter'
+export * from './entities/megaMenu.adapter'
+export * from './entities/footer.adapter'
 export * from './entities/whatPage.adapter'
 export * from './entities/whyPage.adapter'
 export * from './entities/ecampPage.adapter'

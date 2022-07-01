@@ -1,4 +1,5 @@
 @import ../../../styles/helpers
+@import ../../../styles/colors
 
 .item
     position: relative
@@ -7,14 +8,14 @@
     align-items: flex-start
     height: 100%
     padding-bottom: 40px
-    border-bottom: 2px solid $neutrals6
-    color: $neutrals2
+    border-bottom: 2px solid $gray4
+    color: $light-black
     +dark
-        border-color: $neutrals3
-        color: $neutrals8
+        border-color: $gray
+        color: $ultra-white
     &:hover
         .preview
-            box-shadow: 0 0 0 3px $red
+            box-shadow: 0 0 0 3px $orange
             img
                 transform: scale(1.1)
                 +m
@@ -44,7 +45,7 @@
     width: 100%
     +caption-1
     font-weight: 500
-    color: $neutrals4
+    color: $gray2
 
 .user
     display: flex
@@ -57,10 +58,10 @@
     height: 24px
     margin-right: 12px
     border-radius: 50%
-    background: $neutrals6 
+    background: $gray4 
     overflow: hidden
     +dark
-        background: $neutrals3
+        background: $gray
     img
         width: 100%
         min-height: 100%

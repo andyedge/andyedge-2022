@@ -1,6 +1,5 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
-import { getSmallCaseStudies, searchSmallCaseStudy, getHeader } from '../../src/services/fetch'
-import Header from '../../src/models/entities/header.model'
+import { getSmallCaseStudies, searchSmallCaseStudy, getHeader, getFooter } from '../../src/services/fetch'
 import Entry from '../../src/models/generic/entry.model'
 import SmallCaseStudy from '../../src/models/entities/smallCaseStudy.model'
 import Layout from '../../src/components/layout/Layout'
@@ -10,6 +9,7 @@ import TextSlider from '../../src/components/textSlider/TextSlider'
 import Banner from '../../src/components/banner/Banner'
 import SmallCaseInfo from '../../src/components/caseStudies/info/Info'
 import PortfolioContainer from '../../src/components/portfolioContainer/PortfolioContainer'
+import LayoutModel from '../../src/models/generic/layout.model'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const smallCaseStudies: Entry = await getSmallCaseStudies()
@@ -24,27 +24,28 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const slug = params?.smallCaseId
     const [smallCaseStudy]: SmallCaseStudy[] = await searchSmallCaseStudy(slug as string)
     const header = await getHeader()
+    const footer = await getFooter()
     return {
         props: {
             pageContent: smallCaseStudy || {},
-            header
+            header,
+            footer
         },
     }
 }
 
-declare interface SmallCaseStudyProps {
+declare interface SmallCaseStudyProps extends LayoutModel {
     pageContent: SmallCaseStudy
-    header: Header
 }
 
 
-const SmallCase: NextPage<SmallCaseStudyProps> = ({ pageContent, header } : SmallCaseStudyProps) => {
+const SmallCase: NextPage<SmallCaseStudyProps> = ({ pageContent, header, footer } : SmallCaseStudyProps) => {
     if(!pageContent) {
         return <h1>Case study is in construction</h1>
     }
 
     return (
-        <Layout header={header}>
+        <Layout header={header} footer={footer}>
             <div className='container-fluid'>
                 <SmallCaseHero data={pageContent.hero} />
                 <CardsContainer contents={pageContent.cards} scrollToRef={null} smallSpaccing={true}/>
