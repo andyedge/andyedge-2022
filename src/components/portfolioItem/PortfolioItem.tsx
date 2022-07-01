@@ -13,7 +13,7 @@ const PortfolioItem = ({ item, className }: any) => {
         </div>
         <div
           className={cn(
-            { "status-red": item.category === "red" },
+            { "status-orange": item.category === "red" },
             { "status-green": item.category === "green" },
             { "status-pink": item.category === "pink" },
             { "status-black": item.category === "black" },

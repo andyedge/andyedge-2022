@@ -1,4 +1,5 @@
 @import ../../../styles/helpers
+@import ../../../styles/colors
 
 .header
     position: relative
@@ -31,7 +32,7 @@
     width: 129px
     height: 32px
     position: relative
-    +d
+    +t
         margin-right: auto
 
 .wrap
@@ -42,7 +43,7 @@
     +x
         padding-left: 0
         border: none
-    +d
+    +t
         display: none
         position: absolute
         top: 100%
@@ -50,12 +51,10 @@
         right: 0
         align-items: flex-start
         padding: 0 80px 80px
-        background: $neutrals8
+        background: $ultra-white
         box-shadow: 0px 64px 64px 0 rgba(15, 15, 15, 0.1)
         &.active
             display: flex
-    +t
-        padding: 0 40px 64px
     +m
         flex-direction: column
         align-items: flex-start
@@ -64,9 +63,9 @@
     +s
         min-height: unset
     +dark
-        border-color: $neutrals3
+        border-color: $gray
         +d
-            background: $neutrals1
+            background: $black
     .button
         display: none
         +m
@@ -77,15 +76,12 @@
     display: flex
     align-items: center
     margin-right: 20px
-    +d
+    +t
         flex-direction: column
         align-items: flex-start
-        flex: 0 0 calc(100% - 416px)
-        max-width: calc(100% - 416px)
-        margin-right: 0
-    +t
         flex: 0 0 calc(100% - 344px)
         max-width: calc(100% - 344px)
+        margin-right: 0
     +m
         align-items: stretch
         flex: auto 0 calc(100% + 64px)
@@ -100,8 +96,8 @@
         margin-right: 16px
         +x
             margin-right: 12px
-        +d
-            margin: 0 0 48px
+        +t
+            margin: 0 0 24px
         +m
             margin: 0
 
@@ -109,45 +105,40 @@
     display: block
     padding: 16px 8px
     +button-2
-    color: $neutrals4
+    color: $gray2
     transition: color .2s
-    +d
+    +t
         padding: 0
-        font-size: 40px
+        font-size: 20px
         line-height: 1.2
         letter-spacing: -.01em
-    +t
-        font-size: 24px
     +m
-        padding: 8px 32px 
         font-size: 16px
+        padding: 8px 32px 
     &:hover
-        color: $neutrals2
+        color: $light-black
         +dark
-            color: $neutrals8
+            color: $ultra-white
     &.active
-        color: $neutrals2
+        color: $light-black
         +m
-            box-shadow: inset 2px 0 0 0 $red
+            box-shadow: inset 2px 0 0 0 $orange
         +dark
-            color: $neutrals8
+            color: $ultra-white
     
 .details
     display: flex
     align-items: center
     flex-grow: 1
-    +d
-        display: block
-        flex: 0 0 416px
     +t
+        display: block
         flex: 0 0 344px
     +m
         flex: 0 0 auto
 
-
 .contact
     display: none
-    +d
+    +t
         display: block
         margin-bottom: 32px
     +m
@@ -168,7 +159,7 @@
 
 .text
     +caption-1
-    color: $neutrals4
+    color: $gray2
 
 .socials
     display: flex
@@ -184,21 +175,21 @@
     width: 24px
     height: 24px
     svg
-        fill: $neutrals4
+        fill: $gray2
         transition: fill .2s
     &:hover svg
-        fill: $neutrals2
+        fill: $light-black
         +dark
-            fill: $neutrals8
+            fill: $ultra-white
     &:not(:last-child)
         margin-right: 24px
 
 .burger
     display: none
-    +d
+    +t
         display: block
         position: relative
-        margin-left: 40px
+        margin-left: 32px
         width: 32px
         height: 32px
         background: none
@@ -216,12 +207,10 @@
             left: 6px
             width: 20px
             height: 2px
-            background: $neutrals4
+            background: $gray2
             border-radius: 2px
             transition: transform .2s
         &:before
             transform: translateY(-4px)
         &:after
             transform: translateY(3px)
-    +t
-        margin-left: 32px

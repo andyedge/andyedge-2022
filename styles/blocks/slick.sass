@@ -98,20 +98,20 @@
     svg
         position: relative
         z-index: 2
-        fill: $neutrals4
+        fill: $gray2
         transition: fill .2s
         +dark-common
-            fill: $neutrals6
+            fill: $gray4
     &:hover
         svg
-            fill: $neutrals2
+            fill: $light-black
             +dark-common
-                fill: $neutrals8
+                fill: $ultra-white
     &.slick-disabled
         svg
-            fill: $neutrals5
+            fill: $gray3
             +dark-common
-                fill: $neutrals4
+                fill: $gray2
 
 // review slider
 .review-slider
@@ -186,7 +186,7 @@
                     left: 0
                     right: 0
                     bottom: 0
-                    background: $neutrals8 
+                    background: $ultra-white 
                     border-radius: 50%
                     opacity: .7
                     transform: scale(.5)
@@ -245,16 +245,16 @@
                 width: 8px
                 height: 8px
                 background: none
-                border: 1px solid $neutrals4
+                border: 1px solid $gray2
                 border-radius: 50%
                 font-size: 0
                 transition: all .2s
                 &:hover
-                    border-color: $red
+                    border-color: $orange
             &.slick-active
                 button
-                    background: $red
-                    border-color: $red
+                    background: $orange
+                    border-color: $orange
             &:not(:last-child)
                 margin-right: 12px
             

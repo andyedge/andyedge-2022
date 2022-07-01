@@ -1,9 +1,10 @@
 @import ../../../styles/helpers
+@import ../../../styles/colors
 
 .footer
-    border-top: 1px solid rgba($neutrals4, .3)
+    border-top: 1px solid rgba($gray2, .3)
     +dark
-        border-color: $neutrals3
+        border-color: $gray
 
 .container
     display: flex
@@ -26,9 +27,9 @@
         padding: 64px 0 48px
     +m
         padding: 32px 0
-        border-bottom: 1px solid $neutrals6
+        border-bottom: 1px solid $gray4
         +dark
-            border-color: $neutrals3
+            border-color: $gray
     &:first-child
         display: flex
         flex: 0 0 35%
@@ -76,7 +77,7 @@
             margin-bottom: 0
         svg
             margin-left: auto
-            fill: $neutrals4
+            fill: $gray2
             transition: transform .2s
     &.active
         +m
@@ -115,17 +116,17 @@
 
 .foot
     padding: 25px 0 20px
-    border-top: 1px solid rgba($neutrals4, 0.3)
+    border-top: 1px solid rgba($gray2, 0.3)
     +m
         padding: 56px 0 48px
         border: none
     +dark
-        border-color: $neutrals3
+        border-color: $gray
 
 .copyright
     margin-right: auto
     +caption-2
-    color: $neutrals4
+    color: $gray2
     +m
         margin: 0 0 24px
 
@@ -140,11 +141,11 @@
     width: 20px
     height: 20px
     svg
-        fill: $neutrals4
+        fill: $gray2
         transition: fill .2s
     &:hover svg
-        fill: $neutrals2
+        fill: $light-black
         +dark
-            fill: $neutrals8
+            fill: $ultra-white
     &:not(:last-child)
         margin-right: 24px

@@ -1,9 +1,10 @@
 import ImageType from '../generic/image.model'
 import Link from '../generic/link.model'
+import MegaMenu from './megaMenu.model'
 
 export default interface Header {
     logo: ImageType
     links: Link[]
-    megaMenu: string
+    megaMenu: MegaMenu
     ctaButton: Link
 }
