@@ -1,4 +1,5 @@
 @import ../../../styles/helpers
+@import ../../../styles/colors
 
 .head
     position: relative
@@ -6,7 +7,7 @@
     align-items: center
     padding: 16px 8px
     +button-2
-    color: $neutrals4
+    color: $gray2
     transition: color .2s
     user-select: none
     cursor: pointer
@@ -25,21 +26,21 @@
     &:hover,
     &.open,
     &.active
-        color: $neutrals2
+        color: $light-black
         +dark
-            color: $neutrals8
+            color: $ultra-white
         +m
             box-shadow: inset 2px 0 0 0 $red
         svg
-            fill: $neutrals2
+            fill: $light-black
             +dark
-                fill: $neutrals8
+                fill: $ultra-white
     &.open
         svg
             transform: rotate(180deg)
     svg
         margin-left: 12px
-        fill: $neutrals4
+        fill: $gray2
         transition: all .2s
         +d
             width: 15px
@@ -76,7 +77,7 @@
         margin-right: 0
         padding-top: 0
     +dark
-        border-color: $neutrals3
+        border-color: $gray
 
 @keyframes showBody
   0%
@@ -91,10 +92,10 @@
 .inner
     max-width: 1120px
     margin: 0 auto
-    background: $neutrals8
+    background: $ultra-white
     border-radius: 24px
     box-shadow: 0px 64px 64px -48px rgba(15, 15, 15, 0.1)
-    border: 1px solid $neutrals6
+    border: 1px solid $gray4
     +d
         max-width: 100%
         margin: 0
@@ -104,8 +105,8 @@
         box-shadow: none
         border: none
     +dark
-        background: $neutrals1
-        border-color: $neutrals3
+        background: $black
+        border-color: $gray
         box-shadow: 0px 64px 64px -48px rgba(15, 15, 15, 0.1)
 
 .row
@@ -129,11 +130,11 @@
             flex: 0 0 280px
     &:nth-child(2)
         flex-grow: 1
-        border-left: 1px solid $neutrals6
+        border-left: 1px solid $gray4
         +m
             display: none
         +dark
-            border-color: $neutrals3
+            border-color: $gray
 
 .direction
     margin: -16px -16px 32px
@@ -143,15 +144,15 @@
     +m
         display: none
     &:hover
-        background: $neutrals7
+        background: $white
         +dark
-            background: $neutrals2
+            background: $light-black
 
 .info
     +body-2
-    color: $neutrals2
+    color: $light-black
     +dark
-        color: $neutrals8
+        color: $ultra-white
 
 .preview
     margin-top: 24px
@@ -169,19 +170,19 @@
     padding: 16px 8px 16px 16px
     border-radius: 8px
     font-weight: 600
-    color: $neutrals2
+    color: $light-black
     transition: all .2s
     +dark
-        color: $neutrals8
+        color: $ultra-white
         +m
-            color: $neutrals4
+            color: $gray2
     &:hover,
     &.active
-        background: $neutrals7
+        background: $white
         +dark
-            background: $neutrals2
+            background: $light-black
             +m
-                color: $neutrals8
+                color: $ultra-white
     &:not(:last-child)
         margin-bottom: 8px
         +m
@@ -211,9 +212,9 @@
 
 .card,
 .item
-    color: $neutrals2
+    color: $light-black
     +dark
-        color: $neutrals8
+        color: $ultra-white
     &:hover
         .photo
             box-shadow: 0 0 0 3px $red
@@ -259,10 +260,10 @@
     height: 40px
     margin: 5px 16px 0 0
     border-radius: 50%
-    background: $neutrals6
+    background: $gray4
     overflow: hidden
     +dark
-        background: $neutrals3
+        background: $gray
     img
         width: 100%
         height: 100%
@@ -273,12 +274,12 @@
 
 .trainer
     +caption-1
-    color: $neutrals4
+    color: $gray2
 
 .content
     margin-top: 12px
     +caption-1
-    color: $neutrals4
+    color: $gray2
 
 .item
     display: flex
@@ -303,9 +304,9 @@
 
 .foot
     padding: 40px
-    border-top: 1px solid $neutrals6
+    border-top: 1px solid $gray4
     +dark
-            border-color: $neutrals3
+            border-color: $gray
     +d
         padding: 32px
     +m

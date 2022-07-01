@@ -8,14 +8,14 @@
   border-radius: 24px
   +button-1
   text-align: center
-  color: $neutrals8
+  color: $ultra-white
   transition: all .2s
   &:hover
     background: darken($red, 10)
   &.disabled
     opacity: .5
   svg
-    fill: $neutrals8
+    fill: $ultra-white
   &:not([class^="button-circle"])
     svg
       &:last-child
@@ -23,38 +23,38 @@
 
 .button-stroke
   background: none
-  box-shadow: 0 0 0 2px $neutrals6 inset
-  color: $neutrals2
+  box-shadow: 0 0 0 2px $gray4 inset
+  color: $light-black
   svg
-    fill: $neutrals2
+    fill: $light-black
     transition: fill .2s
   &:hover
-    box-shadow: 0 0 0 2px $neutrals2 inset
-    background: $neutrals2
-    color: $neutrals8
+    box-shadow: 0 0 0 2px $light-black inset
+    background: $light-black
+    color: $ultra-white
     svg
-      fill: $neutrals8
+      fill: $ultra-white
   +dark-common
-    box-shadow: 0 0 0 2px $neutrals4 inset
-    color: $neutrals8
+    box-shadow: 0 0 0 2px $gray2 inset
+    color: $ultra-white
     svg
-      fill: $neutrals8
+      fill: $ultra-white
     &:hover
-      box-shadow: 0 0 0 2px $neutrals8 inset
+      box-shadow: 0 0 0 2px $ultra-white inset
       background: none
 
 .button-stroke-red-no-hover
   background: $red
-  box-shadow: 0 0 0 2px $neutrals6 inset
-  color: $neutrals8
+  box-shadow: 0 0 0 2px $gray4 inset
+  color: $ultra-white
   svg
-    fill: $neutrals8
+    fill: $ultra-white
     transition: fill .2s
   +dark-common
-    box-shadow: 0 0 0 2px $neutrals4 inset
-    color: $neutrals8
+    box-shadow: 0 0 0 2px $gray2 inset
+    color: $ultra-white
     svg
-      fill: $neutrals8    
+      fill: $ultra-white    
 
 
 .button-small
@@ -69,21 +69,21 @@
   height: 48px
   padding: 0
   border-radius: 50%
-  box-shadow: 0 0 0 2px $neutrals6 inset
+  box-shadow: 0 0 0 2px $gray4 inset
   background: transparent
   transition: border-color .2s
   svg
-      fill: $neutrals4
+      fill: $gray2
       transition: fill .2s
   &:hover
-      background: $neutrals2
-      box-shadow: 0 0 0 2px $neutrals2 inset
+      background: $light-black
+      box-shadow: 0 0 0 2px $light-black inset
       svg
-          fill: $neutrals8
+          fill: $ultra-white
   +dark-common
-    box-shadow: 0 0 0 2px $neutrals3 inset
+    box-shadow: 0 0 0 2px $gray inset
     &:hover
-      background: $neutrals3
+      background: $gray
 
 
 

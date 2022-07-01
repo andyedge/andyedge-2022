@@ -1,4 +1,5 @@
 @import ../../../styles/helpers
+@import ../../../styles/colors
 
 .header
     position: relative
@@ -50,7 +51,7 @@
         right: 0
         align-items: flex-start
         padding: 0 80px 80px
-        background: $neutrals8
+        background: $ultra-white
         box-shadow: 0px 64px 64px 0 rgba(15, 15, 15, 0.1)
         &.active
             display: flex
@@ -64,9 +65,9 @@
     +s
         min-height: unset
     +dark
-        border-color: $neutrals3
+        border-color: $gray
         +d
-            background: $neutrals1
+            background: $black
     .button
         display: none
         +m
@@ -109,7 +110,7 @@
     display: block
     padding: 16px 8px
     +button-2
-    color: $neutrals4
+    color: $gray2
     transition: color .2s
     +d
         padding: 0
@@ -122,15 +123,15 @@
         padding: 8px 32px 
         font-size: 16px
     &:hover
-        color: $neutrals2
+        color: $light-black
         +dark
-            color: $neutrals8
+            color: $ultra-white
     &.active
-        color: $neutrals2
+        color: $light-black
         +m
             box-shadow: inset 2px 0 0 0 $red
         +dark
-            color: $neutrals8
+            color: $ultra-white
     
 .details
     display: flex
@@ -168,7 +169,7 @@
 
 .text
     +caption-1
-    color: $neutrals4
+    color: $gray2
 
 .socials
     display: flex
@@ -184,12 +185,12 @@
     width: 24px
     height: 24px
     svg
-        fill: $neutrals4
+        fill: $gray2
         transition: fill .2s
     &:hover svg
-        fill: $neutrals2
+        fill: $light-black
         +dark
-            fill: $neutrals8
+            fill: $ultra-white
     &:not(:last-child)
         margin-right: 24px
 
@@ -216,7 +217,7 @@
             left: 6px
             width: 20px
             height: 2px
-            background: $neutrals4
+            background: $gray2
             border-radius: 2px
             transition: transform .2s
         &:before
