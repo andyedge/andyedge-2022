@@ -11,7 +11,8 @@ declare interface StandardContainer {
     subtitle?: string
     bulletsContainer?: StepsContainer[]
     logo: ImageType
-    buttonCta: LinkType
+    primaryButtonCta: LinkType
+    secondaryButtonCta: LinkType
     text?: Document
     ctaText?: string
     ctaPageLink?: string

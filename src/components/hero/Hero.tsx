@@ -2,7 +2,7 @@ import cn from "classnames";
 import { useState } from "react";
 import RichText from "../RichText";
 import styles from "./Hero.module.sass";
-import Button from "../button/NewButton";
+import Button from "../button/Button";
 import VideoComponent from "../VideoComponent";
 import ScrollButton from "../scrollButton/ScrollButton";
 import StandardContainer from "../../models/generic/standardContainer.model";
@@ -76,9 +76,9 @@ const Hero = ({ contents, functionType, scrollToRef, scroll }: HeroProps) => {
               <RichText richText={contents.text} />
             </div>
           )}
-          {contents.buttonCta && (
+          {contents.primaryButtonCta && (
             <Button
-              link={contents.buttonCta}
+              link={contents.primaryButtonCta}
               func={buttonFunction}
             />
           )}

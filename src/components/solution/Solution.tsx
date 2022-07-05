@@ -1,6 +1,6 @@
 import cn from "classnames";
 import Icon from "../icon/Icon";
-import Button from "../button/NewButton";
+import Button from "../button/Button";
 import CustomImage from "../image/Image";
 import { useEffect, useState } from "react";
 import styles from "./Solution.module.sass";

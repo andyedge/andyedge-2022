@@ -1,6 +1,6 @@
 import cn from 'classnames';
+import Button from '../button/Button';
 import CustomImage from '../image/Image';
-import Button from '../button/NewButton';
 import styles from './CardBullets.module.sass';
 import StandardContainer from '../../models/generic/standardContainer.model';
 
@@ -30,9 +30,9 @@ const Card = ({ contents, style, hasCardStyle = true } : CardProps ) => (
                 </div>
             ))}
         </div>
-        {contents.buttonCta && (
+        {contents.primaryButtonCta && (
             <Button
-              link={contents.buttonCta}
+              link={contents.primaryButtonCta}
             />
           )}
     </div>

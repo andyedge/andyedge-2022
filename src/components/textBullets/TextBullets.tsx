@@ -1,8 +1,8 @@
 import cn from "classnames";
 import { Fragment } from "react";
 import RichText from "../RichText";
+import Button from "../button/Button";
 import CustomImage from "../image/Image";
-import Button from "../button/NewButton";
 import styles from "./TextBullets.module.sass";
 import ScrollParallax from "../ScrollParallax";
 import ImageType from "../../models/generic/image.model";
@@ -40,9 +40,9 @@ const TextBullets = ({ contents, section }: any) => {
               ))}
             </ul>
           )}
-          {contents.buttonCta && (
+          {contents.primaryButtonCta && (
             <Button
-              link={contents.buttonCta}
+              link={contents.primaryButtonCta}
             />
           )}
         </div>

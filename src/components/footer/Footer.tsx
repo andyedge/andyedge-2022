@@ -1,14 +1,13 @@
-import { FC, useState } from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
-
 import Icon from '../icon/Icon'
 import Theme from '../theme/Theme'
+import RichText from '../RichText'
+import { FC, useState } from 'react'
+import Button from '../button/Button'
 import CustomImage from '../image/Image'
 import styles from './Footer.module.sass'
 import Footer from '../../models/entities/footer.model'
-import RichText from '../RichText'
-import Button from '../button/Button'
 
 const socials = [
   {
@@ -82,7 +81,7 @@ const Footer: FC<FooterProps> = ({ data }: FooterProps) => {
             <div className={styles.info}>
               <RichText richText={data.getInTouchContent} />
             </div>
-            <Button text={data.button.text} link={data.button.url} showIcon={false} size={'tiny'}/>
+            <Button link={data.button} size={'tiny'}/>
           </div>
         </div>
       </div>

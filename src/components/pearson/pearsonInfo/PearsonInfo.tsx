@@ -1,8 +1,8 @@
 import { FC, useState } from 'react'
 import RichText from '../../RichText'
+import Button from '../../button/Button'
 import CustomImage from '../../image/Image'
 import styles from './PearsonInfo.module.sass'
-import OldButton from '../../button/OldButton'
 import VideoComponent from '../../VideoComponent'
 import ScrollParallax from '../../ScrollParallax'
 import TitleShare from '../../titleShare/TitleShare'
@@ -19,6 +19,7 @@ const PearsonInfo: FC<PearsonInfoProps> = ({ contents }: PearsonInfoProps) => {
     const videoPlayingHandler = (newStatus: boolean) => {
         setPlaying(newStatus);
     }
+
     return (
         <section className={styles.container}>
             <TitleShare
@@ -38,7 +39,7 @@ const PearsonInfo: FC<PearsonInfoProps> = ({ contents }: PearsonInfoProps) => {
                                 <div>
                                     <h5>{item.title}</h5>
                                     <p>{item.text}</p>
-                                    <OldButton text={item.link.text} link={item.link.url} size='tiny' />
+                                    <Button link={item.link} size='tiny' />
                                 </div>
                             </ScrollParallax>
                         ))}

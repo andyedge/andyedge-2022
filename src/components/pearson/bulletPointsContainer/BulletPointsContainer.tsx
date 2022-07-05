@@ -1,13 +1,12 @@
 import cn from 'classnames'
-import { Fragment, FC } from 'react'
 import Image from 'next/image'
-
+import { Fragment, FC } from 'react'
+import Button from '../../button/Button'
 import CustomImage from '../../image/Image'
 import ScrollParallax from '../../ScrollParallax'
+import styles from './BulletPointsContainer.module.sass'
 import ImageType from '../../../models/generic/image.model'
 import StandardContainer from '../../../models/generic/standardContainer.model'
-import styles from './BulletPointsContainer.module.sass'
-import OldButton from '../../button/OldButton'
 
 declare interface BulletPointsContainerProps {
     contents: StandardContainer
@@ -40,11 +39,13 @@ const CardBullets: FC<BulletPointsContainerProps> = ({ contents } : BulletPoints
                     </div>
                     <div className={styles.buttons_container}>
                         <div>
-                            {contents.ctaText && <OldButton link={contents.ctaPageLink} text={contents.ctaText} size='default' />}
+                            {contents.primaryButtonCta && 
+                                <Button link={contents.primaryButtonCta} size='default' />
+                            }
                         </div>
-                        {contents.ctaVideoLink && (
+                        {contents.secondaryButtonCta && (
                             <div>
-                                <OldButton link={contents.ctaVideoLink} text={contents.ctaVideoLink} size='default' />
+                                <Button link={contents.secondaryButtonCta} size='default' />
                             </div>
                         )}
                     </div>
