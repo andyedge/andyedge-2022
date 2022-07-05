@@ -14,9 +14,6 @@ declare interface StandardContainer {
     primaryButtonCta: LinkType
     secondaryButtonCta: LinkType
     text?: Document
-    ctaText?: string
-    ctaPageLink?: string
-    ctaVideoLink?: string
     images?: ImageType[]
     backgroundImage: ImageType
     videoUrl?: string

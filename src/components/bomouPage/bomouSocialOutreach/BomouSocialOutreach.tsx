@@ -1,11 +1,10 @@
 import cn from "classnames";
-import Link from "next/link";
 import RichText from "../../RichText";
+import Button from "../../button/Button";
 import CustomImage from "../../image/Image";
 import styles from "./BomouSocialOutreach.module.sass";
 import ImageType from "../../../models/generic/image.model";
 import StandardContainer from "../../../models/generic/standardContainer.model";
-
 
 declare interface BomouSocialOutreachProps {
   contents: StandardContainer
@@ -31,12 +30,11 @@ const BomouSocialOutreach = ({ contents }: BomouSocialOutreachProps) => {
               :
               null
           }
-          {contents.ctaText !== null ?
-            <div className={styles.btns}>
-              <Link href="#">
-                <a className={cn("button", styles.button)}> {contents.ctaText} </a>
-              </Link>
-            </div>
+          {contents.primaryButtonCta ?
+            <Button
+              link={contents.primaryButtonCta}
+              size={'tiny'}
+            />
             :
             null
           }
