@@ -1,15 +1,22 @@
 import cn from "classnames";
+import Link from 'next/link';
+import { useState } from "react";
 import CustomImage from "../image/Image";
 import styles from "./Contact.module.sass";
-import ContactField from "../contactField/ContactField";
 import VideoComponent from "../VideoComponent";
-import Link from 'next/link';
+import ContactField from "../contactField/ContactField";
 
 const Contact = ({ contents }: any) => {
   const videoClassnamesObj = {
     videoDivClassname: styles.video_div,
     videoClassname: styles.contact_video,
     playButtonClassname: cn("play", styles.play_button)
+  }
+
+  const [playing, setPlaying] = useState<boolean>(false);
+
+  const videoPlayingHandler = (newStatus: boolean) => {
+    setPlaying(newStatus);
   }
 
   return (
@@ -21,10 +28,12 @@ const Contact = ({ contents }: any) => {
               <VideoComponent
                 videoUrl={contents.contactVideoUrl}
                 videoClassnames={videoClassnamesObj}
+                playing={playing}
+                playingHandler={videoPlayingHandler}
               />
               :
               <div className={styles.contact_image}>
-                <CustomImage src={contents.contactImage} />         
+                <CustomImage src={contents.contactImage} />
               </div>
           }
         </div>
