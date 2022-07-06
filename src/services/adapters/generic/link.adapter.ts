@@ -1,5 +1,6 @@
 import { Item } from '../../../models/generic/entry.model'
 import LinkType from '../../../models/generic/link.model'
+import { adaptImage } from './image.adapter'
 
 export const adaptLink = (data: Item): LinkType => {
     if(!data) {
@@ -12,6 +13,7 @@ export const adaptLink = (data: Item): LinkType => {
         text: fields.text || '',
         url: fields.url || '',
         action: fields.action || '',
+        icon: adaptImage(fields.icon),
         newTab: fields.opensInANewTab
     }
 }

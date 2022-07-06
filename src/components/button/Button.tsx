@@ -2,6 +2,7 @@ import { FC } from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
 import Icon from '../icon/Icon';
+import CustomImage from '../image/Image'
 import styles from './button.module.sass'
 import LinkType from '../../models/generic/link.model';
 
@@ -20,9 +21,18 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) 
           <Link href={`/${link.url}`}>
             <a className={cn('button', styles.button)}>
               {link.text}
-              <Icon name='arrow-right' size={20} />
             </a>
           </Link>
+          {
+            link.icon && link.icon?.url !== '' ?
+              <div>
+                <CustomImage
+                  src={link.icon}
+                />
+              </div>
+              :
+              null
+          }
         </button>
       )
     case 'External':
@@ -30,7 +40,12 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) 
         <button className={cn(styles.container, styles[size])}>
           <a className={cn('button', styles.button)} href={link.url}>
             {link.text}
-            <Icon name='arrow-right' size={20} />
+            {
+              link.icon?.url !== '' ?
+                <Icon name='arrow-right' size={20} />
+                :
+                null
+            }
           </a>
         </button>
       )
@@ -40,7 +55,12 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) 
           className={cn(styles[size], 'button', styles.button)}
           onClick={func}>
           {link.text}
-          <Icon name='play' size={20} />
+          {
+            link.icon?.url !== '' ?
+              <Icon name='arrow-right' size={20} />
+              :
+              null
+          }
         </button>
       )
     default:
