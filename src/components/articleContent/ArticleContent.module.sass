@@ -1,0 +1,84 @@
+@import ../../../styles/helpers
+@import ../../../styles/colors
+
+.first_section
+    padding: 0px 0 168px 0
+    +s
+        padding: 100px 0
+    > div
+        display: grid
+        grid-template-columns: 1fr 1fr
+        margin-bottom: 118px
+        +t
+            grid-template-columns: 100%
+
+    .info
+        margin-top: 72px
+        h3
+            font-size: 48px
+            letter-spacing: -0.96px
+            margin-bottom: 24px
+            +s
+                font-size: 32px
+                line-height: 1.5
+
+        p
+            font-size: 24px
+            max-width: 440px
+            +t
+                max-width: unset
+            
+
+    .inline_images
+        position: relative
+        min-height: 400px
+        order: 1
+
+    > div:nth-child(even) .inline_images
+        order: -1
+        +t
+            order: 1
+
+.carousel
+    > div
+        position: relative
+        min-height: 514px
+
+.images_section
+    > div
+        position: relative
+
+    div:nth-child(1)
+        min-height: 352px
+        border-radius: 24px
+        overflow: auto
+
+    div:nth-child(2)
+        min-height: 600px
+        border-radius: 24px
+        overflow: auto
+        margin: 90px 0
+
+.article_body
+    max-width: 736px
+    margin: auto
+    margin-bottom: 320px
+
+    h1,h2,h3,h4
+        font-size: 48px
+        letter-spacing: -0.96px
+        margin: 48px 0 24px 0
+
+        +s
+            font-size: 32px
+            line-height: 1.5
+
+    p
+        font-size: 24px
+        font-weight: 300
+        letter-spacing: -0.24px
+        color: $light-black
+        line-height: 40px
+        margin-bottom: 36px
+        +dark
+            color: $gray4

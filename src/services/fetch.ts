@@ -10,6 +10,7 @@ import {
     adaptSmallCaseStudies,
     adaptMediumCaseStudies,
     adaptPearson,
+    adaptArticles
 } from './adapters'
 
 const NESTING_LEVEL = 5
@@ -82,4 +83,17 @@ export const searchSmallCaseStudy = async (slug: string) => {
         include: NESTING_LEVEL
     })
     return adaptSmallCaseStudies(matchedSmallCaseStudy)
+}
+
+export const getArticles = async () => await client.getEntries({
+    content_type: 'articlePage'
+})
+
+export const searchArticles = async (slug: string) => {
+    const matchedArticle = await client.getEntries({
+        content_type: 'articlePage',
+        'fields.slug': slug,
+        include: NESTING_LEVEL
+    })
+    return adaptArticles(matchedArticle)
 }
