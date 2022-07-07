@@ -42,7 +42,7 @@ declare interface FooterProps {
   data: Footer
 }
 
-const Footer: FC<FooterProps> = ({ data }: FooterProps) => {
+const Footer: FC<FooterProps> = ({ data } : FooterProps) => {
   const [visible, setVisible] = useState(false)
   return (
     <footer className={styles.footer}>
