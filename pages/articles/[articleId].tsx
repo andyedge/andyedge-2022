@@ -40,11 +40,12 @@ declare interface ArticleProps extends LayoutModel {
 
 
 const Article: NextPage<ArticleProps> = ({ pageContent, header, footer } : ArticleProps) => {
+    const scrollToRef = useRef(null)
+    
     if(!pageContent) {
         return <h1>Article not found</h1>
     }
 
-    const scrollToRef = useRef(null)
     return (
         <Layout header={header} footer={footer}>
             <div className='container-fluid'>
