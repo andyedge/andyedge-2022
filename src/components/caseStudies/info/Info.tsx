@@ -8,7 +8,7 @@ const categories = [{
     name: 'UX DESIGN'
 },
 {
-    color: 'red',
+    color: 'orange',
     name: 'LOGO DESIGN'
 },
 {

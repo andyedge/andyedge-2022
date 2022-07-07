@@ -25,7 +25,7 @@ const SmallCaseHero = ({ data }: { data: StandardContainer }) => (
             </div>
         </div>
         <div className={styles.images_container}>
-            <CustomImage src={data.logo} />
+            {data.images?.length ? <CustomImage src={data.images[0]} /> : null}
         </div>
     </div>
 )

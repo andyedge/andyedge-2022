@@ -54,7 +54,7 @@ const MediumCase: NextPage<MediumCaseStudyProps> = ({ pageContent, header, foote
                 <CardsContainer contents={pageContent.cards} scrollToRef={null} smallSpaccing={true}/>
                 <Banner src={pageContent.banner} page={'small_case'}/>
                 <SmallCaseInfo data={pageContent.caseStudyInfo} />
-                <TextSlider contents={[pageContent.testimonial]} />
+                <TextSlider contents={[pageContent.testimonial]} page='case_studies' />
                 <CaseCard contents={pageContent.cardInfo}/>
                 <CaseVideoExplainer contents={pageContent.caseExplanation} />
                 <PortfolioContainer />
