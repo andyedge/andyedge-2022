@@ -13,7 +13,7 @@ declare interface solutionImagesType {
   style: any
 }
 
-const Solution = ({ data } : { data: Solution } ) => {
+const Solution = ({ data }: { data: Solution }) => {
   const {
     solutionTitle,
     solutionText,
@@ -41,9 +41,14 @@ const Solution = ({ data } : { data: Solution } ) => {
   }, []);
 
   const showImage = (index: number) => {
-    const solutionImgs = JSON.parse(JSON.stringify(solutionImagesState));
-    const imgOpacity = solutionImgs[index].style.opacity;
-    solutionImgs[index].style = imgOpacity === 1 ? { opacity: 0 } : { opacity: 1 };
+    const solutionImgs = solutionImagesState.map((image: any, idx: number) => {
+      idx === index ?
+        image.style = image.style.opacity === 1 ? { opacity: 0 } : { opacity: 1 }
+        :
+        image.style = { opacity: 0 }
+
+      return image
+    });
     setSolutionImagesState(solutionImgs);
   }
 
@@ -51,7 +56,7 @@ const Solution = ({ data } : { data: Solution } ) => {
     <div className={cn("section-bg", styles.container)}>
       {solutionBackgroundImage && (
         <div className={styles.bg_div}>
-          <CustomImage src={solutionBackgroundImage}/>
+          <CustomImage src={solutionBackgroundImage} />
         </div>
       )}
       <div className={cn("container")}>
@@ -94,7 +99,7 @@ const Solution = ({ data } : { data: Solution } ) => {
                 {
                   solutionImagesState.map((image: any, index: number) => (
                     <div className={styles.solution_images} style={image.style} key={'imgstate_' + index}>
-                      <CustomImage src={image} props={{style: {borderRadius: '16px'}}}/>
+                      <CustomImage src={image} props={{ style: { borderRadius: '16px' } }} />
                     </div>
                   ))
                 }
