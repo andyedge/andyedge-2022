@@ -39,7 +39,7 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) 
     case 'External':
       return (
         <button className={cn('button-default', styles[size])}>
-          <a className={cn(styles.button, iconExists ? styles.button_a : '')} href={link.url} target='_blank'>
+          <a className={cn(styles.button, iconExists ? styles.button_a : '')} href={link.url} target='_blank' rel='noopener noreferrer'>
             {link.text}
           </a>
             {
