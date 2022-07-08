@@ -18,7 +18,6 @@ const VideoExplainer = ({ contents }: { contents: StandardContainer }) => {
                     text: contents.preTitle as string,
                     url: '',
                     preText: '',
-                    newTab: true,
                     action: ''
                 }}
                 section='medium_case'
