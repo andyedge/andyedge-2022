@@ -6,5 +6,4 @@ export default interface LinkType {
     url: string
     action: string
     icon?: ImageType
-    newTab: boolean
 }

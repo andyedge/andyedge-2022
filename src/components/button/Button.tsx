@@ -13,19 +13,20 @@ declare interface ButtonProps {
 }
 
 const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) => {
+  const iconExists = link.icon && link.icon?.url !== '' ? true : false;
 
   switch (link.action) {
     case 'Redirect':
       return (
-        <button className={cn(styles.container, styles[size])}>
+        <button className={cn('button-default', styles[size])}>
           <Link href={`/${link.url}`}>
-            <a className={cn('button', styles.button)}>
+            <a className={cn(styles.button, iconExists ? styles.button_a : '')}>
               {link.text}
             </a>
           </Link>
           {
             link.icon && link.icon?.url !== '' ?
-              <div>
+              <div className={cn(styles.icon_wrapper)}>
                 <CustomImage
                   src={link.icon}
                 />
@@ -37,27 +38,35 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) 
       )
     case 'External':
       return (
-        <button className={cn(styles.container, styles[size])}>
-          <a className={cn('button', styles.button)} href={link.url}>
+        <button className={cn('button-default', styles[size])}>
+          <a className={cn(styles.button, iconExists ? styles.button_a : '')} href={link.url} target='_blank'>
             {link.text}
+          </a>
             {
-              link.icon?.url !== '' ?
-                <Icon name='arrow-right' size={20} />
+              link.icon && link.icon?.url !== '' ?
+                <div className={cn(styles.icon_wrapper)}>
+                  <CustomImage
+                    src={link.icon}
+                  />
+                </div>
                 :
                 null
             }
-          </a>
         </button>
       )
     case 'Function':
       return (
         <button
-          className={cn(styles[size], 'button', styles.button)}
+          className={cn('button-default', styles[size], styles.button, iconExists ? styles.button_a : '')}
           onClick={func}>
           {link.text}
           {
-            link.icon?.url !== '' ?
-              <Icon name='arrow-right' size={20} />
+            link.icon && link.icon?.url !== '' ?
+              <div className={cn(styles.icon_wrapper)}>
+                <CustomImage
+                  src={link.icon}
+                />
+              </div>
               :
               null
           }

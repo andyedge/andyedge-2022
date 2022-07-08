@@ -82,12 +82,12 @@ const CardsContainer = ({ contents, scrollToRef, modals, smallSpaccing }: CardsC
                     <p className={styles.content}>{content.text}</p>
                   </div>
                   {content.leftCtaText && (
-                    <div 
-                      className={cn("button-stroke", styles.button, styles.button_card)}
+                    <button 
+                      className={cn("button-default", "button-stroke", styles.button, styles.button_card)}
                       onClick={() => setModalIndex(index)}
                       >
                       {content.leftCtaText}
-                    </div>
+                    </button>
                   )}
                 </div>
               </ScrollParallax>

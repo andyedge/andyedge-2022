@@ -13,7 +13,6 @@ export const adaptLink = (data: Item): LinkType => {
         text: fields.text || '',
         url: fields.url || '',
         action: fields.action || '',
-        icon: adaptImage(fields.icon),
-        newTab: fields.opensInANewTab
+        icon: adaptImage(fields.icon)
     }
 }
