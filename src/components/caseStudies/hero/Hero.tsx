@@ -49,8 +49,8 @@ const CaseStudiesHero: FC<CaseStudiesHeroProps> = ({ data, caseName } : CaseStud
         </div>
         <div className={styles.images_container}>
             {data.images?.map((image, index) => (
-                <div className={cn(styles[caseName], isBorderedImage(caseName, index) && 'bordered-image')}>
-                    <CustomImage key={index} src={image} />
+                <div key={index} className={cn(styles[caseName], isBorderedImage(caseName, index) && 'bordered-image')}>
+                    <CustomImage src={image} />
                 </div>
             ))}
         </div>
