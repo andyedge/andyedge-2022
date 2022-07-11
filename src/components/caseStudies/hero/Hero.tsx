@@ -19,6 +19,7 @@ const isBorderedImage = (caseName: string, index: number): boolean => {
         case 'privacy-hero':
         case 'parallel':
         case 'max-insurance':
+        case 'uberflip':
             return true
         case 'fort-reports':
             return index === 0
