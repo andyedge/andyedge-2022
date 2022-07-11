@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import cn from 'classnames'
 
 import StandardContainer from '../../../models/generic/standardContainer.model'
@@ -5,7 +6,28 @@ import CustomImage from '../../image/Image'
 import styles from './Hero.module.sass'
 import RichText from '../../RichText'
 
-const SmallCaseHero = ({ data }: { data: StandardContainer }) => (
+declare interface CaseStudiesHeroProps {
+    data: StandardContainer
+    caseName: string    
+}
+
+const isBorderedImage = (caseName: string, index: number): boolean => {
+    switch(caseName) {
+        case 'verdict':
+            return index === 0 || index === 1
+        case 'reach-stack':
+        case 'privacy-hero':
+        case 'parallel':
+        case 'max-insurance':
+            return true
+        case 'fort-reports':
+            return index === 0
+        default:
+            return false
+    }
+}
+
+const CaseStudiesHero: FC<CaseStudiesHeroProps> = ({ data, caseName } : CaseStudiesHeroProps) => (
     <div className={cn('container', styles.container)}>
         <h1 className='main-title'>{data.title}</h1>
         <div className={styles.hero_info}>
@@ -25,9 +47,13 @@ const SmallCaseHero = ({ data }: { data: StandardContainer }) => (
             </div>
         </div>
         <div className={styles.images_container}>
-            {data.images?.length ? <CustomImage src={data.images[0]} /> : null}
+            {data.images?.map((image, index) => (
+                <div className={cn(styles[caseName], isBorderedImage(caseName, index) && 'bordered-image')}>
+                    <CustomImage key={index} src={image} />
+                </div>
+            ))}
         </div>
     </div>
 )
 
-export default SmallCaseHero
+export default CaseStudiesHero
