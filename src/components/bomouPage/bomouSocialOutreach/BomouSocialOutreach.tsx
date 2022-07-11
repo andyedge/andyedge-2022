@@ -42,7 +42,7 @@ const BomouSocialOutreach = ({ contents }: BomouSocialOutreachProps) => {
         <div className={styles.gallery}>
           {
             images?.map((image: ImageType, index: number) => (
-              <div className={styles.preview} key={index}>
+              <div className={cn('bordered-image', styles.preview)} key={index}>
                 <CustomImage src={image} />
               </div>
             ))
