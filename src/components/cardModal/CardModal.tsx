@@ -57,7 +57,7 @@ const CardModal = ({ visible, modals, modalIndex, onClose }: CardModalProps) => 
           src={item.icon}
         />
       </div>
-      <div className={cn("h3", styles.trainer)}>{item.title}</div>
+      <h3 className={cn("h3", styles.trainer)}>{item.title}</h3>
       <div className={styles.position}>{item.subtitle}</div>
       <div className={styles.wrap}>
         <RichText
@@ -65,10 +65,10 @@ const CardModal = ({ visible, modals, modalIndex, onClose }: CardModalProps) => 
         />
       </div>
       <div className={styles.btns}>
-        <button className={cn("button-stroke", styles.button, styles.button_size)} onClick={() => prevModal()}>
+        <button className={cn("button-default", "button-stroke", styles.button, styles.button_size)} onClick={() => prevModal()}>
           {item.leftCtaText}
         </button>
-        <button className={cn("button-stroke-red-no-hover", styles.button, styles.button_size)} onClick={() => nextModal()}>
+        <button className={cn("button-default", "button-stroke-red-no-hover", styles.button, styles.button_size)} onClick={() => nextModal()}>
           {item.rightCtaText}
         </button>
       </div>

@@ -1,13 +1,12 @@
 import React from "react";
 import cn from "classnames";
-import Link from "next/link";
 import Icon from "../icon/Icon";
 import Slider from "react-slick";
-import styles from "./RowComponent.module.sass";
-import ScrollParallax from "../ScrollParallax";
-import StandardContainer from "../../models/generic/standardContainer.model";
 import RichText from "../RichText";
-import CustomImage from "../image/Image";
+import Button from "../button/Button";
+import ScrollParallax from "../ScrollParallax";
+import styles from "./RowComponent.module.sass";
+import StandardContainer from "../../models/generic/standardContainer.model";
 
 declare interface RowComponentProps {
   headContent: StandardContainer
@@ -50,7 +49,7 @@ const settings = {
   ],
 };
 
-const RowComponent = ({ headContent, items, isTitle, isPearson } : RowComponentProps) => {
+const RowComponent = ({ headContent, items, isTitle, isPearson }: RowComponentProps) => {
   return (
     <section className={cn("section-pb", styles.section)}>
       <div className={cn("container", styles.container)}>
@@ -75,13 +74,11 @@ const RowComponent = ({ headContent, items, isTitle, isPearson } : RowComponentP
               null
           }
           {
-            headContent.ctaText ?
-              <Link href="#">
-                <a className={cn("button-stroke", styles.button)}>
-                  <span>{headContent.ctaText}</span>
-                  <Icon name="arrow-right" size={10} />
-                </a>
-              </Link>
+            headContent.primaryButtonCta ?
+              <Button
+                link={headContent.primaryButtonCta}
+                size={'tiny'}
+              />
               :
               null
           }

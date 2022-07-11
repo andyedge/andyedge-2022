@@ -1,6 +1,7 @@
 import ImageType from './image.model'
 import StepsContainer from './stepsContainer.model'
 import { Document } from '@contentful/rich-text-types'
+import LinkType from './link.model'
 
 declare interface StandardContainer {
     preTitle?: string
@@ -10,10 +11,9 @@ declare interface StandardContainer {
     subtitle?: string
     bulletsContainer?: StepsContainer[]
     logo: ImageType
+    primaryButtonCta: LinkType
+    secondaryButtonCta: LinkType
     text?: Document
-    ctaText?: string
-    ctaPageLink?: string
-    ctaVideoLink?: string
     images?: ImageType[]
     backgroundImage: ImageType
     videoUrl?: string

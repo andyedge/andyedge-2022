@@ -1,9 +1,19 @@
 import Icon from "./icon/Icon";
 import { useRef, useState, useEffect } from "react";
 
-const VideoComponent = ({ videoUrl, videoClassnames }: any) => {
+declare interface VideoComponentProps {
+  videoUrl: string
+  videoClassnames: {
+    videoDivClassname: string
+    videoClassname: string
+    playButtonClassname: string
+  }
+  playing: boolean
+  playingHandler: (a: boolean) => void
+}
+
+const VideoComponent = ({ videoUrl, videoClassnames, playing, playingHandler }: VideoComponentProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState <boolean> (false);
   const [topPosition, setTopPosition] = useState <number> (0);
   const { videoDivClassname, videoClassname, playButtonClassname } = videoClassnames;
 
@@ -14,21 +24,31 @@ const VideoComponent = ({ videoUrl, videoClassnames }: any) => {
       case 'button':
         if (!playing) {
           videoRef.current?.play();
-          setPlaying(true);
+          playingHandler(true);
         } else {
           videoRef.current?.pause();
-          setPlaying(false);
+          playingHandler(false);
         }
         break;
 
       default:
         if (playing) {
           videoRef.current?.pause();
-          setPlaying(false);
+          playingHandler(false);
         }
         break;
     }
   };
+
+  useEffect(() => {
+    if (videoRef.current) {
+      if (playing) {
+        videoRef.current?.play();
+      } else {
+        videoRef.current?.pause();
+      }
+    }
+  }, [playing])
 
   const videoFullscreen = () => {
     videoRef.current?.requestFullscreen();
@@ -53,8 +73,8 @@ const VideoComponent = ({ videoUrl, videoClassnames }: any) => {
         className={videoClassname}
         style={playing ? { cursor: 'pointer' } : { cursor: 'default' }}
         src={videoUrl}
-        onPlay={() => setPlaying(true)}
-        onPause={() => setPlaying(false)}
+        onPlay={() => playingHandler(true)}
+        onPause={() => playingHandler(false)}
         onClick={(e) => videoHandler(e)}
         onDoubleClick={() => videoFullscreen()}
       ></video>

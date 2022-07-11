@@ -1,22 +1,48 @@
 import cn from "classnames";
+import { useState } from "react";
 import RichText from "../RichText";
 import styles from "./Hero.module.sass";
+import Button from "../button/Button";
+import VideoComponent from "../VideoComponent";
 import ScrollButton from "../scrollButton/ScrollButton";
 import StandardContainer from "../../models/generic/standardContainer.model";
-import Button from '../button/Button';
-import VideoComponent from "../VideoComponent";
 
 declare interface HeroProps {
   contents: StandardContainer
+  functionType: string
   scrollToRef: any
   scroll: boolean
 }
 
-const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
+const Hero = ({ contents, functionType, scrollToRef, scroll }: HeroProps) => {
   const videoClassnamesObj = {
     videoDivClassname: '',
     videoClassname: styles.hero_video,
     playButtonClassname: cn("play", styles.play)
+  }
+  const [playing, setPlaying] = useState<boolean>(false);
+
+  const videoPlayingHandler = (newStatus: boolean) => {
+    setPlaying(newStatus);
+  }
+
+  const buttonPlayingHandler = () => {
+    if (playing) {
+      setPlaying(false);
+    } else {
+      setPlaying(true);
+    }
+  }
+
+  const buttonFunction = () => {
+    switch (functionType) {
+      case 'video':
+        buttonPlayingHandler();
+        break;
+      default:
+        undefined;
+        break;
+    }
   }
 
   return (
@@ -37,7 +63,7 @@ const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
             {contents.strikeThroughTitle && (
               <>
                 <br />
-                <span className={styles.strike_through}> {contents.strikeThroughTitle}</span> 
+                <span className={styles.strike_through}> {contents.strikeThroughTitle}</span>
                 {` ${contents.complementTitle}`}
               </>
             )}
@@ -50,8 +76,11 @@ const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
               <RichText richText={contents.text} />
             </div>
           )}
-          {contents.ctaText && (
-            <Button link={contents.ctaPageLink} text={contents.ctaText} size='small' showIcon={false} />
+          {contents.primaryButtonCta && (
+            <Button
+              link={contents.primaryButtonCta}
+              func={buttonFunction}
+            />
           )}
           {scroll && (
             <ScrollButton
@@ -63,14 +92,15 @@ const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
           )}
         </div>
         <div className={styles.gallery}>
-          {
-            contents.videoUrl !== null ?
-              <VideoComponent
-                videoUrl={contents.videoUrl}
-                videoClassnames={videoClassnamesObj}
-              />
-              :
-              null
+          {contents.videoUrl ?
+            <VideoComponent
+              videoUrl={contents.videoUrl}
+              videoClassnames={videoClassnamesObj}
+              playing={playing}
+              playingHandler={videoPlayingHandler}
+            />
+            :
+            null
           }
         </div>
       </div>

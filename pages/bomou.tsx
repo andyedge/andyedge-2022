@@ -43,6 +43,7 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header, footer } : Bomo
     <Layout header={header} footer={footer}>  
       <Hero
         contents={pageContent.hero}
+        functionType={'video'}
         scrollToRef={scrollToRef}
         scroll={true}
       />

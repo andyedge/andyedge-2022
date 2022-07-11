@@ -40,6 +40,7 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent, header, footer } : EcampProp
     <Layout header={header} footer={footer}>
       <Hero
         contents={pageContent.hero}
+        functionType={'video'}
         scrollToRef={scrollToRef}
         scroll={true}
       />

@@ -3,20 +3,20 @@ import ContactContainer from '../generic/contact.model'
 import StandardCardContainer from '../generic/standardCardContainer.model'
 import StandardContainer from '../generic/standardContainer.model'
 import TextSlider from '../generic/textSlider.model'
-import Link from '../generic/link.model'
+import LinkType from '../generic/link.model'
 
 export default interface Bomou {
     hero: StandardContainer
     cards: StandardCardContainer[]
     cardsModalContainer: StandardCardContainer[]
     subtitle1: string
-    bigTitle1: Link
+    bigTitle1: LinkType
     standardContainer1: StandardContainer
-    bigTitle2: Link
+    bigTitle2: LinkType
     standardContainer2: StandardContainer
     standardContainer3: StandardContainer
     consistencyItems: StandardContainer[]
-    bigTitle3 : Link
+    bigTitle3 : LinkType
     standardContainer4: StandardContainer
     imagesTitle: string
     image1: ImageType
@@ -26,7 +26,7 @@ export default interface Bomou {
     image5: ImageType
     imagesBottomTitle: string
     bannerImages: ImageType[]
-    bigTitle4 : Link
+    bigTitle4 : LinkType
     standardContainer5: StandardContainer
     standardContainer6: StandardContainer
     design: StandardContainer[]

@@ -30,8 +30,11 @@ const BomouIdGuide = ({ contents }: BomouIdGuide) => {
               <RichText richText={contents.text} />
             </div>
           )}
-          {contents.ctaText && (
-            <Button link={contents.ctaPageLink} text={contents.ctaText} size='small' showIcon={false} />
+          {contents.primaryButtonCta && (
+            <Button
+              link={contents.primaryButtonCta}
+              size={'small'}
+            />
           )}
           <p className={styles.text}>
             {contents.subtitle}

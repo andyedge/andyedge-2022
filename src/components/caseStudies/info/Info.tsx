@@ -1,7 +1,7 @@
-import { CaseStudyInfo } from '../../../models/generic/caseStudies.model'
-import CustomImage from '../../image/Image'
 import styles from './Info.module.sass'
 import Button from '../../button/Button'
+import CustomImage from '../../image/Image'
+import { CaseStudyInfo } from '../../../models/generic/caseStudies.model'
 
 const categories = [{
     color: 'purple',
@@ -53,7 +53,7 @@ const SmallCaseHero = ({ data } : { data : CaseStudyInfo }) => (
                     </div>
                 </div>
                 {data.primaryCta?.text && (
-                    <Button link={data.primaryCta?.url} text={data.primaryCta?.text} size='small'/>
+                    <Button link={data.primaryCta} size='small'/>
                 )}
             </div>
         </div>

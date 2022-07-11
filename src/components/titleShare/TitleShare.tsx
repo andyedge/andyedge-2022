@@ -1,10 +1,10 @@
 import cn from "classnames";
-import Link from "../../models/generic/link.model";
+import LinkType from "../../models/generic/link.model";
 import Icon from "../icon/Icon";
 import styles from "./TitleShare.module.sass";
 
 declare interface TitleShareProps {
-  title: Link
+  title: LinkType
   section: string
   background: string
 }

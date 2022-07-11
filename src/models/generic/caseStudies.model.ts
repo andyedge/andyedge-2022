@@ -1,6 +1,6 @@
 import ImageType from './image.model'
 import StepsContainer from './stepsContainer.model'
-import Link from './link.model'
+import LinkType from './link.model'
 
 export interface CaseStudyProperties {
     label: string
@@ -15,8 +15,8 @@ export interface CaseStudyInfo {
     properties: CaseStudyProperties[]
     extendedText: string
     bulletPoints: StepsContainer[]
-    primaryCta?: Link
-    secondaryCta?: Link
-    playStoreCta?: Link
-    appStoreCta?: Link
+    primaryCta?: LinkType
+    secondaryCta?: LinkType
+    playStoreCta?: LinkType
+    appStoreCta?: LinkType
 }

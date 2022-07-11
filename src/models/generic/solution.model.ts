@@ -1,5 +1,5 @@
 import ImageType from './image.model'
-import Link from './link.model'
+import LinkType from './link.model'
 import StepsContainer from './stepsContainer.model'
 
 export default interface Solution {
@@ -9,5 +9,5 @@ export default interface Solution {
     solutionSteps: StepsContainer[]
     solutionImages: ImageType[]
     solutionBackgroundImage: ImageType
-    solutionCta: Link
+    solutionCta: LinkType
 }

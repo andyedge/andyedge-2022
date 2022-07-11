@@ -1,6 +1,9 @@
-export default interface Link {
+import ImageType from "./image.model"
+
+export default interface LinkType {
     preText: string
     text: string
     url: string
-    newTab: boolean
+    action: string
+    icon?: ImageType
 }

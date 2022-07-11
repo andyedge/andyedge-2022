@@ -3,7 +3,7 @@ import ContactContainer from "../generic/contact.model"
 import StandardCardContainer from "../generic/standardCardContainer.model";
 import StandardContainer from "../generic/standardContainer.model";
 import TextSlider from "../generic/textSlider.model";
-import Link from "../generic/link.model";
+import LinkType from "../generic/link.model";
 
 declare interface Ecamp {
     hero: StandardContainer
@@ -12,7 +12,7 @@ declare interface Ecamp {
     cardModal1: StandardCardContainer
     cardModal2: StandardCardContainer
     cardModal3: StandardCardContainer
-    bigTitle1: Link
+    bigTitle1: LinkType
     standardContainer1: StandardContainer
     standardContainer2: StandardContainer
     standardContainer3: StandardContainer
@@ -22,7 +22,7 @@ declare interface Ecamp {
     standardContainer7: StandardContainer
     standardContainer8: StandardContainer
     standardContainer9: StandardContainer
-    bigTitle2: Link
+    bigTitle2: LinkType
     pageImages: ImageType[]
     pageSubtitle: string
     pageText: string
