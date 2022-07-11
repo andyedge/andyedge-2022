@@ -9,7 +9,7 @@ import StandardContainer from "../../models/generic/standardContainer.model";
 
 declare interface HeroProps {
   contents: StandardContainer
-  functionType: string
+  functionType?: string
   scrollToRef: any
   scroll: boolean
 }
