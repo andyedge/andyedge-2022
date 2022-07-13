@@ -11,7 +11,8 @@ import {
     adaptMediumCaseStudies,
     adaptPearson,
     adaptArticles,
-    adaptPortfolio
+    adaptPortfolio,
+    adaptHow
 } from './adapters'
 import Entry from '../models/generic/entry.model'
 
@@ -123,3 +124,8 @@ export const getPortfolio = async () => {
     
     return adaptPortfolio({data: portfolio, caseStudies: totalCases, categories})
 }
+
+export const getHow = async () => adaptHow(await client.getEntries({ 
+    content_type: 'how',
+    include: NESTING_LEVEL
+}))
