@@ -18,7 +18,8 @@ const VideoExplainer = ({ contents }: { contents: StandardContainer }) => {
                     text: contents.preTitle as string,
                     url: '',
                     preText: '',
-                    action: ''
+                    action: '',
+                    buttonColor: ''
                 }}
                 section='medium_case'
                 background='#fff'
