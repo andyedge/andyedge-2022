@@ -10,8 +10,10 @@ import {
     adaptSmallCaseStudies,
     adaptMediumCaseStudies,
     adaptPearson,
-    adaptArticles
+    adaptArticles,
+    adaptPortfolio
 } from './adapters'
+import Entry from '../models/generic/entry.model'
 
 const NESTING_LEVEL = 5
 
@@ -96,4 +98,28 @@ export const searchArticles = async (slug: string) => {
         include: NESTING_LEVEL
     })
     return adaptArticles(matchedArticle)
+}
+
+export const getPortfolio = async () => {
+    const caseStudies = await Promise.all([
+        client.getEntries({ content_type: 'pearson', include: NESTING_LEVEL }),
+        client.getEntries({ content_type: 'bomou', include: NESTING_LEVEL }),
+        client.getEntries({ content_type: 'ecamp', include: NESTING_LEVEL }),
+        client.getEntries({ content_type: 'smallCaseStudies', include: NESTING_LEVEL }),
+        client.getEntries({ content_type: 'mediumCaseStudies', include: NESTING_LEVEL }),
+    ]).then((result) => result.map((caseStudyGruop: Entry) => caseStudyGruop.items))
+
+    const totalCases = [caseStudies[0], caseStudies[1], ...caseStudies[2], ...caseStudies[3], ...caseStudies[4]]
+
+    const portfolio = await client.getEntries({ 
+        content_type: 'portfolio',
+        include: NESTING_LEVEL
+    })
+
+    const categories = await client.getEntries({ 
+        content_type: 'categories',
+        include: NESTING_LEVEL
+    })
+    
+    return adaptPortfolio({data: portfolio, caseStudies: totalCases, categories})
 }
