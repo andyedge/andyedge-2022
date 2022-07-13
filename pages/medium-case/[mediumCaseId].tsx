@@ -4,7 +4,7 @@ import Header from '../../src/models/entities/header.model'
 import Entry from '../../src/models/generic/entry.model'
 import MediumCaseStudy from '../../src/models/entities/mediumCaseStudy.model'
 import Layout from '../../src/components/layout/Layout'
-import SmallCaseHero from '../../src/components/caseStudies/hero/Hero'
+import CaseStudiesHero from '../../src/components/caseStudies/hero/Hero'
 import CardsContainer from '../../src/components/cardsContainer/CardsContainer'
 import TextSlider from '../../src/components/textSlider/TextSlider'
 import Banner from '../../src/components/banner/Banner'
@@ -50,7 +50,7 @@ const MediumCase: NextPage<MediumCaseStudyProps> = ({ pageContent, header, foote
     return (
         <Layout header={header} footer={footer}>
             <div className='container-fluid'>
-                <SmallCaseHero data={pageContent.hero} />
+                <CaseStudiesHero data={pageContent.hero} caseName={pageContent.slug}/>
                 <CardsContainer contents={pageContent.cards} scrollToRef={null} smallSpaccing={true}/>
                 <Banner src={pageContent.banner} page={'small_case'}/>
                 <SmallCaseInfo data={pageContent.caseStudyInfo} />
