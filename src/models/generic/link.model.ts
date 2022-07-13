@@ -6,4 +6,5 @@ export default interface LinkType {
     url: string
     action: string
     icon?: ImageType
+    buttonColor: string
 }
