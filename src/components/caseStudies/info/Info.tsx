@@ -1,6 +1,5 @@
 import styles from './Info.module.sass'
 import Button from '../../button/Button'
-import CustomImage from '../../image/Image'
 import ImageSlider from '../../imageSlider/ImageSlider'
 import { CaseStudyInfo } from '../../../models/generic/caseStudies.model'
 
