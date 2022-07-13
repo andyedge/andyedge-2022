@@ -1,6 +1,7 @@
 import styles from './Info.module.sass'
 import Button from '../../button/Button'
 import CustomImage from '../../image/Image'
+import ImageSlider from '../../imageSlider/ImageSlider'
 import { CaseStudyInfo } from '../../../models/generic/caseStudies.model'
 
 const categories = [{
@@ -30,7 +31,7 @@ const SmallCaseHero = ({ data } : { data : CaseStudyInfo }) => (
                 <h2 className='secondary-title'>{data.title}</h2>
                 <p className='info-text'>{data.description}</p>
                 <div className={styles.carousel}>
-                    {data.carousel.length && <CustomImage src={data.carousel[0]}/>}
+                    <ImageSlider contents={data.carousel}/>
                 </div>
             </div>
             <div className={styles.right_row}>
