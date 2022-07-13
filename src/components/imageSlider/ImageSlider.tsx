@@ -5,11 +5,12 @@ import styles from "./ImageSlider.module.sass";
 import ImageType from "../../models/generic/image.model";
 
 declare interface ImageSliderProps {
-  contents: ImageType[]
+  contents: ImageType[],
+  section?: string
 }
 
 
-const ImageSlider = ({ contents }: ImageSliderProps) => {
+const ImageSlider = ({ contents, section = 'cases' }: ImageSliderProps) => {
   const settings = {
     infinite: false,
     speed: 500,
@@ -19,12 +20,12 @@ const ImageSlider = ({ contents }: ImageSliderProps) => {
     arrows: false,
   };
 
-  return (//Add border-radius to slick-list, add parameters to assign slider classes
+  return (
     <Slider className="workout-slider" {...settings}>
       {contents.map((image: ImageType, index: number) => (
         <div className={styles.slide} key={index}>
           <div className={cn("workout-item", styles.item)}>
-            <div className={styles.preview}>
+            <div className={styles[section]}>
               <CustomImage src={image}/>
             </div>
           </div>
