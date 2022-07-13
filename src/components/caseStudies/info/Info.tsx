@@ -17,23 +17,6 @@ const categories = [{
     name: 'GRAPHIC DESIGN'
 }]
 
-/*
-    const getIcon = (propertyLabel: string) => {
-        switch (propertyLabel) {
-            case 'Year':
-                return <img src='/images/calendar-alt-regular.svg' alt='calendar-alt-regular' style={{height: '16px', width: '16px'}}/>
-            case 'Term':
-                return <img src='/images/clock.svg' alt='clock' style={{height: '16px', width: '16px'}}/>
-            case 'Cost':
-                return <img src='/images/dollar-sign.svg' alt='dollar-sign' style={{height: '16px', width: '16px'}}/>
-            case 'Scope':
-                return <img src='/images/expand.svg' alt='expand' style={{height: '16px', width: '16px'}}/>
-            default:
-                return null
-        }
-    }
-*/
-
 const SmallCaseHero = ({ data }: { data: CaseStudyInfo }) => {
 
     const getIcon = (propertyLabel: string) => {
@@ -50,7 +33,7 @@ const SmallCaseHero = ({ data }: { data: CaseStudyInfo }) => {
                 return null
         }
     }
-    
+
     return (
         <div className={'container'}>
             <div className={styles.container}>
