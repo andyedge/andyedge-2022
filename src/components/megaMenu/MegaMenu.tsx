@@ -60,14 +60,12 @@ const MegaMenu = ({ setValue, isActive, data } : MegaMenuProps) => {
                       //   onClick={() => handleClick()}
                       // >
                       // </Link>
-                      <>
-                        <a key={index} href={item.preTitle} className={styles.box}>
-                          <div className={styles.icon}>
-                            <CustomImage src={item.image as ImageType}/>
-                          </div>
-                          <h5 className={styles.subtitle}>{item.title}</h5>
-                        </a>
-                      </>
+                      <a key={index} href={item.preTitle} className={styles.box}>
+                        <div className={styles.icon}>
+                          <CustomImage src={item.image as ImageType}/>
+                        </div>
+                        <h5 className={styles.subtitle}>{item.title}</h5>
+                      </a>
                     ))}
                   </div>
                 </div>

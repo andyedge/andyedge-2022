@@ -14,6 +14,7 @@ import EcampImgTextComp from '../src/components/ecampImgTextComp/EcampImgTextCom
 import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPageText';
 import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer';
 import LayoutModel from '../src/models/generic/layout.model';
+import EcampImgSlider from '../src/components/ecampImgSlider/EcampImgSlider';
 
 export const getStaticProps = async () => {
   const ecampPage = await getEcamp();
@@ -111,6 +112,9 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent, header, footer } : EcampProp
         info={pageContent.pageText}
         size={'size1'}
         textAlign={'left'}
+      />
+      <EcampImgSlider
+        sliderImages={pageContent.sliderImages}
       />
       <TextSlider
         contents={pageContent.textSliderItems}
