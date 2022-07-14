@@ -6,11 +6,13 @@ import { adaptImages } from '../generic/image.adapter'
 import { adaptContactContainer } from '../generic/contactContainer.adapter'
 import { adaptTextSliders } from '../generic/textSlider.adapter'
 import { adaptLink } from '../generic/link.adapter'
+import { adaptSeoContent } from '../generic/seoContent.adapter'
 
 export const adaptEcamppage = (data: Entry): Ecamp => {
     const [ecamp] = data.items
     const { fields } = ecamp
     return {
+        seo: adaptSeoContent(fields.seo),
         hero: adaptStandardContainer(fields.heroContainer),
         cardsContainer: adaptStandardCardContainers(fields.cardsContainer),
         cardsModalContainer: adaptStandardCardContainers(fields.cardsModalContainer),

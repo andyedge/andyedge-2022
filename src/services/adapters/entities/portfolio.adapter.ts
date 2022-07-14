@@ -6,6 +6,7 @@ import Entry from '../../../models/generic/entry.model'
 import Portfolio from '../../../models/entities/portfolio.model'
 import { adaptPortfolioCaseStudy } from '../generic/portfolioCaseStudies.adapter'
 import PortfolioCaseStudy from '../../../models/generic/portfolioCaseStudy.model'
+import { adaptSeoContent } from '../generic/seoContent.adapter'
 
 declare interface adapterProps {
     data: Entry,
@@ -26,6 +27,7 @@ export const adaptPortfolio = ( {data, caseStudies, categories } : adapterProps)
     })
 
     return {
+        seo: adaptSeoContent(fields.seo),
         title: fields.title,
         subtitle: fields.subtitle,
         featuredCaseTitle: fields.featuredCaseTitle,

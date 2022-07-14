@@ -25,7 +25,7 @@ declare interface PortfolioProps extends LayoutModel {
 
 const PortfolioPage: NextPage<PortfolioProps> = ({ pageContent, header, footer } : PortfolioProps) => {
     return (
-        <Layout header={header} footer={footer}>
+        <Layout header={header} seoContent={pageContent.seo} footer={footer}>
             <PortfolioContainer contents={pageContent}/>
         </Layout>
     )

@@ -6,11 +6,13 @@ import { adaptImage } from '../generic/image.adapter'
 import { adaptTextSlider } from '../generic/textSlider.adapter'
 import { adaptLink } from '../generic/link.adapter'
 import { adaptContactContainer } from '../generic/contactContainer.adapter'
+import { adaptSeoContent } from '../generic/seoContent.adapter'
 
 export const adaptPearson = (data: Entry): Pearson => {
     const [pearson] = data.items
     const { fields } = pearson
     return {
+        seo: adaptSeoContent(fields.seo),
         hero: adaptStandardContainer(fields.hero),
         cards: adaptStandardCardContainers(fields.cards),
         standardContainer1: adaptStandardContainer(fields.standardContainer1),

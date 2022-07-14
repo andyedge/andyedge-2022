@@ -6,11 +6,13 @@ import { adaptImage, adaptImages } from '../generic/image.adapter'
 import { adaptContactContainer } from '../generic/contactContainer.adapter'
 import { adaptTextSlider } from '../generic/textSlider.adapter'
 import { adaptLink } from '../generic/link.adapter'
+import { adaptSeoContent } from '../generic/seoContent.adapter'
 
 export const adaptBomou = (data: Entry): Bomou => {
     const [bomou] = data.items
     const { fields } = bomou
     return {
+        seo: adaptSeoContent(fields.seo),
         hero: adaptStandardContainer(fields.hero),
         cards: adaptStandardCardContainers(fields.cardsContainer),
         cardsModalContainer: adaptStandardCardContainers(fields.cardsModalContainer),

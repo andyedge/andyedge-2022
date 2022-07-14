@@ -38,7 +38,7 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent, header, footer } : EcampProp
   const darkMode = useDarkMode(false);
 
   return (
-    <Layout header={header} footer={footer}>
+    <Layout header={header} seoContent={pageContent.seo} footer={footer}>
       <Hero
         contents={pageContent.hero}
         functionType={'video'}

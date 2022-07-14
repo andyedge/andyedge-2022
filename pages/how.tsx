@@ -26,7 +26,7 @@ declare interface HowProps extends LayoutModel {
 
 const HowPage: NextPage<HowProps> = ({ pageContent, header, footer } : HowProps) => {
     return (
-        <Layout header={header} footer={footer}>
+        <Layout header={header} seoContent={pageContent.seo} footer={footer}>
             <div className='container'>
                 <HowHero contents={pageContent.hero} />
                 <HowFilters />

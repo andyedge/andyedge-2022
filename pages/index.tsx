@@ -31,7 +31,7 @@ declare interface WhatPageProps extends LayoutModel {
 const Home: NextPage<WhatPageProps> = ({ pageContent, header, footer } : WhatPageProps ) => {
   const scrollToRef = useRef(null);
   return (
-    <Layout header={header} footer={footer}>
+    <Layout header={header} seoContent={pageContent.seoContent} footer={footer}>
       <Hero
         contents={pageContent.hero}
         functionType={''}
