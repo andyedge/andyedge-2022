@@ -80,6 +80,7 @@ const PearsonInfo: FC<PearsonInfoProps> = ({ contents }: PearsonInfoProps) => {
                 headContent={contents.standardContainer3}
                 isTitle={true}
                 isPearson={true}
+                hasSection={false}
             />
             <div className='container'>
                 <div className={styles.overlapped_images}>
@@ -106,6 +107,7 @@ const PearsonInfo: FC<PearsonInfoProps> = ({ contents }: PearsonInfoProps) => {
                 headContent={contents.standardContainer4}
                 isTitle={true}
                 isPearson={true}
+                hasSection={true}
             />
         </section>
     )

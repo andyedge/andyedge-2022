@@ -13,6 +13,7 @@ declare interface RowComponentProps {
   items: StandardContainer[]
   isTitle?: boolean
   isPearson?: boolean
+  hasSection?: boolean
 }
 
 const SlickArrow = ({ currentSlide, slideCount, children, ...props }: any) => (
@@ -49,9 +50,9 @@ const settings = {
   ],
 };
 
-const RowComponent = ({ headContent, items, isTitle, isPearson }: RowComponentProps) => {
+const RowComponent = ({ headContent, items, isTitle, isPearson, hasSection }: RowComponentProps) => {
   return (
-    <section className={cn("section-pb", styles.section)}>
+    <section className={cn("section-pb", hasSection && styles.section)}>
       <div className={cn("container", styles.container)}>
         <div className={cn(styles.head, isPearson && styles.head_extra_margin)}>
           {

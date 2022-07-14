@@ -73,6 +73,7 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header, footer } : Bomo
         headContent={pageContent.standardContainer3}
         items={pageContent.consistencyItems}
         isTitle={true}
+        hasSection={true}
       />
       <TitleShare
         title={pageContent.bigTitle3}
@@ -113,6 +114,7 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header, footer } : Bomo
       <RowComponent
         headContent={pageContent.standardContainer6}
         items={pageContent.design}
+        hasSection={false}
       />
       <Banner
         src={pageContent.image6}
