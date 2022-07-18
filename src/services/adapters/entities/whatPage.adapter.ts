@@ -5,12 +5,14 @@ import { adaptImage, adaptImages } from '../generic/image.adapter'
 import { adaptStepsSection } from '../generic/steps.adapter'
 import { adaptContactContainer } from '../generic/contactContainer.adapter'
 import { adaptLink } from '../generic/link.adapter'
+import { adaptSeoContent } from '../generic/seoContent.adapter'
 
 export const adaptWhatpage = (data: Entry): Whatpage => {
     const [whatPage] = data.items
     const { fields } = whatPage
-    return {
+    return {        
         name: fields.name,
+        seoContent: adaptSeoContent(fields.seoContent),
         hero: adaptStandardContainer(fields.heroContainer),
         stepsTitle: fields.stepsContainerTitle,
         stepsText: fields.stepsContainerText,

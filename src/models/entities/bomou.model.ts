@@ -4,8 +4,10 @@ import StandardCardContainer from '../generic/standardCardContainer.model'
 import StandardContainer from '../generic/standardContainer.model'
 import TextSlider from '../generic/textSlider.model'
 import LinkType from '../generic/link.model'
+import SeoContent from '../generic/seoContent.model'
 
 export default interface Bomou {
+    seo: SeoContent
     hero: StandardContainer
     cards: StandardCardContainer[]
     cardsModalContainer: StandardCardContainer[]

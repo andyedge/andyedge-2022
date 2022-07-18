@@ -28,7 +28,7 @@ declare interface WhyPageProps extends LayoutModel {
 const Why = ({ pageContent, header, footer } : WhyPageProps) => {
 
   return (
-    <Layout header={header} footer={footer}>
+    <Layout header={header} seoContent={pageContent.seo} footer={footer}>
       <div className="container-fluid">
         <WhyMainSection
           contents={pageContent.standardContainers}

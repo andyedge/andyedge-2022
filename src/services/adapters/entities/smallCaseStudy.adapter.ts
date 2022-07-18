@@ -5,6 +5,7 @@ import { adaptImage } from '../generic/image.adapter'
 import { adaptStandardCardContainers } from '../generic/cardContainer.adapter'
 import { adaptTextSlider } from '../generic/textSlider.adapter'
 import { adaptCaseStudyInfo } from '../generic/caseStudies.adapter'
+import { adaptSeoContent } from '../generic/seoContent.adapter'
 
 export const adaptSmallCaseStudies = (data: Entry): SmallCaseStudy[] => {
     if(!data.items.length) {
@@ -15,6 +16,7 @@ export const adaptSmallCaseStudies = (data: Entry): SmallCaseStudy[] => {
         const { fields } = smallCaseStudy
         return {
             slug: fields.slug,
+            seo: adaptSeoContent(fields.seo),
             hero: adaptStandardContainer(fields.hero),
             cards: adaptStandardCardContainers(fields.cards),
             banner: adaptImage(fields.banner),

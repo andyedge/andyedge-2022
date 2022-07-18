@@ -31,7 +31,7 @@ declare interface PearsonProps extends LayoutModel {
 const BomouPage: NextPage<PearsonProps> = ({ pageContent, header, footer } : PearsonProps) => {
     const scrollToRef = useRef(null)
     return (
-        <Layout header={header} footer={footer}>
+        <Layout header={header} seoContent={pageContent.seo} footer={footer}>
             <PearsonHero
                 contents={pageContent.hero}
                 scrollToRef={scrollToRef}

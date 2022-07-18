@@ -40,7 +40,7 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header, footer } : Bomo
   const scrollToRef = useRef(null)
 
   return (
-    <Layout header={header} footer={footer}>  
+    <Layout header={header} seoContent={pageContent.seo} footer={footer}>  
       <Hero
         contents={pageContent.hero}
         functionType={'video'}

@@ -48,7 +48,7 @@ const MediumCase: NextPage<MediumCaseStudyProps> = ({ pageContent, header, foote
     }
 
     return (
-        <Layout header={header} footer={footer}>
+        <Layout header={header} seoContent={pageContent.seo} footer={footer}>
             <div className='container-fluid'>
                 <CaseStudiesHero data={pageContent.hero} caseName={pageContent.slug}/>
                 <CardsContainer contents={pageContent.cards} scrollToRef={null} smallSpaccing={true}/>

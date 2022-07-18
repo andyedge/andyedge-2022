@@ -4,8 +4,10 @@ import StandardContainer from '../generic/standardContainer.model'
 import TextSlider from '../generic/textSlider.model'
 import LinkType from '../generic/link.model'
 import ContactContainer from '../generic/contact.model'
+import SeoContent from '../generic/seoContent.model'
 
 export default interface Pearson {
+    seo: SeoContent
     hero: StandardContainer
     cards: StandardCardContainer[]
     standardContainer1: StandardContainer
