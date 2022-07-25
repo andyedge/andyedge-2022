@@ -1,28 +1,39 @@
 import cn from "classnames";
 import RichText from "../RichText";
 import CustomImage from "../image/Image";
-import ImageType from "../../models/generic/image.model";
 import styles from "./ImageTextComp.module.sass";
+import useDarkMode from "@fisch0920/use-dark-mode";
+import ImageType from "../../models/generic/image.model";
+import { useEffect, useState } from "react";
 
 const ImageTextComp = ({ content, isFirst, isLast }: any) => {
+  const darkMode = useDarkMode(false);
+  const [lineImgSrc, setLineImgSrc] = useState('');
+  
   const images = content.images;
+  const darkImages = content.darkImages;
   let galleryClasses = cn(styles.gallery);
   let wrapClasses = cn(styles.wrap);
-  let lineImgSrc = '';
-  let lineClass = ''
+  let lineClass = '';
   const titleClass = isFirst ? cn("h1", styles.title) : cn("h2", styles.title);
 
   if (content.mediaPosition?.toLowerCase() === 'left') {
     galleryClasses = cn(styles.gallery, styles.gallery_left);
-    wrapClasses = cn(styles.wrap, styles.wrap_left);
-    lineImgSrc = '/images/bg-line-01.svg';
+    wrapClasses = cn(styles.wrap, styles.wrap_left);    
     lineClass = cn(styles.line_left);
   } else {
     galleryClasses = cn(styles.gallery, styles.gallery_right);
-    wrapClasses = cn(styles.wrap, styles.wrap_right);
-    lineImgSrc = '/images/bg-line-02.svg';
+    wrapClasses = cn(styles.wrap, styles.wrap_right);    
     lineClass = cn(styles.line_right);
   }
+
+  useEffect(() => {
+    if (content.mediaPosition?.toLowerCase() === 'left') {
+      darkMode.value ? setLineImgSrc('/images/bg-line-01-dark.svg') : setLineImgSrc('/images/bg-line-01.svg');      
+    } else {
+      darkMode.value ? setLineImgSrc('/images/bg-line-02-dark.svg') : setLineImgSrc('/images/bg-line-02.svg');
+    }
+  }, [darkMode.value])
 
   return (
     <>
@@ -50,7 +61,7 @@ const ImageTextComp = ({ content, isFirst, isLast }: any) => {
             {
               images.map((image: ImageType, index: number) => (
                 <div className={styles.preview} key={'txtImg_' + index}>
-                  <CustomImage src={image}/>
+                  <CustomImage src={image} srcDark={darkImages.length > 0 ? darkImages[index] : null}/>
                 </div>
               ))
             }
