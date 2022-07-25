@@ -19,6 +19,7 @@ export const adaptStandardContainer = (data: Item): StandardContainer => {
         secondaryButtonCta: adaptLink(fields.secondaryButtonCta),
         text: fields.text ? fields.text : null,
         images: adaptImages(fields.images),
+        darkImages: adaptImages(fields.darkImages),
         backgroundImage: adaptImage(fields.backgroundImage),
         videoUrl: fields.videoUrl ? fields.videoUrl : null,
         mediaPosition: fields.mediaPosition ? fields.mediaPosition : null
