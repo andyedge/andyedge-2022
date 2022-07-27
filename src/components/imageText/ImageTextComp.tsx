@@ -1,17 +1,23 @@
 import cn from "classnames";
 import RichText from "../RichText";
 import CustomImage from "../image/Image";
+import { useEffect, useState } from "react";
 import styles from "./ImageTextComp.module.sass";
 import useDarkMode from "@fisch0920/use-dark-mode";
-import ImageType from "../../models/generic/image.model";
-import { useEffect, useState } from "react";
+import ImageContainer from "../../models/generic/imageContainer.model";
+import StandardContainer from "../../models/generic/standardContainer.model";
 
-const ImageTextComp = ({ content, isFirst, isLast }: any) => {
+declare interface ImageTextCompProps {
+  content: StandardContainer
+  isFirst: boolean
+  isLast: boolean
+}
+
+const ImageTextComp = ({ content, isFirst, isLast }: ImageTextCompProps) => {
   const darkMode = useDarkMode(false);
   const [lineImgSrc, setLineImgSrc] = useState('');
   
-  const images = content.images;
-  const darkImages = content.darkImages;
+  const images = content.imagesContainer;
   let galleryClasses = cn(styles.gallery);
   let wrapClasses = cn(styles.wrap);
   let lineClass = '';
@@ -59,9 +65,9 @@ const ImageTextComp = ({ content, isFirst, isLast }: any) => {
           </div>
           <div className={galleryClasses}>
             {
-              images.map((image: ImageType, index: number) => (
+              images?.map((image: ImageContainer, index: number) => (
                 <div className={styles.preview} key={'txtImg_' + index}>
-                  <CustomImage src={image} srcDark={darkImages.length > 0 ? darkImages[index] : null}/>
+                  <CustomImage src={image.image} srcDark={image.darkImage}/>
                 </div>
               ))
             }
