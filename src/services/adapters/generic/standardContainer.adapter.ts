@@ -1,6 +1,7 @@
 import { Item } from '../../../models/generic/entry.model'
 import StandardContainer from '../../../models/generic/standardContainer.model'
 import { adaptImage, adaptImages } from './image.adapter'
+import { adaptImagesContainer } from './imageContainer.adapter'
 import { adaptLink } from './link.adapter'
 import { adaptStepsSection } from './steps.adapter'
 
@@ -18,8 +19,8 @@ export const adaptStandardContainer = (data: Item): StandardContainer => {
         primaryButtonCta: adaptLink(fields.primaryButtonCta),
         secondaryButtonCta: adaptLink(fields.secondaryButtonCta),
         text: fields.text ? fields.text : null,
+        imagesContainer: adaptImagesContainer(fields.imagesContainer),
         images: adaptImages(fields.images),
-        darkImages: adaptImages(fields.darkImages),
         backgroundImage: adaptImage(fields.backgroundImage),
         videoUrl: fields.videoUrl ? fields.videoUrl : null,
         mediaPosition: fields.mediaPosition ? fields.mediaPosition : null
