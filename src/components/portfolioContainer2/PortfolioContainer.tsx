@@ -14,7 +14,7 @@ declare interface PortfolioProps {
 
 const TRESHOLD = 6
 const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) => {
-    const initialCases = contents.caseStudies.slice(0, TRESHOLD)
+    const initialCases = [...contents.caseStudies].slice(0, TRESHOLD)
 
     const [cases, setCases] = useState<PortfolioCaseStudy[]>(initialCases)
     const [selectedCategory, setSelectedCategory] = useState<number | null> (null)
@@ -36,8 +36,17 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
         }
         else {
             const categoryName = contents.categories[selectedCategory].name
-            const filteredCases = contents.caseStudies.filter((caseStudy) => {
-                return caseStudy.categories.find((category) => category.name === categoryName)
+            //Filters categories from a NEW array
+            const casesCopy = [...contents.caseStudies]
+            const filteredCases = casesCopy.filter((caseStudy) => {
+                const categoryMatched = caseStudy.categories.find((category) => category.name === categoryName)
+                if(categoryMatched) {
+                    //Bring the category match to the start of the cateogories array
+                    const arrayWihtouMatchedCategory = caseStudy.categories.filter((category) => category.name !== categoryMatched.name)
+                    arrayWihtouMatchedCategory.unshift(categoryMatched)
+                    caseStudy.categories = arrayWihtouMatchedCategory
+                    return true
+                }
             })
             setCases(filteredCases)
         }
