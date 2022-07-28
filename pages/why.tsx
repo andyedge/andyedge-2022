@@ -1,12 +1,11 @@
-import Whypage from "../src/models/entities/whypage.model";
-import { getWhypage, getHeader, getFooter } from "../src/services/fetch";
-import Platform from "../src/components/platform/Platform";
-import ImageTextComp from "../src/components/imageText/ImageTextComp";
-import WhyMainSection from "../src/components/whyMainSection/WhyMainSection";
-import PortfolioContainer from "../src/components/portfolioContainer/PortfolioContainer";
-import WhySecondSection from "../src/components/whySecondSection/WhySecondSection";
 import Layout from '../src/components/layout/Layout';
+import Platform from "../src/components/platform/Platform";
+import Whypage from "../src/models/entities/whypage.model";
 import LayoutModel from '../src/models/generic/layout.model';
+import { getWhypage, getHeader, getFooter } from "../src/services/fetch";
+import WhyMainSection from "../src/components/whyMainSection/WhyMainSection";
+import WhySecondSection from "../src/components/whySecondSection/WhySecondSection";
+import PortfolioContainer from "../src/components/portfolioContainer/PortfolioContainer";
 
 export const getStaticProps = async () => {  
   const whyPage = await getWhypage();

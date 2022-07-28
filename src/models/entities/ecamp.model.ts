@@ -5,6 +5,7 @@ import StandardContainer from "../generic/standardContainer.model";
 import TextSlider from "../generic/textSlider.model";
 import LinkType from "../generic/link.model";
 import SeoContent from "../generic/seoContent.model";
+import ImageContainer from "../generic/imageContainer.model";
 
 declare interface Ecamp {
     seo: SeoContent
@@ -25,7 +26,7 @@ declare interface Ecamp {
     standardContainer8: StandardContainer
     standardContainer9: StandardContainer
     bigTitle2: LinkType
-    pageImages: ImageType[]
+    pageImages: ImageContainer[]
     pageSubtitle: string
     pageText: string
     sliderImages: ImageType[]

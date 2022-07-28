@@ -6,10 +6,17 @@ import CustomImage from "../image/Image";
 import styles from "./TextBullets.module.sass";
 import ScrollParallax from "../ScrollParallax";
 import ImageType from "../../models/generic/image.model";
+import ImageContainer from "../../models/generic/imageContainer.model";
+import StandardContainer from "../../models/generic/standardContainer.model";
 
-const TextBullets = ({ contents, section }: any) => {
+declare interface TextBulletsProps {
+  contents: StandardContainer
+  section: string
+}
+
+const TextBullets = ({ contents, section }: TextBulletsProps) => {
   const bulletsContent = contents.bulletsContainer;
-  const images = contents.images;
+  const images = contents.imagesContainer;
   const isIdentityDesign = section === 'identity_design';
   const isBomou = section === 'bomou';
   const containerClasses = cn("container", "container-full", isBomou ? styles.container_bomou : styles.container)
@@ -31,7 +38,7 @@ const TextBullets = ({ contents, section }: any) => {
               :
               null
           }
-          {!!bulletsContent.length && (
+          {!!bulletsContent?.length && (
             <ul className={styles.list}>
               {bulletsContent.map((content: any, index: number) => (
                 <li className={styles.item} key={index}>
@@ -48,13 +55,13 @@ const TextBullets = ({ contents, section }: any) => {
         </div>
         <div className={isBomou ? styles.gallery_bomou : styles.gallery}>
           {
-            images.map((image: ImageType, index: number) => (
+            images?.map((image: ImageContainer, index: number) => (
               <Fragment key={'imgTxtBullet_' + index}>
                 <ScrollParallax
                   className={styles[`preview_${section}`]}
                   animateIn="fadeInUp"
                 >
-                  <CustomImage src={image} />
+                  <CustomImage src={image.image} srcDark={image.darkImage}/>
                 </ScrollParallax>
               </Fragment>
             ))

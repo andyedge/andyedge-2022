@@ -6,6 +6,7 @@ import ScrollParallax from "../ScrollParallax";
 import ImageType from "../../models/generic/image.model";
 import StandardContainer from '../../models/generic/standardContainer.model';
 import Card from './Card';
+import ImageContainer from "../../models/generic/imageContainer.model";
 
 declare interface CardBulletsProps {
   contents: StandardContainer
@@ -27,14 +28,14 @@ const CardBullets: FC<CardBulletsProps> = ({ contents, section, hasCardStyle } :
           className={galleryClasses}
         >
           {
-            contents.images?.map((image: ImageType, index: number) => (
+            contents.imagesContainer?.map((image: ImageContainer, index: number) => (
               <Fragment key={'galleryimg_' + index}>
                 <ScrollParallax
                   className={styles.preview}
                   animateIn="fadeInUp"
                   offset={300}
                 >
-                  <CustomImage src={image} />
+                  <CustomImage src={image.image} srcDark={image.darkImage} />
                 </ScrollParallax>
               </Fragment>
             ))

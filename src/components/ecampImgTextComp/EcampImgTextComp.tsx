@@ -1,9 +1,9 @@
 import cn from "classnames";
-import styles from "./EcampImgTextComp.module.sass";
-import StandardContainer from "../../models/generic/standardContainer.model";
 import RichText from "../RichText";
 import CustomImage from "../image/Image";
-import ImageType from "../../models/generic/image.model";
+import styles from "./EcampImgTextComp.module.sass";
+import ImageContainer from "../../models/generic/imageContainer.model";
+import StandardContainer from "../../models/generic/standardContainer.model";
 
 declare interface EcampImgTextCompProps {
   contents: StandardContainer
@@ -11,7 +11,7 @@ declare interface EcampImgTextCompProps {
 
 const EcampImgTextComp = ({ contents }: EcampImgTextCompProps) => {
   const bulletsContent = contents.bulletsContainer;
-  const images = contents.images;
+  const images = contents.imagesContainer;
 
   return (
     <div className={styles.section}>
@@ -19,10 +19,11 @@ const EcampImgTextComp = ({ contents }: EcampImgTextCompProps) => {
         <div className={styles.head}>
           <div className={styles.preview}>
             {
-              images?.map((image: ImageType, index: number) => (
+              images?.map((image: ImageContainer, index: number) => (
                 <div className={styles.image_div} key={index}>
                   <CustomImage
-                    src={image}
+                    src={image.image}
+                    srcDark={image.darkImage}
                   />
                 </div>
               ))

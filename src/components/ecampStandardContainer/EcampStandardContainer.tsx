@@ -2,8 +2,8 @@ import cn from "classnames";
 import RichText from "../RichText";
 import Button from "../button/Button";
 import CustomImage from "../image/Image";
-import ImageType from "../../models/generic/image.model";
 import styles from "./EcampStandardContainer.module.sass";
+import ImageContainer from "../../models/generic/imageContainer.model";
 import StandardContainer from "../../models/generic/standardContainer.model";
 
 declare interface EcampStandardContainerProps {
@@ -13,7 +13,7 @@ declare interface EcampStandardContainerProps {
 }
 
 const EcampStandardContainer = ({ contents, title, section }: EcampStandardContainerProps) => {
-  const images = contents.images;
+  const images = contents.imagesContainer;
 
   return (
     <div className={cn(styles[`hero_${section}`], styles[section])}>
@@ -53,9 +53,9 @@ const EcampStandardContainer = ({ contents, title, section }: EcampStandardConta
         </div>
         <div className={styles.gallery}>
           {
-            images?.map((image: ImageType, index: number) => (
+            images?.map((image: ImageContainer, index: number) => (
               <div className={styles[`preview_${section}`]} key={index}>
-                <CustomImage src={image}/>
+                <CustomImage src={image.image} srcDark={image.darkImage}/>
               </div>
             ))
           }
