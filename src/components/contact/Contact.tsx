@@ -48,12 +48,9 @@ const Contact = ({ contents }: any) => {
           className={styles.subscription}
           placeholder="Enter your email"
         />
-        <div className={styles.note}>
-          By click sign in you, you agree with Stacks <Link href="/#"><a>terms</a></Link> and{" "}
-          <Link href="/">
-            <a>policy</a>
-          </Link>
-        </div>
+        <p className={styles.note}>
+          By click sign in you, you agree with our <Link href="/privacy"><a>privacy policy</a></Link>
+        </p>
       </div>
     </div>
   );
