@@ -1,9 +1,10 @@
 import Image, { ImageProps } from 'next/image'
-// import useDarkMode from '@fisch0920/use-dark-mode'
+import useDarkMode from '@fisch0920/use-dark-mode'
 import ImageModel from '../../models/generic/image.model'
 
 declare interface CustomImageProps {
   src: ImageModel
+  srcDark?: ImageModel
   props?: {
     className?: string
     style?: Object
@@ -13,13 +14,15 @@ declare interface CustomImageProps {
   }
 }
 
-const CustomImage = ({ src, props } : CustomImageProps) => {
-  // const darkMode = useDarkMode(false);
+const CustomImage = ({ src, srcDark, props } : CustomImageProps) => {
+  const darkMode = useDarkMode(false)
   const layout = props?.layout || 'fill'
+  const srcUrl = 'https:' + (darkMode.value && srcDark ? srcDark.url : src.url)  
+  
   return (
     <Image
       className={props?.className}
-      src={'https:' + src.url}
+      src={srcUrl}
       alt={src.description}
       layout={layout}
       style={props?.style}

@@ -1,11 +1,26 @@
 import cn from "classnames";
+import { useEffect, useState } from "react";
 import RichText from "../RichText";
 import CustomImage from "../image/Image";
-import styles from "./WhySecondSection.module.sass";
 import ScrollParallax from "../ScrollParallax";
+import useDarkMode from "@fisch0920/use-dark-mode";
+import styles from "./WhySecondSection.module.sass";
 
 const WhySecondSection = ({ content }: any) => {
   const wrapStyle = content.mediaPosition?.toLowerCase() === 'right' ? { marginRight: 'auto' } : { marginLeft: 'auto' };
+  const darkMode = useDarkMode(false);
+  const [srcLine, setSrcLine] = useState('');
+  const [srcLighthouse, setSrcLighthouse] = useState('');  
+
+  useEffect(() => {
+    if (darkMode.value) {
+      setSrcLine('/images/bg-line-03-dark.svg');
+      setSrcLighthouse('/images/lighthouse-light-dark.svg');
+    } else {
+      setSrcLine('/images/bg-line-03.svg');
+      setSrcLighthouse('/images/lighthouse-light.svg');
+    }
+  }, [darkMode.value]);
 
   return (
     <>
@@ -30,17 +45,17 @@ const WhySecondSection = ({ content }: any) => {
             Object.keys(content.backgroundImage).length > 0 ?
               <>
                 <ScrollParallax className={styles.background_div} animateIn="fadeInUp">
-                  <CustomImage src={content.backgroundImage} />
+                  <CustomImage src={content.backgroundImage} srcDark={content.darkImages[0]}/>
                 </ScrollParallax>
                 <ScrollParallax className={styles.lines} animateIn="fadeInUp" delay={500}>
                   <img
-                    src='/images/bg-line-03.svg'
+                    src={srcLine}
                     alt='bg-line-03'
                   />
                 </ScrollParallax>
                 <ScrollParallax className={styles.lighthouse} animateIn="fadeInUp" delay={800}>
                   <img
-                    src='/images/lighthouse-light.svg'
+                    src={srcLighthouse}
                     alt='lighthouse-light'
                   />
                 </ScrollParallax>
