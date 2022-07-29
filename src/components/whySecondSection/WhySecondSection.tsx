@@ -1,12 +1,17 @@
 import cn from "classnames";
-import { useEffect, useState } from "react";
 import RichText from "../RichText";
 import CustomImage from "../image/Image";
+import { useEffect, useState } from "react";
 import ScrollParallax from "../ScrollParallax";
 import useDarkMode from "@fisch0920/use-dark-mode";
 import styles from "./WhySecondSection.module.sass";
+import StandardContainer from "../../models/generic/standardContainer.model";
 
-const WhySecondSection = ({ content }: any) => {
+declare interface WhySecondSectionProps {
+  content: StandardContainer
+}
+
+const WhySecondSection = ({ content }: WhySecondSectionProps) => {
   const wrapStyle = content.mediaPosition?.toLowerCase() === 'right' ? { marginRight: 'auto' } : { marginLeft: 'auto' };
   const darkMode = useDarkMode(false);
   const [srcLine, setSrcLine] = useState('');
@@ -42,10 +47,10 @@ const WhySecondSection = ({ content }: any) => {
             }
           </div>
           {
-            Object.keys(content.backgroundImage).length > 0 ?
+            content.imagesContainer && content.imagesContainer.length > 0 ?
               <>
                 <ScrollParallax className={styles.background_div} animateIn="fadeInUp">
-                  <CustomImage src={content.backgroundImage} srcDark={content.darkImages[0]}/>
+                  <CustomImage src={content.imagesContainer[0].image} srcDark={content.imagesContainer[0].darkImage}/>
                 </ScrollParallax>
                 <ScrollParallax className={styles.lines} animateIn="fadeInUp" delay={500}>
                   <img

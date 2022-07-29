@@ -7,6 +7,7 @@ import { adaptContactContainer } from '../generic/contactContainer.adapter'
 import { adaptTextSliders } from '../generic/textSlider.adapter'
 import { adaptLink } from '../generic/link.adapter'
 import { adaptSeoContent } from '../generic/seoContent.adapter'
+import { adaptImagesContainer } from '../generic/imageContainer.adapter'
 
 export const adaptEcamppage = (data: Entry): Ecamp => {
     const [ecamp] = data.items
@@ -30,7 +31,7 @@ export const adaptEcamppage = (data: Entry): Ecamp => {
         standardContainer8: adaptStandardContainer(fields.standardContainer8),
         standardContainer9: adaptStandardContainer(fields.standardContainer9),
         bigTitle2: adaptLink(fields.bigTitle2),
-        pageImages: adaptImages(fields.pageImages),
+        pageImages: adaptImagesContainer(fields.pageImages),
         pageSubtitle: fields.pageSubtitle,
         pageText: fields.pageText,
         sliderImages: adaptImages(fields.sliderImages),
