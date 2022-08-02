@@ -7,6 +7,7 @@ import { adaptContactContainer } from '../generic/contactContainer.adapter'
 import { adaptTextSlider } from '../generic/textSlider.adapter'
 import { adaptLink } from '../generic/link.adapter'
 import { adaptSeoContent } from '../generic/seoContent.adapter'
+import { adaptImageContainer, adaptImagesContainer } from '../generic/imageContainer.adapter'
 
 export const adaptBomou = (data: Entry): Bomou => {
     const [bomou] = data.items
@@ -26,18 +27,18 @@ export const adaptBomou = (data: Entry): Bomou => {
         bigTitle3 : adaptLink(fields.bigTitle3),
         standardContainer4: adaptStandardContainer(fields.standardContainer4),
         imagesTitle: fields.imagesTitle,
-        image1: adaptImage(fields.image1),
-        image2: adaptImage(fields.image2),
-        image3: adaptImage(fields.image3),
-        image4: adaptImage(fields.image4),
-        image5: adaptImage(fields.image5),
+        image1: adaptImageContainer(fields.image1),
+        image2: adaptImageContainer(fields.image2),
+        image3: adaptImageContainer(fields.image3),
+        image4: adaptImageContainer(fields.image4),
+        image5: adaptImageContainer(fields.image5),
         imagesBottomTitle: fields.imagesBottomTitle,
-        bannerImages: adaptImages(fields.bannerImages),
+        bannerImages: adaptImagesContainer(fields.bannerImages),
         bigTitle4 : adaptLink(fields.bigTitle4),
         standardContainer5: adaptStandardContainer(fields.standardContainer5),
         standardContainer6: adaptStandardContainer(fields.standardContainer6),
         design: adaptStandardContainers(fields.designContainers),
-        image6: adaptImage(fields.image6),
+        image6: adaptImageContainer (fields.image6),
         textSlider: adaptTextSlider(fields.textSlider),
         contact: adaptContactContainer(fields.contact)
     }

@@ -5,13 +5,14 @@ import CustomImage from "../../image/Image";
 import styles from "./BomouBrandId.module.sass";
 import ImageType from "../../../models/generic/image.model";
 import StandardContainer from "../../../models/generic/standardContainer.model"
+import ImageContainer from "../../../models/generic/imageContainer.model";
 
 declare interface BomouBrandIdProps {
   contents: StandardContainer
 }
 
 const BomouBrandId = ({ contents }: BomouBrandIdProps) => {
-  const images = contents.images;
+  const images = contents.imagesContainer;
 
   return (
     <div className={cn(styles.section, styles.section_background)}>
@@ -41,9 +42,9 @@ const BomouBrandId = ({ contents }: BomouBrandIdProps) => {
         </div>
         <div className={styles.gallery}>
           {
-            images?.map((image: ImageType, index: number) => (
+            images?.map((image: ImageContainer, index: number) => (
               <div className={styles.preview} key={index}>
-                <CustomImage src={image}/>
+                <CustomImage src={image.image} srcDark={image.darkImage}/>
               </div>
             ))
           }
