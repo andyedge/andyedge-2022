@@ -44,8 +44,6 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
                     //Bring the category match to the start of the cateogories array
                     const arrayWihtouMatchedCategory = caseStudy.categories.filter((category) => category.name !== categoryMatched.name)
                     arrayWihtouMatchedCategory.unshift(categoryMatched)
-                    console.log({arrayWihtouMatchedCategory})
-                    console.log('--------------------')
                     caseStudy.categories = arrayWihtouMatchedCategory
                     return true
                 }
