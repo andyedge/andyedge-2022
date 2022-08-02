@@ -10,8 +10,9 @@ const Loader = ({ showLoader } : LoaderProps ) => {
     const tl = gsap.timeline({repeat: -1, yoyo: true, repeatDelay: 1})
 
     useEffect(() => {
-        if(typeof window !== 'undefined') {
-            tl.fromTo('.preloader', {
+        const preloader = document.querySelector('.preloader')
+        if (typeof window !== 'undefined' && preloader) {
+            tl.fromTo(preloader, {
                 strokeDashoffset: 300,
                 strokeDasharray: 300
             },
