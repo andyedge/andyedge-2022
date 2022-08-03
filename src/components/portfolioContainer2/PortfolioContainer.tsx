@@ -7,6 +7,7 @@ import styles from './Portfolio.module.sass'
 import ScrollParallax from '../ScrollParallax'
 import PortfolioItem from './PortfolioItem'
 import PortfolioCaseStudy from '../../models/generic/portfolioCaseStudy.model'
+import { capitalizeFirstLetter } from '../../helpers/helpers'
 
 declare interface PortfolioProps {
     contents: Portfolio
@@ -22,12 +23,6 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
     const loadMore = () => {
         const nextCasesLength = cases.length + TRESHOLD
         setCases(contents.caseStudies.slice(0, nextCasesLength))
-    }
-
-    const capitalizeFirstLetter = (text: string): string => {
-        return text.split(' ').map((word) => {
-            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-        }).join(' ')
     }
 
     useEffect(() => {
