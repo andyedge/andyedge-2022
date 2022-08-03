@@ -1,20 +1,20 @@
 import { FC } from 'react'
 import cn from 'classnames'
-import styles from './BomouDualBanner.module.sass'
 import CustomImage from '../../image/Image'
-import ImageType from '../../../models/generic/image.model'
+import styles from './BomouDualBanner.module.sass'
+import ImageContainer from '../../../models/generic/imageContainer.model'
 
 declare interface BomouDualBannerProps {
-  images: ImageType[]
+  images: ImageContainer[]
 }
 
 const BomouDualBanner: FC<BomouDualBannerProps> = ({ images }: BomouDualBannerProps) => (
   <div className={cn('container-fluid')}>
     <div className={styles.img_wrapper}>    
     {
-      images.map((image: ImageType, index: number) => (
+      images.map((image: ImageContainer, index: number) => (
           <div className={styles.container} key={index}>
-            <CustomImage src={image} />
+            <CustomImage src={image.image} srcDark={image.darkImage}/>
           </div>
       ))
     }
