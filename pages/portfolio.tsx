@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { NextPage, GetStaticProps } from 'next'
 
 import Layout from '../src/components/layout/Layout'
 import Portfolio from '../src/models/entities/portfolio.model'
@@ -6,7 +6,7 @@ import { getPortfolio, getHeader, getFooter } from '../src/services/fetch'
 import LayoutModel from '../src/models/generic/layout.model'
 import PortfolioContainer from '../src/components/portfolioContainer2/PortfolioContainer'
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
     const portfolio = await getPortfolio()
     const header = await getHeader()
     const footer = await getFooter()

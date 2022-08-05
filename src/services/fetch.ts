@@ -126,10 +126,28 @@ export const getPortfolio = async () => {
     return adaptPortfolio({data: portfolio, caseStudies: totalCases, categories})
 }
 
-export const getHow = async () => adaptHow(await client.getEntries({ 
-    content_type: 'how',
-    include: NESTING_LEVEL
-}))
+export const getHow = async () => {
+    const how = await client.getEntries({ 
+        content_type: 'how',
+        include: NESTING_LEVEL
+    })
+
+    const categories = await client.getEntries({ 
+        content_type: 'categories',
+        include: NESTING_LEVEL
+    })
+
+    const platforms = await client.getEntries({ 
+        content_type: 'platforms',
+        include: NESTING_LEVEL
+    })
+
+    return adaptHow({
+        data: how,
+        categories,
+        platforms
+    })
+}
 
 export const getPrivacy = async () => adaptPrivacy(await client.getEntries({ 
     content_type: 'privacy',
