@@ -3,6 +3,7 @@ import Article from '../../../models/entities/article.model'
 import { adaptStandardContainer } from '../generic/standardContainer.adapter'
 import { adaptImage, adaptImages } from '../generic/image.adapter'
 import { adaptContactContainer } from '../generic/contactContainer.adapter'
+import { adaptImageContainer } from '../generic/imageContainer.adapter'
 
 export const adaptArticles = (data: Entry): Article[] => {
     if(!data.items.length) {
@@ -19,9 +20,9 @@ export const adaptArticles = (data: Entry): Article[] => {
             // mediaCarousel: adaptImages(fields.mediaCarousel.media),
             mediaCarousel: [],
             articleText: fields.articleText,
-            pageImage1: adaptImage(fields.pageImage1),
-            pageImage2: adaptImage(fields.pageImage2),
-            pageImage3: adaptImage(fields.pageImage3),
+            pageImage1: adaptImageContainer(fields.pageImage1),
+            pageImage2: adaptImageContainer(fields.pageImage2),
+            pageImage3: adaptImageContainer(fields.pageImage3),
             contactContainer: adaptContactContainer(fields.contactContainer)
         }
     })

@@ -33,7 +33,7 @@ const CaseStudiesHero: FC<CaseStudiesHeroProps> = ({ data, caseName } : CaseStud
         <h1 className='main-title'>{data.title}</h1>
         <div className={styles.hero_info}>
             <div className={styles.logo}>
-                <CustomImage src={data.logo} />
+                <CustomImage src={data.logoC.image} srcDark={data.logoC.darkImage}/>
             </div>
             <div className={styles.text_section}>
                 <h2 className='secondary-title'>{data.subtitle}</h2>
@@ -48,9 +48,9 @@ const CaseStudiesHero: FC<CaseStudiesHeroProps> = ({ data, caseName } : CaseStud
             </div>
         </div>
         <div className={styles.images_container}>
-            {data.images?.map((image, index) => (
+            {data.imagesContainer?.map((image, index) => (
                 <div key={index} className={cn(styles[caseName], isBorderedImage(caseName, index) && 'bordered-image')}>
-                    <CustomImage src={image} />
+                    <CustomImage src={image.image} srcDark={image.darkImage}/>
                 </div>
             ))}
         </div>

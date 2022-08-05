@@ -5,11 +5,12 @@ import Banner from '../src/components/banner/Banner'
 import Layout from '../src/components/layout/Layout'
 import Bomou from '../src/models/entities/bomou.model'
 import Contact from '../src/components/contact/Contact'
-import { getBomou, getHeader, getFooter } from '../src/services/fetch'
+import LayoutModel from '../src/models/generic/layout.model'
 import TitleShare from '../src/components/titleShare/TitleShare'
 import TextSlider from '../src/components/textSlider/TextSlider'
 import TextBullets from '../src/components/textBullets/TextBullets'
 import RowComponent from '../src/components/rowComponent/RowComponent'
+import { getBomou, getHeader, getFooter } from '../src/services/fetch'
 import CardsContainer from '../src/components/cardsContainer/CardsContainer'
 import BomouIdGuide from '../src/components/bomouPage/bomouIdGuide/BomouIdGuide'
 import BomouBrandId from '../src/components/bomouPage/bomouBrandId/BomouBrandId'
@@ -17,7 +18,6 @@ import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPa
 import BomouImgSection from '../src/components/bomouPage/bomouImgSection/BomouImgSection'
 import BomouDualBanner from '../src/components/bomouPage/bomouDualBanner/BomouDualBanner'
 import BomouSocialOutreach from '../src/components/bomouPage/bomouSocialOutreach/BomouSocialOutreach'
-import LayoutModel from '../src/models/generic/layout.model'
 
 export const getStaticProps = async () => {
   const bomou = await getBomou();

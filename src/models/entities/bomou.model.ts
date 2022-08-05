@@ -5,6 +5,7 @@ import StandardContainer from '../generic/standardContainer.model'
 import TextSlider from '../generic/textSlider.model'
 import LinkType from '../generic/link.model'
 import SeoContent from '../generic/seoContent.model'
+import ImageContainer from '../generic/imageContainer.model'
 
 export default interface Bomou {
     seo: SeoContent
@@ -21,18 +22,18 @@ export default interface Bomou {
     bigTitle3 : LinkType
     standardContainer4: StandardContainer
     imagesTitle: string
-    image1: ImageType
-    image2: ImageType
-    image3: ImageType
-    image4: ImageType
-    image5: ImageType
+    image1: ImageContainer
+    image2: ImageContainer
+    image3: ImageContainer
+    image4: ImageContainer
+    image5: ImageContainer
     imagesBottomTitle: string
-    bannerImages: ImageType[]
+    bannerImages: ImageContainer[]
     bigTitle4 : LinkType
     standardContainer5: StandardContainer
     standardContainer6: StandardContainer
     design: StandardContainer[]
-    image6: ImageType
+    image6: ImageContainer
     textSlider: TextSlider
     contact: ContactContainer
 }
