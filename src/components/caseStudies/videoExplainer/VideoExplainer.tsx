@@ -31,16 +31,12 @@ const VideoExplainer = ({ contents }: { contents: StandardContainer }) => {
                         <p>{contents.subtitle}</p>
                     </div>
                     {contents.videoUrl ?
-                        <div>
-                            <VideoComponent
-                                videoUrl={contents.videoUrl}
-                                videoClassnames={{
-                                    videoDivClassname: styles.video_container,
-                                    videoClassname: styles.video,
-                                    playButtonClassname: 'play'
-                                }}
-                                playing={playing}
-                                playingHandler={videoPlayingHandler}
+                        <div className={styles.video_container}>
+                            <iframe
+                                className={styles.video}
+                                src={contents.videoUrl}
+                                allowFullScreen
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             />
                         </div>
                         :
