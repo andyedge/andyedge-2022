@@ -3,13 +3,11 @@
 
 .filters_container
     position: relative
-    padding-bottom: 80px
+    padding-bottom: 64px
     padding-top: 64px
     +xw
         padding-top: 96px
         min-height: unset
-    +m
-        padding-top: 64px
     +t
         padding-bottom: unset
 
@@ -114,3 +112,44 @@
         font-size: 12px
         font-weight: 300
         color: $gray
+
+.items_container
+    min-height: 880px
+    
+    .items_row
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        margin-bottom: 48px
+        column-gap: 32px
+        +d
+            column-gap: 20px
+        +t
+            column-gap: 32px
+            grid-template-columns: 1fr 1fr
+        +s
+            grid-template-columns: 100%
+
+        .category
+            top: 12px
+            left: 12px
+            position: absolute
+
+        .item_image
+            width: 352px
+            height: 264px
+            background-color: $gray3
+            border-radius: 16px
+            position: relative
+
+        .item_info
+            padding-top: 24px
+            display: flex
+
+            .item_platform_icon
+                position: relative
+                width: 24px
+                height: 24px
+                border-radius: 4px
+                overflow: auto
+                margin-right: 16px
+    

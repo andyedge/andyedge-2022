@@ -15,9 +15,6 @@ const Filters: FC<FiltersProps> = ({ filters, activeFilters, onChange } : Filter
         <div className={styles.filters}>
             {filters.map((filter, index) => {
                 const options = filter.options.map((option) => capitalizeFirstLetter(option))
-                if(index !== 3) {
-                    options.unshift('All')
-                }
                 return (
                     <div key={index} className={styles.cell}>
                         <h5 className={styles.label}>{filter.label}</h5>

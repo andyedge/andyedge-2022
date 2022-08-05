@@ -7,7 +7,7 @@ export default interface HowItem {
     description: string
     platform: Platform
     format: String
-    date: Date
+    date: string
     link: LinkType
     category: Category
 }
