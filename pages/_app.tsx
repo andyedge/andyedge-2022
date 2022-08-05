@@ -5,21 +5,42 @@ import { useRouter }  from 'next/router'
 import Loader from '../src/components/loader/Loader'
 import { useEffect, useState } from 'react'
 
-
 const MyApp = ({ Component, pageProps } : AppProps ) => {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const router = useRouter()
 
+  const handleStartLoading = () => {
+    setIsLoading(true)
+  }
+
+  const handleFinishLoading = () => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1000)
+  }
+  
   useEffect(() => {
-    router.events.on('routeChangeStart', () => setIsLoading(true))
-    router.events.on('routeChangeComplete', () => setIsLoading(false))
-    router.events.on('routeChangeError', () => setIsLoading(false))
-  }, [router])
+    if (typeof window !== 'undefined') {
+      handleFinishLoading()
+    }
+  }, [])
+
+  useEffect(() => {
+    router.events.on('routeChangeStart', handleStartLoading)
+    router.events.on('routeChangeComplete', handleFinishLoading)
+    router.events.on('routeChangeError', handleFinishLoading)
+
+    return () => {
+      router.events.off('routeChangeStart', handleStartLoading)
+      router.events.off('routeChangeComplete', handleFinishLoading)
+      router.events.off('routeChangeError', handleFinishLoading)
+    }
+  }, [router.events])
 
   return (
     <>
       <Component {...pageProps} />
-      <Loader showLoader={isLoading}/>
+      {isLoading && <Loader />}
     </>
   )
 }

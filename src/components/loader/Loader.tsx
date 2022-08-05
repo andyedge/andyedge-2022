@@ -2,11 +2,7 @@ import styles from './Loader.module.sass'
 import { gsap } from 'gsap'
 import { useEffect } from 'react'
 
-declare interface LoaderProps {
-    showLoader: boolean
-}
-
-const Loader = ({ showLoader } : LoaderProps ) => {
+const Loader = () => {
     const tl = gsap.timeline({repeat: -1, yoyo: true, repeatDelay: 1})
 
     useEffect(() => {
@@ -24,10 +20,6 @@ const Loader = ({ showLoader } : LoaderProps ) => {
             })
         }
     }, [])
-
-    if(!showLoader) {
-        return null
-    }
 
     return (
         <div className={styles.container}>
