@@ -2,19 +2,8 @@ import styles from './Info.module.sass'
 import Button from '../../button/Button'
 import ImageSlider from '../../imageSlider/ImageSlider'
 import { CaseStudyInfo } from '../../../models/generic/caseStudies.model'
-
-const categories = [{
-    color: 'purple',
-    name: 'UX DESIGN'
-},
-{
-    color: 'orange',
-    name: 'LOGO DESIGN'
-},
-{
-    color: 'yellow',
-    name: 'GRAPHIC DESIGN'
-}]
+import ScrollParallax from '../../ScrollParallax'
+import CategoryLabels from '../../categoryLabels/CategoryLabels'
 
 const SmallCaseHero = ({ data }: { data: CaseStudyInfo }) => {
 
@@ -38,11 +27,7 @@ const SmallCaseHero = ({ data }: { data: CaseStudyInfo }) => {
             <div className={styles.container}>
                 <div className={styles.left_row}>
                     <div className={styles.labels}>
-                        {categories.map((category, index) => (
-                            <h6 key={index} className={`status-${category.color}`}>
-                                {category.name}
-                            </h6>
-                        ))}
+                        <CategoryLabels categories={data.categories} trim={5}/>
                     </div>
                     <h2 className='secondary-title'>{data.title}</h2>
                     <p className='info-text'>{data.description}</p>
@@ -66,7 +51,9 @@ const SmallCaseHero = ({ data }: { data: CaseStudyInfo }) => {
                         </div>
                         <div className={styles.list}>
                             {data.bulletPoints.map((bullet, index) => (
-                                <p className={styles.box} key={index}>{bullet.title}</p>
+                                <ScrollParallax key={index} delay={(index + 2) * 200}>
+                                    <p className={styles.box}>{bullet.title}</p>
+                                </ScrollParallax>
                             ))}
                         </div>
                     </div>

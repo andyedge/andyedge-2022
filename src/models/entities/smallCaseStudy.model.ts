@@ -10,7 +10,7 @@ export default interface SmallCaseStudy {
     seo: SeoContent
     hero: StandardContainer
     cards: StandardCardContainer[]
-    banner: ImageContainer
+    banner: ImageContainer[]
     caseStudyInfo: CaseStudyInfo
     testimonial: TextSlider
 }

@@ -15,6 +15,7 @@ const adaptMegaMenuItems = (data: Item[]): MegaMenuItems[] => {
             text: fields.text,
             labelText: fields.labelText,
             labelBackground: fields.labelBackground,
+            link: fields.link,
             logo: adaptImage(fields.logo),
             leftImage: adaptImage(fields.leftImage)
         }
@@ -31,6 +32,7 @@ export const adaptMegaMenu = (data: Entry): MegaMenu => {
         leftLinks: adaptStepsSection(fields.leftLinks),
         labelText: fields.labelText,
         bigImage: adaptImage(fields.bigImage),
+        profileImage: adaptImage(fields.profileImage),
         centralSectionTitle: fields.centralSectionTitle,
         centralSectionSubtitle: fields.centralSectionSubtitle,
         centralSectionLabel: fields.centralSectionLabel,

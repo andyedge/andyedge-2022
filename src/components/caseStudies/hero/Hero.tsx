@@ -5,6 +5,7 @@ import StandardContainer from '../../../models/generic/standardContainer.model'
 import CustomImage from '../../image/Image'
 import styles from './Hero.module.sass'
 import RichText from '../../RichText'
+import ScrollParallax from '../../ScrollParallax'
 
 declare interface CaseStudiesHeroProps {
     data: StandardContainer
@@ -49,9 +50,11 @@ const CaseStudiesHero: FC<CaseStudiesHeroProps> = ({ data, caseName } : CaseStud
         </div>
         <div className={styles.images_container}>
             {data.imagesContainer?.map((image, index) => (
-                <div key={index} className={cn(styles[caseName], isBorderedImage(caseName, index) && 'bordered-image')}>
-                    <CustomImage src={image.image} srcDark={image.darkImage}/>
-                </div>
+                <ScrollParallax key={index} delay={index * 300} className={cn(styles[caseName], isBorderedImage(caseName, index) && 'bordered-image')}>
+                    <div>
+                        <CustomImage src={image.image} srcDark={image.darkImage}/>
+                    </div>
+                </ScrollParallax>
             ))}
         </div>
     </div>

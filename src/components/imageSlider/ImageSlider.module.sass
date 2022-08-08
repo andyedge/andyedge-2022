@@ -4,6 +4,7 @@
     display: flex
     +caption-1
     font-weight: 500
+    cursor: grab
     &:not(:last-child)
         margin-bottom: 20px
 
@@ -11,8 +12,14 @@
     position: relative
     width: 100%
     height: 530px
+    +x
+        height: calc(530px * 0.9)
     +d
-        height: calc(530px * 0.7)
+        height: calc(530px * 0.6)
+    +t
+        height: calc(530px * 0.4)
+    +m
+        height: calc(530px * 0.6)
     +s
         width: 100vw
 
