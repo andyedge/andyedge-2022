@@ -117,7 +117,7 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header, footer } : Bomo
         hasSection={false}
       />
       <Banner
-        src={pageContent.image6}
+        images={[pageContent.image6]}
         page={'bomou'}
       />
       <TextSlider
