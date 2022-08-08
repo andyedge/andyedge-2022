@@ -21,7 +21,10 @@ export const adaptMediumCaseStudies = (data: Entry): MediumCaseStudy[] => {
             hero: adaptStandardContainer(fields.hero),
             cards: adaptStandardCardContainers(fields.cards),
             banner: adaptImageContainer(fields.bannerC),
-            caseStudyInfo: adaptCaseStudyInfo(fields.caseStudyInfo),
+            caseStudyInfo: adaptCaseStudyInfo({
+                data: fields.caseStudyInfo,
+                categories: fields.portfolioData?.fields?.categories
+            }),
             testimonial: adaptTextSlider(fields.testimonial),
             cardInfo: adaptStandardContainer(fields.cardInfo),
             caseExplanation: adaptStandardContainer(fields.caseExplanation),

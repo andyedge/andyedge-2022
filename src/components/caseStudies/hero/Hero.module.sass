@@ -25,20 +25,29 @@
         box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2)
         +dark
             box-shadow: 0px 16px 8px 0px $shadow-dark-mode
+        +t
+            width: 192px * 0.8
+            height: 192px * 0.8
+            border-radius: 36px
         +s
+            width: 192px
+            height: 192px
+            border-radius: 48px
             margin: auto
             margin-top: 16px
 
     .text_section
         width: 736px
-        +x
-            width: 90%
         +d
-            padding-left: 64px
+            max-width: 600px
+        +t
+            max-width: 70%
+        +m
+            max-width: 60%
         +s
             margin-top: 48px
-            padding-left: unset
             width: auto
+            max-width: unset
 
     h2
         margin-bottom: 32px

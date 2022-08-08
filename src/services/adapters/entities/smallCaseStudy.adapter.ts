@@ -21,7 +21,10 @@ export const adaptSmallCaseStudies = (data: Entry): SmallCaseStudy[] => {
             hero: adaptStandardContainer(fields.hero),
             cards: adaptStandardCardContainers(fields.cards),
             banner: adaptImageContainer(fields.bannerC),
-            caseStudyInfo: adaptCaseStudyInfo(fields.studyCaseInfo),
+            caseStudyInfo: adaptCaseStudyInfo({
+                data: fields.studyCaseInfo,
+                categories: fields.portfolioData?.fields?.categories
+            }),
             testimonial: adaptTextSlider(fields.textSlider),
         }
     })
