@@ -37,7 +37,6 @@ const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
             })}
             <MegaMenu
               data={data.megaMenu}
-              setValue={setVisibleNav}
               isActive={visibleNav}
             />
           </nav>
