@@ -49,7 +49,7 @@ const SmallCase: NextPage<SmallCaseStudyProps> = ({ pageContent, header, footer 
             <div className='container-fluid'>
                 <CaseStudiesHero data={pageContent.hero} caseName={pageContent.slug}/>
                 <CardsContainer contents={pageContent.cards} scrollToRef={null} smallSpaccing={true}/>
-                <Banner src={pageContent.banner} page={'small_case'}/>
+                <Banner images={pageContent.banner} page={pageContent.slug}/>
                 <SmallCaseInfo data={pageContent.caseStudyInfo} />
                 <TextSlider contents={[pageContent.testimonial]} page='case_studies'/>
                 <PortfolioContainer />

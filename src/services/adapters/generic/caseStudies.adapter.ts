@@ -3,6 +3,7 @@ import { CaseStudyInfo, CaseStudyProperties } from '../../../models/generic/case
 import { adaptImage, adaptImages } from './image.adapter'
 import { adaptStepsSection } from './steps.adapter'
 import { adaptLink } from './link.adapter'
+import { adaptCategories } from './categories.adapter'
 
 export const adaptCaseStudyProperties = (data: Item[]): CaseStudyProperties[] => {
     if(!data.length) {
@@ -19,7 +20,12 @@ export const adaptCaseStudyProperties = (data: Item[]): CaseStudyProperties[] =>
     })
 }
 
-export const adaptCaseStudyInfo = (data: Item): CaseStudyInfo => {
+declare interface AdapterProps {
+    data: Item
+    categories: Item[]
+}
+
+export const adaptCaseStudyInfo = ({ data, categories } : AdapterProps ): CaseStudyInfo => {
     const { fields } = data
     return {
         title: fields.title,
@@ -31,6 +37,7 @@ export const adaptCaseStudyInfo = (data: Item): CaseStudyInfo => {
         primaryCta: adaptLink(fields?.primaryCta),
         secondaryCta: adaptLink(fields?.secondaryCta),
         playStoreCta: adaptLink(fields?.playStoreCta),
-        appStoreCta: adaptLink(fields?.appStoreCta)
+        appStoreCta: adaptLink(fields?.appStoreCta),
+        categories: adaptCategories(categories)
     }
 }

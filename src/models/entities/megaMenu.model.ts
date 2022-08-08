@@ -6,6 +6,7 @@ export interface MegaMenuItems {
     text: string
     labelText: string
     labelBackground: string
+    link: string
     logo: ImageType
     leftImage: ImageType
 }
@@ -17,6 +18,7 @@ export default interface MegaMenu {
     leftLinks: StepsContainer[]
     labelText: string
     bigImage: ImageType
+    profileImage: ImageType
     centralSectionTitle: string
     centralSectionSubtitle: string
     centralSectionLabel: string

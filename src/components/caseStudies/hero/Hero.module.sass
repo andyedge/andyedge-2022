@@ -25,20 +25,29 @@
         box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.2)
         +dark
             box-shadow: 0px 16px 8px 0px $shadow-dark-mode
+        +t
+            width: 192px * 0.8
+            height: 192px * 0.8
+            border-radius: 36px
         +s
+            width: 192px
+            height: 192px
+            border-radius: 48px
             margin: auto
             margin-top: 16px
 
     .text_section
         width: 736px
-        +x
-            width: 90%
         +d
-            padding-left: 64px
+            max-width: 600px
+        +t
+            max-width: 70%
+        +m
+            max-width: 60%
         +s
             margin-top: 48px
-            padding-left: unset
             width: auto
+            max-width: unset
 
     h2
         margin-bottom: 32px
@@ -213,9 +222,13 @@
             height: 433px
             left: 237px
             +m
+                width: (200px / 1.1)
+                height: (433px /1.1)
+                left: 20vw
+            +s
                 width: (200px / 1.3)
                 height: (433px /1.3)
-                left: 24px
+                left: 6vw
 
         &:nth-child(2)
             position: absolute
@@ -224,9 +237,13 @@
             left: 380px
             top: 20px
             +m
+                width: (240px / 1.1)
+                height: (519.5px /1.1)
+                left: 35vw
+            +s
                 width: (240px / 1.3)
                 height: (519.5px /1.3)
-                left: 116px
+                left: 33vw
 
         &:nth-child(3)
             position: absolute
@@ -235,8 +252,14 @@
             top: 210px
             left: 30px
             +m
+                width: (379px / 1.1)
+                height: (379px /1.1)
+                left: 0
+                top: 240px
+            +s
                 width: (379px / 1.3)
                 height: (379px /1.3)
+                top: 210px
                 left: -30px
 
         &:nth-child(4)
@@ -244,7 +267,7 @@
             width: 200px
             height: 62px
             top: 190px
-            +m
+            +s
                 width: 100%
                 top: 460px
         
@@ -253,7 +276,7 @@
             width: 200px
             height: 62px
             top: 268px
-            +m
+            +s
                 width: 100%
                 top: 538px
 

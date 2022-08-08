@@ -5,7 +5,7 @@ import How from '../src/models/entities/how.model'
 import { getHow, getHeader, getFooter } from '../src/services/fetch'
 import LayoutModel from '../src/models/generic/layout.model'
 import HowHero from '../src/components/how/hero/Hero'
-import HowFilters from '../src/components/how/filters/Filters'
+import HowGrid from '../src/components/how/howGrid/HowGrid'
 
 export const getStaticProps = async () => {
     const how = await getHow()
@@ -29,7 +29,7 @@ const HowPage: NextPage<HowProps> = ({ pageContent, header, footer } : HowProps)
         <Layout header={header} seoContent={pageContent.seo} footer={footer}>
             <div className='container'>
                 <HowHero contents={pageContent.hero} />
-                <HowFilters />
+                <HowGrid contents={pageContent} />
             </div>
         </Layout>
     )

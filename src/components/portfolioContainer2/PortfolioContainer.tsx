@@ -7,6 +7,8 @@ import styles from './Portfolio.module.sass'
 import ScrollParallax from '../ScrollParallax'
 import PortfolioItem from './PortfolioItem'
 import PortfolioCaseStudy from '../../models/generic/portfolioCaseStudy.model'
+import { capitalizeFirstLetter } from '../../helpers/helpers'
+import { cloneDeep } from 'lodash'
 
 declare interface PortfolioProps {
     contents: Portfolio
@@ -24,12 +26,6 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
         setCases(contents.caseStudies.slice(0, nextCasesLength))
     }
 
-    const capitalizeFirstLetter = (text: string): string => {
-        return text.split(' ').map((word) => {
-            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-        }).join(' ')
-    }
-
     useEffect(() => {
         if(selectedCategory === null) {
             setCases(initialCases)
@@ -37,7 +33,7 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
         else {
             const categoryName = contents.categories[selectedCategory].name
             //Filters categories from a NEW array
-            const casesCopy = [...contents.caseStudies]
+            const casesCopy = cloneDeep(contents.caseStudies)
             const filteredCases = casesCopy.filter((caseStudy) => {
                 const categoryMatched = caseStudy.categories.find((category) => category.name === categoryName)
                 if(categoryMatched) {
