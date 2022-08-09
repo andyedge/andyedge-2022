@@ -16,14 +16,14 @@ declare interface PortfolioProps {
 
 const TRESHOLD = 6
 const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) => {
-    const initialCases = [...contents.caseStudies].slice(0, TRESHOLD)
+    const initialCases = cloneDeep(contents.caseStudies).slice(0, TRESHOLD)
 
     const [cases, setCases] = useState<PortfolioCaseStudy[]>(initialCases)
     const [selectedCategory, setSelectedCategory] = useState<number | null> (null)
 
     const loadMore = () => {
         const nextCasesLength = cases.length + TRESHOLD
-        setCases(contents.caseStudies.slice(0, nextCasesLength))
+        setCases(cloneDeep(contents.caseStudies).slice(0, nextCasesLength))
     }
 
     useEffect(() => {
@@ -34,14 +34,17 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
             const categoryName = contents.categories[selectedCategory].name
             //Filters categories from a NEW array
             const casesCopy = cloneDeep(contents.caseStudies)
-            const filteredCases = casesCopy.filter((caseStudy) => {
+            let filteredCases: PortfolioCaseStudy[] = []
+            casesCopy.forEach((caseStudy) => {
                 const categoryMatched = caseStudy.categories.find((category) => category.name === categoryName)
                 if(categoryMatched) {
-                    //Bring the category match to the start of the cateogories array
-                    const arrayWihtouMatchedCategory = caseStudy.categories.filter((category) => category.name !== categoryMatched.name)
-                    arrayWihtouMatchedCategory.unshift(categoryMatched)
-                    caseStudy.categories = arrayWihtouMatchedCategory
-                    return true
+                    //Bring the category match to the start of the categories array
+                    const categories = cloneDeep(caseStudy.categories.filter((category) => category.name !== categoryMatched.name))
+                    categories.unshift(categoryMatched)
+                    filteredCases = [...filteredCases, {
+                        ...caseStudy,
+                        categories
+                    }]
                 }
             })
             setCases(filteredCases)
