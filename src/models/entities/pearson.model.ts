@@ -5,6 +5,7 @@ import TextSlider from '../generic/textSlider.model'
 import LinkType from '../generic/link.model'
 import ContactContainer from '../generic/contact.model'
 import SeoContent from '../generic/seoContent.model'
+import PortfolioCaseStudy from '../generic/portfolioCaseStudy.model'
 
 export default interface Pearson {
     seo: SeoContent
@@ -26,4 +27,5 @@ export default interface Pearson {
     solutionList: StandardContainer[]
     testimonial: TextSlider
     bottomSection: ContactContainer
+    relatedCases: PortfolioCaseStudy[]
 }

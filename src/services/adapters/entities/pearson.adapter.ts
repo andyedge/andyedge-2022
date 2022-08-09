@@ -1,4 +1,4 @@
-import Entry from '../../../models/generic/entry.model'
+import Entry, { Item } from '../../../models/generic/entry.model'
 import Pearson from '../../../models/entities/pearson.model'
 import { adaptStandardContainer, adaptStandardContainers } from '../generic/standardContainer.adapter'
 import { adaptStandardCardContainers } from '../generic/cardContainer.adapter'
@@ -7,6 +7,7 @@ import { adaptTextSlider } from '../generic/textSlider.adapter'
 import { adaptLink } from '../generic/link.adapter'
 import { adaptContactContainer } from '../generic/contactContainer.adapter'
 import { adaptSeoContent } from '../generic/seoContent.adapter'
+import { adaptPortfolioCaseStudy } from '../generic/portfolioCaseStudies.adapter'
 
 export const adaptPearson = (data: Entry): Pearson => {
     const [pearson] = data.items
@@ -30,6 +31,7 @@ export const adaptPearson = (data: Entry): Pearson => {
         standardContainer4: adaptStandardContainer(fields.standardContainer4),
         solutionList: adaptStandardContainers(fields.solutionList),
         testimonial: adaptTextSlider(fields.testimonial),
-        bottomSection: adaptContactContainer(fields.bottomSection)
+        bottomSection: adaptContactContainer(fields.bottomSection),
+        relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : []
     }
 }

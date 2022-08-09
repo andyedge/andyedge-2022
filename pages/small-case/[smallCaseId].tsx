@@ -8,8 +8,8 @@ import CardsContainer from '../../src/components/cardsContainer/CardsContainer'
 import TextSlider from '../../src/components/textSlider/TextSlider'
 import Banner from '../../src/components/banner/Banner'
 import SmallCaseInfo from '../../src/components/caseStudies/info/Info'
-import PortfolioContainer from '../../src/components/portfolioContainer/PortfolioContainer'
 import LayoutModel from '../../src/models/generic/layout.model'
+import RelatedCases from '../../src/components/caseStudies/relatedCases/RelatedCases'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const smallCaseStudies: Entry = await getSmallCaseStudies()
@@ -52,7 +52,7 @@ const SmallCase: NextPage<SmallCaseStudyProps> = ({ pageContent, header, footer 
                 <Banner images={pageContent.banner} page={pageContent.slug}/>
                 <SmallCaseInfo data={pageContent.caseStudyInfo} />
                 <TextSlider contents={[pageContent.testimonial]} page='case_studies'/>
-                <PortfolioContainer />
+                <RelatedCases cases={pageContent.relatedCases} />
             </div>
         </Layout>
     )
