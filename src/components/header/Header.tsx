@@ -45,6 +45,9 @@ const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
               data={data.megaMenu}
               isActive={visibleNav}
             />
+            <button className={cn(styles.mobile_button, styles.link)} onClick={openModal}>
+              {data.ctaButton.text}
+            </button>
           </nav>
         </div>
         <button className={cn('button-stroke button-small', styles.button)} onClick={openModal}>
