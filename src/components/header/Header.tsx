@@ -6,13 +6,19 @@ import styles from './Header.module.sass'
 import Image from '../image/Image'
 import Header from '../../models/entities/header.model'
 import MegaMenu from '../megaMenu/MegaMenu'
+import ContactModal from '../contactModal/ContactModal'
 
 declare interface HeaderProps {
   data: Header
 }
 
 const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
-  const [visibleNav, setVisibleNav] = useState(false);
+  const [visibleNav, setVisibleNav] = useState<boolean>(false)
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false)
+
+  const closeModal = () => setIsModalVisible(false)
+  const openModal = () => setIsModalVisible(true)
+
   const router = useRouter();
   return (
     <header className={styles.header}>
@@ -41,11 +47,10 @@ const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
             />
           </nav>
         </div>
-        <Link
-          href='/'
-        >
-          <a className={cn('button-stroke button-small', styles.button)}> {data.ctaButton.text} </a>
-        </Link>
+        <button className={cn('button-stroke button-small', styles.button)} onClick={openModal}>
+          {data.ctaButton.text}
+        </button>
+        <ContactModal isModalVisible={isModalVisible} onClose={closeModal}/>
         <button
           className={cn(styles.burger, { [styles.active]: visibleNav })}
           onClick={() => setVisibleNav(!visibleNav)}
