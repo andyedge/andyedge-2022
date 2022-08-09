@@ -92,7 +92,7 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
                     ))}
                 </div>
                 <ScrollParallax>
-                    <div className={styles.case_studies_items}>
+                    <div className='case-studies-items'>
                         {cases.map((caseStudy, index) => (
                             <PortfolioItem data={caseStudy} key={index} />
                         ))}

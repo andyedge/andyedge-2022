@@ -1,4 +1,3 @@
-import ImageType from '../generic/image.model'
 import ContactContainer from '../generic/contact.model'
 import StandardCardContainer from '../generic/standardCardContainer.model'
 import StandardContainer from '../generic/standardContainer.model'
@@ -6,6 +5,7 @@ import TextSlider from '../generic/textSlider.model'
 import LinkType from '../generic/link.model'
 import SeoContent from '../generic/seoContent.model'
 import ImageContainer from '../generic/imageContainer.model'
+import PortfolioCaseStudy from '../generic/portfolioCaseStudy.model'
 
 export default interface Bomou {
     seo: SeoContent
@@ -36,4 +36,5 @@ export default interface Bomou {
     image6: ImageContainer
     textSlider: TextSlider
     contact: ContactContainer
+    relatedCases: PortfolioCaseStudy[]
 }

@@ -1,13 +1,13 @@
-import Entry from '../../../models/generic/entry.model'
+import Entry, { Item } from '../../../models/generic/entry.model'
 import Bomou from '../../../models/entities/bomou.model'
 import { adaptStandardContainer, adaptStandardContainers } from '../generic/standardContainer.adapter'
 import { adaptStandardCardContainers } from '../generic/cardContainer.adapter'
-import { adaptImage, adaptImages } from '../generic/image.adapter'
 import { adaptContactContainer } from '../generic/contactContainer.adapter'
 import { adaptTextSlider } from '../generic/textSlider.adapter'
 import { adaptLink } from '../generic/link.adapter'
 import { adaptSeoContent } from '../generic/seoContent.adapter'
 import { adaptImageContainer, adaptImagesContainer } from '../generic/imageContainer.adapter'
+import { adaptPortfolioCaseStudy } from '../generic/portfolioCaseStudies.adapter'
 
 export const adaptBomou = (data: Entry): Bomou => {
     const [bomou] = data.items
@@ -40,6 +40,7 @@ export const adaptBomou = (data: Entry): Bomou => {
         design: adaptStandardContainers(fields.designContainers),
         image6: adaptImageContainer (fields.image6),
         textSlider: adaptTextSlider(fields.textSlider),
-        contact: adaptContactContainer(fields.contact)
+        contact: adaptContactContainer(fields.contact),
+        relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : []
     }
 }

@@ -6,6 +6,7 @@ import TextSlider from "../generic/textSlider.model";
 import LinkType from "../generic/link.model";
 import SeoContent from "../generic/seoContent.model";
 import ImageContainer from "../generic/imageContainer.model";
+import PortfolioCaseStudy from '../generic/portfolioCaseStudy.model'
 
 declare interface Ecamp {
     seo: SeoContent
@@ -32,6 +33,7 @@ declare interface Ecamp {
     sliderImages: ImageType[]
     textSliderItems: TextSlider[]
     contactContainer: ContactContainer
+    relatedCases: PortfolioCaseStudy[]
 }
 
 export default Ecamp

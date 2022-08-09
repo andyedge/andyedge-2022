@@ -1,4 +1,4 @@
-import Entry from '../../../models/generic/entry.model'
+import Entry, { Item }  from '../../../models/generic/entry.model'
 import Ecamp from '../../../models/entities/ecamp.model'
 import { adaptStandardContainer } from '../generic/standardContainer.adapter'
 import { adaptStandardCardContainer, adaptStandardCardContainers } from '../generic/cardContainer.adapter'
@@ -8,6 +8,7 @@ import { adaptTextSliders } from '../generic/textSlider.adapter'
 import { adaptLink } from '../generic/link.adapter'
 import { adaptSeoContent } from '../generic/seoContent.adapter'
 import { adaptImagesContainer } from '../generic/imageContainer.adapter'
+import { adaptPortfolioCaseStudy } from '../generic/portfolioCaseStudies.adapter'
 
 export const adaptEcamppage = (data: Entry): Ecamp => {
     const [ecamp] = data.items
@@ -36,6 +37,7 @@ export const adaptEcamppage = (data: Entry): Ecamp => {
         pageText: fields.pageText,
         sliderImages: adaptImages(fields.sliderImages),
         textSliderItems: adaptTextSliders(fields.textSliderItems),
-        contactContainer: adaptContactContainer(fields.contactContainer)
+        contactContainer: adaptContactContainer(fields.contactContainer),
+        relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : []
     }
 }
