@@ -13,7 +13,7 @@ declare interface ButtonProps {
 
 const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) => {
   const iconExists = link.icon && link.icon?.url !== '' ? true : false;
-  const isWhiteButton = link.buttonColor === 'White' ? 'button-stroke': '';
+  const isWhiteButton = link.buttonColor === 'White' ? 'button-stroke' : '';
 
   switch (link.action) {
     case 'Redirect':
@@ -38,20 +38,19 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) 
       )
     case 'External':
       return (
-        <button className={cn('button-default', isWhiteButton, styles[size])}>
-          <a className={cn(styles.button, iconExists ? styles.button_a : '')} href={link.url} target='_blank' rel='noopener noreferrer'>
-            {link.text}
-          </a>
-            {
-              link.icon && link.icon?.url !== '' ?
-                <div className={cn(styles.icon_wrapper)}>
-                  <CustomImage
-                    src={link.icon}
-                  />
-                </div>
-                :
-                null
-            }
+        <button className={cn('button-default', isWhiteButton, styles.button, styles[size])}
+          onClick={() => window.open(link.url, '_blank', 'noopener,noreferrer')}>
+          {link.text}
+          {
+            link.icon && link.icon?.url !== '' ?
+              <div className={cn(styles.icon_wrapper)}>
+                <CustomImage
+                  src={link.icon}
+                />
+              </div>
+              :
+              null
+          }
         </button>
       )
     case 'Function':
