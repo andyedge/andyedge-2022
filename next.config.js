@@ -12,7 +12,9 @@ const nextConfig = {
   },
   images: {
     domains: ['images.ctfassets.net'],
+    loader: 'custom'
   },
+  assetPrefix: './'
 }
 
 module.exports = nextConfig
