@@ -16,7 +16,7 @@ const MyApp = ({ Component, pageProps } : AppProps ) => {
   const handleFinishLoading = () => {
     setTimeout(() => {
       setIsLoading(false)
-    }, 1000)
+    }, 500)
   }
   
   useEffect(() => {
