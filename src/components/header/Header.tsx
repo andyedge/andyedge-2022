@@ -7,6 +7,7 @@ import Image from '../image/Image'
 import Header from '../../models/entities/header.model'
 import MegaMenu from '../megaMenu/MegaMenu'
 import ContactModal from '../contactModal/ContactModal'
+import Icon from '../icon/Icon'
 
 declare interface HeaderProps {
   data: Header
@@ -43,14 +44,20 @@ const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
             })}
             <MegaMenu
               data={data.megaMenu}
-              isActive={visibleNav}
+              isActive={router.pathname === '/'}
             />
-            <button className={cn(styles.mobile_button, styles.link)} onClick={openModal}>
+            <button className={cn("button-circle-stroke", styles.share)}>
+              <Icon name="download" size={18} />
+            </button>
+            <button className={cn('button-stroke button-small', styles.contact)} onClick={openModal}>
               {data.ctaButton.text}
             </button>
           </nav>
         </div>
-        <button className={cn('button-stroke button-small', styles.button)} onClick={openModal}>
+        <button className={cn("button-circle-stroke", styles.share)}>
+          <Icon name="download" size={18} />
+        </button>
+        <button className={cn('button-stroke button-small', styles.contact)} onClick={openModal}>
           {data.ctaButton.text}
         </button>
         <ContactModal isModalVisible={isModalVisible} onClose={closeModal}/>

@@ -19,8 +19,8 @@
         letter-spacing: -.01em
     +m
         display: flex
-        padding: 8px 42px 8px 32px 
-        font-size: 16px
+        padding: 12px 32px
+        font-size: 22px
     &:hover,
     &.open,
     &.active
@@ -74,15 +74,13 @@
     +d
         width: 95vw
     +t
-        display: none
-        // position: static
-        // width: auto
-        // margin-right: -344px
-        // padding-top: 48px
-        // transform: translate(0,0) scale(1)
-        // visibility: visible
-        // opacity: 1
-        // animation: none
+        position: static
+        width: auto
+        margin-right: -344px
+        transform: translate(0,0) scale(1)
+        visibility: visible
+        opacity: 1
+        animation: none
     +m
         margin-right: 0
         padding-top: 0
@@ -92,6 +90,8 @@
     .subtitle
         font-size: 16px
         color: $black2
+        +t
+            color: $light-black
         +dark
             color: $white
 
@@ -202,10 +202,7 @@
     +d
         max-width: 100%
     +t
-        margin: 0
-        box-shadow: 0px 24px 24px -24px rgba(15, 15, 15, 0.1)
-    +m
-        padding: 0 32px
+        padding: 0
         box-shadow: none
         border: none
     +dark
@@ -225,9 +222,11 @@
 .col
     padding: 40px
     +t
-        padding: 32px
-    +m
-        padding: 0
+        padding-top: 16px
+        padding-left: 0px
+    +s
+        padding-left: 16px
+        padding-top: 8px
     &:first-child
         display: flex
         flex-direction: column
@@ -237,8 +236,8 @@
     &:nth-child(2)
         flex-grow: 1
         border-left: 1px solid $border-color
-        +s
-            border-left: unset
+        +t
+            display: none
         +dark
             border-color: $gray
 
@@ -247,7 +246,7 @@
     padding: 16px
     border-radius: 8px
     transition: background .2s
-    +m
+    +t
         display: none
     &:hover
         background: $white
@@ -284,6 +283,10 @@
     font-weight: 600
     color: $light-black
     transition: all .2s
+    +t
+        padding: 8px 8px 8px 0px 
+    +m
+        padding: 8px 16px
     +dark
         color: $ultra-white
         +m
@@ -305,6 +308,9 @@
     width: 32px
     height: 32px
     margin-right: 12px
+    +s
+        width: 24px
+        height: 24px
     
 .line
     display: flex

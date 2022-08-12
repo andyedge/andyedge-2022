@@ -22,13 +22,44 @@
     +m
         padding: 0 32px
 
-    & > .button
-        min-width: 128px
-        display: flex
-        align-items: center
-        justify-content: center
-        +m
-            display: none
+.share
+    margin: auto 24px auto auto
+    box-shadow: 0 0 0 2px $gray3 inset
+    transition: all 0.3s
+    width: 40px
+    height: 40px
+    flex: unset
+    svg
+        fill: $light-black
+        transition: fill 0.3s
+        +dark
+            fill: $white
+    +m
+        display: none
+        position: absolute
+        bottom: 0
+        left: 32px
+
+.contact
+    min-width: 128px
+    display: flex
+    align-items: center
+    justify-content: center
+    color: $light-black
+    font-weight: bold
+    font-size: 14px
+    transition: all 0.3s
+    +m
+        display: none
+        position: absolute
+        bottom: 0
+        right: 32px
+
+.contact:hover, .share:hover
+    color: $white
+    box-shadow: unset
+    svg
+        fill: $white
 
 .logo
     margin-right: 48px
@@ -61,10 +92,8 @@
     +m
         flex-direction: column
         align-items: flex-start
-        min-height: calc(100vh - 104px)
+        height: 100vh
         padding: 48px 32px 44px
-    +s
-        min-height: unset
     +dark
         border-color: $gray
         +d
@@ -74,13 +103,6 @@
         +m
             display: inline-flex
             margin-top: 48px
-
-    .mobile_button
-        background: unset
-        text-align: left
-        display: none
-        +m
-            display: unset
 .nav
     display: flex
     align-items: center
@@ -92,11 +114,18 @@
         max-width: calc(100% - 344px)
         margin-right: 0
     +m
+        position: relative
         align-items: stretch
-        flex: auto 0 calc(100% + 64px)
+        flex: 0 0 calc(100% - 100px)
         width: calc(100% + 64px)
         max-width: calc(100% + 64px)
-        margin: 0 -32px auto
+        margin: 0 -32px 0
+        height: 100%
+
+    .contact, .share
+        display: none
+        +m
+            display: unset
 
 .link,
 .group,
@@ -122,8 +151,8 @@
         line-height: 1.2
         letter-spacing: -.01em
     +m
-        font-size: 16px
-        padding: 8px 32px 
+        font-size: 22px
+        padding: 12px 32px 
     &:hover
         color: $light-black
         +dark
@@ -134,64 +163,10 @@
             box-shadow: inset 2px 0 0 0 $orange
         +dark
             color: $ultra-white
-    
-.details
-    display: flex
-    align-items: center
-    flex-grow: 1
-    +t
-        display: block
-        flex: 0 0 344px
-    +m
-        flex: 0 0 auto
-
-.contact
-    display: none
-    +t
-        display: block
-        margin-bottom: 32px
-    +m
-        display: none
-
-.element
-    &:not(:last-child)
-        margin-bottom: 32px
-        +t
-            margin-bottom: 24px
-
-.category
-    margin-bottom: 8px
-    +body-1
-    +t
-        margin-bottom: 4px
-        font-size: 18px
 
 .text
     +caption-1
     color: $gray2
-
-.socials
-    display: flex
-    margin: 0 auto
-    +m
-        display: none
-
-.social
-    display: flex
-    justify-content: center
-    align-items: center
-    flex-shrink: 0
-    width: 24px
-    height: 24px
-    svg
-        fill: $gray2
-        transition: fill .2s
-    &:hover svg
-        fill: $light-black
-        +dark
-            fill: $ultra-white
-    &:not(:last-child)
-        margin-right: 24px
 
 .burger
     display: none
