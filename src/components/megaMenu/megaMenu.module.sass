@@ -92,6 +92,8 @@
     .subtitle
         font-size: 16px
         color: $black2
+        +dark
+            color: $white
 
 
     .image_container    
@@ -151,8 +153,11 @@
 
         .board_image
             position: relative
-            width: 195px
-            height: 139px
+            width: 170px
+            height: 133px
+            margin: -16px 24px 24px 0
+            img
+                object-fit: contain
         
         .right_section_info
             margin-left: -24px

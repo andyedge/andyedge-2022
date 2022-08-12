@@ -33,6 +33,7 @@ export const adaptMegaMenu = (data: Entry): MegaMenu => {
         labelText: fields.labelText,
         bigImage: adaptImage(fields.bigImage),
         profileImage: adaptImage(fields.profileImage),
+        centralSectionLink: fields.centralSectionLink,
         centralSectionTitle: fields.centralSectionTitle,
         centralSectionSubtitle: fields.centralSectionSubtitle,
         centralSectionLabel: fields.centralSectionLabel,

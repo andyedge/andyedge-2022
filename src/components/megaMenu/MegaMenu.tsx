@@ -45,12 +45,16 @@ const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
 
   const CentralSection = () => (
     <div className={styles.cell}>
-      <div className={styles.image_container}>
-        <h6 className={`status-black`}>
-          {data.labelText}
-        </h6>
-        <CustomImage src={data.bigImage} props={{ customAttr: { objectFit: 'cover' } }} />
-      </div>
+      <Link href={`/${data.centralSectionLink}`}>
+        <a>
+          <div className={styles.image_container}>
+            <h6 className={`status-black`}>
+              {data.labelText}
+            </h6>
+            <CustomImage src={data.bigImage} props={{ customAttr: { objectFit: 'cover' } }} />
+          </div>
+        </a>
+      </Link>
       <div className={styles.central_section}>
         <div>
           <div className={styles.picture}>
