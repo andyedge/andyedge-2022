@@ -5,16 +5,16 @@ import useDarkMode from "@fisch0920/use-dark-mode";
 import Layout from '../src/components/layout/Layout';
 import Ecamp from '../src/models/entities/ecamp.model';
 import Contact from '../src/components/contact/Contact';
-import { getEcamp, getHeader, getFooter } from '../src/services/fetch';
+import LayoutModel from '../src/models/generic/layout.model';
 import TextSlider from '../src/components/textSlider/TextSlider';
 import TitleShare from '../src/components/titleShare/TitleShare';
+import { getEcamp, getHeader, getFooter } from '../src/services/fetch';
+import EcampImgSlider from '../src/components/ecampImgSlider/EcampImgSlider';
 import CardsContainer from '../src/components/cardsContainer/CardsContainer';
 import EcampImgSection from '../src/components/ecampImgSection/EcampImgSection';
 import EcampImgTextComp from '../src/components/ecampImgTextComp/EcampImgTextComp';
 import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPageText';
 import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer';
-import LayoutModel from '../src/models/generic/layout.model';
-import EcampImgSlider from '../src/components/ecampImgSlider/EcampImgSlider';
 
 export const getStaticProps = async () => {
   const ecampPage = await getEcamp();
