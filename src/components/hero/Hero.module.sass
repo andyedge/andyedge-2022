@@ -20,7 +20,7 @@
 
 .container
     display: grid
-    grid-template-columns: 1fr 640px
+    grid-template-columns: 1fr 630px
     position: relative
     +t
         grid-template-columns: 1fr 340px
@@ -41,6 +41,9 @@
 
 .title
     margin-bottom: 32px
+    padding-right: 8px
+    +m
+        padding-right: unset
     color: $light-black
     +dark
         color: $white

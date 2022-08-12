@@ -7,6 +7,7 @@ import ScrollParallax from '../../ScrollParallax'
 import styles from './BulletPointsContainer.module.sass'
 import ImageType from '../../../models/generic/image.model'
 import StandardContainer from '../../../models/generic/standardContainer.model'
+import imageLoader from '../../../helpers/imageLoader'
 
 declare interface BulletPointsContainerProps {
     contents: StandardContainer
@@ -29,6 +30,8 @@ const CardBullets: FC<BulletPointsContainerProps> = ({ contents } : BulletPoints
                                     <Image
                                         src={'/images/check.svg'}
                                         layout='fill'
+                                        loader={imageLoader}
+                                        unoptimized={true}
                                     />
                                 </div>
                                 <div className={styles.details}>

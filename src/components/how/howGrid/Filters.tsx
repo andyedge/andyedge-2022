@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Dropdown, { SetFilterProps } from '../dropdown/Dropdown'
 import styles from './HowGrid.module.sass'
 import { Filter } from '../../../models/entities/how.model'
-import { capitalizeFirstLetter } from '../../../helpers/helpers'
+import { capitalizeFirstLetter } from '../../../helpers/functions'
 
 export interface FiltersProps {
     filters: Filter[]

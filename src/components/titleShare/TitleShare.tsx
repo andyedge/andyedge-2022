@@ -1,7 +1,7 @@
 import cn from "classnames";
 import Icon from "../icon/Icon";
 import styles from "./TitleShare.module.sass";
-import { getUrlToShare } from "../../helpers/helpers";
+import { getUrlToShare } from "../../helpers/functions";
 import LinkType from "../../models/generic/link.model";
 
 declare interface TitleShareProps {

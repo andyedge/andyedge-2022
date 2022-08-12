@@ -44,19 +44,22 @@
                 width: 100%
 
         &:nth-child(2)
-            width: 940px
-            height: 726px
-            left: -30%
+            width: 1200px * 0.55
+            height: 800px * 0.55
+            left: -10%
+            top: 100px
             z-index: 3
+            +d
+                width: 1200px * 0.5
+                height: 800px * 0.5
             +t
-                width: calc(940px * 0.7)
-                height: calc(726px * 0.7)
-                top: 100px
+                top: 160px
+                width: 1200px * 0.35
+                height: 800px * 0.35
             +m
-                width: 564px
-                height: 435.6px
-                left: -25%
-                top: -50px
+                top: unset
+                left: unset
+                margin: auto
 
 .gallery_right
     right: calc(60% - 640px)

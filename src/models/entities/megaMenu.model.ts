@@ -19,6 +19,7 @@ export default interface MegaMenu {
     labelText: string
     bigImage: ImageType
     profileImage: ImageType
+    centralSectionLink: string
     centralSectionTitle: string
     centralSectionSubtitle: string
     centralSectionLabel: string

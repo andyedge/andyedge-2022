@@ -7,7 +7,7 @@ import styles from './Portfolio.module.sass'
 import ScrollParallax from '../ScrollParallax'
 import PortfolioItem from './PortfolioItem'
 import PortfolioCaseStudy from '../../models/generic/portfolioCaseStudy.model'
-import { capitalizeFirstLetter } from '../../helpers/helpers'
+import { capitalizeFirstLetter } from '../../helpers/functions'
 import { cloneDeep } from 'lodash'
 
 declare interface PortfolioProps {

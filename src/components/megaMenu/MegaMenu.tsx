@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import OutsideClickHandler from 'react-outside-click-handler'
@@ -16,7 +16,6 @@ declare interface MegaMenuProps {
 
 const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
   const [visible, setVisible] = useState<boolean>(false)
-  const [isMobile, setIsMobile] = useState<boolean>(false)
 
   const LeftSection  = () => (
     <div className={styles.col}>
@@ -45,12 +44,16 @@ const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
 
   const CentralSection = () => (
     <div className={styles.cell}>
-      <div className={styles.image_container}>
-        <h6 className={`status-black`}>
-          {data.labelText}
-        </h6>
-        <CustomImage src={data.bigImage} props={{ customAttr: { objectFit: 'cover' } }} />
-      </div>
+      <Link href={`/${data.centralSectionLink}`}>
+        <a>
+          <div className={styles.image_container}>
+            <h6 className={`status-black`}>
+              {data.labelText}
+            </h6>
+            <CustomImage src={data.bigImage} props={{ customAttr: { objectFit: 'cover' } }} />
+          </div>
+        </a>
+      </Link>
       <div className={styles.central_section}>
         <div>
           <div className={styles.picture}>
@@ -93,36 +96,20 @@ const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
     </div>
   )
 
-  const handleResize = () => setIsMobile(window.innerWidth <= 1023)
-
-  useEffect(() => {
-    if(typeof window !== 'undefined') {
-      handleResize()
-      window.addEventListener('resize', handleResize)
-    }
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
-
   return (
     <OutsideClickHandler onOutsideClick={() => setVisible(false)}>
       <div className={styles.group}>
-        {isMobile ? (
-          <Link href='/'>
-            <a className={styles.head}>{data.dropdownText}</a>
-          </Link>
-        ) : (
-          <div
-            className={cn(
-              styles.head,
-              { [styles.open]: visible },
-              { [styles.active]: isActive }
-            )}
-            onClick={() => setVisible(!visible)}
-          >
-            {data.dropdownText}
-            <Icon name='arrow-bottom' size={9} />
-          </div>
-        )}
+        <div
+          className={cn(
+            styles.head,
+            { [styles.open]: visible },
+            { [styles.active]: isActive }
+          )}
+          onClick={() => setVisible(!visible)}
+        >
+          {data.dropdownText}
+          <Icon name='arrow-bottom' size={9} />
+        </div>
         {visible && (
           <div className={styles.body}>
             <div className={styles.inner}>

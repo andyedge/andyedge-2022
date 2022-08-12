@@ -1,6 +1,7 @@
 import Image, { ImageProps } from 'next/image'
 import useDarkMode from '@fisch0920/use-dark-mode'
 import ImageModel from '../../models/generic/image.model'
+import imageLoader from '../../helpers/imageLoader'
 
 declare interface CustomImageProps {
   src: ImageModel
@@ -27,6 +28,8 @@ const CustomImage = ({ src, srcDark, props } : CustomImageProps) => {
       layout={layout}
       style={props?.style}
       priority={props?.priority}
+      loader={imageLoader}
+      unoptimized={true}
      {...props?.customAttr && props.customAttr}
     />
   )

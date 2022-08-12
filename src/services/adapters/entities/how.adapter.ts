@@ -6,7 +6,7 @@ import HowItem from '../../../models/generic/howItem.model'
 import { adaptPlatform } from '../generic/platform.adapter'
 import { adaptLink } from '../generic/link.adapter'
 import { adaptCategory, adaptCategories } from '../generic/categories.adapter'
-import { getUniqueValuesFromCollection } from '../../../helpers/helpers'
+import { getUniqueValuesFromCollection } from '../../../helpers/functions'
 import { sortBy } from 'lodash'
 import { HOW_FILTERS, DATE_FILTER_OPTIONS } from '../../../constants/Constants'
 
