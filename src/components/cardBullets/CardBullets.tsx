@@ -34,6 +34,7 @@ const CardBullets: FC<CardBulletsProps> = ({ contents, section, hasCardStyle } :
                   className={styles.preview}
                   animateIn="fadeInUp"
                   offset={300}
+                  delay={index * 300}
                 >
                   <CustomImage src={image.image} srcDark={image.darkImage} />
                 </ScrollParallax>
