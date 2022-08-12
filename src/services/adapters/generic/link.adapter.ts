@@ -14,6 +14,7 @@ export const adaptLink = (data: Item): LinkType => {
         url: fields.url || '',
         action: fields.action || '',
         icon: adaptImage(fields.icon),
+        sectionId: fields.sectionId || '',
         buttonColor: fields.buttonColor || ''
     }
 }
