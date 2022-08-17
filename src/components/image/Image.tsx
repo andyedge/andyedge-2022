@@ -16,11 +16,11 @@ declare interface CustomImageProps {
 }
 
 const CustomImage = ({ src, srcDark, props } : CustomImageProps) => {
+  const darkMode = useDarkMode(false)
   if(!src && !srcDark) {
     return null
   }
 
-  const darkMode = useDarkMode(false)
   const layout = props?.layout || 'fill'
   let srcUrl = 'https:' + (darkMode.value && srcDark  && srcDark.url !== '' ? srcDark.url : src.url)
   
