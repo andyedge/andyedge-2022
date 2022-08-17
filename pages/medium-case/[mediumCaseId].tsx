@@ -1,6 +1,5 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { getMediumCaseStudies, searchMediumCaseStudy, getHeader, getFooter } from '../../src/services/fetch'
-import Header from '../../src/models/entities/header.model'
 import Entry from '../../src/models/generic/entry.model'
 import MediumCaseStudy from '../../src/models/entities/mediumCaseStudy.model'
 import Layout from '../../src/components/layout/Layout'
@@ -9,10 +8,10 @@ import CardsContainer from '../../src/components/cardsContainer/CardsContainer'
 import TextSlider from '../../src/components/textSlider/TextSlider'
 import Banner from '../../src/components/banner/Banner'
 import SmallCaseInfo from '../../src/components/caseStudies/info/Info'
-import PortfolioContainer from '../../src/components/portfolioContainer/PortfolioContainer'
 import CaseCard from '../../src/components/caseStudies/caseCard/CaseCard'
 import CaseVideoExplainer from '../../src/components/caseStudies/videoExplainer/VideoExplainer'
 import LayoutModel from '../../src/models/generic/layout.model'
+import RelatedCases from '../../src/components/caseStudies/relatedCases/RelatedCases'
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const mediumCaseStudies: Entry = await getMediumCaseStudies()
@@ -57,7 +56,7 @@ const MediumCase: NextPage<MediumCaseStudyProps> = ({ pageContent, header, foote
                 <TextSlider contents={[pageContent.testimonial]} page='case_studies' />
                 <CaseCard contents={pageContent.cardInfo}/>
                 <CaseVideoExplainer contents={pageContent.caseExplanation} />
-                <PortfolioContainer />
+                <RelatedCases cases={pageContent.relatedCases}/>
             </div>
         </Layout>
     )
