@@ -8,12 +8,17 @@ declare interface CategoryProps {
 
 const trimCategories = (categories: Category[], trimAmount: number) => categories.slice(0, trimAmount)
 
-const CategoryLabels: FC<CategoryProps> = ({ categories, trim } : CategoryProps ) => (
-    <div className='category-labels'>
-        {(trim ? trimCategories(categories, trim) : categories).map((category, index) => (
-            <h6 key={index} className={`status-${category.color}`}>{category.name}</h6>
-        ))}
-    </div>
-)
+const CategoryLabels: FC<CategoryProps> = ({ categories, trim } : CategoryProps ) => {
+    if(!categories) {
+        return null
+    }
+    return (
+        <div className='category-labels'>
+            {(trim ? trimCategories(categories, trim) : categories).map((category, index) => (
+                <h6 key={index} className={`status-${category.color}`}>{category.name}</h6>
+            ))}
+        </div>
+    )
+}
 
 export default CategoryLabels

@@ -9,34 +9,6 @@ import CustomImage from '../image/Image'
 import styles from './Footer.module.sass'
 import Footer from '../../models/entities/footer.model'
 
-const socials = [
-  {
-    title: 'facebook',
-    size: 16,
-    url: 'https://www.facebook.com/ui8.net/',
-  },
-  {
-    title: 'twitter',
-    size: 18,
-    url: 'https://twitter.com/ui8',
-  },
-  {
-    title: 'instagram',
-    size: 16,
-    url: 'https://www.instagram.com/ui8net/',
-  },
-  {
-    title: 'dribbble',
-    size: 16,
-    url: 'https://dribbble.com/ui8',
-  },
-  {
-    title: 'behance',
-    size: 20,
-    url: 'https://www.behance.net/ui8',
-  },
-]
-
 declare interface FooterProps {
   data: Footer
 }
@@ -91,15 +63,15 @@ const Footer: FC<FooterProps> = ({ data } : FooterProps) => {
             {data.copyrightText}
           </div>
           <div className={styles.socials}>
-            {socials.map((x, index) => (
+            {data.socialLinks.map((item, index) => (
               <a
                 className={styles.social}
-                href={x.url}
+                href={item.url}
                 target='_blank'
                 rel='noopener noreferrer'
                 key={index}
               >
-                <Icon name={x.title} size={x.size} />
+                <Icon name={item.icon} size={item.size} />
               </a>
             ))}
           </div>
