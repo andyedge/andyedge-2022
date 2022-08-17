@@ -26,7 +26,7 @@ const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
       <div className={cn('container', styles.container)}>
         <Link href='/'>
           <a className={styles.logo}>
-            <Image src={data.logo} />
+            <Image src={data.logo.image} srcDark={data.logo.darkImage}/>
           </a>
         </Link>
         <div className={cn(styles.wrap, { [styles.active]: visibleNav })}>
