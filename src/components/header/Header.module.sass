@@ -28,10 +28,14 @@
     transition: all 0.3s
     width: 40px
     height: 40px
-    flex: unset
+    position: relative
     svg
         fill: $light-black
         transition: fill 0.3s
+        position: absolute
+        left: 50%
+        top: 50%
+        transform: translate(-50%, -50%)
         +dark
             fill: $white
     +m

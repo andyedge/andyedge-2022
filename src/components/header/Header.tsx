@@ -54,7 +54,7 @@ const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
             </button>
           </nav>
         </div>
-        <button className={cn("button-circle-stroke", styles.share)}>
+        <button className={cn('button-stroke button-small', styles.share)}>
           <Icon name="download" size={18} />
         </button>
         <button className={cn('button-stroke button-small', styles.contact)} onClick={openModal}>
