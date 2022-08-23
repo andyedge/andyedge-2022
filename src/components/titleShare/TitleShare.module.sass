@@ -40,14 +40,33 @@
         max-width: 920px
         margin-right: auto
     .button
-        margin: auto 0 auto auto
+        margin: 0 0 auto auto
+        transition: all 0.3s
+        width: 56px
+        height: 56px
         box-shadow: 0 0 0 2px $gray3 inset
+        position: relative
+        border-radius: 50%
+        +d
+            width: 48px
+            height: 48px
+            padding-left: 32px
+        +s
+            margin: auto 0 0 auto
         svg
             fill: $gray
+            transition: fill 0.3s
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
             +dark
                 fill: $white
-        +m
-            margin: 0 0 8px
+    .button:hover
+        color: $white
+        box-shadow: unset
+        svg
+            fill: $white
 
 .two_rows_title
     .title

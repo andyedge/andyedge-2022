@@ -28,7 +28,7 @@ const TitleShare = ({ title, section, background }: TitleShareProps) => {
           <h2 className={cn("h1", styles.title)}>
             {title.text}
           </h2>
-          <button className={cn("button-circle-stroke", styles.button)} onClick={() => getUrlToShare(title.sectionId)}>
+          <button className={cn("button-stroke button-small", styles.button)} onClick={() => getUrlToShare(title.sectionId)}>
             <Icon name="download" size={22} />
           </button>
         </div>
