@@ -5,7 +5,6 @@ import Button from "../button/Button";
 import CustomImage from "../image/Image";
 import styles from "./TextBullets.module.sass";
 import ScrollParallax from "../ScrollParallax";
-import ImageType from "../../models/generic/image.model";
 import ImageContainer from "../../models/generic/imageContainer.model";
 import StandardContainer from "../../models/generic/standardContainer.model";
 
@@ -17,7 +16,6 @@ declare interface TextBulletsProps {
 const TextBullets = ({ contents, section }: TextBulletsProps) => {
   const bulletsContent = contents.bulletsContainer;
   const images = contents.imagesContainer;
-  const isIdentityDesign = section === 'identity_design';
   const isBomou = section === 'bomou';
   const containerClasses = cn("container", "container-full", isBomou ? styles.container_bomou : styles.container)
 
@@ -60,6 +58,7 @@ const TextBullets = ({ contents, section }: TextBulletsProps) => {
                 <ScrollParallax
                   className={styles[`preview_${section}`]}
                   animateIn="fadeInUp"
+                  delay={index * 250}
                 >
                   <CustomImage src={image.image} srcDark={image.darkImage}/>
                 </ScrollParallax>
