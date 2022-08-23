@@ -73,12 +73,12 @@ const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
   const RightSection = () => (
     <div className={styles.cell}>
       {data.rightItems.map((item, index) => (
-        <div className={styles.right_section} key={index}>
-          <div className={styles.board_image}>
-            <CustomImage src={item.leftImage} />
-          </div>
-          <Link href={`/${item.link}`}>
-            <a className={styles.right_section_info}>
+        <Link href={`/${item.link}`} key={index}>
+          <a className={styles.right_section}>
+            <div className={styles.board_image}>
+              <CustomImage src={item.leftImage} />
+            </div>
+            <div className={styles.right_section_info}>
               <h5 className={`status-${item.labelBackground}`}>{item.labelText}</h5>
               <div className={styles.products}>
                 <div className={styles.product_logo}>
@@ -89,9 +89,9 @@ const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
                   <p>{item.text}</p>
                 </div>
               </div>
-            </a>
-          </Link>
-        </div>
+            </div>
+          </a>
+        </Link>
       ))}
     </div>
   )

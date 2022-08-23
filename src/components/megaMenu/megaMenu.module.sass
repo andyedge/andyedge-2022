@@ -150,12 +150,16 @@
 
     .right_section
         display: flex
+        padding: 10px
+        border-radius: 10px
+        transform: translateY(-10px)
+        transition: padding-left 0.15s ease-in
 
         .board_image
             position: relative
             width: 170px
             height: 133px
-            margin: -16px 24px 24px 0
+            margin: -16px 24px 6px -10px
             img
                 object-fit: contain
         
@@ -181,6 +185,11 @@
                 color: $gray
                 font-weight: 300
 
+    .right_section:hover
+        padding-left: 20px
+        background: $white
+        +dark
+            background: $black3
 
 @keyframes showBody
   0%
@@ -251,7 +260,7 @@
     &:hover
         background: $white
         +dark
-            background: $light-black
+            background: $black3
 
 .info
     +body-2
@@ -294,10 +303,12 @@
     &:hover,
     &.active
         background: $white
+        padding-left: 10px
         +dark
-            background: $light-black
-            +m
-                color: $ultra-white
+            background: $black3
+        +m
+            color: $ultra-white
+        
     &:not(:last-child)
         +m
             margin-bottom: 0
