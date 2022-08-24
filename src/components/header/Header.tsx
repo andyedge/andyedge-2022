@@ -15,12 +15,9 @@ declare interface HeaderProps {
 
 const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
   const [visibleNav, setVisibleNav] = useState<boolean>(false)
-  const [isModalVisible, setIsModalVisible] = useState<boolean>(false)
+  const router = useRouter()
+  const contactModalClasses = cn('button-stroke button-small', styles.contact)
 
-  const closeModal = () => setIsModalVisible(false)
-  const openModal = () => setIsModalVisible(true)
-
-  const router = useRouter();
   return (
     <header className={styles.header}>
       <div className={cn('container', styles.container)}>
@@ -49,18 +46,13 @@ const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
             <button className={cn("button-circle-stroke", styles.share)}>
               <Icon name="download" size={18} />
             </button>
-            <button className={cn('button-stroke button-small', styles.contact)} onClick={openModal}>
-              {data.ctaButton.text}
-            </button>
+            <ContactModal text={data.ctaButton.text} formId={data.formId} className={contactModalClasses} />
           </nav>
         </div>
         <button className={cn('button-stroke button-small', styles.share)}>
           <Icon name="download" size={18} />
         </button>
-        <button className={cn('button-stroke button-small', styles.contact)} onClick={openModal}>
-          {data.ctaButton.text}
-        </button>
-        <ContactModal isModalVisible={isModalVisible} onClose={closeModal}/>
+        <ContactModal text={data.ctaButton.text} formId={data.formId} className={contactModalClasses} />
         <button
           className={cn(styles.burger, { [styles.active]: visibleNav })}
           onClick={() => setVisibleNav(!visibleNav)}

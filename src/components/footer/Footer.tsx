@@ -4,10 +4,10 @@ import Icon from '../icon/Icon'
 import Theme from '../theme/Theme'
 import RichText from '../RichText'
 import { FC, useState } from 'react'
-import Button from '../button/Button'
 import CustomImage from '../image/Image'
 import styles from './Footer.module.sass'
 import Footer from '../../models/entities/footer.model'
+import ContactModal from '../contactModal/ContactModal'
 
 declare interface FooterProps {
   data: Footer
@@ -53,7 +53,7 @@ const Footer: FC<FooterProps> = ({ data } : FooterProps) => {
             <div className={styles.info}>
               <RichText richText={data.getInTouchContent} />
             </div>
-            <Button link={data.button} size={'tiny'}/>
+            <ContactModal text={data.button.text} className={'button-default'} formId={data.formId}/>
           </div>
         </div>
       </div>

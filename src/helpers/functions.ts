@@ -28,3 +28,5 @@ export const getUrlToShare = (sectionId: string) => {
         })
     return urlToShare;
 }
+
+export const getTypeformId = (typeformURL: string) => (typeformURL && typeformURL.length) ? typeformURL.split('to/')[1] : ''

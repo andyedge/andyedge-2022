@@ -7,4 +7,5 @@ export default interface Header {
     links: LinkType[]
     megaMenu: MegaMenu
     ctaButton: LinkType
+    formId: string
 }

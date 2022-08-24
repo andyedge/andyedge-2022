@@ -18,4 +18,5 @@ export default interface Footer {
     button: Link
     copyrightText: string
     socialLinks: SocialLink[]
+    formId: string
 }
