@@ -127,13 +127,13 @@
 
 // theme
 =dark
-  @at-root :global(.dark-mode-disabled) &
+  @at-root :global(.dark-mode) &
     @content
 
 =dark-body
-  @at-root .dark-mode-disabled
+  @at-root .dark-mode
     @content
 
 =dark-common
-  @at-root .dark-mode-disabled &
+  @at-root .dark-mode &
     @content
