@@ -35,16 +35,22 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
             //Filters categories from a NEW array
             const casesCopy = cloneDeep(contents.caseStudies)
             const filteredCases = casesCopy.filter((caseStudy) => {
+                return caseStudy.categories.find((category) => category.name === categoryName)
+            })
+
+            let newCases: PortfolioCaseStudy[] = []
+            filteredCases.forEach((caseStudy) => {
                 const categoryMatched = caseStudy.categories.find((category) => category.name === categoryName)
                 if(categoryMatched) {
                     //Bring the category match to the start of the cateogories array
                     const arrayWihtouMatchedCategory = caseStudy.categories.filter((category) => category.name !== categoryMatched.name)
-                    arrayWihtouMatchedCategory.unshift(categoryMatched)
-                    caseStudy.categories = arrayWihtouMatchedCategory
-                    return true
+                    newCases = [...newCases, {
+                        ...caseStudy,
+                        categories: [categoryMatched, ...cloneDeep(arrayWihtouMatchedCategory) ]
+                    }]
                 }
             })
-            setCases(filteredCases)
+            setCases(newCases)
         }
     }, [selectedCategory])
 
