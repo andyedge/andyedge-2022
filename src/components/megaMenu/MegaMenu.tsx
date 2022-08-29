@@ -8,6 +8,7 @@ import Icon from '../icon/Icon'
 import MegaMenu from '../../models/entities/megaMenu.model'
 import CustomImage from '../image/Image'
 import ImageType from '../../models/generic/image.model'
+import { useIsMobile } from '../../helpers/hooks'
 
 declare interface MegaMenuProps {
   data: MegaMenu
@@ -16,25 +17,13 @@ declare interface MegaMenuProps {
 
 const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false)
-  const [isMobile, setIsMobile] = useState<boolean>(false)
-
-  const handleResize = () => {
-    setIsMobile(window.innerWidth < 1024)
-  }
+  const isMobile = useIsMobile()
 
   const handleClick = () => {
     if(!isMobile) {
       setIsMenuVisible(!isMenuVisible)
     }
   }
-  
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      handleResize()
-      document.addEventListener('resize', handleResize)
-    }
-    return () => document.removeEventListener('resize', handleResize)
-  }, [])
 
   const LeftSection  = () => (
     <div className={styles.col}>
