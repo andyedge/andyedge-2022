@@ -41,7 +41,7 @@
     +m
         display: none
         position: absolute
-        bottom: 0
+        top: 300px
         left: 32px
 
 .contact
@@ -56,14 +56,8 @@
     +m
         display: none
         position: absolute
-        bottom: 0
-        right: 32px
-
-.contact:hover, .share:hover
-    color: $white
-    box-shadow: unset
-    svg
-        fill: $white
+        top: 300px
+        left: 32px
 
 .logo
     margin-right: 48px
@@ -77,10 +71,6 @@
     display: flex
     align-items: center
     flex-grow: 1
-    padding-left: 330px
-    +x
-        padding-left: 0
-        border: none
     +t
         display: none
         position: absolute
@@ -88,7 +78,7 @@
         left: 0
         right: 0
         align-items: flex-start
-        padding: 0 80px 80px
+        padding: 0px 32px 44px
         background: $ultra-white
         box-shadow: 0px 64px 64px 0 rgba(15, 15, 15, 0.1)
         &.active
@@ -97,7 +87,6 @@
         flex-direction: column
         align-items: flex-start
         height: 100vh
-        padding: 48px 32px 44px
     +dark
         border-color: $gray
         +d

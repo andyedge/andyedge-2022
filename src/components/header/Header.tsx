@@ -14,7 +14,7 @@ declare interface HeaderProps {
 }
 
 const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
-  const [visibleNav, setVisibleNav] = useState<boolean>(false)
+  const [visibleNav, setVisibleNav] = useState<boolean>(true)
   const router = useRouter()
   const contactModalClasses = cn('button-stroke button-small', styles.contact)
 
@@ -43,15 +43,15 @@ const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
               data={data.megaMenu}
               isActive={router.pathname === '/'}
             />
-            <button className={cn("button-circle-stroke", styles.share)}>
+            {/* <button className={cn("button-circle-stroke", styles.share)}>
               <Icon name="download" size={18} />
-            </button>
+            </button> */}
             <ContactModal text={data.ctaButton.text} formId={data.formId} className={contactModalClasses} />
           </nav>
         </div>
-        <button className={cn('button-stroke button-small', styles.share)}>
+        {/* <button className={cn('button-stroke button-small', styles.share)}>
           <Icon name="download" size={18} />
-        </button>
+        </button> */}
         <ContactModal text={data.ctaButton.text} formId={data.formId} className={contactModalClasses} />
         <button
           className={cn(styles.burger, { [styles.active]: visibleNav })}

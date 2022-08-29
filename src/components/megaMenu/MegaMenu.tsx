@@ -15,7 +15,7 @@ declare interface MegaMenuProps {
 }
 
 const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
-  const [visible, setVisible] = useState<boolean>(false)
+  const [visible, setVisible] = useState<boolean>(true)
 
   const LeftSection  = () => (
     <div className={styles.col}>
