@@ -1,5 +1,5 @@
-import '../styles/globals.scss'
-import '../styles/app.sass'
+import '../src/styles/globals.scss'
+import '../src/styles/app.sass'
 import type { AppProps } from 'next/app'
 import { useRouter }  from 'next/router'
 import Loader from '../src/components/loader/Loader'
