@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import OutsideClickHandler from 'react-outside-click-handler'
@@ -15,7 +15,26 @@ declare interface MegaMenuProps {
 }
 
 const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
-  const [visible, setVisible] = useState<boolean>(true)
+  const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false)
+  const [isMobile, setIsMobile] = useState<boolean>(false)
+
+  const handleResize = () => {
+    setIsMobile(window.innerWidth < 1024)
+  }
+
+  const handleClick = () => {
+    if(!isMobile) {
+      setIsMenuVisible(!isMenuVisible)
+    }
+  }
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      handleResize()
+      document.addEventListener('resize', handleResize)
+    }
+    return () => document.removeEventListener('resize', handleResize)
+  }, [])
 
   const LeftSection  = () => (
     <div className={styles.col}>
@@ -97,20 +116,20 @@ const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
   )
 
   return (
-    <OutsideClickHandler onOutsideClick={() => setVisible(false)}>
+    <OutsideClickHandler onOutsideClick={() => setIsMenuVisible(false)}>
       <div className={styles.group}>
         <div
           className={cn(
             styles.head,
-            { [styles.open]: visible },
+            { [styles.open]: isMenuVisible },
             { [styles.active]: isActive }
           )}
-          onClick={() => setVisible(!visible)}
+          onClick={handleClick}
         >
           {data.dropdownText}
-          <Icon name='arrow-bottom' size={9} />
+          {!isMobile && <Icon name='arrow-bottom' size={9} />}
         </div>
-        {visible && (
+        {(isMenuVisible || isMobile) && (
           <div className={styles.body}>
             <div className={styles.inner}>
               <div className={styles.row}>

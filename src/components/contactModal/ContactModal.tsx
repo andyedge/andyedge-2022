@@ -8,7 +8,15 @@ declare interface ContactModalProps {
 }
 
 const ContactModal: FC<ContactModalProps> = ({ text, formId, className } : ContactModalProps) => {
-    return <PopupButton id={formId} className={className} enableSandbox>{text}</PopupButton>
+    return (
+        <PopupButton 
+            id={formId} 
+            className={className}
+            size={60}
+        >
+            {text}
+        </PopupButton>
+    )
 }
 
 export default ContactModal

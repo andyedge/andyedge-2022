@@ -14,7 +14,7 @@ declare interface HeaderProps {
 }
 
 const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
-  const [visibleNav, setVisibleNav] = useState<boolean>(true)
+  const [visibleNav, setVisibleNav] = useState<boolean>(false)
   const router = useRouter()
   const contactModalClasses = cn('button-stroke button-small', styles.contact)
 
