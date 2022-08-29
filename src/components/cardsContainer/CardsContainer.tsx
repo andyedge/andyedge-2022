@@ -8,6 +8,7 @@ import CardModal from "../cardModal/CardModal";
 import ScrollParallax from "../ScrollParallax";
 import styles from "./CardsContainer.module.sass";
 import StandardCardContainer from "../../models/generic/standardCardContainer.model";
+import { useIsMobile } from '../../helpers/hooks';
 
 declare interface CardsContainerProps {
   contents: StandardCardContainer[]
@@ -56,7 +57,7 @@ const settings = {
 const CardsContainer = ({ contents, scrollToRef, modals, smallSpaccing }: CardsContainerProps) => {
   const [modalIndex, setModalIndex] = useState<number | null> (null);
   const isVisible = modalIndex !== null;
-
+  const isMobile = useIsMobile();
   return (
     <div className={cn("section", styles.section, smallSpaccing && styles.small_spacing)}>
       <div className={styles.anchor} ref={scrollToRef}></div>
@@ -70,29 +71,31 @@ const CardsContainer = ({ contents, scrollToRef, modals, smallSpaccing }: CardsC
               onClose={() => setModalIndex(null)}
             />
           )}
-          <Slider className="programs-slider" {...settings}>
-            {contents.map((content: any, index: number) => (
-              <ScrollParallax className={styles.slide} key={index}>
-                <div className={cn("programs-item", styles.item)}>
-                  <div>
-                    <div className={styles.icon}>
-                      <CustomImage src={content.icon} />
+          <ScrollParallax initiallyVisible={isMobile}>
+            <Slider className="programs-slider" {...settings}>
+              {contents.map((content: StandardCardContainer, index: number) => (
+                <div className={styles.slide} key={index}>
+                  <div className={cn("programs-item", styles.item)}>
+                    <div>
+                      <div className={styles.icon}>
+                        <CustomImage src={content.icon} />
+                      </div>
+                      <h5 className={styles.subtitle}>{content.title}</h5>
+                      <p className={styles.content}>{content.text}</p>
                     </div>
-                    <h5 className={styles.subtitle}>{content.title}</h5>
-                    <p className={styles.content}>{content.text}</p>
+                    {content.leftCtaText && (
+                      <button 
+                        className={cn("button-default", "button-stroke", styles.button, styles.button_card)}
+                        onClick={() => setModalIndex(index)}
+                        >
+                        {content.leftCtaText}
+                      </button>
+                    )}
                   </div>
-                  {content.leftCtaText && (
-                    <button 
-                      className={cn("button-default", "button-stroke", styles.button, styles.button_card)}
-                      onClick={() => setModalIndex(index)}
-                      >
-                      {content.leftCtaText}
-                    </button>
-                  )}
                 </div>
-              </ScrollParallax>
-            ))}
-          </Slider>
+              ))}
+            </Slider>
+          </ScrollParallax>
         </div>
       </div>
     </div>
