@@ -111,7 +111,7 @@ export const getPortfolio = async () => {
         client.getEntries({ content_type: 'mediumCaseStudies', include: NESTING_LEVEL }),
     ]).then((result) => result.map((caseStudyGruop: Entry) => caseStudyGruop.items))
 
-    const totalCases = [caseStudies[0], caseStudies[1], ...caseStudies[2], ...caseStudies[3], ...caseStudies[4]]
+    const totalCases = [...caseStudies[0], ...caseStudies[1], ...caseStudies[2], ...caseStudies[3], ...caseStudies[4]]
 
     const portfolio = await client.getEntries({ 
         content_type: 'portfolio',

@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState, useRef } from 'react'
 import Portfolio from '../../models/entities/portfolio.model'
 import Button from '../button/Button'
 import CategoryLabels from '../categoryLabels/CategoryLabels'
@@ -8,7 +8,8 @@ import ScrollParallax from '../ScrollParallax'
 import PortfolioItem from './PortfolioItem'
 import PortfolioCaseStudy from '../../models/generic/portfolioCaseStudy.model'
 import { capitalizeFirstLetter } from '../../helpers/functions'
-import { cloneDeep } from 'lodash'
+import { cloneDeep, findIndex, sortBy } from 'lodash'
+import { useRouter } from 'next/router'
 
 declare interface PortfolioProps {
     contents: Portfolio
@@ -16,24 +17,49 @@ declare interface PortfolioProps {
 
 const TRESHOLD = 6
 const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) => {
-    const initialCases = [...contents.caseStudies].slice(0, TRESHOLD)
-
-    const [cases, setCases] = useState<PortfolioCaseStudy[]>(initialCases)
+    const caseStudies =  sortBy([...contents.caseStudies], 'updatedAt').reverse()
+    const router = useRouter()
+    const portfolioReference = useRef<HTMLElement>(null)
+    const initialCases = caseStudies.slice(0, TRESHOLD)
+    
+    const [currentCases, setCurrentCases] = useState<PortfolioCaseStudy[]>(initialCases)
     const [selectedCategory, setSelectedCategory] = useState<number | null> (null)
-
+    
     const loadMore = () => {
-        const nextCasesLength = cases.length + TRESHOLD
-        setCases(contents.caseStudies.slice(0, nextCasesLength))
+        setCurrentCases(caseStudies)
+    }
+    
+    const showLoadMoreButton = (): boolean => {
+        return (selectedCategory === null) && (currentCases.length < caseStudies.length)
+    }
+
+    const applyURLFilter = () => {
+        const filterText = router.query.filter
+        if(!filterText) {
+            return
+        }
+
+        const categoryName = filterText as string
+        setTimeout(() => {
+            portfolioReference.current?.scrollIntoView()
+            const categoryIndex = findIndex(contents.categories, { name: categoryName.toUpperCase() })
+            if(categoryIndex !== -1) {
+                setSelectedCategory(categoryIndex)
+            }
+        }, 500)
     }
 
     useEffect(() => {
+        applyURLFilter()
+    }, [router])
+
+    useEffect(() => {
         if(selectedCategory === null) {
-            setCases(initialCases)
+            setCurrentCases(initialCases)
         }
         else {
             const categoryName = contents.categories[selectedCategory].name
-            //Filters categories from a NEW array
-            const casesCopy = cloneDeep(contents.caseStudies)
+            const casesCopy = cloneDeep(caseStudies)
             const filteredCases = casesCopy.filter((caseStudy) => {
                 return caseStudy.categories.find((category) => category.name === categoryName)
             })
@@ -42,7 +68,6 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
             filteredCases.forEach((caseStudy) => {
                 const categoryMatched = caseStudy.categories.find((category) => category.name === categoryName)
                 if(categoryMatched) {
-                    //Bring the category match to the start of the cateogories array
                     const arrayWihtouMatchedCategory = caseStudy.categories.filter((category) => category.name !== categoryMatched.name)
                     newCases = [...newCases, {
                         ...caseStudy,
@@ -50,7 +75,7 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
                     }]
                 }
             })
-            setCases(newCases)
+            setCurrentCases(newCases)
         }
     }, [selectedCategory])
 
@@ -71,11 +96,11 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
                         <p>{contents.featuredCaseText}</p>
                     </div>
                     <div>
-                        <Button size='tiny' link={contents.featuredCaseStudyButton}/>
+                        <Button size='auto' link={contents.featuredCaseStudyButton}/>
                     </div>
                 </div>
             </section>
-            <section className={styles.case_studies}>
+            <section ref={portfolioReference} className={styles.case_studies}>
                 <div className={styles.case_studies_info}>
                     <h2 className='h2'>{contents.portfolioTitle}</h2>
                     <p>{contents.portfolioDescription}</p>
@@ -99,13 +124,13 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
                 </div>
                 <ScrollParallax>
                     <div className='case-studies-items'>
-                        {cases.map((caseStudy, index) => (
+                        {currentCases.map((caseStudy, index) => (
                             <PortfolioItem data={caseStudy} key={index} />
                         ))}
                     </div>
                 </ScrollParallax>
                 <div className={styles.button_container}>
-                    {selectedCategory === null ? (
+                    {showLoadMoreButton() ? (
                         <button onClick={loadMore}>
                             Load More
                         </button>

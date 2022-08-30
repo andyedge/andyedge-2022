@@ -39,7 +39,7 @@ const PearsonInfo: FC<PearsonInfoProps> = ({ contents }: PearsonInfoProps) => {
                                 <div>
                                     <h5>{item.title}</h5>
                                     <p>{item.text}</p>
-                                    <Button link={item.link} size='tiny' />
+                                    <Button link={item.link} size='auto' />
                                 </div>
                             </ScrollParallax>
                         ))}

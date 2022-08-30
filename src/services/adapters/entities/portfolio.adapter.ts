@@ -20,7 +20,7 @@ export const adaptPortfolio = ( {data, caseStudies, categories } : adapterProps)
     
     let portfolioCaseStudies: PortfolioCaseStudy[] = []
     caseStudies.forEach((caseStudy: Item) => {
-        const portfolioData = caseStudy.fields?.portfolioData
+        const portfolioData = caseStudy.fields.portfolioData
         if(portfolioData) {
             portfolioCaseStudies = [...portfolioCaseStudies, adaptPortfolioCaseStudy(portfolioData)]
         }

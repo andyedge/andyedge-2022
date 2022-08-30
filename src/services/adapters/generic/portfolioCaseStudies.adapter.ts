@@ -15,6 +15,7 @@ export const adaptPortfolioCaseStudy = (data: Item): PortfolioCaseStudy => {
         area: fields.area,
         year: fields.year,
         image: adaptImage(fields.image),
-        categories: adaptCategories(fields.categories)
+        categories: adaptCategories(fields.categories),
+        updatedAt: data.sys.updatedAt
     }
 }

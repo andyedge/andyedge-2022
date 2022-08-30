@@ -8,4 +8,5 @@ export default interface PortfolioCaseStudy {
     year: string
     image: Image
     categories: Category[]
+    updatedAt: string
 }
