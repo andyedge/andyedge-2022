@@ -34,7 +34,7 @@ const BomouBrandId = ({ contents }: BomouBrandIdProps) => {
           {contents.primaryButtonCta ?
             <Button
               link={contents.primaryButtonCta}
-              size={'tiny'}
+              size={'auto'}
             />
             :
             null

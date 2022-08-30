@@ -8,10 +8,14 @@ import LinkType from '../../models/generic/link.model';
 declare interface ButtonProps {
   link: LinkType
   func?: () => void
-  size?: 'default' | 'small' | 'tiny'
+  size?: 'big' | 'default' | 'small' | 'tiny' | 'auto'
 }
 
 const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) => {
+  if(!link) {
+    return null
+  }
+  
   const iconExists = link.icon && link.icon?.url !== '' ? true : false;
   const isWhiteButton = link.buttonColor === 'White' ? 'button-stroke' : '';
 

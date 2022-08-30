@@ -1,13 +1,13 @@
-import cn from "classnames";
-import styles from './WhyMainSection.module.sass';
-import ImageTextComp from "../imageText/ImageTextComp";
-import StandardContainer from "../../models/generic/standardContainer.model";
+import cn from 'classnames';
+import styles from './LineImages.module.sass';
+import ImageTextComp from '../../imageText/ImageTextComp';
+import StandardContainer from '../../../models/generic/standardContainer.model';
 
-declare interface WhyMainSectionProps {
+declare interface LineImagesProps {
   contents: StandardContainer[]
 }
 
-const WhyMainSection = ({ contents }: WhyMainSectionProps) => {
+const LineImages = ({ contents }: LineImagesProps) => {
   return (
     <div className={cn(styles.main_div)}>
       {
@@ -24,4 +24,4 @@ const WhyMainSection = ({ contents }: WhyMainSectionProps) => {
   )
 }
 
-export default WhyMainSection;
+export default LineImages;

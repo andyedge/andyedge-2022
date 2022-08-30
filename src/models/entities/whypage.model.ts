@@ -1,6 +1,8 @@
 import SeoContent from '../generic/seoContent.model'
 import StandardContainer from  '../generic/standardContainer.model'
 import StepsContainer from '../generic/stepsContainer.model'
+import Link from '../generic/link.model'
+import PortfolioCaseStudy from '../generic/portfolioCaseStudy.model'
 
 export default interface Whypage {
     name: string
@@ -11,6 +13,6 @@ export default interface Whypage {
     stepsContainer: StepsContainer[]
     title2: string
     subtitle: string
-    buttonText?: string
-    buttonLink?: string
+    relatedCases: PortfolioCaseStudy[]
+    cta: Link
 }

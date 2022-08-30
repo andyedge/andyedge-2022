@@ -1,17 +1,17 @@
-import cn from "classnames";
-import RichText from "../RichText";
-import CustomImage from "../image/Image";
-import { useEffect, useState } from "react";
-import ScrollParallax from "../ScrollParallax";
-import useDarkMode from "@fisch0920/use-dark-mode";
-import styles from "./WhySecondSection.module.sass";
-import StandardContainer from "../../models/generic/standardContainer.model";
+import cn from 'classnames'
+import RichText from '../../RichText'
+import CustomImage from '../../image/Image'
+import { useEffect, useState } from 'react'
+import ScrollParallax from '../../ScrollParallax'
+import useDarkMode from '@fisch0920/use-dark-mode'
+import styles from './WhyBanner.module.sass'
+import StandardContainer from '../../../models/generic/standardContainer.model'
 
-declare interface WhySecondSectionProps {
+declare interface WhyBannerProps {
   content: StandardContainer
 }
 
-const WhySecondSection = ({ content }: WhySecondSectionProps) => {
+const WhyBanner = ({ content } : WhyBannerProps) => {
   const wrapStyle = content.mediaPosition?.toLowerCase() === 'right' ? { marginRight: 'auto' } : { marginLeft: 'auto' };
   const darkMode = useDarkMode(false);
   const [srcLine, setSrcLine] = useState('');
@@ -32,7 +32,7 @@ const WhySecondSection = ({ content }: WhySecondSectionProps) => {
       <div className={styles.section}>
         <div className={cn(styles.container_section)}>
           <div className={styles.wrap} style={wrapStyle}>
-            <h2 className={cn("h2", styles.title)}>
+            <h2 className={cn('h2', styles.title)}>
               {content.title}
             </h2>
             {
@@ -49,16 +49,16 @@ const WhySecondSection = ({ content }: WhySecondSectionProps) => {
           {
             content.imagesContainer && content.imagesContainer.length > 0 ?
               <>
-                <ScrollParallax className={styles.background_div} animateIn="fadeInUp">
+                <ScrollParallax className={styles.background_div} animateIn='fadeInUp'>
                   <CustomImage src={content.imagesContainer[0].image} srcDark={content.imagesContainer[0].darkImage}/>
                 </ScrollParallax>
-                <ScrollParallax className={styles.lines} animateIn="fadeInUp" delay={500}>
+                <ScrollParallax className={styles.lines} animateIn='fadeInUp' delay={500}>
                   <img
                     src={srcLine}
                     alt='bg-line-03'
                   />
                 </ScrollParallax>
-                <ScrollParallax className={styles.lighthouse} animateIn="fadeInUp" delay={800}>
+                <ScrollParallax className={styles.lighthouse} animateIn='fadeInUp' delay={800}>
                   <img
                     src={srcLighthouse}
                     alt='lighthouse-light'
@@ -74,4 +74,4 @@ const WhySecondSection = ({ content }: WhySecondSectionProps) => {
   );
 }
 
-export default WhySecondSection;
+export default WhyBanner;

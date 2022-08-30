@@ -6,10 +6,11 @@ import classNames from 'classnames'
 
 declare interface RelatedCasesProps {
     cases: PortfolioCaseStudy[]
+    section?: string
 }
 
-const RelatedCases: FC<RelatedCasesProps> = ({ cases } : RelatedCasesProps) => (
-    <section className={classNames('container', styles.container)}>
+const RelatedCases: FC<RelatedCasesProps> = ({ cases, section } : RelatedCasesProps) => (
+    <section className={classNames('container', styles.container, section && styles[section])}>
         <div className='case-studies-items'>
             {cases.map((caseStudy, index) => (
                 <PortfolioItem data={caseStudy} key={index} />

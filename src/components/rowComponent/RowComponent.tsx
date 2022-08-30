@@ -78,7 +78,7 @@ const RowComponent = ({ headContent, items, isTitle, isPearson, hasSection }: Ro
             headContent.primaryButtonCta ?
               <Button
                 link={headContent.primaryButtonCta}
-                size={'tiny'}
+                size={'auto'}
               />
               :
               null

@@ -33,7 +33,7 @@ const BomouSocialOutreach = ({ contents }: BomouSocialOutreachProps) => {
           {contents.primaryButtonCta ?
             <Button
               link={contents.primaryButtonCta}
-              size={'tiny'}
+              size={'auto'}
             />
             :
             null

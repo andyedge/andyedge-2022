@@ -1,8 +1,10 @@
-import Entry from '../../../models/generic/entry.model'
+import Entry, { Item } from '../../../models/generic/entry.model'
 import Whypage from '../../../models/entities/whypage.model'
 import { adaptStandardContainer, adaptStandardContainers } from '../generic/standardContainer.adapter'
 import { adaptStepsSection } from '../generic/steps.adapter'
 import { adaptSeoContent } from '../generic/seoContent.adapter'
+import { adaptLink } from '../generic/link.adapter'
+import { adaptPortfolioCaseStudy } from '../generic/portfolioCaseStudies.adapter'
 
 export const adaptWhypage = (data: Entry): Whypage => {
     const [whyPage] = data.items
@@ -16,7 +18,7 @@ export const adaptWhypage = (data: Entry): Whypage => {
         stepsContainer: adaptStepsSection(fields.stepsContainer),
         title2: fields.title2,
         subtitle: fields.subtitle,
-        buttonText: fields.buttonText ? fields.buttonText : null,
-        buttonLink: fields.buttonLink ? fields.buttonLink : null
+        relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : [],
+        cta: adaptLink(fields.cta)
     }
 }
