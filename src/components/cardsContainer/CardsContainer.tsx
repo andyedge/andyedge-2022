@@ -78,7 +78,7 @@ const CardsContainer = ({ contents, scrollToRef, modals, smallSpaccing }: CardsC
                   <div className={cn("programs-item", styles.item)}>
                     <div>
                       <div className={styles.icon}>
-                        <CustomImage src={content.icon} />
+                        <CustomImage src={{image: content.icon}} />
                       </div>
                       <h5 className={styles.subtitle}>{content.title}</h5>
                       <p className={styles.content}>{content.text}</p>

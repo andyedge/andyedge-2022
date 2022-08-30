@@ -19,8 +19,7 @@ const EcampImgSection = ({ images, page }: EcampImgSectionProps) => {
             images.map((image: ImageContainer, index: number) => (
               <div className={styles.img_div} key={index}>
                 <CustomImage
-                  src={image.image}
-                  srcDark={image.darkImage}
+                  src={image}
                 />
               </div>
             ))

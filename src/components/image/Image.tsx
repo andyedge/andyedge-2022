@@ -4,8 +4,10 @@ import ImageModel from '../../models/generic/image.model'
 import imageLoader from '../../helpers/imageLoader'
 
 declare interface CustomImageProps {
-  src: ImageModel
-  srcDark?: ImageModel
+  src: {
+    image: ImageModel,
+    darkImage?: ImageModel
+  }
   props?: {
     className?: string
     style?: Object
@@ -15,20 +17,23 @@ declare interface CustomImageProps {
   }
 }
 
-const CustomImage = ({ src, srcDark, props } : CustomImageProps) => {
+const CustomImage = ({ src, props } : CustomImageProps) => {
   const darkMode = useDarkMode(false)
-  if(!src && !srcDark) {
+
+  if(!src.image && !src.darkImage) {
     return null
   }
 
+  const showDarkImage = () => darkMode.value && src.darkImage && src.darkImage.url !== ''
+
   const layout = props?.layout || 'fill'
-  let srcUrl = 'https:' + (darkMode.value && srcDark  && srcDark.url !== '' ? srcDark.url : src.url)
+  const source = showDarkImage() ? src.darkImage : src.image
   
   return (
     <Image
       className={props?.className}
-      src={srcUrl}
-      alt={src.description}
+      src={source?.url || ''}
+      alt={source?.description}
       layout={layout}
       style={props?.style}
       priority={props?.priority}

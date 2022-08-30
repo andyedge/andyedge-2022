@@ -55,7 +55,7 @@ const Solution = ({ data }: { data: Solution }) => {
     <div className={cn("section-bg", styles.container)}>
       {solutionBackgroundImage && (
         <div className={styles.bg_div}>
-          <CustomImage src={solutionBackgroundImage} />
+          <CustomImage src={{image: solutionBackgroundImage}} />
         </div>
       )}
       <div className={cn("container")}>
@@ -98,7 +98,7 @@ const Solution = ({ data }: { data: Solution }) => {
                 {
                   solutionImagesState.map((image: any, index: number) => (
                     <div className={styles.solution_images} style={image.style} key={'imgstate_' + index}>
-                      <CustomImage src={image} props={{ style: { borderRadius: '16px' } }} />
+                      <CustomImage src={{image}} props={{ style: { borderRadius: '16px' } }} />
                     </div>
                   ))
                 }

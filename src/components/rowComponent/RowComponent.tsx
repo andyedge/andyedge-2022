@@ -7,6 +7,7 @@ import Button from "../button/Button";
 import ScrollParallax from "../ScrollParallax";
 import styles from "./RowComponent.module.sass";
 import StandardContainer from "../../models/generic/standardContainer.model";
+import useDarkMode from '@fisch0920/use-dark-mode';
 
 declare interface RowComponentProps {
   headContent: StandardContainer
@@ -51,6 +52,7 @@ const settings = {
 };
 
 const RowComponent = ({ headContent, items, isTitle, isPearson, hasSection }: RowComponentProps) => {
+  const darkMode = useDarkMode(false)
   return (
     <section className={cn("section-pb", hasSection && styles.section)}>
       <div className={cn("container", styles.container)}>
@@ -89,33 +91,36 @@ const RowComponent = ({ headContent, items, isTitle, isPearson, hasSection }: Ro
             className={cn("lifestyle-slider", styles.slider)}
             {...settings}
           >
-            {items.map((item, index) => (
-              <ScrollParallax className={styles.item} key={index}>
-                <div className={styles.row}>
-                  <div className={styles.col}>
-                    <div className={styles.details}>
-                      <h4 className={styles.number}>{item.title}</h4>
-                      <h6 className={styles.category}>{item.subtitle}</h6>
-                      {
-                        item.text ?
-                          <div className={styles.content}>
-                            <RichText richText={item.text} />
-                          </div>
-                          :
-                          null
-                      }
+            {items.map((item, index) => {
+              const image = darkMode.value ? item.logoC.darkImage : item.logoC.image
+              return (
+                <ScrollParallax className={styles.item} key={index}>
+                  <div className={styles.row}>
+                    <div className={styles.col}>
+                      <div className={styles.details}>
+                        <h4 className={styles.number}>{item.title}</h4>
+                        <h6 className={styles.category}>{item.subtitle}</h6>
+                        {
+                          item.text ?
+                            <div className={styles.content}>
+                              <RichText richText={item.text} />
+                            </div>
+                            :
+                            null
+                        }
+                      </div>
+                    </div>
+                    <div className={styles.col}>
+                      <img
+                        className={isPearson ? styles.image_shadow : styles.image_default}
+                        src={image?.url}
+                        alt={image?.description}
+                      />
                     </div>
                   </div>
-                  <div className={styles.col}>
-                    <img
-                      className={isPearson ? styles.image_shadow : styles.image_default}
-                      src={item.logo.url}
-                      alt={item.logo.description}
-                    />
-                  </div>
-                </div>
-              </ScrollParallax>
-            ))}
+                </ScrollParallax>
+              )
+            })}
           </Slider>
         </div>
       </div>

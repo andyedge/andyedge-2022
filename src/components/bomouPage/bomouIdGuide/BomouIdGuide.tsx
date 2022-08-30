@@ -20,10 +20,7 @@ const BomouIdGuide = ({ contents }: BomouIdGuide) => {
           <div className={styles.logo}>
             {
               contents.logoC.image.url !== '' ?
-                <CustomImage
-                  src={contents.logoC.image}
-                  srcDark={contents.logoC.darkImage}
-                />
+                <CustomImage src={contents.logoC} />
                 :
                 null
             }
@@ -50,7 +47,7 @@ const BomouIdGuide = ({ contents }: BomouIdGuide) => {
           {
             images?.map((image: ImageContainer, index: number) => (
               <div className={styles.preview} key={index}>
-                <CustomImage src={image.image} srcDark={image.darkImage} />
+                <CustomImage src={image} />
               </div>
             ))
           }

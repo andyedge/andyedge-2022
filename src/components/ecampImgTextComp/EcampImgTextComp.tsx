@@ -22,8 +22,7 @@ const EcampImgTextComp = ({ contents }: EcampImgTextCompProps) => {
               images?.map((image: ImageContainer, index: number) => (
                 <div className={styles.image_div} key={index}>
                   <CustomImage
-                    src={image.image}
-                    srcDark={image.darkImage}
+                    src={image}
                   />
                 </div>
               ))

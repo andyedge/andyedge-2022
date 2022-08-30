@@ -19,7 +19,7 @@ const Banner: FC<BannerProps> = ({ images, page } : BannerProps) => (
                 const delay = imageHasNoDelay(index) ?  0 : (index + 1) * 200
                 return (
                     <ScrollParallax key={index} delay={delay} animateIn={delay && 'fadeInUp'}>
-                        <CustomImage src={image.image} srcDark={image.darkImage} />
+                        <CustomImage src={image} />
                     </ScrollParallax>
                 )
             }

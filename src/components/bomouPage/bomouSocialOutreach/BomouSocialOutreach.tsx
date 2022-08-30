@@ -5,13 +5,14 @@ import CustomImage from "../../image/Image";
 import styles from "./BomouSocialOutreach.module.sass";
 import ImageType from "../../../models/generic/image.model";
 import StandardContainer from "../../../models/generic/standardContainer.model";
+import ImageContainer from '../../../models/generic/imageContainer.model';
 
 declare interface BomouSocialOutreachProps {
   contents: StandardContainer
 }
 
 const BomouSocialOutreach = ({ contents }: BomouSocialOutreachProps) => {
-  const images = contents.images;
+  const images = contents.imagesContainer;
 
   return (
     <div className={styles.hero}>
@@ -41,7 +42,7 @@ const BomouSocialOutreach = ({ contents }: BomouSocialOutreachProps) => {
         </div>
         <div className={styles.gallery}>
           {
-            images?.map((image: ImageType, index: number) => (
+            images?.map((image: ImageContainer, index: number) => (
               <div className={cn('bordered-image', styles.preview)} key={index}>
                 <CustomImage src={image} />
               </div>

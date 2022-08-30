@@ -27,9 +27,9 @@ const Hero = ({ contents }: HowHeroProps) => {
                     </p>
                 </div>
                 <div className={styles.gallery}>
-                    {contents?.images?.length && (
+                    {contents?.imagesContainer?.length && (
                         <div className={styles.gallery_img}>
-                            <CustomImage src={contents.images[0]}/>
+                            <CustomImage src={contents.imagesContainer[0]}/>
                         </div>
                     )}
                 </div>

@@ -18,7 +18,7 @@ const Hero = ({ contents, scrollToRef, scroll }: PearsonHeroProps) => {
     return (
         <div className={styles.hero}>
             {contents.backgroundImage.url && (
-                <CustomImage src={contents.backgroundImage} props={backgroundImageProps}/>
+                <CustomImage src={{image: contents.backgroundImage}} props={backgroundImageProps}/>
             )}
             <div className={cn('container', styles.container)}>
                 <div className={styles.wrap}>
@@ -39,7 +39,7 @@ const Hero = ({ contents, scrollToRef, scroll }: PearsonHeroProps) => {
                         {contents.subtitle}
                     </p>
                     <div className={styles.logo}>
-                        <CustomImage src={contents.logo}/>
+                        <CustomImage src={contents.logoC} />
                     </div>
                     {scroll && (
                         <ScrollButton
@@ -54,9 +54,9 @@ const Hero = ({ contents, scrollToRef, scroll }: PearsonHeroProps) => {
                     </h6>
                 </div>
                 <div className={styles.gallery}>
-                    {contents?.images?.length && (
+                    {contents?.imagesContainer?.length && (
                         <div className={styles.gallery_img}>
-                            <CustomImage src={contents.images[0]}/>
+                            <CustomImage src={contents.imagesContainer[0]}/>
                         </div>
                     )}
                 </div>

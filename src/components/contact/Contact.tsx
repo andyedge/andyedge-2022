@@ -33,7 +33,7 @@ const Contact = ({ contents }: any) => {
               />
               :
               <div className={styles.contact_image}>
-                <CustomImage src={contents.contactImage} />
+                <CustomImage src={{image: contents.contactImage}} />
               </div>
           }
         </div>

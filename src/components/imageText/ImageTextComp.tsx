@@ -67,7 +67,7 @@ const ImageTextComp = ({ content, isFirst, isLast }: ImageTextCompProps) => {
             {
               images?.map((image: ImageContainer, index: number) => (
                 <div className={styles.preview} key={'txtImg_' + index}>
-                  <CustomImage src={image.image} srcDark={image.darkImage}/>
+                  <CustomImage src={image} />
                 </div>
               ))
             }

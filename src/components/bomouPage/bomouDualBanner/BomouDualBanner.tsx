@@ -14,7 +14,7 @@ const BomouDualBanner: FC<BomouDualBannerProps> = ({ images }: BomouDualBannerPr
     {
       images.map((image: ImageContainer, index: number) => (
           <div className={styles.container} key={index}>
-            <CustomImage src={image.image} srcDark={image.darkImage}/>
+            <CustomImage src={image} />
           </div>
       ))
     }

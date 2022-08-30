@@ -60,7 +60,7 @@ const TextBullets = ({ contents, section }: TextBulletsProps) => {
                   animateIn="fadeInUp"
                   delay={index * 250}
                 >
-                  <CustomImage src={image.image} srcDark={image.darkImage}/>
+                  <CustomImage src={image}/>
                 </ScrollParallax>
               </Fragment>
             ))

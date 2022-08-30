@@ -55,7 +55,7 @@ const EcampStandardContainer = ({ contents, title, section }: EcampStandardConta
           {
             images?.map((image: ImageContainer, index: number) => (
               <div className={styles[`preview_${section}`]} key={index}>
-                <CustomImage src={image.image} srcDark={image.darkImage}/>
+                <CustomImage src={image}/>
               </div>
             ))
           }

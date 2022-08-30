@@ -36,7 +36,7 @@ const CardBullets: FC<CardBulletsProps> = ({ contents, section, hasCardStyle } :
                   offset={300}
                   delay={index * 300}
                 >
-                  <CustomImage src={image.image} srcDark={image.darkImage} />
+                  <CustomImage src={image} />
                 </ScrollParallax>
               </Fragment>
             ))

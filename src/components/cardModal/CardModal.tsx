@@ -54,7 +54,7 @@ const CardModal = ({ visible, modals, modalIndex, onClose }: CardModalProps) => 
     >
       <div className={styles.avatar}>
         <CustomImage
-          src={item.icon}
+          src={{image: item.icon}}
         />
       </div>
       <h3 className={cn("h3", styles.trainer)}>{item.title}</h3>

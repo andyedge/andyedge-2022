@@ -26,7 +26,7 @@ const ImageSlider = ({ contents, section = 'cases' }: ImageSliderProps) => {
         <div className={styles.slide} key={index}>
           <div className={cn("workout-item", styles.item)}>
             <div className={styles[section]}>
-              <CustomImage src={image}/>
+              <CustomImage src={{image}}/>
             </div>
           </div>
         </div>

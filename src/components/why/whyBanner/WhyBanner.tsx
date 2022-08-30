@@ -50,7 +50,7 @@ const WhyBanner = ({ content } : WhyBannerProps) => {
             content.imagesContainer && content.imagesContainer.length > 0 ?
               <>
                 <ScrollParallax className={styles.background_div} animateIn='fadeInUp'>
-                  <CustomImage src={content.imagesContainer[0].image} srcDark={content.imagesContainer[0].darkImage}/>
+                  <CustomImage src={content.imagesContainer[0]} />
                 </ScrollParallax>
                 <ScrollParallax className={styles.lines} animateIn='fadeInUp' delay={500}>
                   <img

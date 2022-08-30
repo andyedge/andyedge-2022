@@ -34,7 +34,7 @@ const CaseStudiesHero: FC<CaseStudiesHeroProps> = ({ data, caseName } : CaseStud
         <h1 className='main-title'>{data.title}</h1>
         <div className={styles.hero_info}>
             <div className={styles.logo}>
-                <CustomImage src={data.logoC.image} srcDark={data.logoC.darkImage}/>
+                <CustomImage src={data.logoC}/>
             </div>
             <div className={styles.text_section}>
                 <h2 className='secondary-title'>{data.subtitle}</h2>
@@ -52,7 +52,7 @@ const CaseStudiesHero: FC<CaseStudiesHeroProps> = ({ data, caseName } : CaseStud
             {data.imagesContainer?.map((image, index) => (
                 <ScrollParallax key={index} delay={index * 300} className={cn(styles[caseName], isBorderedImage(caseName, index) && 'bordered-image')}>
                     <div>
-                        <CustomImage src={image.image} srcDark={image.darkImage}/>
+                        <CustomImage src={image}/>
                     </div>
                 </ScrollParallax>
             ))}

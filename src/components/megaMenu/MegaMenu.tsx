@@ -31,7 +31,7 @@ const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
         <a className={styles.direction}>
           <h3 className={styles.info}>{data.leftTitle}</h3>
           <div className={styles.preview}>
-            <CustomImage src={data.logo} />
+            <CustomImage src={{image: data.logo}} />
           </div>
         </a>
       </Link>
@@ -40,7 +40,7 @@ const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
           <Link key={index} href={`/${item.preTitle}`}>
             <a className={styles.box}>
               <div className={styles.icon}>
-                <CustomImage src={item.image as ImageType} />
+                <CustomImage src={{image: item.image as ImageType}} />
               </div>
               <h5 className={styles.subtitle}>{item.title}</h5>
             </a>
@@ -58,14 +58,14 @@ const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
             <h6 className={`status-black`}>
               {data.labelText}
             </h6>
-            <CustomImage src={data.bigImage} props={{ customAttr: { objectFit: 'cover' } }} />
+            <CustomImage src={{image: data.bigImage}} props={{ customAttr: { objectFit: 'cover' } }} />
           </div>
         </a>
       </Link>
       <div className={styles.central_section}>
         <div>
           <div className={styles.picture}>
-            <CustomImage src={data.profileImage} />
+            <CustomImage src={{image: data.profileImage}} />
           </div>
           <div className={styles.titles}>
             <h5>{data.centralSectionTitle}</h5>
@@ -84,13 +84,13 @@ const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
         <Link href={`/${item.link}`} key={index}>
           <a className={styles.right_section}>
             <div className={styles.board_image}>
-              <CustomImage src={item.leftImage} />
+              <CustomImage src={{image: item.leftImage}} />
             </div>
             <div className={styles.right_section_info}>
               <h5 className={`status-${item.labelBackground}`}>{item.labelText}</h5>
               <div className={styles.products}>
                 <div className={styles.product_logo}>
-                  <CustomImage src={item.logo} />
+                  <CustomImage src={{image: item.logo}} />
                 </div>
                 <div>
                   <h6>{item.title}</h6>

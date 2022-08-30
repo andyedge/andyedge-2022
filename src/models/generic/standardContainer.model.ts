@@ -11,13 +11,11 @@ declare interface StandardContainer {
     complementTitle?: string
     subtitle?: string
     bulletsContainer?: StepsContainer[]
-    logo: ImageType
     logoC: ImageContainer
     primaryButtonCta: LinkType
     secondaryButtonCta: LinkType
     text?: Document
     imagesContainer?: ImageContainer[]
-    images?: ImageType[]
     backgroundImage: ImageType
     videoUrl?: string
     mediaPosition: 'left' | 'right'

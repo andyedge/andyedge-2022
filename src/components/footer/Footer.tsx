@@ -23,7 +23,7 @@ const Footer: FC<FooterProps> = ({ data } : FooterProps) => {
             <div className={styles.box}>
               <Link href='/'>
                 <div className={styles.logo}>
-                  <CustomImage src={data.logo} />
+                  <CustomImage src={{image: data.logo}} />
                 </div>
               </Link>
               <Theme className={styles.theme} />

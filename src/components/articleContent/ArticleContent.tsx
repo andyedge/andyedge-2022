@@ -14,8 +14,7 @@ const ArticleContent: FC<ArticleProps> = ({ contents, scrollToRef }: ArticleProp
     <div className={'container'}>
         <div>
             <CustomImage
-                src={contents.standardContainer1.logoC.image}
-                srcDark={contents.standardContainer1.logoC.darkImage}
+                src={contents.standardContainer1.logoC}
             />
         </div>
         <section className={styles.first_section} ref={scrollToRef}>
@@ -26,8 +25,7 @@ const ArticleContent: FC<ArticleProps> = ({ contents, scrollToRef }: ArticleProp
                 </div>
                 <div className={styles.inline_images}>
                     <CustomImage
-                        src={contents.standardContainer1.logoC.image}
-                        srcDark={contents.standardContainer1.logoC.darkImage}
+                        src={contents.standardContainer1.logoC}
                     />
                 </div>
             </div>
@@ -38,8 +36,7 @@ const ArticleContent: FC<ArticleProps> = ({ contents, scrollToRef }: ArticleProp
                 </div>
                 <div className={styles.inline_images}>
                     <CustomImage
-                        src={contents.standardContainer2.logoC.image}
-                        srcDark={contents.standardContainer2.logoC.darkImage}
+                        src={contents.standardContainer2.logoC}
                     />
                 </div>
             </div>
@@ -47,7 +44,7 @@ const ArticleContent: FC<ArticleProps> = ({ contents, scrollToRef }: ArticleProp
         <section className={styles.carousel}>
             {contents.mediaCarousel.length ? (
                 <div>
-                    <CustomImage src={contents.mediaCarousel[0]} />
+                    <CustomImage src={{image: contents.mediaCarousel[0]}} />
                 </div>
             )
                 : null}
@@ -60,8 +57,7 @@ const ArticleContent: FC<ArticleProps> = ({ contents, scrollToRef }: ArticleProp
                 contents.pageImage1.image.url !== '' ?
                     <div>
                         <CustomImage
-                            src={contents.pageImage1.image}
-                            srcDark={contents.pageImage1.darkImage}
+                            src={contents.pageImage1}
                         />
                     </div>
                     :
@@ -71,8 +67,7 @@ const ArticleContent: FC<ArticleProps> = ({ contents, scrollToRef }: ArticleProp
                 contents.pageImage3.image.url !== '' ?
                     <div>
                         <CustomImage
-                            src={contents.pageImage3.image}
-                            srcDark={contents.pageImage3.darkImage}
+                            src={contents.pageImage3}
                             props={{ customAttr: { objectFit: 'contain' } }}
                         />
                     </div>

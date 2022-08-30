@@ -17,7 +17,7 @@ const Platform = ({title1, stepsContainer}: any) => {
               <div
                 className={styles.preview}
               >
-                <CustomImage src={step.image}/>
+                <CustomImage src={{image: step.image}}/>
               </div>
               <div className={styles.details}>
                 <div

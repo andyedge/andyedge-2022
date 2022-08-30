@@ -15,13 +15,11 @@ export const adaptStandardContainer = (data: Item): StandardContainer => {
         complementTitle: fields.titleComplement || null,
         subtitle: fields.subtitle ? fields.subtitle : null,
         bulletsContainer: adaptStepsSection(fields.bulletsContainer),
-        logo: adaptImage(fields.logo),
         logoC: adaptImageContainer(fields.logoC),
         primaryButtonCta: adaptLink(fields.primaryButtonCta),
         secondaryButtonCta: adaptLink(fields.secondaryButtonCta),
         text: fields.text ? fields.text : null,
         imagesContainer: adaptImagesContainer(fields.imagesContainer),
-        images: adaptImages(fields.images),
         backgroundImage: adaptImage(fields.backgroundImage),
         videoUrl: fields.videoUrl ? fields.videoUrl : null,
         mediaPosition: fields.mediaPosition ? fields.mediaPosition : null

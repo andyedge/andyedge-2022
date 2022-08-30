@@ -15,7 +15,7 @@ const HowGridItem = ({ item } : HowGridItemProps) => (
         </div>
         <div className={styles.item_info}>
             <div className={styles.item_platform_icon}>
-                <CustomImage src={item.platform.icon} />
+                <CustomImage src={{image: item.platform.icon}} />
             </div>
             <div>
                 <h5>{item.title}</h5>

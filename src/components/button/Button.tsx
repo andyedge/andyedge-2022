@@ -32,7 +32,7 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) 
             link.icon && link.icon?.url !== '' ?
               <div className={cn(styles.icon_wrapper)}>
                 <CustomImage
-                  src={link.icon}
+                  src={{image: link.icon}}
                 />
               </div>
               :
@@ -49,7 +49,7 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) 
             link.icon && link.icon?.url !== '' ?
               <div className={cn(styles.icon_wrapper)}>
                 <CustomImage
-                  src={link.icon}
+                  src={{image: link.icon}}
                 />
               </div>
               :
@@ -67,7 +67,7 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) 
             link.icon && link.icon?.url !== '' ?
               <div className={cn(styles.icon_wrapper)}>
                 <CustomImage
-                  src={link.icon}
+                  src={{image: link.icon}}
                 />
               </div>
               :

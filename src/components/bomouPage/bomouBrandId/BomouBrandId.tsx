@@ -3,7 +3,6 @@ import RichText from "../../RichText";
 import Button from "../../button/Button";
 import CustomImage from "../../image/Image";
 import styles from "./BomouBrandId.module.sass";
-import ImageType from "../../../models/generic/image.model";
 import StandardContainer from "../../../models/generic/standardContainer.model"
 import ImageContainer from "../../../models/generic/imageContainer.model";
 
@@ -44,7 +43,7 @@ const BomouBrandId = ({ contents }: BomouBrandIdProps) => {
           {
             images?.map((image: ImageContainer, index: number) => (
               <div className={styles.preview} key={index}>
-                <CustomImage src={image.image} srcDark={image.darkImage}/>
+                <CustomImage src={image}/>
               </div>
             ))
           }

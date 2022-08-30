@@ -15,7 +15,7 @@ const PortfolioItem: FC<PortfolioItemProps> = ({ data } : PortfolioItemProps) =>
         <Link href={`/${data.link}`}>
             <a>
                 <div className={styles.case_item_image}>
-                    <CustomImage src={data.image}/>
+                    <CustomImage src={{image: data.image}}/>
                 </div>
             </a>
         </Link>

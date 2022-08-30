@@ -5,9 +5,9 @@ import Button from '../../button/Button'
 import CustomImage from '../../image/Image'
 import ScrollParallax from '../../ScrollParallax'
 import styles from './BulletPointsContainer.module.sass'
-import ImageType from '../../../models/generic/image.model'
 import StandardContainer from '../../../models/generic/standardContainer.model'
 import imageLoader from '../../../helpers/imageLoader'
+import ImageContainer from '../../../models/generic/imageContainer.model'
 
 declare interface BulletPointsContainerProps {
     contents: StandardContainer
@@ -54,7 +54,7 @@ const CardBullets: FC<BulletPointsContainerProps> = ({ contents } : BulletPoints
                     </div>
                 </div>
                 <div className={styles.gallery}>
-                    {contents.images?.map((image: ImageType, index: number) => (
+                    {contents.imagesContainer?.map((image: ImageContainer, index: number) => (
                         <Fragment key={index}>
                             <ScrollParallax
                                 className={styles.card_image}

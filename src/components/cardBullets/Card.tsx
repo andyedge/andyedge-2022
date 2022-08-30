@@ -21,7 +21,7 @@ const Card = ({ contents, style, hasCardStyle = true } : CardProps ) => (
             {contents.bulletsContainer?.map((bullet: any, index: number) => (
                 <div className={styles.item} key={index}>
                     <div className={styles.icon}>
-                        <CustomImage src={bullet.image} />
+                        <CustomImage src={{image: bullet.image}} />
                     </div>
                     <div className={styles.details}>
                         <h5 className={styles.subtitle}>{bullet.title}</h5>
