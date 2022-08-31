@@ -65,7 +65,7 @@ const CardModal = ({ visible, modals, modalIndex, onClose }: CardModalProps) => 
         />
       </div>
       <div className={styles.btns}>
-        <button className={cn("button-default", "button-stroke", styles.left_button, styles.button, styles.button_size)} onClick={() => prevModal()}>
+        <button className={cn("button-stroke", styles.button, styles.button_size)} onClick={() => prevModal()}>
           {item.leftCtaText}
         </button>
         <button className={cn("button-default", styles.button, styles.button_size)} onClick={() => nextModal()}>

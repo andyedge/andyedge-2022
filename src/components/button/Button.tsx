@@ -17,12 +17,12 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) 
   }
   
   const iconExists = link.icon && link.icon?.url !== '' ? true : false;
-  const isWhiteButton = link.buttonColor === 'White' ? 'button-stroke' : '';
+  const isWhiteButton = link.buttonColor === 'White' ? 'button-stroke' : 'button-default';
 
   switch (link.action) {
     case 'Redirect':
       return (
-        <button className={cn('button-default', isWhiteButton, styles[size])}>
+        <button className={cn(isWhiteButton, styles[size])}>
           <Link href={`/${link.url}`}>
             <a className={cn(styles.button, iconExists ? styles.button_a : '')}>
               {link.text}
@@ -42,7 +42,7 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) 
       )
     case 'External':
       return (
-        <button className={cn('button-default', isWhiteButton, styles.button, styles[size])}
+        <button className={cn(isWhiteButton, styles.button, styles[size])}
           onClick={() => window.open(link.url, '_blank', 'noopener,noreferrer')}>
           {link.text}
           {
@@ -60,7 +60,7 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) 
     case 'Function':
       return (
         <button
-          className={cn('button-default', isWhiteButton, styles[size], styles.button, iconExists ? styles.button_a : '')}
+          className={cn(isWhiteButton, styles[size], styles.button, iconExists ? styles.button_a : '')}
           onClick={func}>
           {link.text}
           {
