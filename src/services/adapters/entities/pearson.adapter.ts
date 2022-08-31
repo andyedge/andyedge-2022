@@ -8,6 +8,7 @@ import { adaptLink } from '../generic/link.adapter'
 import { adaptContactContainer } from '../generic/contactContainer.adapter'
 import { adaptSeoContent } from '../generic/seoContent.adapter'
 import { adaptPortfolioCaseStudy } from '../generic/portfolioCaseStudies.adapter'
+import { adaptImageContainer } from '../generic/imageContainer.adapter'
 
 export const adaptPearson = (data: Entry): Pearson => {
     const [pearson] = data.items
@@ -21,14 +22,14 @@ export const adaptPearson = (data: Entry): Pearson => {
         bigTitle1: adaptLink(fields.bigTitle1),
         standardContainer2: adaptStandardContainer(fields.standardContainer2),
         bigTitle2: adaptLink(fields.bigTitle2),
-        bigImage: adaptImage(fields.bigImage),
+        bigImage: adaptImageContainer(fields.bigImage),
         standardContainer3: adaptStandardContainer(fields.standardContainer3),
         caseFeatures: adaptStandardContainers(fields.caseFeatures),
         mediumTitle: fields.mediumTitle,
-        underlappedImage: adaptImage(fields.underlappedImage),
-        overlappedImage: adaptImage(fields.overlappedImage),
+        underlappedImage: adaptImageContainer(fields.underlappedImage),
+        overlappedImage: adaptImageContainer(fields.overlappedImage),
         bigTitle3 : adaptLink(fields.bigTitle3),
-        bigImage2:  adaptImage(fields.bigImage2),
+        bigImage2:  adaptImageContainer(fields.bigImage2),
         standardContainer4: adaptStandardContainer(fields.standardContainer4),
         solutionList: adaptStandardContainers(fields.solutionList),
         testimonial: adaptTextSlider(fields.testimonial),

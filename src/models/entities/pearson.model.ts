@@ -6,6 +6,7 @@ import LinkType from '../generic/link.model'
 import ContactContainer from '../generic/contact.model'
 import SeoContent from '../generic/seoContent.model'
 import PortfolioCaseStudy from '../generic/portfolioCaseStudy.model'
+import ImageContainer from '../generic/imageContainer.model'
 
 export default interface Pearson {
     seo: SeoContent
@@ -16,14 +17,14 @@ export default interface Pearson {
     bigTitle1: LinkType
     standardContainer2: StandardContainer
     bigTitle2: LinkType
-    bigImage: ImageType
+    bigImage: ImageContainer
     standardContainer3: StandardContainer
     caseFeatures: StandardContainer[]
     mediumTitle: string
-    underlappedImage: ImageType
-    overlappedImage: ImageType
+    underlappedImage: ImageContainer
+    overlappedImage: ImageContainer
     bigTitle3 : LinkType
-    bigImage2: ImageType
+    bigImage2: ImageContainer
     standardContainer4: StandardContainer
     solutionList: StandardContainer[]
     testimonial: TextSlider

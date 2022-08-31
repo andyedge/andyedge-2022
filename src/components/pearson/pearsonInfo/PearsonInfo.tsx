@@ -72,7 +72,7 @@ const PearsonInfo: FC<PearsonInfoProps> = ({ contents }: PearsonInfoProps) => {
             />
             <div className='container'>
                 <div className={styles.image1}>
-                    <CustomImage src={{image: contents.bigImage}} />
+                    <CustomImage src={contents.bigImage} />
                 </div>
             </div>
             <RowComponent
@@ -85,10 +85,10 @@ const PearsonInfo: FC<PearsonInfoProps> = ({ contents }: PearsonInfoProps) => {
             <div className='container'>
                 <div className={styles.overlapped_images}>
                     <ScrollParallax animateIn='fadeInUp' delay={100}>
-                        <CustomImage src={{image: contents.underlappedImage}} />
+                        <CustomImage src={contents.underlappedImage} />
                     </ScrollParallax>
                     <ScrollParallax animateIn='fadeInUp' delay={300}>
-                        <CustomImage src={{image: contents.overlappedImage}} />
+                        <CustomImage src={contents.overlappedImage} />
                     </ScrollParallax>
                 </div>
             </div>
@@ -99,7 +99,7 @@ const PearsonInfo: FC<PearsonInfoProps> = ({ contents }: PearsonInfoProps) => {
             />
             <div className='container-fluid'>
                 <div className={styles.solution_banner}>
-                    <CustomImage src={{image: contents.bigImage2}} />
+                    <CustomImage src={contents.bigImage2} />
                 </div>
             </div>
             <RowComponent
