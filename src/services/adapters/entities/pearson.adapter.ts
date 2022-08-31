@@ -16,6 +16,7 @@ export const adaptPearson = (data: Entry): Pearson => {
         seo: adaptSeoContent(fields.seo),
         hero: adaptStandardContainer(fields.hero),
         cards: adaptStandardCardContainers(fields.cards),
+        cardsModalContainer: adaptStandardCardContainers(fields.cardsModal),
         standardContainer1: adaptStandardContainer(fields.standardContainer1),
         bigTitle1: adaptLink(fields.bigTitle1),
         standardContainer2: adaptStandardContainer(fields.standardContainer2),

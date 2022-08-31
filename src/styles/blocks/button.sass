@@ -28,8 +28,9 @@
   svg
     fill: $light-black
     transition: fill .2s
-  &:hover
-    box-shadow: 0 0 0 2px $light-black inset
+  @media (hover: hover)
+    &:hover
+      box-shadow: 0 0 0 2px $light-black inset
   +dark-common
     box-shadow: 0 0 0 2px $gray2 inset
     color: $ultra-white

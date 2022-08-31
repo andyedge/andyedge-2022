@@ -11,6 +11,7 @@ export default interface Pearson {
     seo: SeoContent
     hero: StandardContainer
     cards: StandardCardContainer[]
+    cardsModalContainer: StandardCardContainer[]
     standardContainer1: StandardContainer
     bigTitle1: LinkType
     standardContainer2: StandardContainer

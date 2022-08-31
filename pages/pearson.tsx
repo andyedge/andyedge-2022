@@ -39,6 +39,7 @@ const BomouPage: NextPage<PearsonProps> = ({ pageContent, header, footer } : Pea
             />
             <CardsContainer
                 contents={pageContent.cards}
+                modals={pageContent.cardsModalContainer}
                 scrollToRef={scrollToRef}
             />
             <BulletPointsContainer contents={pageContent.standardContainer1} />
