@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { PopupButton } from '@typeform/embed-react'
+import { useIsMobile } from '../../helpers/hooks'
 
 declare interface ContactModalProps {
     text: string,
@@ -8,12 +9,14 @@ declare interface ContactModalProps {
 }
 
 const ContactModal: FC<ContactModalProps> = ({ text, formId, className } : ContactModalProps) => {
+    const isMobile = useIsMobile()
+    const popupConfig = {
+        id : formId,
+        className,
+        size: isMobile ? 80 : 40
+    }
     return (
-        <PopupButton 
-            id={formId} 
-            className={className}
-            size={60}
-        >
+        <PopupButton {...popupConfig}>
             {text}
         </PopupButton>
     )
