@@ -1,4 +1,3 @@
-import { useState } from "react";
 import cn from "classnames";
 import Icon from "../icon/Icon";
 import styles from "./Theme.module.sass";
