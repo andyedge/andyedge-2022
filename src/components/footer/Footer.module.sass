@@ -66,8 +66,6 @@
     margin-bottom: auto
     overflow: hidden
     position: relative
-    +m
-        width: auto
 
 .item
     > .category
@@ -83,9 +81,9 @@
             transition: transform .2s
     &.active
         +m
-            .category
-                svg
-                    transform: rotate(180deg)
+            // .category
+            //     svg
+            //         transform: rotate(180deg)
             .menu
                 display: flex
 

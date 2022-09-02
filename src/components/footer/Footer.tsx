@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Icon from '../icon/Icon'
 import Theme from '../theme/Theme'
 import RichText from '../RichText'
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import CustomImage from '../image/Image'
 import styles from './Footer.module.sass'
 import Footer from '../../models/entities/footer.model'
@@ -14,7 +14,6 @@ declare interface FooterProps {
 }
 
 const Footer: FC<FooterProps> = ({ data } : FooterProps) => {
-  const [visible, setVisible] = useState(false)
   return (
     <footer className={styles.footer}>
       <div className={styles.body}>
@@ -28,8 +27,8 @@ const Footer: FC<FooterProps> = ({ data } : FooterProps) => {
               </Link>
               <Theme className={styles.theme} />
             </div>
-            <div className={cn(styles.item, { [styles.active]: visible })}>
-              <div className={styles.category} onClick={() => setVisible(!visible)}>
+            <div className={cn(styles.item, styles.active)}>
+              <div className={styles.category}>
                 Navigation
                 <Icon name='arrow-bottom' size={10} />
               </div>
