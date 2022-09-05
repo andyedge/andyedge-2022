@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import PortfolioCaseStudy from '../../../models/generic/portfolioCaseStudy.model'
 import styles from './RelatedCases.module.sass'
-import PortfolioItem from '../../portfolioContainer2/PortfolioItem'
+import PortfolioItem from '../../portfolioContainer/PortfolioItem'
 import classNames from 'classnames'
 
 declare interface RelatedCasesProps {

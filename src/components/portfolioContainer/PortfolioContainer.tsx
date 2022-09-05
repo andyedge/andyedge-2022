@@ -95,7 +95,7 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
                         <h2 className='h2'>{contents.featuredCaseTitle}</h2>
                         <p>{contents.featuredCaseText}</p>
                     </div>
-                    <div>
+                    <div className={styles.featured_case_button}>
                         <Button size='auto' link={contents.featuredCaseStudyButton}/>
                     </div>
                 </div>

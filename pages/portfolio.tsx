@@ -4,7 +4,7 @@ import Layout from '../src/components/layout/Layout'
 import Portfolio from '../src/models/entities/portfolio.model'
 import { getPortfolio, getHeader, getFooter } from '../src/services/fetch'
 import LayoutModel from '../src/models/generic/layout.model'
-import PortfolioContainer from '../src/components/portfolioContainer2/PortfolioContainer'
+import PortfolioContainer from '../src/components/portfolioContainer/PortfolioContainer'
 
 export const getStaticProps: GetStaticProps = async () => {
     const portfolio = await getPortfolio()

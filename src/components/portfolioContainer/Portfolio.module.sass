@@ -16,6 +16,8 @@
     min-height: 516px
     box-shadow: 4px 32px 64px 4px rgba(15, 15, 15, 0.1)
     border: solid 1px $gray3
+    +dark
+        border: solid 1px $light-black
     +s
         grid-template-columns: 100%
 
@@ -48,6 +50,10 @@
             max-width: 368px
             margin-top: 16px
 
+    .featured_case_button
+        +s
+            margin-top: 24px
+
 .case_studies
     margin-top: 192px
 
@@ -62,7 +68,8 @@
 .case_item
     padding-bottom: 44px
     border-bottom: solid 2px $gray3
-
+    +dark
+        border-bottom: solid 2px $light-black
     +t
         padding-bottom: 32px
 
@@ -157,6 +164,9 @@
         background-color: $white
         font-family: 'SFProDisplay-Bold'
         transition: all 0.2
+        +dark
+            background-color: $black
+            color: $white
         +s
             width: unset
             height: unset
@@ -166,3 +176,6 @@
 
     button:hover
         background-color: $gray4
+        +dark
+            background-color: $black
+            box-shadow: 0 0 0 2px $gray2 inset
