@@ -112,7 +112,7 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
                     >
                         {contents.allText}
                     </button>
-                    {contents.categories.reverse().map((category, index) => (
+                    {contents.categories.map((category, index) => (
                         <button
                             key={index}
                             className={index === selectedCategory ? styles.selected : ''}

@@ -39,6 +39,6 @@ export const adaptPortfolio = ( {data, caseStudies, categories } : adapterProps)
         portfolioDescription: fields.portfolioDescription,
         allText: fields.all,
         caseStudies: portfolioCaseStudies,
-        categories: adaptCategories(categories.items)
+        categories: adaptCategories(categories.items).reverse()
     }
 }
