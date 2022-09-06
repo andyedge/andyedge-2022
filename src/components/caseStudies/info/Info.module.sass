@@ -4,14 +4,12 @@
 .container
     margin: 80px 0 256px 0
     display: grid
-    grid-template-columns: 1fr 352px
+    grid-template-columns: 672px auto
     grid-gap: 0 96px 
 
     +x
-        grid-gap: 0 36px
-    +t
-        grid-template-columns: 2fr 1.5fr
-        grid-gap: 0 24px
+        grid-gap: 0 48px
+        grid-template-columns: 50.5vw auto
     +m
         grid-template-columns: 100%
         grid-gap: 48px 0
@@ -25,25 +23,20 @@
                         margin-bottom: 12px
         .carousel
             position: relative
-            width: 672px
+            width: 100%
             height: 600px
-            margin: 40px auto
+            margin: 40px 0
             border-radius: 24px
             overflow: auto
             +x
-                width: calc(672px * 0.9)
                 height: calc(600px * 0.9)
-            +d
-                width: calc(672px * 0.6)
-                height: calc(600px * 0.6)
             +t
-                width: calc(672px * 0.4)
+                height: calc(600px * 0.7)
             +m
-                width: calc(672px * 0.6)
-                height: calc(600px * 0.6)
+                height: calc(600px * 0.9)
             +s
+                height: calc(600px * 0.6)
                 width: 100%
-                height: auto
 
         p
             margin-top: 2px
@@ -79,7 +72,8 @@
             font-weight: bold
             +m
                 justify-content: center
-                margin-right: 3vw
+                width: 200px
+                margin: auto
             +dark
                 color: $gray4
             &:not(:last-child)
@@ -87,15 +81,27 @@
                 +t
                     margin-bottom: 8px
 
-        .parameter
-            flex: 0 0 156px
-            padding-right: 16px
-            padding-left: 13px
-            color: $gray
-            +t
-                flex: 0 0 136px
-                padding-right: 8px
 
+            .parameter
+                flex: 0 0 156px
+                padding-right: 16px
+                padding-left: 13px
+                color: $gray
+                +t
+                    flex: 0 0 136px
+                    padding-right: 8px
+
+            +m
+                .icon
+                    flex: 20%
+                    text-align: left
+                .parameter
+                    flex: 40%
+                    padding: 0
+                .value
+                    flex: 40%
+                    text-align: right
+                
         .text
             margin-top: 40px
             padding-top: 40px

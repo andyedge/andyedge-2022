@@ -40,9 +40,9 @@ const SmallCaseHero = ({ data }: { data: CaseStudyInfo }) => {
                         <div>
                             {data.properties.length && data.properties.map((property, index) => (
                                 <div className={styles.item} key={index}>
-                                    <div> {getIcon(property.label)} </div>
+                                    <div className={styles.icon}> {getIcon(property.label)} </div>
                                     <div className={styles.parameter}>{property.label}</div>
-                                    <div>{property.value}</div>
+                                    <div className={styles.value}>{property.value}</div>
                                 </div>
                             ))}
                         </div>
