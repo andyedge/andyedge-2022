@@ -19,7 +19,7 @@ const WhyPortfolio: FC<WhyPortfolioProps> = ({ pageContent} : WhyPortfolioProps)
         </div>
         <RelatedCases cases={pageContent.relatedCases} section='why'/>
         <div className={styles.button_container}>
-            <Button link={pageContent.cta} size='big'/>
+            <Button link={pageContent.cta} size='big' scroll={false}/>
         </div>
     </div>
 )

@@ -9,9 +9,10 @@ declare interface ButtonProps {
   link: LinkType
   func?: () => void
   size?: 'big' | 'default' | 'small' | 'tiny' | 'auto'
+  scroll?: boolean
 }
 
-const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) => {
+const Button: FC<ButtonProps> = ({ link, func, size = 'default', scroll = true } : ButtonProps) => {
   if(!link) {
     return null
   }
@@ -22,23 +23,20 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default' }: ButtonProps) 
   switch (link.action) {
     case 'Redirect':
       return (
-        <button className={cn(isWhiteButton, styles[size])}>
-          <Link href={`/${link.url}`}>
+        <Link href={`/${link.url}`} scroll={scroll}>
+          <button className={cn(isWhiteButton, styles[size])}>
             <a className={cn(styles.button, iconExists ? styles.button_a : '')}>
               {link.text}
             </a>
-          </Link>
-          {
-            link.icon && link.icon?.url !== '' ?
-              <div className={cn(styles.icon_wrapper)}>
-                <CustomImage
-                  src={{image: link.icon}}
-                />
-              </div>
-              :
-              null
+          {link.icon && link.icon?.url !== '' ?
+            <div className={cn(styles.icon_wrapper)}>
+              <CustomImage src={{image: link.icon}} />
+            </div>
+            :
+            null
           }
-        </button>
+          </button>
+        </Link>
       )
     case 'External':
       return (
