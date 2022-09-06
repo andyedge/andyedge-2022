@@ -51,7 +51,7 @@ const settings = {
   ],
 };
 
-const RowComponent = ({ headContent, items, isTitle, isPearson, hasSection }: RowComponentProps) => {
+const RowComponent = ({ headContent, items, isTitle, isPearson, hasSection } : RowComponentProps) => {
   const darkMode = useDarkMode(false)
   return (
     <section className={cn("section-pb", hasSection && styles.section)}>
@@ -92,7 +92,7 @@ const RowComponent = ({ headContent, items, isTitle, isPearson, hasSection }: Ro
             {...settings}
           >
             {items.map((item, index) => {
-              const image = darkMode.value ? item.logoC.darkImage : item.logoC.image
+              const image = (darkMode.value && item.logoC?.darkImage?.url) ? item.logoC.darkImage : item.logoC.image
               return (
                 <ScrollParallax className={styles.item} key={index}>
                   <div className={styles.row}>
