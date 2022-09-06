@@ -38,20 +38,22 @@
 
 .container
     display: grid
-    grid-template-columns: 1fr 680px
+    grid-template-columns: 1fr 630px
     position: relative
+    +x
+        grid-template-columns: 1fr 600px
     +d
-        grid-template-columns: 1fr 400px
+        grid-template-columns: 40% 60%
     +t
-        grid-template-columns: 1fr 340px
-    +m
+        grid-template-columns: 50% 50%
+    +a
         grid-template-columns: 100%
 
 .wrap
     position: relative
     z-index: 3
-    +m
-        margin-bottom: 80px
+    +a
+        margin-bottom: 48px
 
     .stage
         margin-bottom: 22px
@@ -74,6 +76,10 @@
     color: $light-black
     font-size: 18px
     max-width: 380px
+    +t
+        padding-right: 16px
+    +a
+        padding-right: unset
     +dark
         color: $gray3
 
@@ -107,22 +113,34 @@
 
 .gallery
     position: relative
+    +d
+        margin-left: auto
+        width: 100%
     +m
         margin: 0 auto
         pointer-events: all
+    +a
+        min-height: 240px
 
     .play
         transform: translate(-50%, -50%)
-
+        z-index: 1
+    
     .gallery_img
         width: 354px
         height: 474px
-        position: relative
-        margin-left: auto
-
+        position: absolute
+        right: 0
+        top: 0
+        z-index: 2
         +d
             width: calc(354px * 0.7)
             height: calc(474px * 0.7)
+        +a
+            position: relative
+            right: unset
+            top: unset
+            margin: auto
 
 .hero_video
     width: 100%

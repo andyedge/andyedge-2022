@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import type { NextPage } from 'next';
 import Hero from '../src/components/hero/Hero';
-import useDarkMode from "@fisch0920/use-dark-mode";
 import Layout from '../src/components/layout/Layout';
 import Ecamp from '../src/models/entities/ecamp.model';
 import Contact from '../src/components/contact/Contact';
@@ -35,7 +34,6 @@ declare interface EcampProps extends LayoutModel {
 
 const Ecamp: NextPage<EcampProps> = ({ pageContent, header, footer } : EcampProps) => {
   const scrollToRef = useRef(null);
-  const darkMode = useDarkMode(false);
 
   return (
     <Layout header={header} seoContent={pageContent.seo} footer={footer}>

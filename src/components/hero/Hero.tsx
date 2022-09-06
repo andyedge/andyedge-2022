@@ -6,6 +6,7 @@ import Button from "../button/Button";
 import VideoComponent from "../VideoComponent";
 import ScrollButton from "../scrollButton/ScrollButton";
 import StandardContainer from "../../models/generic/standardContainer.model";
+import CustomImage from '../image/Image';
 
 declare interface HeroProps {
   contents: StandardContainer
@@ -14,7 +15,7 @@ declare interface HeroProps {
   scroll: boolean
 }
 
-const Hero = ({ contents, functionType, scrollToRef, scroll } : HeroProps) => {
+const Hero = ({ contents, functionType, scrollToRef, scroll }: HeroProps) => {
   const videoClassnamesObj = {
     videoDivClassname: '',
     videoClassname: styles.hero_video,
@@ -48,10 +49,7 @@ const Hero = ({ contents, functionType, scrollToRef, scroll } : HeroProps) => {
   return (
     <div className={styles.hero}>
       {contents.backgroundImage.image.url && (
-        <img
-          src={contents.backgroundImage.image.url}
-          alt={contents.backgroundImage.image.description}
-        />
+        <CustomImage src={contents.backgroundImage} props={{className: styles.background_image, priority: true}} />
       )}
       <div className={cn("container", styles.container)}>
         <div className={styles.wrap}>
@@ -99,9 +97,12 @@ const Hero = ({ contents, functionType, scrollToRef, scroll } : HeroProps) => {
               playing={playing}
               playingHandler={videoPlayingHandler}
             />
-            :
-            null
-          }
+            : null }
+          {contents?.imagesContainer?.length ? (
+            <div className={styles.gallery_img}>
+              <CustomImage src={contents.imagesContainer[0]} props={{priority: true}}/>
+            </div>
+          ) : null }
         </div>
       </div>
     </div>

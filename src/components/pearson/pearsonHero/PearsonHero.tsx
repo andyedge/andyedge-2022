@@ -1,8 +1,10 @@
+import { useState } from 'react'
 import cn from 'classnames'
 import styles from './PearsonHero.module.sass'
 import ScrollButton from '../../scrollButton/ScrollButton'
 import StandardContainer from '../../../models/generic/standardContainer.model'
 import CustomImage from '../../image/Image'
+import VideoComponent from '../../VideoComponent'
 
 declare interface PearsonHeroProps {
     contents: StandardContainer
@@ -11,10 +13,22 @@ declare interface PearsonHeroProps {
 }
 
 const backgroundImageProps = {
-    className: styles.background
+    className: styles.background,
+    priority: true
 }
 
-const Hero = ({ contents, scrollToRef, scroll }: PearsonHeroProps) => {
+const Hero = ({ contents, scrollToRef, scroll } : PearsonHeroProps) => {
+    const videoClassnamesObj = {
+        videoDivClassname: '',
+        videoClassname: styles.hero_video,
+        playButtonClassname: cn("play", styles.play)
+      }
+      const [playing, setPlaying] = useState<boolean>(false);
+    
+      const videoPlayingHandler = (newStatus: boolean) => {
+        setPlaying(newStatus);
+      }
+
     return (
         <div className={styles.hero}>
             {contents.backgroundImage.image.url && (
@@ -54,9 +68,17 @@ const Hero = ({ contents, scrollToRef, scroll }: PearsonHeroProps) => {
                     </h6>
                 </div>
                 <div className={styles.gallery}>
+                    {contents.videoUrl ?
+                        <VideoComponent
+                            videoUrl={contents.videoUrl}
+                            videoClassnames={videoClassnamesObj}
+                            playing={playing}
+                            playingHandler={videoPlayingHandler}
+                        />
+                    : null }
                     {contents?.imagesContainer?.length && (
                         <div className={styles.gallery_img}>
-                            <CustomImage src={contents.imagesContainer[0]}/>
+                            <CustomImage src={contents.imagesContainer[0]} props={{priority: true}}/>
                         </div>
                     )}
                 </div>
