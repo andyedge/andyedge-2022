@@ -14,7 +14,7 @@ const imageProps = {
 const CaseCard = ({ contents } : { contents : StandardContainer }) => (
     <div className={styles.container}>
         <div className='container'>
-            <CustomImage src={{image: contents.backgroundImage}} props={imageProps} />
+            <CustomImage src={contents.backgroundImage} props={imageProps} />
             <Card contents={contents} style={styles.card}/>
         </div>
     </div>

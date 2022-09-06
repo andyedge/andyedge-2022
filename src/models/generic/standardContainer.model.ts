@@ -16,7 +16,7 @@ declare interface StandardContainer {
     secondaryButtonCta: LinkType
     text?: Document
     imagesContainer?: ImageContainer[]
-    backgroundImage: ImageType
+    backgroundImage: ImageContainer
     videoUrl?: string
     mediaPosition: 'left' | 'right'
 }

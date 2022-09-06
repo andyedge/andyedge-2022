@@ -17,8 +17,8 @@ const backgroundImageProps = {
 const Hero = ({ contents, scrollToRef, scroll }: PearsonHeroProps) => {
     return (
         <div className={styles.hero}>
-            {contents.backgroundImage.url && (
-                <CustomImage src={{image: contents.backgroundImage}} props={backgroundImageProps}/>
+            {contents.backgroundImage.image.url && (
+                <CustomImage src={contents.backgroundImage} props={backgroundImageProps}/>
             )}
             <div className={cn('container', styles.container)}>
                 <div className={styles.wrap}>

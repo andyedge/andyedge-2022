@@ -14,7 +14,7 @@ declare interface HeroProps {
   scroll: boolean
 }
 
-const Hero = ({ contents, functionType, scrollToRef, scroll }: HeroProps) => {
+const Hero = ({ contents, functionType, scrollToRef, scroll } : HeroProps) => {
   const videoClassnamesObj = {
     videoDivClassname: '',
     videoClassname: styles.hero_video,
@@ -47,10 +47,10 @@ const Hero = ({ contents, functionType, scrollToRef, scroll }: HeroProps) => {
 
   return (
     <div className={styles.hero}>
-      {contents.backgroundImage.url && (
+      {contents.backgroundImage.image.url && (
         <img
-          src={contents.backgroundImage.url}
-          alt={contents.backgroundImage.description}
+          src={contents.backgroundImage.image.url}
+          alt={contents.backgroundImage.image.description}
         />
       )}
       <div className={cn("container", styles.container)}>
