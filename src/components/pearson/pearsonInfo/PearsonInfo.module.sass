@@ -87,6 +87,8 @@
         min-height: calc(880px * 0.7)
         margin: 128px 0
 
+    +s
+        margin: 0
     *
         box-shadow: 0px 32px 48px 8px rgba(15, 15, 15, 0.1)
         +dark
@@ -104,8 +106,9 @@
                 width: calc(892px * 0.7)
             +s
                 width: 95%
-                object-fit: contain
-                min-height: 300px
+                img
+                    object-fit: contain
+                min-height: 220px
                 height: unset
 
         &:last-child
@@ -120,11 +123,13 @@
                 width: calc(892px * 0.7)
             +s
                 width: 95%
-                min-height: 300px
+                min-height: 220px
                 height: unset
                 right: unset
                 top: 150px
                 left: 5%
+                img
+                    object-fit: cover
 
 .solution_banner
     min-height: 902px
