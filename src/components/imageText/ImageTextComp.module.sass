@@ -28,6 +28,8 @@
 .wrap_left
     margin-left: auto
     transform: translate(-20%, -10%)
+    +x
+        transform: translate(0, -10%)
     +d
         transform: translateY(-10%)
     +t
@@ -51,7 +53,7 @@
 .gallery_left
     left: calc(50% - 576px)
     +x
-        left: calc(50% - 576px)
+        left: 80px
     +d
         left: calc(50% - 440px)
     +t
@@ -76,6 +78,8 @@
     width: 584px
     transform: translateY(-40%)
     pointer-events: none
+    +x
+        width: 500px
     +d
         width: 390px
         transform: translateY(-44%)
@@ -126,9 +130,7 @@
         transform: translate(29%, -55%)
         +d
             transform: translate(15%, -50%)
-    +t
-        display: none
-    +m
+    +d
         display: none
 
 .line_right
@@ -138,7 +140,5 @@
         transform: translate(29%, -45%)
         +d
             transform: translate(15%, -55%)
-    +t
-        display: none
-    +m
+    +d
         display: none
