@@ -20,6 +20,7 @@ export const adaptSmallCaseStudies = (data: Entry): SmallCaseStudy[] => {
             slug: fields.slug,
             seo: adaptSeoContent(fields.seo),
             hero: adaptStandardContainer(fields.hero),
+            templateDesign: fields.templateDesign,
             cards: adaptStandardCardContainers(fields.cards),
             banner: adaptImagesContainer(fields.bannerImages),
             caseStudyInfo: adaptCaseStudyInfo({

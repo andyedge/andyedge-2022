@@ -49,7 +49,7 @@ const MediumCase: NextPage<MediumCaseStudyProps> = ({ pageContent, header, foote
     return (
         <Layout header={header} seoContent={pageContent.seo} footer={footer}>
             <div className='container-fluid'>
-                <CaseStudiesHero data={pageContent.hero} caseName={pageContent.slug}/>
+                <CaseStudiesHero data={pageContent.hero} templateDesign={pageContent.templateDesign}/>
                 <CardsContainer contents={pageContent.cards} scrollToRef={null} smallSpaccing={true}/>
                 <Banner images={pageContent.banner} page={pageContent.slug}/>
                 <SmallCaseInfo data={pageContent.caseStudyInfo} />

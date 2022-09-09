@@ -9,11 +9,11 @@ import ScrollParallax from '../../ScrollParallax'
 
 declare interface CaseStudiesHeroProps {
     data: StandardContainer
-    caseName: string    
+    templateDesign: string    
 }
 
-const isBorderedImage = (caseName: string, index: number): boolean => {
-    switch(caseName) {
+const isBorderedImage = (templateDesign: string, index: number): boolean => {
+    switch(templateDesign) {
         case 'verdict':
             return index === 0 || index === 1
         case 'reach-stack':
@@ -29,7 +29,7 @@ const isBorderedImage = (caseName: string, index: number): boolean => {
     }
 }
 
-const CaseStudiesHero: FC<CaseStudiesHeroProps> = ({ data, caseName } : CaseStudiesHeroProps) => (
+const CaseStudiesHero: FC<CaseStudiesHeroProps> = ({ data, templateDesign } : CaseStudiesHeroProps) => (
     <div className={cn('container', styles.container)}>
         <h1 className='main-title'>{data.title}</h1>
         <div className={styles.hero_info}>
@@ -50,7 +50,7 @@ const CaseStudiesHero: FC<CaseStudiesHeroProps> = ({ data, caseName } : CaseStud
         </div>
         <div className={styles.images_container}>
             {data.imagesContainer?.map((image, index) => (
-                <ScrollParallax key={index} delay={index * 300} className={cn(styles[caseName], isBorderedImage(caseName, index) && 'bordered-image')}>
+                <ScrollParallax key={index} delay={index * 300} className={cn(styles[templateDesign], isBorderedImage(templateDesign, index) && 'bordered-image')}>
                     <div>
                         <CustomImage src={image}/>
                     </div>
