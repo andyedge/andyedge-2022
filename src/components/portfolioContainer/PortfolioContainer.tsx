@@ -87,7 +87,7 @@ const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) =
             </section>
             <section className={styles.featured_case}>
                 <div className={styles.featured_case_carousel}>
-                    <CustomImage src={{image: contents.featuredCaseImages[0]}}/>
+                    <CustomImage src={{image: contents.featuredCaseImages[0]}} props={{priority: true}}/>
                 </div>
                 <div className={styles.featured_case_info}>
                     <div>

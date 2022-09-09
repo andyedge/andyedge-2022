@@ -1,6 +1,6 @@
 export const capitalizeFirstLetter = (text: string): string => {
     return text.split(' ').map((word) => {
-        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+        return (word === 'UX') ? 'UX' : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
     }).join(' ')
 }
 

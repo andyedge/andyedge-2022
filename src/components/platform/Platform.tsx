@@ -28,7 +28,7 @@ const Platform = ({title1, stepsContainer}: any) => {
                 <div className={styles.subtitle}>{step.title}</div>
                 <div className={styles.description}>{step.text}</div>
                 <div className={styles.button}>
-                  <Button link={step.link} size='auto'/>
+                  <Button link={step.link} size='auto' scroll={false}/>
                 </div>
               </div>
             </ScrollParallax>
