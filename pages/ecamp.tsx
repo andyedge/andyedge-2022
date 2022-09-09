@@ -99,7 +99,7 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent, header, footer } : EcampProp
       <TitleShare
         title={pageContent.bigTitle2}
         section={'second_title'}
-        background={'white'}
+        background={'white_alt'}
       />
       <EcampImgSection
         images={pageContent.pageImages}

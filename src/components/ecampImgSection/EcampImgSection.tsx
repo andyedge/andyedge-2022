@@ -1,8 +1,8 @@
 import cn from "classnames";
 import CustomImage from "../image/Image";
-import ImageType from "../../models/generic/image.model";
 import styles from "./EcampImgSection.module.sass";
 import ImageContainer from "../../models/generic/imageContainer.model";
+import ScrollParallax from '../ScrollParallax';
 
 declare interface EcampImgSectionProps {
   images: ImageContainer[]
@@ -18,9 +18,11 @@ const EcampImgSection = ({ images, page }: EcampImgSectionProps) => {
           {
             images.map((image: ImageContainer, index: number) => (
               <div className={styles.img_div} key={index}>
-                <CustomImage
-                  src={image}
-                />
+                <ScrollParallax>
+                  <CustomImage
+                    src={image}
+                  />
+                </ScrollParallax>
               </div>
             ))
           }

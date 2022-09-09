@@ -198,33 +198,41 @@
 .preview_prototype, .preview_no_title
     &:first-child
         position: relative
-        width: 544px
-        height: 304px
+        width: calc(1082px / 2)
+        height: calc(595px / 2)
         left: 15%
-        z-index: 2        
+        z-index: 2
+        +x
+            width: calc(1082px / 2.3)
+            height: calc(595px / 2.3)   
         +d
             left: 0%
-            width: 424px
-            height: 320px
+            width: calc(1082px / 2.6)
+            height: calc(595px / 2.6)
         +t
-            width: 340px
-            height: 200px
-            left: 10%
+            width: calc(1082px / 3)
+            height: calc(595px / 3)
+            left: 8%
         +m
-            width: 320px
-            height: 240px
+            width: calc(1082px / 3.3)
+            height: calc(595px / 3.3)
             left: 5%
     &:nth-child(2)
         top: 36%
         z-index: 1
         width: 760px
         height: 456px
+        img
+            object-fit: cover
+        +x
+            width: calc(760px / 1.3)
+            height: calc(456px / 1.3)
         +d
             width: 516px
             height: 320px
             left: -15%
         +t
-            width: 392px
+            width: 400px
             left: 4%
         +m
             left: -5%

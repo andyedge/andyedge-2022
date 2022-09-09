@@ -12,7 +12,7 @@ declare interface EcampStandardContainerProps {
   section: string
 }
 
-const EcampStandardContainer = ({ contents, title, section }: EcampStandardContainerProps) => {
+const EcampStandardContainer = ({ contents, title, section } : EcampStandardContainerProps) => {
   const images = contents.imagesContainer;
 
   return (

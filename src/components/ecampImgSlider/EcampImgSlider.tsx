@@ -8,7 +8,7 @@ declare interface EcampImgSliderProps {
 }
 
 const EcampImgSlider = ({sliderImages}: EcampImgSliderProps) => (
-  <div className={cn("container")}>
+  <div className={cn("container", styles.container)}>
     <ImageSlider contents={sliderImages} section={'ecamp'}/>
   </div>
 )
