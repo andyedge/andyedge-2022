@@ -60,9 +60,14 @@ const VideoComponent = ({ videoUrl, videoClassnames, playing, playingHandler }: 
   }
   
   useEffect(() => {
-    resizeEvent()
-    window.addEventListener('resize', resizeEvent)
-    return () => window.removeEventListener('resize', resizeEvent)
+    if (typeof window !== 'undefined') {
+      resizeEvent()
+      setTimeout(() => {
+        resizeEvent()
+      }, 500)
+      window.addEventListener('resize', resizeEvent)
+      return () => window.removeEventListener('resize', resizeEvent)
+    }
   }, [])
 
   return (
