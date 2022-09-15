@@ -76,11 +76,11 @@ const Hero = ({ contents, scrollToRef, scroll } : PearsonHeroProps) => {
                             playingHandler={videoPlayingHandler}
                         />
                     : null }
-                    {contents?.imagesContainer?.length && (
+                    {contents?.imagesContainer?.length ? (
                         <div className={styles.gallery_img}>
                             <CustomImage src={contents.imagesContainer[0]} props={{priority: true}}/>
                         </div>
-                    )}
+                    ) : null }
                 </div>
             </div>
         </div>

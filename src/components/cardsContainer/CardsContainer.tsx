@@ -53,9 +53,9 @@ const settings = {
     }
   ]
 }
-    
+
 const CardsContainer = ({ contents, scrollToRef, modals, smallSpaccing }: CardsContainerProps) => {
-  const [modalIndex, setModalIndex] = useState<number | null> (null);
+  const [modalIndex, setModalIndex] = useState<number | null>(null);
   const isVisible = modalIndex !== null;
   const isMobile = useIsMobile();
   return (
@@ -78,16 +78,16 @@ const CardsContainer = ({ contents, scrollToRef, modals, smallSpaccing }: CardsC
                   <div className={cn("programs-item", styles.item)}>
                     <div>
                       <div className={styles.icon}>
-                        <CustomImage src={{image: content.icon}} />
+                        <CustomImage src={{ image: content.icon }} />
                       </div>
                       <h5 className={styles.subtitle}>{content.title}</h5>
                       <p className={styles.content}>{content.text}</p>
                     </div>
                     {content.leftCtaText && (
-                      <button 
+                      <button
                         className={cn("button-default", "button-stroke", styles.button, styles.button_card)}
                         onClick={() => setModalIndex(index)}
-                        >
+                      >
                         {content.leftCtaText}
                       </button>
                     )}
