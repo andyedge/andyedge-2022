@@ -49,7 +49,7 @@ const Footer: FC<FooterProps> = ({ data } : FooterProps) => {
           </div>
           <div className={styles.col}>
             <h6 className={styles.category}>{data.getInTouchText}</h6>
-            <div className={styles.info}>
+            <div className={styles.info_alt}>
               <RichText richText={data.getInTouchContent} />
             </div>
             <ContactModal text={data.button.text} className={'button-default'} formId={data.formId}/>

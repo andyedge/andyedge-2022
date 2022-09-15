@@ -103,14 +103,25 @@
     margin-bottom: 12px
     font-size: 14px
     font-weight: bold
+    line-height: 1.25
+    +m
+        line-height: 2
 
 .info
     +caption-1
-    line-height: 1.5
+    line-height: 1.25
     p
-        min-height: 21px
         &:not(:last-child)
-            margin-bottom: 4px
+            margin-bottom: 12px
+    &:not(:last-child)
+        margin-bottom: 24px
+
+.info_alt
+    +caption-1
+    line-height: 2.1
+    transform: translateY(-7px)
+    +m
+        transform: unset
     &:not(:last-child)
         margin-bottom: 24px
 
