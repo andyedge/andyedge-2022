@@ -21,10 +21,9 @@ const EmbedContent: FC<EmbedContentProps> = ({ props }: EmbedContentProps) => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     const toggleModal = () => setIsModalOpen(!isModalOpen)
 
-    console.log({isModalOpen2: isModalOpen})
     return (
         <button
-            className={cn(whiteButtonClass, styles[size], styles.button, iconExists ? styles.button_a : '')}
+            className={cn(whiteButtonClass, styles[size], styles.button, styles.hide_on_mobile, iconExists ? styles.button_a : '')}
             onClick={toggleModal}
         >
             {link.text}
