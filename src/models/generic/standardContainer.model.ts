@@ -1,4 +1,3 @@
-import ImageType from './image.model'
 import StepsContainer from './stepsContainer.model'
 import { Document } from '@contentful/rich-text-types'
 import LinkType from './link.model'

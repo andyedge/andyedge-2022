@@ -11,6 +11,8 @@ export const adaptContactContainer = (data: Item): ContactContainer => {
         text: fields.text ? fields.text : null,
         contactImage: fields.contactImage ? adaptImage(fields.contactImage) : {},        
         contactVideoUrl: fields.contactVideoUrl ? fields.contactVideoUrl : null,
+        inputPlaceholder: fields.inputPlaceholder || null,
+        inputBottomText: fields.inputBottomText || null,
         ctaText: fields.ctaText ? fields.ctaText : null,
         ctaPageLink: fields.ctaPageLink ? fields.ctaPageLink : null,
     }

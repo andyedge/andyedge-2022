@@ -5,6 +5,7 @@ import CustomImage from "../image/Image";
 import styles from "./Contact.module.sass";
 import VideoComponent from "../VideoComponent";
 import ContactField from "../contactField/ContactField";
+import RichText from '../RichText';
 
 const Contact = ({ contents }: any) => {
   const videoClassnamesObj = {
@@ -46,11 +47,11 @@ const Contact = ({ contents }: any) => {
         </div>
         <ContactField
           className={styles.subscription}
-          placeholder="Enter your email"
+          placeholder={contents.inputPlaceholder}
         />
-        <p className={styles.note}>
-          By click sign in you, you agree with our <Link href="/privacy"><a>privacy policy</a></Link>
-        </p>
+        <div className={styles.note}>
+          <RichText richText={contents.inputBottomText} />
+        </div>
       </div>
     </div>
   );
