@@ -9,7 +9,7 @@ const SmallCaseHero = ({ data }: { data: CaseStudyInfo }) => {
 
     const getIcon = (propertyLabel: string) => {
         switch (propertyLabel) {
-            case 'Year':
+            case 'Start':
                 return <img src='/images/calendar-alt-regular.svg' alt='calendar-alt-regular' style={{ height: '16px', width: '16px' }} />
             case 'Term':
                 return <img src='/images/clock.svg' alt='clock' style={{ height: '16px', width: '16px' }} />

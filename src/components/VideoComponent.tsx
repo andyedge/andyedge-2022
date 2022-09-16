@@ -64,7 +64,10 @@ const VideoComponent = ({ videoUrl, videoClassnames, playing, playingHandler }: 
       resizeEvent()
       setTimeout(() => {
         resizeEvent()
-      }, 700)
+      }, 500)
+      setTimeout(() => {
+        resizeEvent()
+      }, 1000)
       window.addEventListener('resize', resizeEvent)
       return () => window.removeEventListener('resize', resizeEvent)
     }
