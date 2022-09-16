@@ -56,7 +56,7 @@ const MediumCase: NextPage<MediumCaseStudyProps> = ({ pageContent, header, foote
                 <TextSlider contents={[pageContent.testimonial]} page='case_studies' />
                 <CaseCard contents={pageContent.cardInfo}/>
                 <CaseVideoExplainer contents={pageContent.caseExplanation} />
-                <RelatedCases cases={pageContent.relatedCases}/>
+                <RelatedCases cases={pageContent.relatedCases} nextCase={pageContent.nextCase}/>
             </div>
         </Layout>
     )

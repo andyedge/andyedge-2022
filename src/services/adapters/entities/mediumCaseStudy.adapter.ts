@@ -7,6 +7,7 @@ import MediumCaseStudy from '../../../models/entities/mediumCaseStudy.model'
 import { adaptStandardContainer } from '../generic/standardContainer.adapter'
 import { adaptStandardCardContainers } from '../generic/cardContainer.adapter'
 import { adaptPortfolioCaseStudy } from '../generic/portfolioCaseStudies.adapter'
+import { adaptLink } from '../generic/link.adapter'
 
 export const adaptMediumCaseStudies = (data: Entry): MediumCaseStudy[] => {
     if(!data.items.length) {
@@ -28,6 +29,7 @@ export const adaptMediumCaseStudies = (data: Entry): MediumCaseStudy[] => {
                 categories: fields.portfolioData?.fields?.categories
             }),
             testimonial: adaptTextSlider(fields.testimonial),
+            nextCase: adaptLink(fields.nextCase),
             cardInfo: adaptStandardContainer(fields.cardInfo),
             caseExplanation: adaptStandardContainer(fields.caseExplanation),
             relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : []

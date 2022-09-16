@@ -7,6 +7,7 @@ import { adaptCaseStudyInfo } from '../generic/caseStudies.adapter'
 import { adaptSeoContent } from '../generic/seoContent.adapter'
 import { adaptImagesContainer } from '../generic/imageContainer.adapter'
 import { adaptPortfolioCaseStudy } from '../generic/portfolioCaseStudies.adapter'
+import { adaptLink } from '../generic/link.adapter'
 
 export const adaptSmallCaseStudies = (data: Entry): SmallCaseStudy[] => {
     if(!data.items.length) {
@@ -28,6 +29,7 @@ export const adaptSmallCaseStudies = (data: Entry): SmallCaseStudy[] => {
                 categories: fields.portfolioData?.fields?.categories
             }),
             testimonial: adaptTextSlider(fields.textSlider),
+            nextCase: adaptLink(fields.nextCase),
             relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : []
         }
     })

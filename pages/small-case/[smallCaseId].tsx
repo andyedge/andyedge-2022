@@ -52,7 +52,7 @@ const SmallCase: NextPage<SmallCaseStudyProps> = ({ pageContent, header, footer 
                 <Banner images={pageContent.banner} page={pageContent.slug}/>
                 <SmallCaseInfo data={pageContent.caseStudyInfo} />
                 <TextSlider contents={[pageContent.testimonial]} page='case_studies'/>
-                <RelatedCases cases={pageContent.relatedCases} />
+                <RelatedCases cases={pageContent.relatedCases} nextCase={pageContent.nextCase} />
             </div>
         </Layout>
     )
