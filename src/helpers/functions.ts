@@ -30,3 +30,10 @@ export const getUrlToShare = (sectionId: string) => {
 }
 
 export const getTypeformId = (typeformURL: string) => (typeformURL && typeformURL.length) ? typeformURL.split('to/')[1] : ''
+
+export const prependHttps = (url: string): string => {
+    if(url.toLowerCase().includes('https')) {
+        return url
+    }
+    return 'https://' + url
+}

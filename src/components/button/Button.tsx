@@ -5,6 +5,7 @@ import CustomImage from '../image/Image'
 import styles from './button.module.sass'
 import LinkType from '../../models/generic/link.model'
 import EmbedContent from './embedContent/EmbedContent'
+import { prependHttps } from '../../helpers/functions'
 
 declare interface ButtonProps {
   link: LinkType
@@ -42,7 +43,7 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default', scroll = true }
     case 'External':
       return (
         <button className={cn(whiteButtonClass, styles.button, styles[size])}
-          onClick={() => window.open(link.url, '_blank', 'noopener,noreferrer')}>
+          onClick={() => window.open(prependHttps(link.url), '_blank', 'noopener,noreferrer')}>
           {link.text}
           {
             link.icon && link.icon?.url !== '' ?
