@@ -18,6 +18,11 @@ declare interface MegaMenuProps {
 const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false)
   const isMobile = useIsMobile()
+  const buttonClasses = cn(
+    styles.head,
+    { [styles.open]: isMenuVisible },
+    { [styles.active]: isActive }
+  )
 
   const handleClick = () => {
     if(!isMobile) {
@@ -107,17 +112,21 @@ const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
   return (
     <OutsideClickHandler onOutsideClick={() => setIsMenuVisible(false)}>
       <div className={styles.group}>
-        <div
-          className={cn(
-            styles.head,
-            { [styles.open]: isMenuVisible },
-            { [styles.active]: isActive }
-          )}
-          onClick={handleClick}
-        >
-          {data.dropdownText}
-          {!isMobile && <Icon name='arrow-bottom' size={9} />}
-        </div>
+        {isMobile ? (
+          <Link href='/portfolio'>
+            <a
+              className={buttonClasses}
+              onClick={handleClick}
+            >
+              {data.dropdownText}
+            </a>
+          </Link>
+        ) : (
+          <div className={buttonClasses} onClick={handleClick}>
+            {data.dropdownText}
+            <Icon name='arrow-bottom' size={9} />
+          </div>
+        )}
         {(isMenuVisible || isMobile) && (
           <div className={styles.body}>
             <div className={styles.inner}>
