@@ -56,7 +56,7 @@ const VideoComponent = ({ videoUrl, videoClassnames, playing, playingHandler }: 
 
   const resizeEvent = () => {
     const top = videoRef.current?.clientHeight || 0
-    setTopPosition(top / 2);
+    setTopPosition(top / 2)
   }
   
   useEffect(() => {
@@ -64,7 +64,7 @@ const VideoComponent = ({ videoUrl, videoClassnames, playing, playingHandler }: 
       resizeEvent()
       setTimeout(() => {
         resizeEvent()
-      }, 500)
+      }, 700)
       window.addEventListener('resize', resizeEvent)
       return () => window.removeEventListener('resize', resizeEvent)
     }
