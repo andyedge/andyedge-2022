@@ -40,9 +40,9 @@ const Solution = ({ data }: { data: Solution }) => {
   }, []);
 
   const showImage = (index: number) => {
-    const solutionImgs = solutionImagesState.map((image: any, idx: number) => {
-      idx === index ?
-        image.style = image.style.opacity === 1 ? { opacity: 0 } : { opacity: 1 }
+    const solutionImgs = solutionImagesState.map((image: any, imageIndex: number) => {
+      imageIndex === index ?
+        image.style = { opacity: 1 }
         :
         image.style = { opacity: 0 }
 
