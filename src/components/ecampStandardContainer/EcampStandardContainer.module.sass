@@ -1,6 +1,18 @@
 @import ../../styles/helpers
 @import ../../styles/colors
 
+.content
+    display: grid
+    grid-template-columns: 1fr 544px
+    position: relative
+    +d
+        grid-template-columns: 1fr 500px
+    +t
+        grid-template-columns: 1fr 440px
+    +t-
+        grid-template-columns: 1fr 330px
+    +m
+        grid-template-columns: 100%
 
 .standard, .prototype
     background-color: $ultra-white
@@ -87,7 +99,6 @@
         max-width: 336px
     +m
         max-width: 100%
-        margin-bottom: 80px
 
 .empty_title
     height: 64px
@@ -150,46 +161,27 @@
         bottom: 64px
 
 .gallery
-    position: absolute
-    top: 33%
-    right: calc(50% - 465px)
-    width: 512px
-    +x
-        right: calc(50% - 425px)
-        width: 450px
-    +d
-        right: calc(50% - 365px)
-        width: 320px
-    +t
-        right: calc(50% - 300px)
-        top: 30%
     +m
         position: relative
-        top: auto
-        right: auto
-        left: -16px
         margin: 0 auto
-        transform: translate(0,0)
         pointer-events: all
 
 .preview_standard, .preview_test
     position: relative
-    left: 15%
+    margin-left: auto
     z-index: 2
     width: 544px
     height: 408px
     +d
         width: 424px
         height: 320px
-        left: 0%
     +t
         width: 340px
         height: 240px
-        left: 10%
     +m
         width: 320px
         height: 224px
-        left: 5%
+        margin: auto
     img
         width: 100%
         opacity: 1
@@ -198,27 +190,27 @@
 .preview_prototype, .preview_no_title
     &:first-child
         position: relative
+        margin-left: auto
         width: calc(1082px / 2)
         height: calc(595px / 2)
-        left: 15%
         z-index: 2
         +x
             width: calc(1082px / 2.3)
             height: calc(595px / 2.3)   
         +d
-            left: 0%
             width: calc(1082px / 2.6)
             height: calc(595px / 2.6)
         +t
             width: calc(1082px / 3)
             height: calc(595px / 3)
-            left: 8%
+        +t-
+            width: calc(1082px / 3.5)
+            height: calc(595px / 3.5)
         +m
-            width: calc(1082px / 3.3)
-            height: calc(595px / 3.3)
-            left: 5%
+            margin: auto
     &:nth-child(2)
-        top: 36%
+        top: 138px
+        right: -108px
         z-index: 1
         width: 760px
         height: 456px
@@ -227,15 +219,20 @@
         +x
             width: calc(760px / 1.3)
             height: calc(456px / 1.3)
+            right: -57px
+            top: 100px
         +d
-            width: 516px
-            height: 320px
-            left: -15%
+            width: calc(760px / 1.5)
+            height: calc(456px / 1.5)
         +t
-            width: 400px
-            left: 4%
-        +m
-            left: -5%
+            width: calc(760px / 1.7)
+            height: calc(456px / 1.7)
+            top: 64px
+            right: -32px
+        +t-
+            width: calc(760px / 2.2)
+            height: calc(456px / 2.2)
+            right: -20px
         +s
             width: 376px
     &:not(:first-child)

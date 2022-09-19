@@ -18,7 +18,7 @@ const EcampStandardContainer = ({ contents, title, section } : EcampStandardCont
   return (
     <div className={cn(styles[`hero_${section}`], styles[section])}>
       <div className={cn("container", styles.container)}>
-        <div className={styles.wrap}>
+        <div>
           <div className={cn("stage", styles.stage, styles.pretitle)}>
             {contents.preTitle}
           </div>
@@ -30,35 +30,34 @@ const EcampStandardContainer = ({ contents, title, section } : EcampStandardCont
               :
               <div className={styles.empty_title}></div>
           }
-          <div className={styles.text}>
-            {contents.subtitle}
+          <div className={styles.content}>
+            <div className={styles.wrap}>
+              <div className={styles.text}>
+                {contents.subtitle}
+              </div>
+              {contents.text ?
+                <div className={styles.paragraph}>
+                  <RichText richText={contents.text} />
+                </div>
+                :
+                null
+              }
+              {contents.primaryButtonCta ?
+                <Button link={contents.primaryButtonCta} />
+                :
+                null
+              }
+            </div>
+            <div className={styles.gallery}>
+              {
+                images?.map((image: ImageContainer, index: number) => (
+                  <div className={styles[`preview_${section}`]} key={index}>
+                    <CustomImage src={image}/>
+                  </div>
+                ))
+              }
+            </div>
           </div>
-          {
-            contents.text ?
-              <div className={styles.paragraph}>
-                <RichText
-                  richText={contents.text}
-                />
-              </div>
-              :
-              null
-          }
-          {contents.primaryButtonCta ?
-            <Button
-              link={contents.primaryButtonCta}
-            />
-            :
-            null
-          }
-        </div>
-        <div className={styles.gallery}>
-          {
-            images?.map((image: ImageContainer, index: number) => (
-              <div className={styles[`preview_${section}`]} key={index}>
-                <CustomImage src={image}/>
-              </div>
-            ))
-          }
         </div>
       </div>
     </div>
