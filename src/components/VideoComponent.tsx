@@ -12,7 +12,7 @@ declare interface VideoComponentProps {
   playingHandler: (a: boolean) => void
 }
 
-const VideoComponent = ({ videoUrl, videoClassnames, playing, playingHandler }: VideoComponentProps) => {
+const VideoComponent = ({ videoUrl, videoClassnames, playing, playingHandler } : VideoComponentProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [topPosition, setTopPosition] = useState <number> (0);
   const { videoDivClassname, videoClassname, playButtonClassname } = videoClassnames;
@@ -61,13 +61,14 @@ const VideoComponent = ({ videoUrl, videoClassnames, playing, playingHandler }: 
   
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      playingHandler(true)
       resizeEvent()
       setTimeout(() => {
         resizeEvent()
       }, 500)
       setTimeout(() => {
         resizeEvent()
-      }, 1000)
+      }, 1500)
       window.addEventListener('resize', resizeEvent)
       return () => window.removeEventListener('resize', resizeEvent)
     }
@@ -85,6 +86,8 @@ const VideoComponent = ({ videoUrl, videoClassnames, playing, playingHandler }: 
         onPause={() => playingHandler(false)}
         onClick={(e) => videoHandler(e)}
         onDoubleClick={() => videoFullscreen()}
+        muted={true}
+        loop={true}
       ></video>
       <button
         className={playButtonClassname}

@@ -20,7 +20,7 @@
 
 .design_system
     display: grid
-    grid-template-columns: 1fr 648px
+    grid-template-columns: 1fr 640px
     margin-bottom: 180px
 
     +d
@@ -45,7 +45,14 @@
     
     .video_container
         position: relative
+        max-height: 480px
         box-shadow: 16px 32px 64px 32px rgba(15, 15, 15, 0.1)
+        +d
+            height: 45%
+        +t-
+            height: 41.5%
+        +s
+            height: 47%
         +dark
             box-shadow: 16px 32px 64px 32px $shadow-dark-mode
 
