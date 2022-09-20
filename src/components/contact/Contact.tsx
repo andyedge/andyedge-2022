@@ -1,5 +1,4 @@
 import cn from "classnames";
-import Link from 'next/link';
 import { useState } from "react";
 import CustomImage from "../image/Image";
 import styles from "./Contact.module.sass";
