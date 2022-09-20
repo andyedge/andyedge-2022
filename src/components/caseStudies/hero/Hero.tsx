@@ -48,7 +48,7 @@ const CaseStudiesHero: FC<CaseStudiesHeroProps> = ({ data, templateDesign } : Ca
                 }
             </div>
         </div>
-        <div className={styles.images_container}>
+        <div className={cn(styles.images_container, styles[`container_${templateDesign}`])}>
             {data.imagesContainer?.map((image, index) => (
                 <ScrollParallax key={index} delay={index * 300} className={cn(styles[templateDesign], isBorderedImage(templateDesign, index) && 'bordered-image')}>
                     <div>
