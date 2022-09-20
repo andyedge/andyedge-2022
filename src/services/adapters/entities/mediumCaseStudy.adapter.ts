@@ -29,7 +29,6 @@ export const adaptMediumCaseStudies = (data: Entry): MediumCaseStudy[] => {
                 categories: fields.portfolioData?.fields?.categories
             }),
             testimonial: adaptTextSlider(fields.testimonial),
-            nextCase: adaptLink(fields.nextCase),
             cardInfo: adaptStandardContainer(fields.cardInfo),
             caseExplanation: adaptStandardContainer(fields.caseExplanation),
             relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : []

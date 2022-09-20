@@ -9,22 +9,33 @@ import Button from '../../button/Button'
 declare interface RelatedCasesProps {
     cases: PortfolioCaseStudy[]
     section?: string
-    nextCase?: Link
 }
 
-const RelatedCases: FC<RelatedCasesProps> = ({ cases, section, nextCase } : RelatedCasesProps) => (
-    <section className={classNames('container', styles.container, section && styles[section])}>
-        <div className='case-studies-items'>
-            {cases.map((caseStudy, index) => (
-                <PortfolioItem data={caseStudy} key={index} />
-            ))}
-        </div>
-        {nextCase?.url ? (
-            <div className={styles.button}>
-                <Button link={nextCase} size='big'/>
+const RelatedCases: FC<RelatedCasesProps> = ({ cases, section } : RelatedCasesProps) => {
+    const nextCase = cases[cases.length - 1] || {}
+    const nextLink: Link = {
+        url: nextCase.link,
+        text: 'Next Case',
+        preText: '',
+        sectionId: '',
+        buttonColor: 'white',
+        action: 'Redirect'
+    }
+
+    return (
+        <section className={classNames('container', styles.container, section && styles[section])}>
+            <div className='case-studies-items'>
+                {cases.map((caseStudy, index) => (
+                    <PortfolioItem data={caseStudy} key={index} />
+                ))}
             </div>
-        ) : null } 
-    </section>
-)
+            {nextLink?.url ? (
+                <div className={styles.button}>
+                    <Button link={nextLink} size='big'/>
+                </div>
+            ) : null } 
+        </section>
+    )
+}
 
 export default RelatedCases

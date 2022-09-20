@@ -5,7 +5,6 @@ import ImageContainer from '../generic/imageContainer.model'
 import StandardContainer from '../generic/standardContainer.model'
 import StandardCardContainer from '../generic/standardCardContainer.model'
 import PortfolioCaseStudy from '../generic/portfolioCaseStudy.model'
-import LinkType from '../generic/link.model'
 
 export default interface SmallCaseStudy {
     slug: string
@@ -16,6 +15,5 @@ export default interface SmallCaseStudy {
     banner: ImageContainer[]
     caseStudyInfo: CaseStudyInfo
     testimonial: TextSlider
-    nextCase: LinkType
     relatedCases: PortfolioCaseStudy[]
 }

@@ -29,7 +29,6 @@ export const adaptSmallCaseStudies = (data: Entry): SmallCaseStudy[] => {
                 categories: fields.portfolioData?.fields?.categories
             }),
             testimonial: adaptTextSlider(fields.textSlider),
-            nextCase: adaptLink(fields.nextCase),
             relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : []
         }
     })
