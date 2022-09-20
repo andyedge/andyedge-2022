@@ -121,7 +121,7 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header, footer } : Bomo
         page={'bomou'}
       />
       <TextSlider
-        contents={[pageContent.textSlider]}
+        contents={pageContent.textSlider}
         className={'section'}
       />
       <Contact 

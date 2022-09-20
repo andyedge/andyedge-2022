@@ -2,12 +2,11 @@ import Entry, { Item } from '../../../models/generic/entry.model'
 import SmallCaseStudy from '../../../models/entities/smallCaseStudy.model'
 import { adaptStandardContainer } from '../generic/standardContainer.adapter'
 import { adaptStandardCardContainers } from '../generic/cardContainer.adapter'
-import { adaptTextSlider } from '../generic/textSlider.adapter'
+import { adaptTextSliders } from '../generic/textSlider.adapter'
 import { adaptCaseStudyInfo } from '../generic/caseStudies.adapter'
 import { adaptSeoContent } from '../generic/seoContent.adapter'
 import { adaptImagesContainer } from '../generic/imageContainer.adapter'
 import { adaptPortfolioCaseStudy } from '../generic/portfolioCaseStudies.adapter'
-import { adaptLink } from '../generic/link.adapter'
 
 export const adaptSmallCaseStudies = (data: Entry): SmallCaseStudy[] => {
     if(!data.items.length) {
@@ -28,7 +27,7 @@ export const adaptSmallCaseStudies = (data: Entry): SmallCaseStudy[] => {
                 data: fields.studyCaseInfo,
                 categories: fields.portfolioData?.fields?.categories
             }),
-            testimonial: adaptTextSlider(fields.textSlider),
+            testimonial: adaptTextSliders(fields.testimonials),
             relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : []
         }
     })

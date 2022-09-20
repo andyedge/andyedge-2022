@@ -3,7 +3,7 @@ import Bomou from '../../../models/entities/bomou.model'
 import { adaptStandardContainer, adaptStandardContainers } from '../generic/standardContainer.adapter'
 import { adaptStandardCardContainers } from '../generic/cardContainer.adapter'
 import { adaptContactContainer } from '../generic/contactContainer.adapter'
-import { adaptTextSlider } from '../generic/textSlider.adapter'
+import { adaptTextSliders } from '../generic/textSlider.adapter'
 import { adaptLink } from '../generic/link.adapter'
 import { adaptSeoContent } from '../generic/seoContent.adapter'
 import { adaptImageContainer, adaptImagesContainer } from '../generic/imageContainer.adapter'
@@ -39,7 +39,7 @@ export const adaptBomou = (data: Entry): Bomou => {
         standardContainer6: adaptStandardContainer(fields.standardContainer6),
         design: adaptStandardContainers(fields.designContainers),
         image6: adaptImageContainer (fields.image6),
-        textSlider: adaptTextSlider(fields.textSlider),
+        textSlider: adaptTextSliders(fields.testimonial),
         contact: adaptContactContainer(fields.contact),
         relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : []
     }

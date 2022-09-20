@@ -53,10 +53,10 @@ const MediumCase: NextPage<MediumCaseStudyProps> = ({ pageContent, header, foote
                 <CardsContainer contents={pageContent.cards} scrollToRef={null} smallSpaccing={true}/>
                 <Banner images={pageContent.banner} page={pageContent.templateDesign}/>
                 <SmallCaseInfo data={pageContent.caseStudyInfo} />
-                <TextSlider contents={[pageContent.testimonial]} page='case_studies' />
+                <TextSlider contents={pageContent.testimonial} page='case_studies' />
                 <CaseCard contents={pageContent.cardInfo}/>
                 <CaseVideoExplainer contents={pageContent.caseExplanation} />
-                <RelatedCases cases={pageContent.relatedCases} nextCase={pageContent.nextCase}/>
+                <RelatedCases cases={pageContent.relatedCases} />
             </div>
         </Layout>
     )

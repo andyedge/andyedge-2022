@@ -34,7 +34,7 @@ export default interface Bomou {
     standardContainer6: StandardContainer
     design: StandardContainer[]
     image6: ImageContainer
-    textSlider: TextSlider
+    textSlider: TextSlider[]
     contact: ContactContainer
     relatedCases: PortfolioCaseStudy[]
 }
