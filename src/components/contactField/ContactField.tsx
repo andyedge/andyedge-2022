@@ -47,7 +47,7 @@ const ContactField = ({ className, placeholder }: ContactProps) => {
         <div className='response' id='mce-success-response' style={{ display: 'none' }}></div>
       </div>
       {/* real people should not fill this in and expect good things - do not remove this or risk form bot signups */}
-      <div style={{ position: 'absolute', left: '-5000px;' }} aria-hidden='true'>
+      <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden='true'>
         <input type='text' name='b_be177a5c81f1b242ee4865dfa_a22dd548c0' tabIndex={-1} defaultValue='' />
       </div>
       <Script

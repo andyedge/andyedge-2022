@@ -4,7 +4,7 @@ import LayoutModel from '../src/models/generic/layout.model';
 import { getWhypage, getHeader, getFooter } from '../src/services/fetch';
 import WhyComponent from '../src/components/why/Why';
 
-export const getStaticProps = async () => {  
+export const getStaticProps = async () => {
   const whyPage = await getWhypage();
   const header = await getHeader();
   const footer = await getFooter();

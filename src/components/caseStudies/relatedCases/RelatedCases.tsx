@@ -29,7 +29,7 @@ const RelatedCases: FC<RelatedCasesProps> = ({ cases, section } : RelatedCasesPr
                     <PortfolioItem data={caseStudy} key={index} />
                 ))}
             </div>
-            {nextLink?.url ? (
+            { section !== 'why' && nextLink?.url ? (
                 <div className={styles.button}>
                     <Button link={nextLink} size='big'/>
                 </div>
