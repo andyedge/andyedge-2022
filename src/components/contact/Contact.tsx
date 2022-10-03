@@ -33,7 +33,7 @@ const Contact = ({ contents }: any) => {
               />
               :
               <div className={styles.contact_image}>
-                {contents.contactImage.url ? <CustomImage src={{image: contents.contactImage}} /> : null }
+                {contents.contactImage?.url ? <CustomImage src={{image: contents.contactImage}} /> : null }
               </div>
           }
         </div>

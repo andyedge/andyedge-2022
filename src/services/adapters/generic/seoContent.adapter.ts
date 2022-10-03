@@ -1,6 +1,7 @@
 import { adaptImage } from "./image.adapter"
 import { Item } from "../../../models/generic/entry.model"
 import SeoContent from "../../../models/generic/seoContent.model"
+import ImageType from '../../../models/generic/image.model'
 
 const adaptMetaKeywords = (metaKeywords: string[] | undefined) => {
   let metaKeywordsStr = '';
@@ -17,6 +18,19 @@ const adaptMetaKeywords = (metaKeywords: string[] | undefined) => {
 }
 
 export const adaptSeoContent = (data: Item): SeoContent => {
+  if(!data) {
+    return {
+      title: '',
+      metaDescription: '',
+      metaKeywords: '',
+      ogTitle: '',
+      ogDescription: '',
+      ogUrl: '',
+      ogType: '',
+      ogImage: {} as ImageType
+    }
+  }
+
   const { fields } = data
 
   return {

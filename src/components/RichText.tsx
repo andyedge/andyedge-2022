@@ -17,7 +17,8 @@ const options = {
         [MARKS.BOLD]: (text: any) => <Bold>{text}</Bold>
     },
     renderNode: {
-        [BLOCKS.PARAGRAPH]: (node: any, children: any) => <Text>{children}</Text>
+        [BLOCKS.PARAGRAPH]: (node: any, children: any) => <Text>{children}</Text>,
+        [BLOCKS.EMBEDDED_ASSET]: (node: any) => <img alt={node.data.target.fields.description} src={node.data.target.fields.file.url}/>
     }
 }
 

@@ -20,7 +20,7 @@ declare interface CustomImageProps {
 const CustomImage = ({ src, props } : CustomImageProps) => {
   const darkMode = useDarkMode(false)
 
-  if(!src.image && !src.darkImage) {
+  if(!src || (!src.image && !src.darkImage)) {
     return null
   }
 
@@ -29,10 +29,14 @@ const CustomImage = ({ src, props } : CustomImageProps) => {
   const layout = props?.layout || 'fill'
   const source = showDarkImage() ? src.darkImage : src.image
   
+  if(!source?.url.length) {
+    return null
+  }
+
   return (
     <Image
       className={props?.className}
-      src={source?.url || ''}
+      src={source?.url}
       alt={source?.description}
       layout={layout}
       style={props?.style}

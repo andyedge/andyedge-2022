@@ -5,6 +5,10 @@ import { adaptLink } from './link.adapter'
 import { adaptStepsSection } from './steps.adapter'
 
 export const adaptStandardContainer = (data: Item): StandardContainer => {
+    if(!data) {
+        return {} as StandardContainer
+    }
+
     const { fields } = data
 
     return {

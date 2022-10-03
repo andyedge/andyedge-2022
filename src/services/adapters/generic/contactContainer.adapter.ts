@@ -3,6 +3,10 @@ import ContactContainer from '../../../models/generic/contact.model'
 import { adaptImage } from './image.adapter'
 
 export const adaptContactContainer = (data: Item): ContactContainer => {
+    if(!data) {
+        return {} as ContactContainer
+    }
+
     const { fields } = data
 
     return {
