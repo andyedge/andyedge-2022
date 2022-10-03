@@ -1,71 +1,79 @@
-import cn from "classnames";
-import Icon from "../icon/Icon";
-import styles from "./Modal.module.sass";
-import { createPortal } from "react-dom";
-import OutsideClickHandler from "react-outside-click-handler";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import React, { ReactPortal, useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from 'react-dom'
+import OutsideClickHandler from 'react-outside-click-handler'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
+import React, { ReactPortal, useCallback, useEffect, useRef, useState } from 'react'
+import cn from 'classnames'
 
-const Modal = ({
-  outerClassName,
-  containerClassName,
-  visible,
-  onClose,
-  activeIndex,
-  children,
-}: any) => {
-  const escFunction = useCallback(
-    (e: any) => {
-      if (e.keyCode === 27) {
-        onClose();
-      }
-    },
-    [onClose]
-  );
-  
-  const [portal, setPortal] = useState<ReactPortal | JSX.Element>(<div></div>);
+import Icon from '../icon/Icon'
+import styles from './CommonModal.module.sass'
 
-  useEffect(() => {
-    document.addEventListener("keydown", escFunction, false);
-    return () => {
-      document.removeEventListener("keydown", escFunction, false);
-    };
-  }, [escFunction]);
+declare interface ModalProps {
+    children: JSX.Element
+    closeModal: () => void
+    isModalOpen: boolean
+}
 
-  const scrollRef = useRef(null);
+const CommonModal = ({ children, closeModal, isModalOpen } : ModalProps) => {
+    const scrollRef = useRef(null)
+    const [portal, setPortal] = useState<ReactPortal | JSX.Element>(<div></div>)
 
-  useEffect(() => {
-    const htmlRef = scrollRef.current as any as HTMLElement
-    if(htmlRef) {
-      visible ? disableBodyScroll(htmlRef) : enableBodyScroll(htmlRef);
+    const keydownHandler = useCallback(
+        (event: any) => {
+            //closes modal on "esc" keypress
+            if (event.keyCode === 27) {
+                closeModal()
+            }
+        },
+        [closeModal]
+    )
+
+    const destroyPortal = () => {
+        setPortal(<div></div>)
     }
-  }, [visible]);
 
-  useEffect(() => {    
-    if (document) {
-      setPortal(
-        createPortal(
-          visible && (
+    useEffect(() => {
+        document.addEventListener('keydown', keydownHandler, false)
+        return () => document.removeEventListener('keydown', keydownHandler, false)
+    }, [keydownHandler])
+
+    useEffect(() => {
+        const htmlRef = scrollRef.current as any as HTMLElement
+        if (htmlRef) {
+            isModalOpen ? disableBodyScroll(htmlRef) : enableBodyScroll(htmlRef)
+        }
+
+        if (!document || !isModalOpen) {
+            destroyPortal()
+            return
+        }
+
+        const portalResult = (isModalOpen && (
             <div className={styles.modal} ref={scrollRef}>
-              <div className={cn(styles.outer, outerClassName)}>
-                <OutsideClickHandler onOutsideClick={onClose}>
-                  <div className={cn(styles.container, containerClassName)}>
-                    {children}
-                    <button className={styles.close} onClick={onClose}>
-                      <Icon name="close" size={14} />
-                    </button>
-                  </div>
-                </OutsideClickHandler>
-              </div>
+                <div className={cn(styles.outer)}>
+                    <OutsideClickHandler onOutsideClick={closeModal}>
+                        <div className={cn(styles.container)}>
+                            {children}
+                            <button className={styles.close} onClick={closeModal}>
+                                <Icon name='close' size={14} />
+                            </button>
+                        </div>
+
+                    </OutsideClickHandler>
+                </div>
             </div>
-          ),
-          document.body
+        ))
+
+        setPortal(
+            createPortal(
+                portalResult,
+                document.body
+            )
+
         )
-      )      
-    }
-  }, [activeIndex]);
+        return () => destroyPortal()
+    }, [isModalOpen])
+    
+    return portal
+}
 
-  return portal;
-};
-
-export default Modal;
+export default CommonModal

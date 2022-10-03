@@ -1,6 +1,6 @@
 import cn from "classnames";
 import RichText from "../RichText";
-import Modal from "../modal/Modal";
+import Modal from "../cardModalWrapper/CardModalWrapper";
 import React, { useState } from "react";
 import CustomImage from "../image/Image";
 import styles from "./CardModal.module.sass";

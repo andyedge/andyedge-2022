@@ -4,7 +4,7 @@ import cn from 'classnames'
 import LinkType from '../../../models/generic/link.model'
 import styles from '../button.module.sass'
 import CustomImage from '../../image/Image'
-import CommonModal from '../../commonModal/CommonModal'
+import CommonModal from '../../Modal/Modal'
 
 declare interface EmbedContentProps {
     props: {
@@ -20,10 +20,11 @@ const EmbedContent: FC<EmbedContentProps> = ({ props }: EmbedContentProps) => {
     const { whiteButtonClass, size, iconExists, link } = props
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
     const toggleModal = () => setIsModalOpen(!isModalOpen)
+    const isXDContent = link.url.includes('xd.adobe.com')
 
     return (
         <button
-            className={cn(whiteButtonClass, styles[size], styles.button, styles.hide_on_mobile, iconExists ? styles.button_a : '')}
+            className={cn(whiteButtonClass, styles[size], styles.button, isXDContent && styles.hide_on_mobile, iconExists && styles.button_a)}
             onClick={toggleModal}
         >
             {link.text}
