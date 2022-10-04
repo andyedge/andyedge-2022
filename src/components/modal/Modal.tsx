@@ -5,7 +5,7 @@ import React, { ReactPortal, useCallback, useEffect, useRef, useState } from 're
 import cn from 'classnames'
 
 import Icon from '../icon/Icon'
-import styles from './CommonModal.module.sass'
+import styles from './Modal.module.sass'
 
 declare interface ModalProps {
     children: JSX.Element

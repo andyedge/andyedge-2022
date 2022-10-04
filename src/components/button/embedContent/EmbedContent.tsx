@@ -4,7 +4,7 @@ import cn from 'classnames'
 import LinkType from '../../../models/generic/link.model'
 import styles from '../button.module.sass'
 import CustomImage from '../../image/Image'
-import CommonModal from '../../Modal/Modal'
+import CommonModal from '../../modal/Modal'
 
 declare interface EmbedContentProps {
     props: {
