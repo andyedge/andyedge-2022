@@ -37,4 +37,5 @@ export default interface Bomou {
     textSlider: TextSlider[]
     contact: ContactContainer
     relatedCases: PortfolioCaseStudy[]
+    nextCase: LinkType
 }

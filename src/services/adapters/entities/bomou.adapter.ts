@@ -41,6 +41,7 @@ export const adaptBomou = (data: Entry): Bomou => {
         image6: adaptImageContainer (fields.image6),
         textSlider: adaptTextSliders(fields.testimonial),
         contact: adaptContactContainer(fields.contact),
-        relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : []
+        relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : [],
+        nextCase: adaptLink(fields.nextCase)
     }
 }

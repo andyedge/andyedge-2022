@@ -14,6 +14,7 @@ import EcampImgSection from '../src/components/ecampImgSection/EcampImgSection';
 import EcampImgTextComp from '../src/components/ecampImgTextComp/EcampImgTextComp';
 import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPageText';
 import EcampStandardContainer from '../src/components/ecampStandardContainer/EcampStandardContainer';
+import Button from '../src/components/button/Button';
 
 export const getStaticProps = async () => {
   const ecampPage = await getEcamp();
@@ -121,6 +122,9 @@ const Ecamp: NextPage<EcampProps> = ({ pageContent, header, footer } : EcampProp
       <Contact 
         contents={pageContent.contactContainer}
       />
+      <div className={'next-case-container'}>
+        <Button link={pageContent.nextCase} size='big'/>
+      </div>
     </Layout>
   )
 }

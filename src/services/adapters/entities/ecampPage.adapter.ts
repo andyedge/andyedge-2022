@@ -38,6 +38,7 @@ export const adaptEcamppage = (data: Entry): Ecamp => {
         sliderImages: adaptImages(fields.sliderImages),
         textSliderItems: adaptTextSliders(fields.textSliderItems),
         contactContainer: adaptContactContainer(fields.contactContainer),
-        relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : []
+        relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : [],
+        nextCase: adaptLink(fields.nextCase)
     }
 }

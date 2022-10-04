@@ -18,6 +18,7 @@ import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPa
 import BomouImgSection from '../src/components/bomouPage/bomouImgSection/BomouImgSection'
 import BomouDualBanner from '../src/components/bomouPage/bomouDualBanner/BomouDualBanner'
 import BomouSocialOutreach from '../src/components/bomouPage/bomouSocialOutreach/BomouSocialOutreach'
+import Button from '../src/components/button/Button'
 
 export const getStaticProps = async () => {
   const bomou = await getBomou();
@@ -127,6 +128,9 @@ const BomouPage : NextPage<BomouProps> = ({ pageContent, header, footer } : Bomo
       <Contact 
         contents={pageContent.contact}
       />
+      <div className={'next-case-container'}>
+        <Button link={pageContent.nextCase} size='big'/>
+      </div>
     </Layout>
   )
 }

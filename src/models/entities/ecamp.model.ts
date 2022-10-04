@@ -34,6 +34,7 @@ declare interface Ecamp {
     textSliderItems: TextSlider[]
     contactContainer: ContactContainer
     relatedCases: PortfolioCaseStudy[]
+    nextCase: LinkType
 }
 
 export default Ecamp

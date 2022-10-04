@@ -33,6 +33,7 @@ export const adaptPearson = (data: Entry): Pearson => {
         solutionList: adaptStandardContainers(fields.solutionList),
         testimonial: adaptTextSliders(fields.testimonial),
         bottomSection: adaptContactContainer(fields.bottomSection),
-        relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : []
+        relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : [],
+        nextCase: adaptLink(fields.nextCase)
     }
 }

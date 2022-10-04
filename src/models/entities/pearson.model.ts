@@ -1,4 +1,3 @@
-import ImageType from '../generic/image.model'
 import StandardCardContainer from '../generic/standardCardContainer.model'
 import StandardContainer from '../generic/standardContainer.model'
 import TextSlider from '../generic/textSlider.model'
@@ -30,4 +29,5 @@ export default interface Pearson {
     testimonial: TextSlider[]
     bottomSection: ContactContainer
     relatedCases: PortfolioCaseStudy[]
+    nextCase: LinkType
 }

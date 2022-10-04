@@ -10,6 +10,7 @@ import CardsContainer from '../src/components/cardsContainer/CardsContainer'
 import BulletPointsContainer from '../src/components/pearson/bulletPointsContainer/BulletPointsContainer'
 import PearsonInfo from '../src/components/pearson/pearsonInfo/PearsonInfo'
 import LayoutModel from '../src/models/generic/layout.model'
+import Button from '../src/components/button/Button'
 
 export const getStaticProps = async () => {
     const bomou = await getPearson()
@@ -51,6 +52,9 @@ const BomouPage: NextPage<PearsonProps> = ({ pageContent, header, footer } : Pea
             <Contact
                 contents={pageContent.bottomSection}
             />
+            <div className={'next-case-container'}>
+                <Button link={pageContent.nextCase} size='big'/>
+            </div>
         </Layout>
     )
 }
