@@ -45,7 +45,7 @@ const BomouPage: NextPage<PearsonProps> = ({ pageContent, header, footer } : Pea
             <BulletPointsContainer contents={pageContent.standardContainer1} />
             <PearsonInfo contents={pageContent} />
             <TextSlider
-                contents={[pageContent.testimonial]}
+                contents={pageContent.testimonial}
                 className={'section'}
             />
             <Contact

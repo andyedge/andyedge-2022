@@ -2,8 +2,7 @@ import Entry, { Item } from '../../../models/generic/entry.model'
 import Pearson from '../../../models/entities/pearson.model'
 import { adaptStandardContainer, adaptStandardContainers } from '../generic/standardContainer.adapter'
 import { adaptStandardCardContainers } from '../generic/cardContainer.adapter'
-import { adaptImage } from '../generic/image.adapter'
-import { adaptTextSlider } from '../generic/textSlider.adapter'
+import { adaptTextSliders } from '../generic/textSlider.adapter'
 import { adaptLink } from '../generic/link.adapter'
 import { adaptContactContainer } from '../generic/contactContainer.adapter'
 import { adaptSeoContent } from '../generic/seoContent.adapter'
@@ -32,7 +31,7 @@ export const adaptPearson = (data: Entry): Pearson => {
         bigImage2:  adaptImageContainer(fields.bigImage2),
         standardContainer4: adaptStandardContainer(fields.standardContainer4),
         solutionList: adaptStandardContainers(fields.solutionList),
-        testimonial: adaptTextSlider(fields.testimonial),
+        testimonial: adaptTextSliders(fields.testimonial),
         bottomSection: adaptContactContainer(fields.bottomSection),
         relatedCases: fields.relatedCases ? fields.relatedCases.map((data: Item) => adaptPortfolioCaseStudy(data.fields.portfolioData)) : []
     }

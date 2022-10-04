@@ -27,7 +27,7 @@ export default interface Pearson {
     bigImage2: ImageContainer
     standardContainer4: StandardContainer
     solutionList: StandardContainer[]
-    testimonial: TextSlider
+    testimonial: TextSlider[]
     bottomSection: ContactContainer
     relatedCases: PortfolioCaseStudy[]
 }
