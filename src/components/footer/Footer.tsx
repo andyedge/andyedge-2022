@@ -1,147 +1,76 @@
-import cn from "classnames";
-import Link from "next/link";
-import Icon from "../icon/Icon";
-import { useState } from "react";
-import Theme from "../theme/Theme";
-import ImageComp from "../image/Image";
-import styles from "./Footer.module.sass";
-import ContactField from "../contactField/ContactField";
+import cn from 'classnames'
+import Link from 'next/link'
+import Icon from '../icon/Icon'
+import Theme from '../theme/Theme'
+import RichText from '../RichText'
+import { FC } from 'react'
+import CustomImage from '../image/Image'
+import styles from './Footer.module.sass'
+import Footer from '../../models/entities/footer.model'
+import ContactModal from '../contactModal/ContactModal'
 
-const menu = [
-  {
-    title: "Lifestyle",
-    url: "/lifestyle",
-  },
-  {
-    title: "Pricing",
-    url: "/pricing",
-  },
-  {
-    title: "Class",
-    url: "/class01",
-  },
-  {
-    title: "Features",
-    url: "/features",
-  },
-  {
-    title: "Download",
-    url: "/download",
-  },
-];
+declare interface FooterProps {
+  data: Footer
+}
 
-const socials = [
-  {
-    title: "facebook",
-    size: 16,
-    url: "https://www.facebook.com/ui8.net/",
-  },
-  {
-    title: "twitter",
-    size: 18,
-    url: "https://twitter.com/ui8",
-  },
-  {
-    title: "instagram",
-    size: 16,
-    url: "https://www.instagram.com/ui8net/",
-  },
-  {
-    title: "dribbble",
-    size: 16,
-    url: "https://dribbble.com/ui8",
-  },
-  {
-    title: "behance",
-    size: 20,
-    url: "https://www.behance.net/ui8",
-  },
-];
-
-const Footer = () => {
-  const [visible, setVisible] = useState(false);
-
+const Footer: FC<FooterProps> = ({ data } : FooterProps) => {
   return (
     <footer className={styles.footer}>
       <div className={styles.body}>
-        <div className={cn("container", styles.container)}>
+        <div className={cn('container', styles.container)}>
           <div className={styles.col}>
             <div className={styles.box}>
-              <Link href="/">
+              <Link href='/'>
                 <div className={styles.logo}>
-                    {/*
-                    <ImageComp
-                    className={styles.pic}
-                    src="/images/logo-dark.svg"
-                    srcDark="/images/logo-light.svg"
-                    alt="Fitness Pro"
-                    />
-                    */}
+                  <CustomImage src={{image: data.logo}} />
                 </div>
               </Link>
               <Theme className={styles.theme} />
             </div>
-            <div className={cn(styles.item, { [styles.active]: visible })}>
-              <div
-                className={styles.category}
-                onClick={() => setVisible(!visible)}
-              >
-                footer nav
-                <Icon name="arrow-bottom" size={9} />
+            <div className={cn(styles.item, styles.active)}>
+              <div className={styles.category}>
+                Navigation
+                <Icon name='arrow-bottom' size={10} />
               </div>
-              {/*
               <div className={styles.menu}>
-                {menu.map((x, index) => (
-                  <NavLink
-                    className={styles.link}
-                    activeClassName={styles.active}
-                    to={x.url}
-                    key={index}
-                  >
-                    {x.title}
-                  </NavLink>
+                {data.pageLinks.map((item, index) => (
+                  <Link href={`/${item.url}`} key={index}>
+                    <a className={styles.category}>{item.text}</a>
+                  </Link>
                 ))}
               </div>
-              */}
             </div>
           </div>
           <div className={styles.col}>
-            <div className={styles.category}>contact</div>
+            <h6 className={styles.category}>{data.contactText}</h6>
             <div className={styles.info}>
-              <p>43252 Borer Mountains</p>
-              <p>Zackerychester</p>
-              <p>Bahamas</p>
-              <p>732-528-4945</p>
+              <RichText richText={data.contactContent} />
             </div>
           </div>
           <div className={styles.col}>
-            <div className={styles.category}>newsletter</div>
-            <div className={styles.info}>
-              Subscribe our newsletter to get more free design course and
-              resource.
+            <h6 className={styles.category}>{data.getInTouchText}</h6>
+            <div className={styles.info_alt}>
+              <RichText richText={data.getInTouchContent} />
             </div>
-            <ContactField
-              className={styles.subscription}
-              placeholder="Enter your email"
-            />
+            <ContactModal text={data.button.text} className={'button-default'} formId={data.formId}/>
           </div>
         </div>
       </div>
       <div className={styles.foot}>
-        <div className={cn("container", styles.container)}>
+        <div className={cn('container', styles.container)}>
           <div className={styles.copyright}>
-            Copyright © 2021 UI8 LLC. All rights reserved
+            {data.copyrightText}
           </div>
           <div className={styles.socials}>
-            {socials.map((x, index) => (
+            {data.socialLinks.map((item, index) => (
               <a
                 className={styles.social}
-                href={x.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={item.url}
+                target='_blank'
+                rel='noopener noreferrer'
                 key={index}
               >
-                <Icon name={x.title} size={x.size} />
+                <Icon name={item.icon} size={item.size} />
               </a>
             ))}
           </div>
@@ -151,4 +80,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footer

@@ -7,7 +7,7 @@ const SlickArrow = ({ currentSlide, slideCount, children, ...props }: any) => (
   <button {...props}>{children}</button>
 );
 
-const TextSlider = ({ contents, className }: any) => {
+const TextSlider = ({ contents, className, page='' }: any) => {
   const settings = {
     infinite: false,
     speed: 500,
@@ -26,6 +26,7 @@ const TextSlider = ({ contents, className }: any) => {
     ),
   };
 
+  const applyAlternativeTitleStyles = page === 'case_studies'
   return (
     <div className={cn(className, styles.section)}>
       <div className={cn("container", styles.container)}>
@@ -37,9 +38,9 @@ const TextSlider = ({ contents, className }: any) => {
                   <div className={styles.logo}>
                     <img src={content.image.url} alt={content.image.description} />
                   </div>
-                  <div className={styles.title}>{content.text}</div>
-                  <div className={styles.author}>{content.smallText1}</div>
-                  <div className={styles.position}>{content.smallText2}</div>
+                  <p className={cn(styles.title, applyAlternativeTitleStyles && styles.alt_title)}>{content.text}</p>
+                  <h6 className={styles.author}>{content.smallText1}</h6>
+                  <h6 className={styles.position}>{content.smallText2}</h6>
                 </div>
               </div>
             ))}

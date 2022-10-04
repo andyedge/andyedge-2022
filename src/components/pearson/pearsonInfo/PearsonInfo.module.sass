@@ -1,0 +1,147 @@
+@import ../../../styles/colors
+@import ../../../styles/helpers
+
+.container
+    margin-top: 160px
+
+.right_content
+    max-width: 648px
+    margin: 50px 0 88px auto
+    +d
+        max-width: 50vw
+    +s
+        max-width: unset
+
+    p
+        font-size: 24px
+        color: $gray
+        max-width: 572px
+        margin-top: 24px
+
+.design_system
+    display: grid
+    grid-template-columns: 1fr 640px
+    margin-bottom: 180px
+
+    +d
+        grid-template-columns: 1fr 50vw
+    +s
+        grid-template-columns: 100%
+
+    aside
+        max-width: 262px
+        +s
+            max-width: unset
+
+        > div
+            margin-bottom: 48px
+
+        h5
+            font-size: 24px
+            font-weight: 600
+        
+        p
+            margin-bottom: 24px
+    
+    .video_container
+        position: relative
+        max-height: 480px
+        box-shadow: 16px 32px 64px 32px rgba(15, 15, 15, 0.1)
+        +d
+            height: 45%
+        +t-
+            height: 41.5%
+        +s
+            height: 47%
+        +dark
+            box-shadow: 16px 32px 64px 32px $shadow-dark-mode
+
+        .video
+            width: 100%
+
+    .video_caption
+        margin-top: 128px
+        font-size: 14px
+        line-height: 1.75
+
+
+.image1
+    position: relative
+    min-height: 605px
+    width: 100%
+    margin: 50px 0 316px 0
+    box-shadow: 16px 32px 64px 32px rgba(15, 15, 15, 0.1)
+    +x
+        img
+            object-fit: contain
+    +d
+        min-height: 500px
+    +t
+        min-height: 400px
+    +m
+        min-height: 350px
+    +s
+        min-height: 220px
+    +dark
+        box-shadow: 16px 32px 64px 32px $shadow-dark-mode
+
+.overlapped_images
+    margin: 256px 0
+    position: relative
+    min-height: 880px
+
+    +d
+        min-height: calc(880px * 0.7)
+        margin: 128px 0
+
+    +s
+        margin: 0
+    *
+        box-shadow: 0px 32px 48px 8px rgba(15, 15, 15, 0.1)
+        +dark
+            box-shadow: 0px 32px 48px 8px $shadow-dark-mode
+        border-radius: 24px
+        position: absolute
+
+        &:first-child
+            left: 0
+            height: 618px
+            width: 892px
+            z-index: 1
+            +d
+                height: calc(618px * 0.7)
+                width: calc(892px * 0.7)
+            +s
+                width: 95%
+                img
+                    object-fit: contain
+                min-height: 220px
+                height: unset
+
+        &:last-child
+            right: 0
+            top: 275px
+            height: 597px
+            width: 892px
+            z-index: 2
+            +d
+                top: 100px
+                height: calc(597px * 0.7)
+                width: calc(892px * 0.7)
+            +s
+                width: 95%
+                min-height: 220px
+                height: unset
+                right: unset
+                top: 150px
+                left: 5%
+                img
+                    object-fit: cover
+
+.solution_banner
+    min-height: 902px
+    position: relative
+    margin-top: 88px
+
+    +d
+        min-height: 60vw

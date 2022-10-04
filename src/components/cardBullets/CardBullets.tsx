@@ -1,70 +1,46 @@
 import cn from "classnames";
 import { Fragment, FC } from "react";
-import ImageComp from "../image/Image";
+import CustomImage from "../image/Image";
 import styles from "./CardBullets.module.sass"
 import ScrollParallax from "../ScrollParallax";
-import ImageType from "../../models/image.model";
-import Button from '../button/Button';
-import StandardContainer from '../../models/standardContainer.model';
+import ImageType from "../../models/generic/image.model";
+import StandardContainer from '../../models/generic/standardContainer.model';
+import Card from './Card';
+import ImageContainer from "../../models/generic/imageContainer.model";
 
 declare interface CardBulletsProps {
   contents: StandardContainer
-  bg?: string
+  section: string
+  hasCardStyle?: boolean
 }
 
-const CardBullets: FC<CardBulletsProps> = ({ contents, bg } : CardBulletsProps) => {
+const CardBullets: FC<CardBulletsProps> = ({ contents, section, hasCardStyle } : CardBulletsProps) => {
   const { mediaPosition } = contents
   const isRightOriented = mediaPosition?.toLowerCase() === 'right'
   const galleryClasses = cn(styles.gallery, isRightOriented ? styles.gallery_right : styles.gallery_left);
-  const wrapStyle = isRightOriented ? { marginRight: 'auto' } : { marginLeft: 'auto' };
+  const wrapStyle = isRightOriented ? styles.wrap_right : styles.wrap_left;
 
   return (
-    <div style={{backgroundColor: bg}} className={cn("section-bg", styles.section)}>
+    <div className={cn("section-bg", styles.section, styles[section])}>
       <div className={cn("container", styles.container)}>
+        <Card contents={contents} style={wrapStyle} hasCardStyle={hasCardStyle}/>
         <div
           className={galleryClasses}
         >
           {
-            contents.images?.map((image: ImageType, index: number) => (
+            contents.imagesContainer?.map((image: ImageContainer, index: number) => (
               <Fragment key={'galleryimg_' + index}>
                 <ScrollParallax
                   className={styles.preview}
                   animateIn="fadeInUp"
                   offset={300}
+                  delay={index * 300}
                 >
-                  <ImageComp
-                    src={image.url}
-                    alt={image.description}
-                  />
+                  <CustomImage src={image} />
                 </ScrollParallax>
               </Fragment>
             ))
           }
-        </div>
-        <div className={styles.wrap} style={wrapStyle}>
-          <h2 className={cn("h2", styles.title)}> {contents.title} </h2>
-          <div className={styles.info}>
-            {contents.subtitle}
-          </div>
-          <div className={styles.list}>
-            {contents.bulletsContainer?.map((content: any, index: number) => (
-              <div className={styles.item} key={index}>
-                <div
-                  className={styles.icon}
-                >
-                  <ImageComp
-                    src={content.image.url}
-                    alt={content.image.description}
-                  />
-                </div>
-                <div className={styles.details}>
-                  <div className={styles.subtitle}>{content.title}</div>
-                  <div className={styles.content}>{content.text}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <Button link={contents.ctaPageLink} text={contents.ctaText} />
         </div>
       </div>
     </div>

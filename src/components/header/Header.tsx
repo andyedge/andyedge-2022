@@ -1,223 +1,58 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import cn from "classnames";
-import styles from "./Header.module.sass";
-import Icon from "../icon/Icon";
-import ImageComp from "../image/Image";
+import React, { useState, FC } from 'react'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import cn from 'classnames'
+import styles from './Header.module.sass'
+import Image from '../image/Image'
+import Header from '../../models/entities/header.model'
+import MegaMenu from '../megaMenu/MegaMenu'
+import ContactModal from '../contactModal/ContactModal'
+import Icon from '../icon/Icon'
 
-const navLinks = [
-  {
-    title: "Features",
-    url: "/features",
-  },
-  {
-    title: "Pricing",
-    url: "/pricing",
-  },
-  {
-    title: "Download",
-    url: "/download",
-  },
-  {
-    title: "Class",
-    content: {
-      menu: [
-        {
-          title: "Program Videos",
-          url: "/class01",
-          image: "/images/menu-video.svg",
-        },
-        {
-          title: "Premium Class",
-          url: "/class02",
-          image: "/images/menu-class.svg",
-        },
-      ],
-      links: [
-        {
-          title: "Sweet and Tone",
-          url: "/class01-details",
-          image: "/images/content/header-pic-1.png",
-          image2x: "/images/content/header-pic-1@2x.png",
-          category: "black",
-          categoryText: "featured class",
-          avatar: "/images/content/avatar-1.png",
-          trainer: "Zack Beier",
-          content:
-            "Sweet and Tone is a seven-day bodyweight training program designed to boost your strength and endurance over the course of a week.",
-          level: "green",
-          levelText: "beginner",
-        },
-        {
-          title: "Sweet and Tone",
-          url: "/class01-details",
-          image: "/images/content/header-pic-2.png",
-          image2x: "/images/content/header-pic-2@2x.png",
-          category: "green",
-          categoryText: "yoga",
-          avatar: "/images/content/avatar-2.png",
-          trainer: "Zack Beier",
-        },
-        {
-          title: "Sweet and Tone",
-          url: "/class01-details",
-          image: "/images/content/header-pic-3.png",
-          image2x: "/images/content/header-pic-3@2x.png",
-          category: "purple",
-          categoryText: "mindfulness",
-          avatar: "/images/content/avatar-3.png",
-          trainer: "Zack Beier",
-        },
-        {
-          title: "Sweet and Tone",
-          url: "/class01-details",
-          image: "/images/content/header-pic-4.png",
-          image2x: "/images/content/header-pic-4@2x.png",
-          category: "red",
-          categoryText: "fitness",
-          avatar: "/images/content/avatar-4.png",
-          trainer: "Zack Beier",
-        },
-      ],
-      trainer: [
-        {
-          title: "Boyd Reinger",
-          avatar: "/images/content/avatar-1.png",
-          type: "Personal trainer",
-        },
-        {
-          title: "Randal Jacobson",
-          avatar: "/images/content/avatar-2.png",
-          type: "Personal trainer",
-        },
-        {
-          title: "Dwight Schamberger",
-          avatar: "/images/content/avatar-3.png",
-          type: "Personal trainer",
-        },
-        {
-          title: "Omari Gulgowski",
-          avatar: "/images/content/avatar-4.png",
-          type: "Personal trainer",
-        },
-      ],
-    },
-  },
-  {
-    title: "Lifestyle",
-    url: "/lifestyle",
-  },
-];
+declare interface HeaderProps {
+  data: Header
+}
 
-const socials = [
-  {
-    title: "facebook",
-    size: 16,
-    url: "https://www.facebook.com/ui8.net/",
-  },
-  {
-    title: "twitter",
-    size: 18,
-    url: "https://twitter.com/ui8",
-  },
-  {
-    title: "instagram",
-    size: 16,
-    url: "https://www.instagram.com/ui8net/",
-  },
-];
-
-const contact = [
-  {
-    title: "Montanachester",
-    content: "06787 Block Estates",
-  },
-  {
-    title: "Lake Gene",
-    content: "167 Emard River",
-  },
-  {
-    title: "North Hassiefort",
-    content: "032 Leonora Spurs",
-  },
-];
-
-const Headers = () => {
-  const [visibleNav, setVisibleNav] = useState(false);
+const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
+  const [visibleNav, setVisibleNav] = useState<boolean>(false)
+  const router = useRouter()
+  const contactModalClasses = cn('button-stroke button-small', styles.contact)
 
   return (
     <header className={styles.header}>
-      <div className={cn("container", styles.container)}>
-        <Link
-          href="/"
-          // onClick={() => setVisibleNav(false)}
-        >
+      <div className={cn('container', styles.container)}>
+        <Link href='/'>
           <a className={styles.logo}>
-            <img
-              className={styles.pic}
-              src="/images/logo-andyedge.svg"
-              //srcDark="/images/logo-light.svg"
-              alt="Fitness Pro"
-            />
-          </a>          
+            <Image src={data.logo} />
+          </a>
         </Link>
         <div className={cn(styles.wrap, { [styles.active]: visibleNav })}>
           <nav className={styles.nav}>
-            {/* {navLinks.map((x, index) =>
-              x.content ? (
-                <DropdownMenu
-                  className={styles.group}
-                  item={x}
+            {data.links.map((link, index) => {
+              const isActive = router.pathname === link.url
+              return (
+                <Link
+                  href={link.url}
                   key={index}
-                  setValue={setVisibleNav}
-                />
-              ) : (
-                <NavLink
-                  className={styles.link}
-                  activeClassName={styles.active}
-                  href={x.url}
-                  key={index}
-                  onClick={() => setVisibleNav(false)}
                 >
-                  {x.title}
-                </NavLink>
+                  <a className={cn(styles.link, isActive && styles.active)}>{link.text}</a>
+                </Link>
               )
-            )} */}
+            })}
+            <MegaMenu
+              data={data.megaMenu}
+              isActive={router.pathname === '/'}
+            />
+            {/* <button className={cn("button-circle-stroke", styles.share)}>
+              <Icon name="download" size={18} />
+            </button> */}
+            <ContactModal text={data.ctaButton.text} formId={data.formId} className={contactModalClasses} />
           </nav>
-          <div className={styles.details}>
-            <div className={styles.contact}>
-              {contact.map((x, index) => (
-                <div className={styles.element} key={index}>
-                  <div className={styles.category}>{x.title}</div>
-                  <div className={styles.text}>{x.content}</div>
-                </div>
-              ))}
-            </div>
-            <div className={styles.socials}>
-              {socials.map((x, index) => (
-                <a
-                  className={styles.social}
-                  href={x.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  key={index}
-                >
-                  <Icon name={x.title} size={x.size} />
-                </a>
-              ))}
-            </div>
-            <Link              
-              href="/"
-            >
-              <a className={cn("button-stroke button-small", styles.button)}> Get free trial </a>              
-            </Link>
-          </div>
         </div>
-        <Link
-          href="/"
-        >
-          <a className={cn("button-stroke button-small", styles.button)}> Get free trial </a>          
-        </Link>
+        {/* <button className={cn('button-stroke button-small', styles.share)}>
+          <Icon name="download" size={18} />
+        </button> */}
+        <ContactModal text={data.ctaButton.text} formId={data.formId} className={contactModalClasses} />
         <button
           className={cn(styles.burger, { [styles.active]: visibleNav })}
           onClick={() => setVisibleNav(!visibleNav)}
@@ -227,4 +62,4 @@ const Headers = () => {
   );
 };
 
-export default Headers;
+export default HeaderComponent;

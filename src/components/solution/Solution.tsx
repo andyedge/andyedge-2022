@@ -1,18 +1,29 @@
 import cn from "classnames";
 import Icon from "../icon/Icon";
-import Link from "next/link";
-import styles from "./Solution.module.sass";
-import ImageComp from "../image/Image";
+import Button from "../button/Button";
+import CustomImage from "../image/Image";
 import { useEffect, useState } from "react";
+import styles from "./Solution.module.sass";
+import Solution from "../../models/generic/solution.model";
 
-interface solutionImagesType {
+declare interface solutionImagesType {
   url: string
   description: string
   style: any
 }
 
-const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps, solutionImages, solutionBackgroundImage }: any) => {
+const Solution = ({ data }: { data: Solution }) => {
+  const {
+    solutionTitle,
+    solutionText,
+    solutionSubtitle,
+    solutionSteps,
+    solutionImages,
+    solutionBackgroundImage,
+    solutionCta
+  } = data;
   const [solutionImagesState, setSolutionImagesState] = useState<solutionImagesType[]>([]);
+
   useEffect(() => {
     const solutionImgs: solutionImagesType[] = [];
 
@@ -29,25 +40,25 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
   }, []);
 
   const showImage = (index: number) => {
-    const solutionImgs = JSON.parse(JSON.stringify(solutionImagesState));
-    const imgOpacity = solutionImgs[index].style.opacity;
-    solutionImgs[index].style = imgOpacity === 1 ? { opacity: 0 } : { opacity: 1 };
+    const solutionImgs = solutionImagesState.map((image: any, imageIndex: number) => {
+      imageIndex === index ?
+        image.style = { opacity: 1 }
+        :
+        image.style = { opacity: 0 }
+
+      return image
+    });
     setSolutionImagesState(solutionImgs);
   }
 
   return (
-    <div className={cn("section-bg", styles.book)} style={{background: 'none', marginBottom: '104px'}}>
-      {Object.keys(solutionBackgroundImage).length > 0 ?
+    <div className={cn("section-bg", styles.container)}>
+      {solutionBackgroundImage && (
         <div className={styles.bg_div}>
-          <ImageComp
-            src={solutionBackgroundImage.url}
-            alt={solutionBackgroundImage.description}
-          />
+          <CustomImage src={{image: solutionBackgroundImage}} />
         </div>
-        :
-        null
-      }
-      <div className={cn("container", styles.container)}>
+      )}
+      <div className={cn("container")}>
         <div className={styles.card}>
           <h2 className={styles.title}>
             {solutionTitle}
@@ -87,22 +98,12 @@ const Solution = ({ solutionTitle, solutionText, solutionSubtitle, solutionSteps
                 {
                   solutionImagesState.map((image: any, index: number) => (
                     <div className={styles.solution_images} style={image.style} key={'imgstate_' + index}>
-                      <ImageComp
-                        srcSet={image.url}
-                        src={image.url}
-                        alt={image.description}
-                        style={{borderRadius: '16px'}}
-                      />
+                      <CustomImage src={{image}} props={{ style: { borderRadius: '16px' } }} />
                     </div>
                   ))
                 }
               </div>
-              <Link href="/">
-                <a className={cn("button", styles.button)}>
-                  Pearson case study
-                  <Icon name="arrow-right" size={20} />
-                </a>
-              </Link>
+              <Button link={solutionCta}/>
             </div>
           </div>
         </div>

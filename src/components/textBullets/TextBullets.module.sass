@@ -1,13 +1,63 @@
-@import ../../../styles/helpers
-@import ../../../styles/colors
-@import ../../../styles/measurements
-    
+@import ../../styles/helpers
+@import ../../styles/colors
+@import ../../styles/measurements
+
+.container
+  padding: 282px 80px 282px 0
+  position: relative
+  overflow: hidden
+  +x
+    padding: 128px 0
+  +d
+    padding: 80px 0
+  +t
+    padding: 64px 0
+  +m
+    padding: 0 32px 64px 32px
+
+.container_bomou
+  padding: 0 80px 192px 0
+  position: relative
+  overflow: hidden
+  +x
+    padding: 0 80px 144px 0
+  +t
+    padding: 0 0 64px 40px
+  +m
+    padding: 0 32px 64px 32px
+
+.identity_design
+    background-color: $gray4
+    +dark
+        background-color: $black
+
+.design_thinking, .bomou
+    padding-bottom: 0
+    background-color: $white
+    +d
+        padding-bottom: unset
+    +dark
+        background-color: $black2
+
 .section
     position: relative
     display: flex
     align-items: center
     min-height: 1096px
     padding: 100px 0
+    +x
+        min-height: unset
+        padding: 32px 0
+    +m
+        padding: 64px 0
+        padding-bottom: 0
+
+.section_bomou
+    position: relative
+    display: flex
+    align-items: center
+    min-height: 800px
+    padding: 0 0 100px
     +x
         min-height: 960px
     +d
@@ -21,25 +71,33 @@
     position: relative
     z-index: 3
     max-width: 440px
-    +x
-        margin-left: $container-padding-small
-    +d
+    +w
+        margin-left: 72px
         max-width: 420px
     +t
+        margin-left: 0
+        max-width: 45%
+    +m
         margin: auto
         margin-bottom: $container-spacing-mobile
+        max-width: unset
+        padding: 0 0 32px 0
 
 .title
     margin-bottom: 32px
+    +m
+        margin-bottom: 16px
 
 .info
     margin-bottom: 32px
     +body-1
-    color: $neutrals2
+    color: $light-black
     +dark
         color: $gray3
-    +t
+    +m
         margin-bottom: 0
+        font-size: 16px
+        line-height: unset
     p
         margin-bottom: $text-spacing
 
@@ -50,17 +108,17 @@
     position: relative
     padding-left: 36px
     font-weight: 600
-    color: $neutrals2
+    color: $light-black
     +dark
         color: $gray3
     &:before
         content: ""
         position: absolute
-        top: -1px
-        left: 0
-        width: 24px
-        height: 24px
-        background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 12L10 16L18 8' stroke='%2345B36B' stroke-width='2' stroke-miterlimit='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") no-repeat 50% 50% / 100% auto
+        top: 4px
+        left: 8px
+        width: 16px
+        height: 16px
+        background: url('/images/check.svg') no-repeat 50% 50% / 100% auto
     &:not(:last-child)
         margin-bottom: 16px
 
@@ -70,17 +128,29 @@
     right: 0
     transform: translateY(-50%)
     pointer-events: none
-    +t
+    +m
         position: relative
         top: auto
         right: auto
         margin: 0 auto 42px
         transform: translateY(0)
 
-.preview_id_design
+.gallery_bomou
+    position: absolute
+    top: 25%
+    right: 0
+    pointer-events: none
+    +m
+        position: relative
+        top: auto
+        right: auto
+        margin: 0 auto 42px
+        transform: translateY(0)
+
+.preview_identity_design
     width: 100%
     overflow-x: hidden
-    &:first-child        
+    &:first-child
         position: relative
         z-index: 1
         margin-left: auto
@@ -95,44 +165,68 @@
         +d
             width: calc(800px / 1.8)
             height: calc(548px / 1.8)
+        +t
+            width: calc(800px / 2.2)
+            height: calc(548px / 2.2)
+        +m
+            width: calc(800px / 2)
+            height: calc(548px / 2)
+            right: -10%
+        +s
+            width: calc(800px / 2.5)
+            height: calc(548px / 2.5)
     &:nth-child(2)
         z-index: 2
-        right: -170px
-        top: -75px
-        width: 1088px  
-        height: 832px
+        right: 0
+        top: 0
+        width: calc(1200px / 1.6)
+        height: calc(800px / 1.6)
         +x
-            width: calc(1088px / 1.4)
-            height: calc(832px / 1.4)
-            right: -20%
+            width: calc(1200px / 2.2)
+            height: calc(800px / 2.2)
         +d
-            width: calc(1088px / 1.8)
-            height: calc(832px / 1.8)
-            right: -25%
-            top: -13%
+            width: calc(1200px / 2.8)
+            height: calc(800px / 2.8)
         +t
+            width: calc(1200px / 3.2)
+            height: calc(800px / 3.2)
+        +s
+            width: calc(1200px / 3.8)
+            height: calc(800px / 3.8)
             right: -10%
     &:nth-child(3)
-        bottom: -130px
-        left: -180px
-        height: 296px
-        width: 377px
+        bottom: -185px
+        left: -160px
+        height: calc(600px / 1.6)
+        width: calc(601px / 1.6)
         z-index: 2
         +w
-            width: calc(377px / 1.2)
-            height: calc(296px / 1.2)
+            width: calc(601px / 1.8)
+            height: calc(600px / 1.8)
             left: -18%
         +x
-            width: calc(377px / 1.4)
-            height: calc(296px / 1.4)
+            width: calc(601px / 2.4)
+            height: calc(600px / 2.4)
+            left: -15%
+            bottom: -35%
         +d
-            width: calc(377px / 1.8)
-            height: calc(296px / 1.8)
-            bottom: -30%
+            width: calc(601px / 2.8)
+            height: calc(600px / 2.8)
+            bottom: -46%
             left: -10%
         +t
-            right: 33%
+            width: calc(601px / 3.2)
+            height: calc(600px / 3.2)
+            left: 10%
+        +m
+            width: calc(601px / 3.7)
+            height: calc(600px / 3.7)
+            left: 35%
+            bottom: -35%
+        +s
             left: unset
+            right: 40%
+            bottom: -45%
     &:nth-child(4)
         bottom: -140px
         left: -320px
@@ -146,44 +240,116 @@
         +x
             width: calc(160px / 1.1)
             height: calc(152px / 1.1)
+            bottom: -26%
+            left: -33%
         +d
             width: calc(160px / 1.2)
             height: calc(152px / 1.2)
             bottom: -35%
-            left: -30%
         +t
+            width: calc(160px / 1.5)
+            height: calc(152px / 1.5)
+            left: -10%
+        +m
+            left: 20%
+            bottom: -28%
+        +s
             left: unset
-            right: 55%
+            width: calc(160px / 2)
+            height: calc(152px / 2)
+            bottom: -35%
+            right: 80%
     &:not(:first-child)
         position: absolute
 
-.preview
+.preview_design_thinking
+    width: 100%
+    overflow-x: hidden
+    position: relative
+    &:first-child
+        z-index: 1
+        height: 559px
+        width: 530px
+        right: 23%
+        top: -30%
+        position: absolute
+        +w
+            right: 11%
+        +x
+            top: -35%
+        +d
+            width: calc(559px / 1.3)
+            height: calc(550px / 1.3)
+            top: -30%
+        +t
+            left: 60%
+            right: unset
+            transform: translateX(-50%)
+            top: -10%
+        +m
+            left: 50%
+        +s
+            width: calc(559px / 1.7)
+            height: calc(530px / 1.7)
+            transform: unset
+            left: unset
+            top: -15%
+    &:nth-child(2)
+        z-index: 1
+        top: 45px
+        width: calc(1200px / 1.48)
+        height: calc(800px / 1.48)
+        right: 5%
+        +w
+            right: -7%
+        +x
+            width: calc(1200px / 1.6)
+            height: calc(800px / 1.6)
+        +d
+            width: calc(1200px / 1.9)
+            height: calc(800px / 1.9)
+        +t
+            right: -10%
+            top: 115px
+            margin: auto
+            width: calc(1200px / 2.2)
+            height: calc(800px / 2.2)
+        +m
+            right: unset
+        +s
+            width: auto
+            height: 280px
+            top: 85px
+            img
+                object-fit: cover
+
+.preview_bomou
     width: 100%
     overflow-x: hidden
     &:first-child        
         position: relative
         z-index: 1
         height: 550px
-        width: 530px
-        left: -20%
-        transform: translateY(-30%)
+        width: 550px
+        left: -40%
+        top: -160px
+        +w
+            left: -20%
         +d
-            transform: translateY(-20%)
-    &:nth-child(2)
-        z-index: 2
-        right: -36%
-        top: -5%
-        width: 1088px
-        height: 832px
-        +d
-            left: -22%
-            top: 5%
-            width: 150%
-            height: 700px            
-    &:nth-child(3)
-        top: 32%
-        right: 2.5%
-        z-index: 2
+            top: -140px
+            width: calc(550px / 1.3)
+            height: calc(550px / 1.3)
+        +t
+            left: 0
+            width: calc(550px / 1.55)
+            height: calc(550px / 1.55)
+        +m
+            left: 20%
+            top: 0
+        +s
+            width: calc(550px / 1.6)
+            height: calc(530px / 1.6)
+            left: 0
     &:not(:first-child)
         position: absolute
        

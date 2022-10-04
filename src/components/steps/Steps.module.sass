@@ -1,10 +1,10 @@
-@import ../../../styles/helpers
-@import ../../../styles/colors
-@import ../../../styles/measurements
+@import ../../styles/helpers
+@import ../../styles/colors
+@import ../../styles/measurements
 
 .section 
     margin-bottom: $container-spacing-bottom-small
-    +m
+    +x
         margin-bottom: $container-spacing-mobile
 .head
     max-width: 544px
@@ -24,7 +24,7 @@
     letter-spacing: 0px
     font-family: +poppins
     +dark
-        color: $neutrals6
+        color: $gray4
 
 .list
     display: flex
@@ -46,6 +46,7 @@
             height: 1px
     +m
         flex-direction: column
+        overflow: unset
         margin: auto
 
 .item
@@ -69,7 +70,7 @@
         right: -79px
         width: 120px
         height: 2px
-        background-image: linear-gradient(90deg, $neutrals5 0, $neutrals5 6px, transparent 6px, transparent 14px)
+        background-image: linear-gradient(90deg, $gray3 0, $gray3 6px, transparent 6px, transparent 14px)
         background-repeat: repeat-x
         background-size: 12px auto
         +r(1260)
@@ -82,9 +83,10 @@
             right: -79px
             width: 120px
         +m
-            top: 413px
+            top: 389px
             right: unset
             transform: translateX(-48%)
+            color: #B1B5C3
     &:first-child
         .preview
             &:before
@@ -118,6 +120,8 @@
     border-radius: 24px
     +m
         margin: 128px auto 32px auto
+    +s
+        margin: 128px auto 16px auto
     &:before,
     &:after
         content: ""
@@ -129,7 +133,7 @@
         border-radius: 50%
         border: 2px solid #B1B5C3
         +m 
-            top: 280px
+            top: 256px
             transform: unset
     &:before
         left: -36px
@@ -137,16 +141,20 @@
         right: -36px
 
 .number
-    margin-bottom: 32px
     +caption-2
+    margin-bottom: 8px
     font-weight: 700
     color: #777e90
     font-size: 13px
+    +dark
+        color: $gray3
 
 .subtitle
     margin-bottom: 16px
     font-size: 18px
     color: $black
+    +dark
+        color: $white
 
 .content
     +caption-1
@@ -154,4 +162,4 @@
     line-height: 1.5
     font-size: 16px
     +dark
-        color: $neutrals6
+        color: $gray4

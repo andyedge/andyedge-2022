@@ -1,8 +1,9 @@
 import cn from "classnames";
 import Icon from "../icon/Icon";
-import ImageComp from "../image/Image";
+import CustomImage from "../image/Image";
 import styles from "./Platform.module.sass";
 import ScrollParallax from "../ScrollParallax";
+import Button from '../button/Button';
 
 
 const Platform = ({title1, stepsContainer}: any) => {
@@ -12,14 +13,11 @@ const Platform = ({title1, stepsContainer}: any) => {
         <h2 className={cn("h2", styles.title)}> {title1} </h2>
         <div className={styles.list}>
           {stepsContainer.map((step: any, index: number) => (
-            <ScrollParallax className={styles.item} key={index}>
+            <ScrollParallax className={styles.item} key={index} delay={index * 100}>
               <div
                 className={styles.preview}
               >
-                <ImageComp
-                  src={step.image.url}
-                  alt={step.image.description}
-                />
+                <CustomImage src={{image: step.image}}/>
               </div>
               <div className={styles.details}>
                 <div
@@ -29,15 +27,9 @@ const Platform = ({title1, stepsContainer}: any) => {
                 </div>
                 <div className={styles.subtitle}>{step.title}</div>
                 <div className={styles.description}>{step.text}</div>
-                <a
-                  href="/#"
-                  className={cn("button-small", styles.button)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span>Discover</span>
-                  <Icon name="arrow-right" size={10} />
-                </a>
+                <div className={styles.button}>
+                  <Button link={step.link} size='auto' scroll={false}/>
+                </div>
               </div>
             </ScrollParallax>
           ))}

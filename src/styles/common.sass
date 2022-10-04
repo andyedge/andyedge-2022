@@ -1,0 +1,112 @@
+// common styles
+@import './colors'
+
+body
+    min-width: 375px
+    background: $ultra-white
+    +poppins
+    font-size: 16px
+    line-height: 1.5
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    color: $light-black
+    +dark-body
+        background: $black
+        color: $ultra-white
+
+a
+    text-decoration: none
+
+
+svg,
+img
+    vertical-align: middle
+
+.desktop
+    &-hide
+        +d
+            display: none !important
+    &-show
+        display: none !important
+        +d
+            display: block !important
+    &-text-right
+        +d
+            text-align: right
+
+.tablet
+    &-hide
+        +t
+            display: none !important
+    &-show
+        display: none !important
+        +t
+            display: block !important
+            
+.mobile
+    &-hide
+        +m
+            display: none !important
+    &-show
+        display: none !important
+        +m
+            display: block !important
+
+
+.main-title
+    font-size: 64px
+    line-height: 1
+    letter-spacing: -1.28px
+    +m
+        font-size: 48px
+
+.secondary-title
+    font-size: 48px
+    line-height: 1
+    letter-spacing: -0.96px
+    +m
+        font-size: 32px
+
+.info-text
+    font-size: 24px
+    letter-spacing: -0.24px
+    color: $gray
+    +m
+        font-size: 18px
+        letter-spacing: unset
+
+.bordered-image
+    border: solid 6px $white
+    box-shadow: 24px 64px 64px 32px rgba(15, 15, 15, 0.15)
+    border-radius: 24px
+    overflow: auto
+    +s
+        box-shadow: 24px 16px 64px 24px rgba(15, 15, 15, 0.1)
+    +dark-common
+        box-shadow: 16px 16px 64px 8px $shadow-dark-mode
+        border: solid 6px $black3
+
+.category-labels
+    margin-bottom: 24px
+    white-space: nowrap
+    overflow: hidden
+    +a
+        margin-bottom: 16px
+    h6:not(:last-child)
+        margin-right: 16px
+        +a
+            margin-right: 8px
+
+.case-studies-items
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    column-gap: 30px
+    row-gap: 72px
+    +d
+        grid-template-columns: 32% 32% 32%
+        column-gap: 20px
+    +a
+        grid-template-columns: 100%
+
+.next-case-container
+    text-align: center

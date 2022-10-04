@@ -1,9 +1,12 @@
-@import ../../../styles/helpers
+@import ../../styles/helpers
+@import ../../styles/colors
 
 .footer
-    border-top: 1px solid rgba($neutrals4, .3)
+    border-top: 1px solid rgba($gray2, .3)
+    background-color: $white
     +dark
-        border-color: $neutrals3
+        border-color: $gray
+        background-color: $black2
 
 .container
     display: flex
@@ -16,36 +19,33 @@
         padding-top: 32px
 
 .col
-    flex: 0 0 30.5%
-    padding: 80px 86px 64px
+    flex: 0 0 32%
+    padding: 80px 0 64px
     +x
-        padding: 80px 64px 64px
+        padding: 80px 0 64px
     +d
-        flex: 0 0 34%
+        flex: 0 0 30%
     +t
-        padding: 64px 32px 48px
+        padding: 64px 0 48px
     +m
         padding: 32px 0
-        border-bottom: 1px solid $neutrals6
+        border-bottom: 1px solid $gray4
         +dark
-            border-color: $neutrals3
+            border-color: $gray
     &:first-child
         display: flex
-        flex: 0 0 39%
+        flex: 0 0 35%
         padding-left: 0
         +d
-            flex: 0 0 32%
+            flex: 0 0 35%
         +m
             display: block
     &:nth-child(3)
         padding-right: 0
     &:nth-child(2),
     &:nth-child(3)
-        border-left: 1px solid $neutrals6
         +m
             border-left: none
-        +dark
-            border-color: $neutrals3
 
 .box
     display: flex
@@ -55,38 +55,35 @@
     +x
         margin-right: 76px
     +d
-        margin-right: 40px
-    +t
-        margin-right: 24px
+        margin-right: 0
     +m
         margin: 0 0 40px
 
 .logo
     display: inline-block
     width: 32px
+    height: 32px
     margin-bottom: auto
     overflow: hidden
-    +m
-        width: auto
-    img
-        width: 166px
+    position: relative
 
 .item
-    .category
+    > .category
         display: none
+    .category
         +m
             display: flex
             align-items: center
             margin-bottom: 0
         svg
             margin-left: auto
-            fill: $neutrals4
+            fill: $gray2
             transition: transform .2s
     &.active
         +m
-            .category
-                svg
-                    transform: rotate(180deg)
+            // .category
+            //     svg
+            //         transform: rotate(180deg)
             .menu
                 display: flex
 
@@ -98,42 +95,49 @@
         display: none
         padding-top: 40px
 
-.link
-    +button-2
-    color: $neutrals4
-    transition: color .2s
-    &:hover
-        color: $neutrals2
-        +dark
-            color: $neutrals8
-    &:not(:last-child)
-        margin-bottom: 24px
+    .category
+        +s
+            padding-bottom: 8px
 
 .category
-    margin-bottom: 41px
-    +hairline-2
+    margin-bottom: 12px
+    font-size: 14px
+    font-weight: bold
+    line-height: 1.25
+    +m
+        line-height: 2
 
 .info
     +caption-1
+    line-height: 1.25
     p
         &:not(:last-child)
-            margin-bottom: 8px
+            margin-bottom: 12px
+    &:not(:last-child)
+        margin-bottom: 24px
+
+.info_alt
+    +caption-1
+    line-height: 2.1
+    transform: translateY(-7px)
+    +m
+        transform: unset
     &:not(:last-child)
         margin-bottom: 24px
 
 .foot
     padding: 25px 0 20px
-    border-top: 1px solid $neutrals6
+    border-top: 1px solid rgba($gray2, 0.3)
     +m
         padding: 56px 0 48px
         border: none
     +dark
-        border-color: $neutrals3
+        border-color: $gray
 
 .copyright
     margin-right: auto
     +caption-2
-    color: $neutrals4
+    color: $gray2
     +m
         margin: 0 0 24px
 
@@ -148,11 +152,11 @@
     width: 20px
     height: 20px
     svg
-        fill: $neutrals4
+        fill: $gray2
         transition: fill .2s
     &:hover svg
-        fill: $neutrals2
+        fill: $light-black
         +dark
-            fill: $neutrals8
+            fill: $ultra-white
     &:not(:last-child)
         margin-right: 24px

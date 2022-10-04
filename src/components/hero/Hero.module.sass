@@ -1,33 +1,44 @@
-@import ../../../styles/helpers
-@import ../../../styles/colors
+@import ../../styles/helpers
+@import ../../styles/colors
 
 .hero
     position: relative
     display: flex
     align-items: center
-    min-height: 880px
     padding-bottom: 130px
-    padding-top: 32px
-    +xw
-        padding-top: 64px
-        min-height: unset
+    padding-top: 64px
+    +t
+        padding-top: 32px
     +m
         padding-top: 64px
-    img
-        position: absolute
-        height: 75%
-        width: 100%
+
+    .background_image
         opacity: 0.3
+        +d
+            transform: translateY(-50px)
+        +s
+            transform: translateY(-50vh)
+        +m
+            transform: translateY(-25vh)
+
+.container
+    display: grid
+    grid-template-columns: 1fr 640px
+    position: relative
+    +x
+        grid-template-columns: 1fr 600px
+    +d
+        grid-template-columns: 40% 60%
+    +t
+        grid-template-columns: 50% 50%
+    +a
+        grid-template-columns: 100%
 
 .wrap
     position: relative
     z-index: 3
-    max-width: 490px
-    +t
-        max-width: 340px
-    +m
-        max-width: 100%
-        margin-bottom: 80px
+    +a
+        margin-bottom: 48px
 
     .stage
         margin-bottom: 22px
@@ -37,7 +48,12 @@
 
 .title
     margin-bottom: 32px
-    color: $neutrals2
+    padding-right: 8px
+    +x
+        padding-right: 18px
+    +a
+        padding-right: unset
+    color: $light-black
     +dark
         color: $white
 
@@ -47,9 +63,13 @@
 
 .text
     margin-bottom: 16px
-    color: $neutrals2
+    color: $light-black
     font-size: 18px
     max-width: 350px
+    +t
+        padding-right: 16px
+    +a
+        padding-right: unset
     +dark
         color: $gray3
 
@@ -74,31 +94,27 @@
 .scroll
     position: absolute
     bottom: -128px
-    +m
-        bottom: -336px
+    +a
+        bottom: -416px
+    +s
+        bottom: -360px
 
 .gallery
-    position: absolute
-    top: 50%
-    right: calc(50% - 465px)
-    width: 512px
-    transform: translateY(-58%)
-    +x
-        right: calc(50% - 425px)
-        width: 450px
+    position: relative
+    img
+        z-index: 2
     +d
-        right: calc(50% - 365px)
-        width: 320px
-    +t
-        right: calc(50% - 300px)
+        margin-left: auto
+        width: 100%
     +m
-        position: relative
-        top: auto
-        right: auto
-        left: -16px
         margin: 0 auto
-        transform: translate(0,0)
         pointer-events: all
+    +a
+        min-height: 240px
+
+    .play
+        transform: translate(-50%, -50%)
+        z-index: 1
 
 .preview
     &:first-child

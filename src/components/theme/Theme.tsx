@@ -11,8 +11,9 @@ const Theme = ({ className }: any) => {
       <input
         className={styles.input}
         checked={darkMode.value}
-        onChange={darkMode.toggle}
+        onClick={darkMode.toggle}
         type="checkbox"
+        readOnly
       />
       <span className={styles.inner}>
         <span className={styles.box}></span>

@@ -1,0 +1,76 @@
+@import ../../styles/colors
+@import ../../styles/helpers
+
+.first_title
+    padding: 80px 0 0 0
+    +m
+        padding: 48px 0
+
+.second_title
+    padding: 227px 0 136px 0
+    +d
+        padding: 112px 0
+    +m
+        padding: 64px 0
+
+.background_white
+    background: #FAFAFA
+    +dark
+        background-color: $black2
+
+.background_white_alt
+    background: #FAFAFA
+    +dark
+        background-color: $black
+
+.background_gray4
+    background: $gray4
+    +dark
+        background-color: $black
+
+.preText
+    padding-bottom: 24px
+
+.head
+    display: flex
+    padding-bottom: 56px
+    +d
+        padding-bottom: 80px
+    +m
+        flex-direction: column-reverse
+        padding-bottom: 0
+    .title
+        max-width: 920px
+        margin-right: auto
+    .button
+        margin: 0 0 auto auto
+        transition: all 0.3s
+        width: 56px
+        height: 56px
+        box-shadow: 0 0 0 2px $gray3 inset
+        position: relative
+        border-radius: 50%
+        +d
+            width: 48px
+            height: 48px
+            padding-left: 32px
+        +s
+            margin: auto 0 0 auto
+        svg
+            fill: $gray
+            transition: fill 0.3s
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
+            +dark
+                fill: $white
+    .button:hover
+        color: $white
+        box-shadow: unset
+        svg
+            fill: $white
+
+.two_rows_title
+    .title
+        max-width: 616px

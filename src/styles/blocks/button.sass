@@ -1,0 +1,95 @@
+[class^="button-default"]
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  height: 48px
+  padding: 0 24px
+  background: $orange
+  border-radius: 24px
+  +button-1
+  text-align: center
+  color: $ultra-white
+  transition: all .2s
+  &:hover
+    background: darken($orange, 10)
+  &.disabled
+    opacity: .5
+  svg
+    fill: $ultra-white
+  &:not([class^="button-circle"])
+    svg
+      &:last-child
+        margin-left: 15px
+
+.button-stroke
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  height: 48px
+  padding: 0 24px
+  border-radius: 24px
+  +button-1
+  text-align: center
+  transition: all .2s
+  background: none
+  box-shadow: 0 0 0 2px $border-color inset
+  color: $light-black
+  svg
+    fill: $light-black
+    transition: fill .2s
+  @media (hover: hover)
+    &:hover
+      box-shadow: 0 0 0 2px $light-black inset
+  +dark-common
+    box-shadow: 0 0 0 2px $gray2 inset
+    color: $ultra-white
+    svg
+      fill: $ultra-white
+    &:hover
+      box-shadow: 0 0 0 2px $ultra-white inset
+      background: none
+
+.button-stroke-red-no-hover
+  background: $orange
+  box-shadow: 0 0 0 2px $gray4 inset
+  color: $ultra-white
+  svg
+    fill: $ultra-white
+    transition: fill .2s
+  +dark-common
+    box-shadow: 0 0 0 2px $gray2 inset
+    color: $ultra-white
+    svg
+      fill: $ultra-white    
+
+
+.button-small
+  height: 40px
+  border-radius: 20px
+  padding: 0 16px
+  font-size: 14px
+
+.button-circle-stroke
+  flex: 0 0 48px
+  width: 48px
+  height: 48px
+  padding: 0
+  border-radius: 50%
+  box-shadow: 0 0 0 2px $gray4 inset
+  background: transparent
+  transition: border-color .2s
+  svg
+      fill: $gray2
+      transition: fill .2s
+  &:hover
+      background: $light-black
+      box-shadow: 0 0 0 2px $light-black inset
+      svg
+          fill: $ultra-white
+  +dark-common
+    box-shadow: 0 0 0 2px $gray inset
+    &:hover
+      background: $gray
+
+
+

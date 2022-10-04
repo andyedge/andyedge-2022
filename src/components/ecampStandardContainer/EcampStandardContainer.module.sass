@@ -1,10 +1,40 @@
-@import ../../../styles/helpers
+@import ../../styles/helpers
+@import ../../styles/colors
 
-.hero
+.content
+    display: grid
+    grid-template-columns: 1fr 544px
+    position: relative
+    +d
+        grid-template-columns: 1fr 500px
+    +t
+        grid-template-columns: 1fr 440px
+    +t-
+        grid-template-columns: 1fr 330px
+    +m
+        grid-template-columns: 100%
+
+.standard, .prototype
+    background-color: $ultra-white
+    +dark
+        background-color: $black
+
+.test
+    background-color: #FAFAFA
+    +dark
+        background-color: $black
+
+.no_title
+    background-color: $gray4
+    +dark
+        background-color: $black
+
+
+.hero_standard, .hero_test
     position: relative
     display: flex
     align-items: center
-    min-height: 680px
+    min-height: 800px
     padding: 34px 0 128px
     +x
         min-height: 800px
@@ -19,34 +49,95 @@
         width: 100%
         opacity: 0.3
 
+.hero_no_title
+    position: relative
+    display: flex
+    align-items: center
+    min-height: 680px
+    padding: 34px 0 128px
+    +x
+        min-height: 800px
+    +d
+        min-height: 624px
+    +t
+        padding: 34px 0 64px
+    +m
+        min-height: auto
+        padding: 64px 0 104px
+    img
+        position: absolute
+        height: 75%
+        width: 100%
+        opacity: 0.3
+
+.hero_prototype
+    position: relative
+    display: flex
+    align-items: center
+    min-height: 1000px
+    padding: 0 0 128px
+    +x
+        min-height: 800px
+    +d
+        min-height: 800px
+    +m
+        min-height: auto
+        padding: 64px 0 152px
+    img
+        position: absolute
+        height: 75%
+        width: 100%
+        opacity: 0.3
+
 .wrap
     position: relative
     z-index: 3
-    max-width: 450px
+    max-width: 480px
+    +d
+        max-width: 400px
     +t
-        max-width: 340px
+        max-width: 336px
     +m
         max-width: 100%
-        margin-bottom: 80px
+
+.empty_title
+    height: 64px
+    margin-bottom: 48px
+    margin-top: 20px
+    +m
+        display: none
+
+.pretitle
+    +dark
+        color: $ultra-white
 
 .title
     margin-bottom: 48px
     margin-top: 20px
-    color: $neutrals2
+    color: $light-black
+    +dark
+        color: $ultra-white
 
 .text
     margin-bottom: 48px
-    color: $neutrals2
+    color: $light-black
     font-size: 40px
     font-weight: 300
     letter-spacing: -0.4px
     line-height: 1.1
+    +dark
+        color: $gray3
 
 .paragraph
+    max-width: 448px
     margin-bottom: 64px
     text-align: left
-    color: $neutrals3
+    color: $gray
     +body-1
+    +dark
+        color: $gray3
+    +t
+        max-width: auto
 
 .btns
     display: flex
@@ -70,48 +161,80 @@
         bottom: 64px
 
 .gallery
-    position: absolute
-    top: 50%
-    right: calc(50% - 465px)
-    width: 512px
-    transform: translateY(-58%)
-    +x
-        right: calc(50% - 425px)
-        width: 450px
-    +d
-        right: calc(50% - 365px)
-        width: 320px
-    +t
-        right: calc(50% - 300px)
     +m
         position: relative
-        top: auto
-        right: auto
-        left: -16px
         margin: 0 auto
-        transform: translate(0,0)
         pointer-events: all
 
-.preview
+.preview_standard, .preview_test
+    position: relative
+    margin-left: auto
+    z-index: 2
     width: 544px
     height: 408px
+    +d
+        width: 424px
+        height: 320px
+    +t
+        width: 340px
+        height: 240px
+    +m
+        width: 320px
+        height: 224px
+        margin: auto
+    img
+        width: 100%
+        opacity: 1
+        border-radius: 24px
+
+.preview_prototype, .preview_no_title
     &:first-child
         position: relative
+        margin-left: auto
+        width: calc(1082px / 2)
+        height: calc(595px / 2)
         z-index: 2
+        +x
+            width: calc(1082px / 2.3)
+            height: calc(595px / 2.3)   
+        +d
+            width: calc(1082px / 2.6)
+            height: calc(595px / 2.6)
+        +t
+            width: calc(1082px / 3)
+            height: calc(595px / 3)
+        +t-
+            width: calc(1082px / 3.5)
+            height: calc(595px / 3.5)
+        +m
+            margin: auto
     &:nth-child(2)
-        top: 36%
+        top: 138px
+        right: -108px
         z-index: 1
-        width: 100%
-    &:nth-child(3)
-        top: -12%
-        right: -7%
-        z-index: 3
-        width: 45%
-    &:nth-child(4)
-        left: 11%
-        bottom: 13%
-        z-index: 3
-        width: 18%
+        width: 760px
+        height: 456px
+        img
+            object-fit: cover
+        +x
+            width: calc(760px / 1.3)
+            height: calc(456px / 1.3)
+            right: -57px
+            top: 100px
+        +d
+            width: calc(760px / 1.5)
+            height: calc(456px / 1.5)
+        +t
+            width: calc(760px / 1.7)
+            height: calc(456px / 1.7)
+            top: 64px
+            right: -32px
+        +t-
+            width: calc(760px / 2.2)
+            height: calc(456px / 2.2)
+            right: -20px
+        +s
+            width: 376px
     &:not(:first-child)
         position: absolute
     img

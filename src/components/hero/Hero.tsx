@@ -1,31 +1,55 @@
 import cn from "classnames";
+import { useState } from "react";
 import RichText from "../RichText";
 import styles from "./Hero.module.sass";
-import ScrollButton from "../scrollButton/ScrollButton";
-import StandardContainer from "../../models/standardContainer.model";
-import Button from '../button/Button';
+import Button from "../button/Button";
 import VideoComponent from "../VideoComponent";
+import ScrollButton from "../scrollButton/ScrollButton";
+import StandardContainer from "../../models/generic/standardContainer.model";
+import CustomImage from '../image/Image';
 
 declare interface HeroProps {
   contents: StandardContainer
+  functionType?: string
   scrollToRef: any
   scroll: boolean
 }
 
-const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
+const Hero = ({ contents, functionType, scrollToRef, scroll }: HeroProps) => {
   const videoClassnamesObj = {
     videoDivClassname: '',
     videoClassname: styles.hero_video,
     playButtonClassname: cn("play", styles.play)
   }
+  const [playing, setPlaying] = useState<boolean>(false);
+
+  const videoPlayingHandler = (newStatus: boolean) => {
+    setPlaying(newStatus);
+  }
+
+  const buttonPlayingHandler = () => {
+    if (playing) {
+      setPlaying(false);
+    } else {
+      setPlaying(true);
+    }
+  }
+
+  const buttonFunction = () => {
+    switch (functionType) {
+      case 'video':
+        buttonPlayingHandler();
+        break;
+      default:
+        undefined;
+        break;
+    }
+  }
 
   return (
     <div className={styles.hero}>
-      {contents.backgroundImage.url && (
-        <img
-          src={contents.backgroundImage.url}
-          alt={contents.backgroundImage.description}
-        />
+      {contents.backgroundImage.image.url && (
+        <CustomImage src={contents.backgroundImage} props={{className: styles.background_image, priority: true}} />
       )}
       <div className={cn("container", styles.container)}>
         <div className={styles.wrap}>
@@ -37,7 +61,7 @@ const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
             {contents.strikeThroughTitle && (
               <>
                 <br />
-                <span className={styles.strike_through}> {contents.strikeThroughTitle}</span> 
+                <span className={styles.strike_through}> {contents.strikeThroughTitle}</span>
                 {` ${contents.complementTitle}`}
               </>
             )}
@@ -46,12 +70,15 @@ const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
             {contents.subtitle}
           </p>
           {contents.text && (
-            <p className={styles.paragraph}>
+            <div className={styles.paragraph}>
               <RichText richText={contents.text} />
-            </p>
+            </div>
           )}
-          {contents.ctaText && (
-            <Button link={contents.ctaPageLink} text={contents.ctaText} size='small' showIcon={false} />
+          {contents.primaryButtonCta && (
+            <Button
+              link={contents.primaryButtonCta}
+              func={buttonFunction}
+            />
           )}
           {scroll && (
             <ScrollButton
@@ -63,15 +90,19 @@ const Hero = ({ contents, scrollToRef, scroll }: HeroProps) => {
           )}
         </div>
         <div className={styles.gallery}>
-          {
-            contents.videoUrl !== null ?
-              <VideoComponent
-                videoUrl={contents.videoUrl}
-                videoClassnames={videoClassnamesObj}
-              />
-              :
-              null
-          }
+          {contents.videoUrl ?
+            <VideoComponent
+              videoUrl={contents.videoUrl}
+              videoClassnames={videoClassnamesObj}
+              playing={playing}
+              playingHandler={videoPlayingHandler}
+            />
+            : null }
+          {contents?.imagesContainer?.length ? (
+            <div className={styles.gallery_img}>
+              <CustomImage src={contents.imagesContainer[0]} props={{priority: true}}/>
+            </div>
+          ) : null }
         </div>
       </div>
     </div>

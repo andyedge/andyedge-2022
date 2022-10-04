@@ -1,28 +1,45 @@
 import cn from "classnames";
 import RichText from "../RichText";
-import ImageComp from "../image/Image";
-import ImageType from "../../models/image.model";
+import CustomImage from "../image/Image";
+import { useEffect, useState } from "react";
 import styles from "./ImageTextComp.module.sass";
+import useDarkMode from "@fisch0920/use-dark-mode";
+import ImageContainer from "../../models/generic/imageContainer.model";
+import StandardContainer from "../../models/generic/standardContainer.model";
 
-const ImageTextComp = ({ content, isFirst, isLast }: any) => {
-  const images = content.images;
+declare interface ImageTextCompProps {
+  content: StandardContainer
+  isFirst: boolean
+  isLast: boolean
+}
+
+const ImageTextComp = ({ content, isFirst, isLast }: ImageTextCompProps) => {
+  const darkMode = useDarkMode(false);
+  const [lineImgSrc, setLineImgSrc] = useState('');
+  
+  const images = content.imagesContainer;
   let galleryClasses = cn(styles.gallery);
   let wrapClasses = cn(styles.wrap);
-  let lineImgSrc = '';
-  let lineClass = ''
+  let lineClass = '';
   const titleClass = isFirst ? cn("h1", styles.title) : cn("h2", styles.title);
 
   if (content.mediaPosition?.toLowerCase() === 'left') {
     galleryClasses = cn(styles.gallery, styles.gallery_left);
-    wrapClasses = cn(styles.wrap, styles.wrap_left);
-    lineImgSrc = '/images/bg-line-01.svg';
+    wrapClasses = cn(styles.wrap, styles.wrap_left);    
     lineClass = cn(styles.line_left);
   } else {
     galleryClasses = cn(styles.gallery, styles.gallery_right);
-    wrapClasses = cn(styles.wrap, styles.wrap_right);
-    lineImgSrc = '/images/bg-line-02.svg';
+    wrapClasses = cn(styles.wrap, styles.wrap_right);    
     lineClass = cn(styles.line_right);
   }
+
+  useEffect(() => {
+    if (content.mediaPosition?.toLowerCase() === 'left') {
+      darkMode.value ? setLineImgSrc('/images/bg-line-01-dark.svg') : setLineImgSrc('/images/bg-line-01.svg');      
+    } else {
+      darkMode.value ? setLineImgSrc('/images/bg-line-02-dark.svg') : setLineImgSrc('/images/bg-line-02.svg');
+    }
+  }, [darkMode.value])
 
   return (
     <>
@@ -48,12 +65,9 @@ const ImageTextComp = ({ content, isFirst, isLast }: any) => {
           </div>
           <div className={galleryClasses}>
             {
-              images.map((image: ImageType, index: number) => (
+              images?.map((image: ImageContainer, index: number) => (
                 <div className={styles.preview} key={'txtImg_' + index}>
-                  <ImageComp
-                    src={image.url}
-                    alt={image.description}
-                  />
+                  <CustomImage src={image} />
                 </div>
               ))
             }

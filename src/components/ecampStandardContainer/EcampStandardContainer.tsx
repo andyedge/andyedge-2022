@@ -1,25 +1,25 @@
 import cn from "classnames";
-import Link from "next/link";
 import RichText from "../RichText";
-import ImageComp from "../image/Image";
-import VideoComponent from "../VideoComponent";
-import ImageType from "../../models/image.model";
+import Button from "../button/Button";
+import CustomImage from "../image/Image";
 import styles from "./EcampStandardContainer.module.sass";
+import ImageContainer from "../../models/generic/imageContainer.model";
+import StandardContainer from "../../models/generic/standardContainer.model";
 
-const EcampStandardContainer = ({ contents, title }: any) => {
-  const videoClassnamesObj = {
-    videoDivClassname: '',
-    videoClassname: styles.hero_video,
-    playButtonClassname: cn("play", styles.play)
-  }
+declare interface EcampStandardContainerProps {
+  contents: StandardContainer
+  title: boolean
+  section: string
+}
 
-  const images = contents.images;
+const EcampStandardContainer = ({ contents, title, section } : EcampStandardContainerProps) => {
+  const images = contents.imagesContainer;
 
   return (
-    <div className={styles.hero}>
+    <div className={cn(styles[`hero_${section}`], styles[section])}>
       <div className={cn("container", styles.container)}>
-        <div className={styles.wrap}>
-          <div className={cn("stage", styles.stage)}>
+        <div>
+          <div className={cn("stage", styles.stage, styles.pretitle)}>
             {contents.preTitle}
           </div>
           {
@@ -28,42 +28,36 @@ const EcampStandardContainer = ({ contents, title }: any) => {
                 {contents.title}
               </h2>
               :
-              null
+              <div className={styles.empty_title}></div>
           }
-          <div className={styles.text}>
-            {contents.subtitle}
-          </div>
-          {
-            contents.text !== null ?
-              <div className={styles.paragraph}>
-                <RichText
-                  richText={contents.text}
-                />
+          <div className={styles.content}>
+            <div className={styles.wrap}>
+              <div className={styles.text}>
+                {contents.subtitle}
               </div>
-              :
-              null
-          }
-          {contents.ctaText !== null ?
-            <div className={styles.btns}>
-              <Link href="#">
-                <a className={cn("button", styles.button)}> {contents.ctaText} </a>
-              </Link>
+              {contents.text ?
+                <div className={styles.paragraph}>
+                  <RichText richText={contents.text} />
+                </div>
+                :
+                null
+              }
+              {contents.primaryButtonCta ?
+                <Button link={contents.primaryButtonCta} />
+                :
+                null
+              }
             </div>
-            :
-            null
-          }
-        </div>
-        <div className={styles.gallery}>
-          {
-            images.map((image: ImageType, index: number) => (
-              <div className={styles.preview} key={index}>
-                <ImageComp
-                  src={image.url}
-                  alt={image.description}
-                />
-              </div>
-            ))
-          }
+            <div className={styles.gallery}>
+              {
+                images?.map((image: ImageContainer, index: number) => (
+                  <div className={styles[`preview_${section}`]} key={index}>
+                    <CustomImage src={image}/>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
         </div>
       </div>
     </div>

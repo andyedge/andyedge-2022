@@ -1,4 +1,5 @@
-@import ../../../styles/helpers
+@import ../../styles/helpers
+@import ../../styles/colors
 
 .container
     padding: 0 8px
@@ -6,6 +7,43 @@
         width: 240px
         a
             padding: unset
+
+.big
+    text-align: center
+    margin: 56px auto
+    width: 352px
+    height: 72px
+    border-radius: 90px
+    color: $light-black
+    font-size: 24px
+    border: solid 0.5px $gray3
+    background-color: $white
+    font-family: 'SFProDisplay-Bold'
+    transition: all 0.2
+    box-shadow: unset
+    position: relative
+    +dark
+        background-color: $black
+        box-shadow: unset
+    +s
+        width: unset
+        height: unset
+        font-size: 16px
+        padding: 16px 40px
+        border-radius: 90px
+
+    .icon_wrapper
+        position: absolute
+        right: 32px
+        height: 16px
+        width: 16px
+        +s
+            right: 16px
+            height: 12px
+            width: 12px
+
+.big:hover
+    background-color: $gray4
 
 .default
     width: 336px
@@ -15,4 +53,28 @@
 .small
     width: 216px
     +m
-        width: 160px
+        width: 180px
+
+.tiny
+    width: 125px
+    height: 40px
+    font-size: 14px
+
+    .icon_wrapper
+        height: 12px
+        width: 12px
+
+.icon_wrapper
+    position: relative
+    height: 24px
+    width: 24px
+    margin-left: 7px
+
+.iframe
+    position: absolute
+    width: 100%
+    height: 100%
+
+.hide_on_mobile
+    +m
+        display: none

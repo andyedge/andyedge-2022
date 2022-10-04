@@ -1,38 +1,40 @@
-import type { NextPage } from 'next';
 import { useRef } from 'react';
+import type { NextPage } from 'next';
 import Hero from '../src/components/hero/Hero';
 import Steps from '../src/components/steps/Steps';
-import { getWhatpage } from '../src/services/fetch';
+import Layout from '../src/components/layout/Layout';
 import Contact from '../src/components/contact/Contact';
 import Solution from '../src/components/solution/Solution';
+import Whatpage from '../src/models/entities/whatpage.model';
+import LayoutModel from '../src/models/generic/layout.model';
 import CardBullets from '../src/components/cardBullets/CardBullets';
 import TextBullets from '../src/components/textBullets/TextBullets';
-import Whatpage from '../src/models/whatpage.model';
-import useDarkMode from "@fisch0920/use-dark-mode";
+import { getWhatpage, getHeader, getFooter } from '../src/services/fetch';
 
 export const getStaticProps = async () => {  
-  const res = await getWhatpage();
-
+  const whatPage = await getWhatpage();
+  const header = await getHeader();
+  const footer = await getFooter();
   return {
     props: {
-      pageContent: res
+      pageContent: whatPage,
+      header,
+      footer
     }
   }
 }
 
-declare interface WhatPageProps {
+declare interface WhatPageProps extends LayoutModel {
   pageContent: Whatpage
 }
 
-const Home: NextPage<WhatPageProps> = ({ pageContent } : WhatPageProps ) => {
+const Home: NextPage<WhatPageProps> = ({ pageContent, header, footer } : WhatPageProps ) => {
   const scrollToRef = useRef(null);
-  const darkMode = useDarkMode(false);
-  const isDarkModeActive = darkMode.value;
-  
   return (
-    <>
+    <Layout header={header} seoContent={pageContent.seoContent} footer={footer}>
       <Hero
         contents={pageContent.hero}
+        functionType={''}
         scrollToRef={scrollToRef}
         scroll={true}
       />
@@ -44,34 +46,27 @@ const Home: NextPage<WhatPageProps> = ({ pageContent } : WhatPageProps ) => {
       />
       <CardBullets
         contents={pageContent.standardContainer1}
-        bg={isDarkModeActive ? '#000000' : '#FFFFFF'}
+        section={'design_system'}
       />
       <CardBullets 
         contents={pageContent.standardContainer2}
-        bg={isDarkModeActive ? '#000000' : '#FAFAFA'}
+        section={'visual_language'}
       />
       <TextBullets
         contents={pageContent.standardContainer3}
-        section={'IdentityDesign'}
-        bg={isDarkModeActive ? '#000000' : '#F4F4F4'}
+        section={'identity_design'}
       />
       <TextBullets
         contents={pageContent.standardContainer4}
-        section={'DesignThinking'}
-        bg={isDarkModeActive ? '#000000' : '#FAFAFA'}
+        section={'design_thinking'}
       />
-      <Solution
-        solutionTitle={pageContent.solutionTitle}
-        solutionText={pageContent.solutionText}
-        solutionSubtitle={pageContent.solutionSubtitle}
-        solutionSteps={pageContent.solutionSteps}
-        solutionImages={pageContent.solutionImages}
-        solutionBackgroundImage={pageContent.solutionBackgroundImage1}
+      <Solution 
+        data={pageContent.solution}
       />
       <Contact 
         contents={pageContent.contactContainer}
       />
-    </>
+    </Layout>
   )
 }
 

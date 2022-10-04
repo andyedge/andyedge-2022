@@ -1,4 +1,5 @@
-@import ../../../styles/helpers
+@import ../../styles/helpers
+@import ../../styles/colors
 
 .theme
     display: inline-block
@@ -18,9 +19,9 @@
     left: 0
     opacity: 0
     &:checked + .inner
-        border-color: $neutrals2
+        border-color: $black3
         .box
-            background: rgba($neutrals2, .3) 
+            background: rgba($light-black, .3) 
             &:before
                 width: 8px
                 height: 24px
@@ -29,7 +30,7 @@
     &:checked + .inner
         .icon
             svg
-                fill: $neutrals8
+                fill: $ultra-white
                 &:first-child
                     opacity: 0
                 &:nth-child(2)
@@ -39,7 +40,7 @@
 .inner
     position: relative
     display: inline-block
-    border: 4px solid $neutrals6
+    border: 4px solid $gray4
     border-radius: 24px 
     transition: all .2s
 
@@ -48,8 +49,8 @@
     display: block
     width: 72px
     height: 32px
-    box-shadow: inset 0 0 0 1px rgba($neutrals4, .4)
-    background: $neutrals8
+    box-shadow: inset 0 0 0 1px rgba($gray2, .4)
+    background: $ultra-white
     border-radius: 16px 
     transition: all .2s
     &:before
@@ -70,7 +71,7 @@
         position: absolute
         top: 50%
         transform: translateY(-50%)
-        fill: $neutrals5
+        fill: $gray3
         transition: all .2s
         &:first-child
             right: 5px

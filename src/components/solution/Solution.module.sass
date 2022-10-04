@@ -1,48 +1,74 @@
-@import '../../../styles/helpers'
-@import '../../../styles/colors'
+@import '../../styles/helpers'
+@import '../../styles/colors'
+
+.container
+    background-color: unset
+    padding-top: 368px
+    max-width: 1440px
+    margin: 0 auto
+    position: relative
+    +dark
+        background-color: unset
+    +d
+        padding-top: 112px
+    +m
+        padding-top: 36px
 
 .bg_div
     position: absolute
-    z-index: -1
     width: 100%
-    height: 130%
-    transform: translateY(-10%)
+    height: 1200px
     overflow-x: hidden
+    top: 100px
 
 
 .card
-    padding: 48px 76px 64px
-    background: $neutrals8
-    +dark
-        background: $black
-    box-shadow: 24px 64px 64px 24px rgba(15, 15, 15, 0.1)
+    position: relative
+    padding: 36px 96px
+    background: $ultra-white
+    box-shadow: 24px 32px 64px 24px rgba(15, 15, 15, 0.1)
     border-radius: 24px
     overflow: hidden
+    margin-bottom: 168px
+    +dark
+        background: $black
+        box-shadow: 24px 24px 64px 32px $shadow-dark-mode
+    +d
+        padding: 48px
+    +m
+        padding: 24px
 
 .title
     font-size: 48px
     letter-spacing: -0.96px
     line-height: 1
 
+    +t
+        font-size: 40px
+
 .paragraph
     width: 75%
     line-height: 1.2
     font-size: 24px
     margin-top: 16px
+    +m 
+        font-size: 16px
+        line-height: unset
+        width: 100%
     
 .wrap
     margin-top: 64px
     display: flex
-    align-items: center         
-    +d
-        padding: 48px 24px
+    align-items: center
     +t
         display: block
     +m
         display: block
         border-radius: 16px
+        margin-top: unset
+        padding-top: 48px
     +dark
-        background: $neutrals1
+        background: $black
 
 .col
     &:first-child
@@ -60,6 +86,8 @@
 
 .stage
     margin-bottom: 24px
+    +dark
+        color: $gray3
     +m
         margin-bottom: 16px
         padding-left: 10px
@@ -81,25 +109,25 @@
     border-radius: 8px
     +body-1
     font-weight: 600
-    color: $neutrals1
+    color: $black
     transition: background .2s
     cursor: pointer
     +m
         padding: 10px
         font-size: 18px
     &:hover
-        background: $neutrals6
+        background: $gray4
     +dark
-        background: $neutrals2
-        color: $neutrals8
+        background: $black2
+        color: $ultra-white
         &:hover
-            background: $neutrals3
+            background: $black3
 
 .arrow
     margin-left: auto
     padding-left: 20px
     svg
-        fill: $neutrals4
+        fill: $gray2
 
 .icon
     margin-right: 20px
@@ -118,13 +146,14 @@
     height: 300px
     transition: opacity .5s ease-out
     position: relative
+    left: 7%
     &:not(:first-child)
         position: absolute
-        transform: translateY(-100%)
+        transform: translateY(-100%)        
     +d
         max-width: 320px
         width: 320px
-        height: 250px
+        height: 250px        
     +t
         max-width: 500px
         width: 500px
@@ -137,12 +166,13 @@
         max-width: 300px
         width: 300px
         height: 200px
+        left: 20%
     +s
-        max-width: 200px
-        width: 200px
-        height: 100px
+        width: 100%
+        height: 200px
+        left: 0%
 
 .info
     max-width: 380px
     margin: 0 auto 24px
-    color: $neutrals4
+    color: $gray2

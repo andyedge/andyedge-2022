@@ -1,0 +1,24 @@
+@import ../../styles/helpers
+@import ../../styles/colors
+
+.container
+    display: flex
+    position: fixed
+    height: 100vh
+    width: 100vw
+    margin: 0
+    background: $white
+    +dark
+        background: $black
+    top: 0
+    left: 0
+    z-index: 10
+
+    svg 
+        margin: auto
+
+        path
+            stroke: $gray2
+            stroke-dasharray: 300px
+            stroke-dashoffset: 300px
+            

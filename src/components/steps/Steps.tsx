@@ -3,6 +3,7 @@ import cn from "classnames";
 import styles from "./Steps.module.sass";
 import ScrollParallax from "../ScrollParallax";
 import Image from 'next/image';
+import imageLoader from '../../helpers/imageLoader';
 
 declare interface StepsProps {
   stepsTitle: string
@@ -27,9 +28,11 @@ const Steps: FC<StepsProps> = ({ stepsTitle, stepsText, stepsArray, scrollToRef 
               className={styles.preview}
             >
               <Image 
-                src={'https:' + step.image.url} 
+                src={step.image.url} 
                 alt={step.image.description}
                 layout='fill'
+                loader={imageLoader}
+                unoptimized={true}
               />
             </div>
             <h6 className={styles.number}> {step.preTitle} </h6>

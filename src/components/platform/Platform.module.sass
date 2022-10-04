@@ -1,4 +1,5 @@
-@import ../../../styles/helpers
+@import ../../styles/helpers
+@import ../../styles/colors
 
 .title
     margin-bottom: 40px
@@ -11,7 +12,7 @@
     margin: 0 -16px
     border-width: 2px 0 1px
     border-style: solid
-    border-color: $neutrals6
+    border-color: $gray4
     +t
         display: block
         margin: 0
@@ -20,7 +21,7 @@
         padding: 0
         border: none
     +dark
-        border-color: $neutrals3
+        border-color: $gray
 
 .item
     display: flex
@@ -29,7 +30,7 @@
     width: calc(50% - 32px)
     margin: 80px 16px -1px
     padding-bottom: 48px
-    border-bottom: 1px solid $neutrals6
+    border-bottom: 1px solid $gray4
     cursor: pointer
     +x
         cursor: default 
@@ -42,12 +43,12 @@
         display: block
         text-align: center
     +dark
-        border-color: $neutrals3
+        border-color: $gray
     &:not(:last-child)
         +t
             margin-bottom: 48px
         +m
-            margin-bottom: 40px
+            margin-bottom: 72px
     .button
         position: absolute
         top: calc(100% + 24px)
@@ -60,7 +61,7 @@
             visibility: visible
             opacity: 1
         +m
-            margin-top: 16px
+            margin-top: 8px
     &:hover 
         .details
             transform: translateY(-33px)
@@ -98,7 +99,7 @@
 
 .description
     +caption-1
-    color: $neutrals4
+    color: $gray2
 
 .btns
     margin-top: 80px

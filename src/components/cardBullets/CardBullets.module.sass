@@ -1,18 +1,34 @@
-@import ../../../styles/helpers
-@import ../../../styles/colors
+@import ../../styles/helpers
+@import ../../styles/colors
+
+.design_system
+    background-color: $ultra-white
+    +dark
+        background-color: $black
+
+.visual_language
+    background-color: $white
+    +dark
+        background-color: $black2
 
 .section
     position: relative
     overflow: hidden
-    +m
+    +s
         padding-top: 0
         background: none
 
 .container
     position: relative
-    +m
+    +s
         padding: 0 16px
+        max-height: 1100px
 
+.wrap_left
+    margin-left: auto
+
+.wrap_right
+    margin-right: auto
 
 .gallery_left
     .preview
@@ -20,15 +36,29 @@
             width: 253px
             height: 76px
             z-index: 2
-            +m 
-                display: none
+            +t
+                top: 100px
+            +s
+                top: unset
+                width: 100%
+
         &:nth-child(2)
-            width: 940px
-            height: 726px
-            left: -30%
+            width: 1200px * 0.55
+            height: 800px * 0.55
+            left: -10%
+            top: 100px
             z-index: 3
-            +m 
-                display: none
+            +d
+                width: 1200px * 0.5
+                height: 800px * 0.5
+            +t
+                top: 160px
+                width: 1200px * 0.35
+                height: 800px * 0.35
+            +s
+                top: unset
+                left: unset
+                margin: auto
 
 .gallery_right
     right: calc(60% - 640px)
@@ -36,6 +66,8 @@
         right: calc(60% - 610px)
     +d
         right: calc(60% - 560px)
+    +s  
+        right: unset
     .preview
         &:first-child
             top: -168px
@@ -43,16 +75,30 @@
             width: 981px
             height: 701px
             z-index: 2
-            +m 
-                display: none
+            +t
+                width: calc(981px * 0.7)
+                height: calc(701px * 0.7)
+                top: -100px
+                right: -50px
+                left: unset
+            +s
+                width: 490.5px
+                height: 350.5px
+                top: 0
+                left: -15%
+                right: unset
+
         &:nth-child(2)
             width: 395px
             height: 469px
             z-index: 3
-            bottom: -700px
+            bottom: -720px
             left: 30%
-            +m 
-                display: none
+            +s 
+                width: 237px
+                height: 281.4px
+                top: -180px
+                left: 22%
 
 .gallery
     position: absolute
@@ -61,42 +107,51 @@
     transform: translateY(-50%)
     pointer-events: none
     +x        
-        width: 580px    
-    +m
+        width: 580px
+    +s
         position: relative
-        top: auto
-        left: 50%
-        width: 500px
-        transform: translate(-50%,0)
+        top: unset
+        width: 100%
+        transform: unset
+        margin-top: 32px
 
 .preview
     &
         position: absolute
+        +s
+            position: relative
+
+.card
+    background: $ultra-white
+    box-shadow: 24px 64px 64px 24px rgba(15, 15, 15, 0.1)
+    +s
+        box-shadow: 24px 16px 64px 24px rgba(15, 15, 15, 0.1)
+    +dark
+        background: $black
+        box-shadow: 4px 8px 48px 16px $shadow-dark-mode
 
 .wrap
     position: relative
     z-index: 3
     max-width: 545px
-    padding: 48px
-    background: $neutrals8
-    box-shadow: 24px 64px 64px 24px rgba(15, 15, 15, 0.1)
+    padding: 58px 48px
     border-radius: 20px
     +x
         max-width: 500px
     +d
         max-width: 416px
         padding: 32px
-    +dark
-        background: $neutrals1
+    +s
+        margin-top: 64px
 
 .title
     margin-bottom: 16px
 
 .info
-    font-family: +poppins
     max-width: 400px
     margin-bottom: 24px
     color: $light-black
+    font-size: 18px
     +dark
         color: $gray3
 
@@ -105,13 +160,8 @@
 
 .item
     display: flex
-    padding: 24px
+    padding: 24px 0
     border-radius: 12px
-    transition: box-shadow .2s
-    &:hover
-        box-shadow: inset 0 0 0 2px $neutrals6
-        +dark
-            box-shadow: inset 0 0 0 2px $neutrals3
     &:not(:last-child)
         margin-bottom: 4px
 
@@ -125,22 +175,30 @@
     height: 40px
     margin-right: 24px
     border-radius: 50%
+    top: -4px
+    +s
+        width: 32px
+        height: 32px
+        margin-right: 12px
+        top: -2px
 
 .details
     flex-grow: 1
 
 .subtitle
     margin-bottom: 4px
-    font-weight: 600
+    font-weight: bolder
     color: $black
+    font-size: 18px
     +dark
         color: $white
 
 .content
-    max-width: 260px
-    +caption-1
-    font-size: 15px
+    max-width: 294px
+    font-size: 16px
     color: $light-black
+    +s
+        max-width: unset
     +dark
         color: $gray3
 
@@ -148,8 +206,8 @@
     margin-bottom: 24px
     margin-right: -10px
     +caption-1
-    color: $neutrals4
-    +m
+    color: $gray2
+    +s
         margin: 0 0 24px
         text-align: center
     strong
@@ -159,13 +217,13 @@
     color: $green
 
 .black
-    color: $neutrals2
+    color: $light-black
     +dark
-        color: $neutrals8
+        color: $ultra-white
 
 .btns
     text-align: left
 
 .button
-    +m
+    +s
         width: 100%

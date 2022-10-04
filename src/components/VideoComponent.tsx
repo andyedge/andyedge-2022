@@ -1,37 +1,78 @@
 import Icon from "./icon/Icon";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
-const VideoComponent = ({ videoUrl, videoClassnames }: any) => {
+declare interface VideoComponentProps {
+  videoUrl: string
+  videoClassnames: {
+    videoDivClassname: string
+    videoClassname: string
+    playButtonClassname: string
+  }
+  playing: boolean
+  playingHandler: (a: boolean) => void
+}
+
+const VideoComponent = ({ videoUrl, videoClassnames, playing, playingHandler } : VideoComponentProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
+  const [topPosition, setTopPosition] = useState <number> (0);
   const { videoDivClassname, videoClassname, playButtonClassname } = videoClassnames;
 
   const videoHandler = (e: any) => {
     const elementName = e.target.localName;
-
     switch (elementName) {
       case 'path':
+      case 'button':
         if (!playing) {
           videoRef.current?.play();
-          setPlaying(true);
+          playingHandler(true);
         } else {
           videoRef.current?.pause();
-          setPlaying(false);
+          playingHandler(false);
         }
         break;
 
       default:
         if (playing) {
           videoRef.current?.pause();
-          setPlaying(false);
+          playingHandler(false);
         }
         break;
     }
   };
 
+  useEffect(() => {
+    if (videoRef.current) {
+      if (playing) {
+        videoRef.current?.play();
+      } else {
+        videoRef.current?.pause();
+      }
+    }
+  }, [playing])
+
   const videoFullscreen = () => {
     videoRef.current?.requestFullscreen();
   }
+
+  const resizeEvent = () => {
+    const top = videoRef.current?.clientHeight || 0
+    setTopPosition(top / 2)
+  }
+  
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      playingHandler(true)
+      resizeEvent()
+      setTimeout(() => {
+        resizeEvent()
+      }, 500)
+      setTimeout(() => {
+        resizeEvent()
+      }, 1500)
+      window.addEventListener('resize', resizeEvent)
+      return () => window.removeEventListener('resize', resizeEvent)
+    }
+  }, [])
 
   return (
     <div key={'video-div'} className={videoDivClassname}>
@@ -41,14 +82,19 @@ const VideoComponent = ({ videoUrl, videoClassnames }: any) => {
         className={videoClassname}
         style={playing ? { cursor: 'pointer' } : { cursor: 'default' }}
         src={videoUrl}
-        onPlay={() => setPlaying(true)}
-        onPause={() => setPlaying(false)}
+        onPlay={() => playingHandler(true)}
+        onPause={() => playingHandler(false)}
         onClick={(e) => videoHandler(e)}
         onDoubleClick={() => videoFullscreen()}
+        muted={true}
+        loop={true}
       ></video>
       <button
         className={playButtonClassname}
-        style={playing ? { opacity: 0 } : { opacity: 1 }}
+        style={{
+          top: topPosition,
+          opacity: playing ? 0 : 1,
+        }}
         onClick={(e) => videoHandler(e)}
       >
         <Icon name="play" size={40} />
