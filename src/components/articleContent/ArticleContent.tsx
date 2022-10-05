@@ -12,11 +12,6 @@ declare interface ArticleProps {
 
 const ArticleContent: FC<ArticleProps> = ({ contents, scrollToRef }: ArticleProps) => (
     <div className={'container'}>
-        <div>
-            <CustomImage
-                src={contents.standardContainer1.logoC}
-            />
-        </div>
         <section className={styles.first_section} ref={scrollToRef}>
             <div>
                 <div className={styles.info}>
@@ -24,9 +19,13 @@ const ArticleContent: FC<ArticleProps> = ({ contents, scrollToRef }: ArticleProp
                     <p>{contents.standardContainer1.subtitle}</p>
                 </div>
                 <div className={styles.inline_images}>
-                    <CustomImage
-                        src={contents.standardContainer1.logoC}
-                    />
+                    {contents.standardContainer1?.logoC?.image.url ? 
+                        <CustomImage
+                            src={contents.standardContainer1.logoC}
+                        />
+                        :
+                        null
+                    }
                 </div>
             </div>
             <div>
@@ -35,9 +34,13 @@ const ArticleContent: FC<ArticleProps> = ({ contents, scrollToRef }: ArticleProp
                     <p>{contents.standardContainer2.subtitle}</p>
                 </div>
                 <div className={styles.inline_images}>
-                    <CustomImage
-                        src={contents.standardContainer2.logoC}
-                    />
+                    {contents.standardContainer2?.logoC?.image.url ? 
+                        <CustomImage
+                            src={contents.standardContainer2.logoC}
+                        />
+                        :
+                        null
+                    }
                 </div>
             </div>
         </section>
