@@ -4,6 +4,7 @@ import Article from '../../models/entities/article.model'
 import CustomImage from '../image/Image'
 import styles from './ArticleContent.module.sass'
 import RichText from '../RichText'
+import { size } from 'lodash'
 
 declare interface ArticleProps {
     contents: Article
@@ -12,34 +13,45 @@ declare interface ArticleProps {
 
 const ArticleContent: FC<ArticleProps> = ({ contents, scrollToRef }: ArticleProps) => (
     <div className={'container'}>
-        <div>
-            <CustomImage
-                src={contents.standardContainer1.logoC}
-            />
-        </div>
         <section className={styles.first_section} ref={scrollToRef}>
-            <div>
-                <div className={styles.info}>
-                    <h3>{contents.standardContainer1.title}</h3>
-                    <p>{contents.standardContainer1.subtitle}</p>
+            {size(contents.standardContainer1) ?
+                <div>
+                    <div className={styles.info}>
+                        <h3>{contents.standardContainer1.title}</h3>
+                        <p>{contents.standardContainer1.subtitle}</p>
+                    </div>
+                    <div className={styles.inline_images}>
+                        {contents.standardContainer1?.logoC?.image.url ? 
+                            <CustomImage
+                                src={contents.standardContainer1.logoC}
+                            />
+                            :
+                            null
+                        }
+                    </div>
                 </div>
-                <div className={styles.inline_images}>
-                    <CustomImage
-                        src={contents.standardContainer1.logoC}
-                    />
+                :
+                null
+            }
+            {size(contents.standardContainer2) ?
+                <div>
+                    <div className={styles.info}>
+                        <h3>{contents.standardContainer2.title}</h3>
+                        <p>{contents.standardContainer2.subtitle}</p>
+                    </div>
+                    <div className={styles.inline_images}>
+                        {contents.standardContainer2?.logoC?.image.url ? 
+                            <CustomImage
+                                src={contents.standardContainer2.logoC}
+                            />
+                            :
+                            null
+                        }
+                    </div>
                 </div>
-            </div>
-            <div>
-                <div className={styles.info}>
-                    <h3>{contents.standardContainer2.title}</h3>
-                    <p>{contents.standardContainer2.subtitle}</p>
-                </div>
-                <div className={styles.inline_images}>
-                    <CustomImage
-                        src={contents.standardContainer2.logoC}
-                    />
-                </div>
-            </div>
+                :
+                null
+            }
         </section>
         <section className={styles.carousel}>
             {contents.mediaCarousel.length ? (
