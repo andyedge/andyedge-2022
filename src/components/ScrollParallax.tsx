@@ -12,7 +12,7 @@ const ScrollParallax = ({
   return (
     <ScrollAnimation
       className={className}
-      animateIn={animateIn ? animateIn : "fadeIn"}
+      animateIn={animateIn ? animateIn : "fade"}
       animateOnce={true}
       initiallyVisible={initiallyVisible}
       duration={1}
