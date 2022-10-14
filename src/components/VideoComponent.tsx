@@ -88,6 +88,7 @@ const VideoComponent = ({ videoUrl, videoClassnames, playing, playingHandler } :
         onDoubleClick={() => videoFullscreen()}
         muted={true}
         loop={true}
+        playsInline
       ></video>
       <button
         className={playButtonClassname}
