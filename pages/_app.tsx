@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app'
 import { useRouter }  from 'next/router'
 import Loader from '../src/components/loader/Loader'
 import { useEffect, useState } from 'react'
+import Script from 'next/script'
 
 const MyApp = ({ Component, pageProps } : AppProps ) => {
   const [isLoading, setIsLoading] = useState(true)
@@ -39,6 +40,18 @@ const MyApp = ({ Component, pageProps } : AppProps ) => {
 
   return (
     <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
+        strategy='afterInteractive'
+      />
+      <Script id='ga-script' strategy='afterInteractive'>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.GA_TRACKING_ID}');
+        `}
+      </Script>
       <Component {...pageProps} />
       {isLoading && <Loader />}
     </>
