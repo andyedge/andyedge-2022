@@ -44,7 +44,7 @@ const MyApp = ({ Component, pageProps } : AppProps ) => {
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
         strategy='afterInteractive'
       />
-      <Script strategy='afterInteractive'>
+      <Script id='ga-script' strategy='afterInteractive'>
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
