@@ -43,7 +43,9 @@ const EcampStandardContainer = ({ contents, title, section } : EcampStandardCont
                 null
               }
               {contents.primaryButtonCta ?
-                <Button link={contents.primaryButtonCta} />
+                <div className={styles.mobile_button_div}>
+                  <Button link={contents.primaryButtonCta} />
+                </div>
                 :
                 null
               }
