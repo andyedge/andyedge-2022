@@ -1,0 +1,110 @@
+@import ../../styles/helpers
+@import ../../styles/colors
+
+.hero
+    position: relative
+    display: flex
+    align-items: center
+    padding-bottom: 130px
+    padding-top: 64px
+    +t
+        padding-top: 32px
+    +m
+        padding-top: 64px
+
+    .background_image
+        opacity: 0.3
+        +d
+            transform: translateY(-50px)
+        +s
+            transform: translateY(-50vh)
+        +m
+            transform: translateY(-25vh)
+
+.container
+    display: grid
+    grid-template-columns: 1fr 640px
+    position: relative
+    +x
+        grid-template-columns: 1fr 600px
+    +d
+        grid-template-columns: 40% 60%
+    +t
+        grid-template-columns: 50% 50%
+    +a
+        grid-template-columns: 100%
+
+.wrap
+    position: relative
+    z-index: 3
+    +a
+        margin-bottom: 48px
+
+    .stage
+        margin-bottom: 22px
+        font-size: 16px
+        +dark
+            color: $gray3
+
+.title
+    margin-bottom: 32px
+    padding-right: 8px
+    +x
+        padding-right: 18px
+    +a
+        padding-right: unset
+    color: $light-black
+    +dark
+        color: $white
+
+    .strike_through
+        text-decoration: line-through
+        text-decoration-thickness: 3px
+
+.text
+    margin-bottom: 16px
+    color: $light-black
+    font-size: 18px
+    max-width: 350px
+    +t
+        padding-right: 16px
+    +a
+        padding-right: unset
+    +dark
+        color: $gray3
+
+.paragraph
+    margin-bottom: 32px
+    text-align: left
+    +body-1
+
+.btns
+    display: flex
+    +m
+        display: block
+
+.button
+    +m
+        width: 100%
+    &:not(:last-child)
+        margin-right: 16px
+        +m
+            margin: 0 0 16px
+
+.gallery
+    position: relative
+    img
+        z-index: 2
+    +d
+        margin-left: auto
+        width: 100%
+    +m
+        margin: 0 auto
+        pointer-events: all
+    +a
+        min-height: 240px
+
+    .play
+        transform: translate(-50%, -50%)
+        z-index: 1
+    
