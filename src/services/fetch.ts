@@ -13,7 +13,8 @@ import {
     adaptArticles,
     adaptPortfolio,
     adaptHow,
-    adaptPrivacy
+    adaptPrivacy,
+    adaptPage404
 } from './adapters'
 import Entry from '../models/generic/entry.model'
 
@@ -35,6 +36,11 @@ export const getHeader = async () => {
 
 export const getFooter = async () => adaptFooterData(await client.getEntries({ 
     content_type: 'footer',
+    include: NESTING_LEVEL
+}))
+
+export const getPage404 = async () => adaptPage404(await client.getEntries({ 
+    content_type: 'page404',
     include: NESTING_LEVEL
 }))
 
