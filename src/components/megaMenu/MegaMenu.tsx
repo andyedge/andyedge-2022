@@ -32,7 +32,7 @@ const MegaMenu = ({ isActive, data }: MegaMenuProps) => {
 
   const LeftSection  = () => (
     <div className={styles.col}>
-      <Link href='/why'>
+      <Link href='/customer-experience'>
         <a className={styles.direction}>
           <h3 className={styles.info}>{data.leftTitle}</h3>
           <div className={styles.preview}>
