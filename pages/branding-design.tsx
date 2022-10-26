@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import Hero from '../src/components/hero/Hero'
 import Banner from '../src/components/banner/Banner'
 import Layout from '../src/components/layout/Layout'
+import Button from '../src/components/button/Button'
 import Bomou from '../src/models/entities/bomou.model'
 import Contact from '../src/components/contact/Contact'
 import LayoutModel from '../src/models/generic/layout.model'
@@ -18,7 +19,6 @@ import BigCaseStudyPageText from '../src/components/ecampPageText/BigCaseStudyPa
 import BomouImgSection from '../src/components/bomouPage/bomouImgSection/BomouImgSection'
 import BomouDualBanner from '../src/components/bomouPage/bomouDualBanner/BomouDualBanner'
 import BomouSocialOutreach from '../src/components/bomouPage/bomouSocialOutreach/BomouSocialOutreach'
-import Button from '../src/components/button/Button'
 
 export const getStaticProps = async () => {
   const bomou = await getBomou();
