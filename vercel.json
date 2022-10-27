@@ -2,6 +2,9 @@
   "redirects": [
     { "source": "/graphic-design.html", "destination": "/articles/graphic-designer" },
     { "source": "/graphic-designer.htm", "destination": "/articles/graphic-designer" },
-    { "source": "/graphic-designer.html", "destination": "/articles/graphic-designer" }
+    { "source": "/graphic-designer.html", "destination": "/articles/graphic-designer" },
+    { "source": "/experience-designer.html", "destination": "/" },
+    { "source": "/ecampusontario-brand-design.html", "destination": "/design-thinking" },
+    { "source": "/personal-brand-stories-lebron-james-basketball-branding.html", "destination": "/articles/personal-branding" }
   ]
 }
