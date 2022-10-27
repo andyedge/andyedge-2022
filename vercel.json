@@ -1,0 +1,7 @@
+{
+  "redirects": [
+    { "source": "/graphic-design.html", "destination": "/articles/graphic-designer" },
+    { "source": "/graphic-designer.htm", "destination": "/articles/graphic-designer" },
+    { "source": "/graphic-designer.html", "destination": "/articles/graphic-designer" }
+  ]
+}
