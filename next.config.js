@@ -16,7 +16,7 @@ const nextConfig = {
     loader: 'custom'
   },
   i18n: {
-    loacales: ['en'],
+    locales: ['en'],
     defaultLocale: 'en'
   }
   // assetPrefix: './'
