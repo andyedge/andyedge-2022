@@ -15,6 +15,10 @@ const nextConfig = {
     domains: ['images.ctfassets.net'],
     loader: 'custom'
   },
+  i18n: {
+    loacales: ['en'],
+    defaultLocale: 'en'
+  }
   // assetPrefix: './'
 }
 
