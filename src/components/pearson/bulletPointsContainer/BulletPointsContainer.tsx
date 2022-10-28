@@ -29,6 +29,7 @@ const CardBullets: FC<BulletPointsContainerProps> = ({ contents } : BulletPoints
                                 <div className={styles.icon}>
                                     <Image
                                         src={'/images/check.svg'}
+                                        alt={'check-small-green'}
                                         layout='fill'
                                         loader={imageLoader}
                                         unoptimized={true}
