@@ -30,14 +30,14 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/en-US/graphic-design.html',
-        destination: '/en-US/articles/graphic-designer',
+        source: '/graphic-design.html',
+        destination: '/articles/graphic-designer',
         locale: false,
         permanent: true
       },
       {
-        source: '/en-US/graphic-designer.htm',
-        destination: '/en-US/articles/graphic-designer',
+        source: '/graphic-designer.htm',
+        destination: '/articles/graphic-designer',
         locale: false,
         permanent: true
       },
