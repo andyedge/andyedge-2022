@@ -7,13 +7,13 @@ import LayoutModel from '../../models/generic/layout.model'
 
 const Layout: FC<LayoutModel> = (props: LayoutModel) => {
   const router = useRouter()
-  const canonicalUrl = (`https://www.andyedge.com` + (router.asPath === "/" ? "": router.asPath)).split("?")[0];
+  //const canonicalUrl = (`https://www.andyedge.com` + (router.asPath === "/" ? "": router.asPath)).split("?")[0];
+  //<link key='canonical' rel='canonical' href={canonicalUrl} />
 
   return (
     <>
       <Head>
-        <title>{props.seoContent?.title}</title>
-        <link key='canonical' rel='canonical' href={canonicalUrl} />
+        <title>{props.seoContent?.title}</title>        
         <meta name='description' content={props.seoContent?.metaDescription} />
         <meta name='keywords' content={props.seoContent?.metaKeywords} />
         <meta property='og:title' content={props.seoContent?.ogTitle} />
