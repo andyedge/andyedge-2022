@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const { redirect } = require('next/dist/server/api-utils')
 const path = require('path')
 
 const nextConfig = {
@@ -23,6 +24,23 @@ const nextConfig = {
         domain: 'andyedge.com',
         defaultLocale: 'en-US'
       }
+    ]
+  },
+
+  async redirects() {
+    return [
+      {
+        source: '/graphic-design.html',
+        destination: '/articles/graphic-designer',
+        locale: false,
+        permanent: true
+      },
+      {
+        source: '/graphic-designer.htm',
+        destination: '/articles/graphic-designer',
+        locale: false,
+        permanent: true
+      },
     ]
   }
   // assetPrefix: './'
