@@ -14,7 +14,17 @@ const nextConfig = {
   images: {
     domains: ['images.ctfassets.net'],
     loader: 'custom'
-  },  
+  },
+  i18n: {
+    locales: ['en-US'],
+    defaultLocale: 'en-US',
+    domains: [
+      {
+        domain: 'andyedge.com',
+        defaultLocale: 'en-US'
+      }
+    ]
+  }
   // assetPrefix: './'
 }
 
