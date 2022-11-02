@@ -39,6 +39,36 @@ const nextConfig = {
         destination: '/articles/graphic-designer',
         permanent: true
       },
+      {
+        source: '/graphic-designer.html',
+        destination: '/articles/graphic-designer',
+        permanent: true
+      },
+      {
+        source: '/experience-designer.html',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/ecampusontario-brand-design.html',
+        destination: '/design-thinking',
+        permanent: true
+      },
+      {
+        source: '/personal-brand-stories-lebron-james-basketball-branding.html',
+        destination: '/articles/personal-branding',
+        permanent: true
+      },
+      {
+        source: '/about-brand-identity-design.html',
+        destination: '/branding-design',
+        permanent: true
+      },
+      {
+        source: '/ecampusontario-brand-ux-design.html',
+        destination: '/design-thinking',
+        permanent: true
+      },
     ]
   }
   // assetPrefix: './'
