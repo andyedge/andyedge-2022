@@ -32,13 +32,11 @@ const nextConfig = {
       {
         source: '/graphic-design.html',
         destination: '/articles/graphic-designer',
-        locale: false,
         permanent: true
       },
       {
         source: '/graphic-designer.htm',
         destination: '/articles/graphic-designer',
-        locale: false,
         permanent: true
       },
     ]
