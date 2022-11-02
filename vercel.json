@@ -1,10 +1,10 @@
 {
   "redirects": [
-    { "source": "/graphic-design.html", "destination": "/articles/graphic-designer" },
-    { "source": "/graphic-designer.htm", "destination": "/articles/graphic-designer" },
-    { "source": "/graphic-designer.html", "destination": "/articles/graphic-designer" },
-    { "source": "/experience-designer.html", "destination": "/" },
-    { "source": "/ecampusontario-brand-design.html", "destination": "/design-thinking" },
-    { "source": "/personal-brand-stories-lebron-james-basketball-branding.html", "destination": "/articles/personal-branding" }
+    { "source": "/en-US/graphic-design.html", "destination": "/en-US/articles/graphic-designer" },
+    { "source": "/en-US/graphic-designer.htm", "destination": "/en-US/articles/graphic-designer" },
+    { "source": "/en-US/graphic-designer.html", "destination": "/en-US/articles/graphic-designer" },
+    { "source": "/en-US/experience-designer.html", "destination": "/en-US/" },
+    { "source": "/en-US/ecampusontario-brand-design.html", "destination": "/en-US/design-thinking" },
+    { "source": "/en-US/personal-brand-stories-lebron-james-basketball-branding.html", "destination": "/en-US/articles/personal-branding" }
   ]
 }
