@@ -55,7 +55,6 @@ const Article: NextPage<ArticleProps> = ({ pageContent, header, footer } : Artic
                     scroll={true}
                 />
                 <ArticleContent contents={pageContent} scrollToRef={scrollToRef}/>
-                <Banner images={[pageContent.pageImage3]} page='article'/>
                 <Contact contents={pageContent.contactContainer} />
             </div>
         </Layout>
