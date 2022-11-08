@@ -4,6 +4,7 @@ import Article from '../../models/entities/article.model'
 import CustomImage from '../image/Image'
 import styles from './ArticleContent.module.sass'
 import RichText from '../RichText'
+import { size } from 'lodash'
 
 declare interface ArticleProps {
     contents: Article

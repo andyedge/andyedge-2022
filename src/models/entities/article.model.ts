@@ -3,9 +3,11 @@ import StandardContainer from '../generic/standardContainer.model'
 import { Document } from '@contentful/rich-text-types'
 import ContactContainer from '../generic/contact.model'
 import ImageContainer from '../generic/imageContainer.model'
+import SeoContent from '../generic/seoContent.model'
 
 export default interface Article {
     slug: string
+    seo: SeoContent
     heroContainer: StandardContainer
     standardContainer1: StandardContainer
     standardContainer2: StandardContainer
