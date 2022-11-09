@@ -5,9 +5,9 @@ import Platform from './platform.model'
 export default interface HowItem {
     title: string
     description: string
-    platform: Platform
+    platform?: Platform | null
     format: String
     date: string
     link: LinkType
-    category: Category
+    category?: Category | null
 }

@@ -10,6 +10,21 @@ import { getUniqueValuesFromCollection } from '../../../helpers/functions'
 import { sortBy } from 'lodash'
 import { HOW_FILTERS, DATE_FILTER_OPTIONS } from '../../../constants/Constants'
 
+
+export const adaptHowItem = (item: Item) : HowItem => {
+    console.info('item:', item)
+    const { fields } = item 
+    return {
+        title: fields.title,
+        description: fields.description,
+        platform: fields.platform ? adaptPlatform(fields.platform) : null,
+        format: fields.format,
+        date: fields.date,
+        link: adaptLink(fields.link),
+        category: fields.label ? adaptCategory(fields.label) : null
+    }
+}
+
 const adaptHowItems = (items: Item[]) : HowItem[] => {
     if(!items || !items.length) {
         return []
@@ -20,11 +35,11 @@ const adaptHowItems = (items: Item[]) : HowItem[] => {
         return {
             title: fields.title,
             description: fields.description,
-            platform: adaptPlatform(fields.platform),
+            platform: fields.platform ? adaptPlatform(fields.platform) : null,
             format: fields.format,
             date: fields.date,
             link: adaptLink(fields.link),
-            category: adaptCategory(fields.label)
+            category: fields.label ? adaptCategory(fields.label) : null
         }
     })
 }
