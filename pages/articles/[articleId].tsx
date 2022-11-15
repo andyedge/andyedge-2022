@@ -56,7 +56,7 @@ const Article: NextPage<ArticleProps> = ({ pageContent, header, footer } : Artic
                 />
                 <ArticleContent contents={pageContent} scrollToRef={scrollToRef}/>
                 <Contact contents={pageContent.contactContainer} />
-                <RelatedArticles article={pageContent.nextArticle}/>
+                <RelatedArticles articles={pageContent.relatedArticles}/>
             </div>
         </Layout>
     )

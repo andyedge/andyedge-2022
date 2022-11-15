@@ -12,7 +12,6 @@ import { HOW_FILTERS, DATE_FILTER_OPTIONS } from '../../../constants/Constants'
 
 
 export const adaptHowItem = (item: Item) : HowItem => {
-    console.info('item:', item)
     const { fields } = item 
     return {
         title: fields.title,
@@ -25,7 +24,7 @@ export const adaptHowItem = (item: Item) : HowItem => {
     }
 }
 
-const adaptHowItems = (items: Item[]) : HowItem[] => {
+export const adaptHowItems = (items: Item[]) : HowItem[] => {
     if(!items || !items.length) {
         return []
     }

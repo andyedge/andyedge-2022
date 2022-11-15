@@ -8,5 +8,5 @@ export default interface Article {
     heroContainer: StandardContainer
     articleText: Document
     contactContainer: ContactContainer
-    nextArticle: HowItem
+    relatedArticles: HowItem[]
 }

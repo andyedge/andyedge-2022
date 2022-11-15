@@ -1,19 +1,19 @@
 import { FC } from 'react'
-import PortfolioCaseStudy from '../../models/generic/portfolioCaseStudy.model'
-import Link from '../../models/generic/link.model'
-import styles from './RelatedArticles.module.sass'
 import classNames from 'classnames'
 import Button from '../button/Button'
+import Link from '../../models/generic/link.model'
+import styles from './RelatedArticles.module.sass'
 import HowItem from '../../models/generic/howItem.model'
+import HowGridItem from '../how/howGrid/HowGridItem'
 
 declare interface RelatedArticlesProps {
-    article: HowItem
+    articles: HowItem[]
 }
 
-const RelatedCases: FC<RelatedArticlesProps> = ({ article } : RelatedArticlesProps) => {
-    const nextCase = article || {}
+const RelatedCases: FC<RelatedArticlesProps> = ({ articles }: RelatedArticlesProps) => {
+    const nextArticle = articles[articles.length - 1] || {}
     const nextLink: Link = {
-        url: nextCase.link.url,
+        url: nextArticle.link?.url,
         text: 'Next Article',
         preText: '',
         sectionId: '',
@@ -22,13 +22,26 @@ const RelatedCases: FC<RelatedArticlesProps> = ({ article } : RelatedArticlesPro
     }
 
     return (
-        <section className={classNames('container', styles.container)}>
-            { nextLink?.url ? (
-                <div className={styles.button}>
-                    <Button link={nextLink} size='big'/>
-                </div>
-            ) : null } 
-        </section>
+        <>
+            {
+                articles.length > 0 ?
+                    <section className={classNames('container', styles.container)}>
+                        <div className='case-studies-items'>
+                            {articles.map((article, index) => (
+                                <HowGridItem item={article} key={index} />
+                            ))}
+                        </div>
+                        {nextLink?.url ? (
+                            <div className={styles.button}>
+                                <Button link={nextLink} size='big' />
+                            </div>
+                        ) : null}
+                    </section>
+                    :
+                    null
+            }
+
+        </>
     )
 }
 

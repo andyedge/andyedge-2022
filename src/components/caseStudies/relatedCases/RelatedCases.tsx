@@ -33,7 +33,7 @@ const RelatedCases: FC<RelatedCasesProps> = ({ cases, section } : RelatedCasesPr
                 <div className={styles.button}>
                     <Button link={nextLink} size='big'/>
                 </div>
-            ) : null } 
+            ) : null }
         </section>
     )
 }

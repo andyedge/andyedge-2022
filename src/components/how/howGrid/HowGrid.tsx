@@ -54,9 +54,9 @@ const HowGrid = ({ contents } : HowGridProps) => {
             platformFilter
         } = getActiveFilterLabels()
 
-        const isTopicItem = (item: HowItem) => topicFilter === OPTIONS_ALL || topicFilter === item.category.name
+        const isTopicItem = (item: HowItem) => topicFilter === OPTIONS_ALL || topicFilter === item.category?.name
         const isFormatItem = (item: HowItem) => formatFilter === OPTIONS_ALL || formatFilter === item.format
-        const isPlatformItem = (item: HowItem) => platformFilter === OPTIONS_ALL || platformFilter === item.platform.name
+        const isPlatformItem = (item: HowItem) => platformFilter === OPTIONS_ALL || platformFilter === item.platform?.name
 
         //Filters items whether the filter has the "All" option selected and selected option matchs with item data
         return items.filter((item) => isTopicItem(item) && isFormatItem(item) && isPlatformItem(item))
