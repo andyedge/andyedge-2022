@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import classNames from 'classnames'
-import Button from '../button/Button'
-import Link from '../../models/generic/link.model'
+import Button from '../../button/Button'
 import styles from './RelatedArticles.module.sass'
-import HowItem from '../../models/generic/howItem.model'
-import HowGridItem from '../how/howGrid/HowGridItem'
+import Link from '../../../models/generic/link.model'
+import HowItem from '../../../models/generic/howItem.model'
+import RelatedArticleItem from '../relatedArticlesItem/RelatedArticleItem'
 
 declare interface RelatedArticlesProps {
     articles: HowItem[]
@@ -28,7 +28,7 @@ const RelatedCases: FC<RelatedArticlesProps> = ({ articles }: RelatedArticlesPro
                     <section className={classNames('container', styles.container)}>
                         <div className='case-studies-items'>
                             {articles.map((article, index) => (
-                                <HowGridItem item={article} key={index} />
+                                <RelatedArticleItem data={article} key={index} />
                             ))}
                         </div>
                         {nextLink?.url ? (

@@ -7,8 +7,8 @@ import LayoutModel from '../../src/models/generic/layout.model'
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import ArticleModel from '../../src/models/entities/article.model'
 import ArticleContent from '../../src/components/articleContent/ArticleContent'
-import RelatedArticles from '../../src/components/relatedArticles/RelatedArticles'
 import { getArticles, searchArticles, getHeader, getFooter } from '../../src/services/fetch'
+import RelatedArticles from '../../src/components/articleContent/relatedArticles/RelatedArticles'
 
 
 export const getStaticPaths: GetStaticPaths = async () => {
