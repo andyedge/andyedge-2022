@@ -13,7 +13,7 @@ const RelatedArticleItem: FC<RelatedArticleItemProps> = ({ data } : RelatedArtic
         <Link href={`/${data.link.url}`}>
             <a>
                 <div className={styles.case_item_image}>
-                    {/*<CustomImage src={{image: data.image}}/>*/}
+                    <CustomImage src={{image: data.itemImage}}/>
                 </div>
             </a>
         </Link>

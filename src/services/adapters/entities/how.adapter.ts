@@ -9,6 +9,7 @@ import { adaptCategory, adaptCategories } from '../generic/categories.adapter'
 import { getUniqueValuesFromCollection } from '../../../helpers/functions'
 import { sortBy } from 'lodash'
 import { HOW_FILTERS, DATE_FILTER_OPTIONS } from '../../../constants/Constants'
+import { adaptImage } from '../generic/image.adapter'
 
 
 export const adaptHowItem = (item: Item) : HowItem => {
@@ -16,6 +17,7 @@ export const adaptHowItem = (item: Item) : HowItem => {
     return {
         title: fields.title,
         description: fields.description,
+        itemImage: adaptImage(fields.itemImage),
         platform: fields.platform ? adaptPlatform(fields.platform) : null,
         format: fields.format,
         date: fields.date,
@@ -34,6 +36,7 @@ export const adaptHowItems = (items: Item[]) : HowItem[] => {
         return {
             title: fields.title,
             description: fields.description,
+            itemImage: adaptImage(fields.itemImage),
             platform: fields.platform ? adaptPlatform(fields.platform) : null,
             format: fields.format,
             date: fields.date,
