@@ -102,7 +102,7 @@ export const getArticles = async () => await client.getEntries({
 export const searchArticles = async (slug: string) => {
     const matchedArticle = await client.getEntries({
         content_type: 'articlePage',
-        'fields.slug': slug,
+        'fields.slug[in]': `${slug},${slug.toLowerCase()}`,
         include: NESTING_LEVEL
     })
     return adaptArticles(matchedArticle)
