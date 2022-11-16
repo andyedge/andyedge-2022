@@ -1,10 +1,7 @@
-import { FC, MutableRefObject } from 'react'
-
-import Article from '../../models/entities/article.model'
-import CustomImage from '../image/Image'
-import styles from './ArticleContent.module.sass'
 import RichText from '../RichText'
-import { size } from 'lodash'
+import { FC, MutableRefObject } from 'react'
+import styles from './ArticleContent.module.sass'
+import Article from '../../models/entities/article.model'
 
 declare interface ArticleProps {
     contents: Article
