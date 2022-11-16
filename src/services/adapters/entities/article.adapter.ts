@@ -13,6 +13,7 @@ export const adaptArticles = (data: Entry): Article[] => {
     return data.items.map((article) => {
         const { fields } = article
         return {
+            seo: adaptSeoContent(fields.seo),
             slug: fields.slug,
             heroContainer: adaptStandardContainer(fields.heroContainer),
             articleText: fields.articleText,

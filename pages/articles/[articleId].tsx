@@ -47,7 +47,7 @@ const Article: NextPage<ArticleProps> = ({ pageContent, header, footer } : Artic
     }
 
     return (
-        <Layout header={header} footer={footer}>
+        <Layout header={header} footer={footer} seoContent={pageContent.seo}>
             <div className='container-fluid'>
                 <Hero
                     contents={pageContent.heroContainer}
