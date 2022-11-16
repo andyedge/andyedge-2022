@@ -1,10 +1,9 @@
 import { FC } from 'react'
 import Link from 'next/link'
-
-import PortfolioCaseStudy from '../../models/generic/portfolioCaseStudy.model'
-import CategoryLabels from '../categoryLabels/CategoryLabels'
 import CustomImage from '../image/Image'
 import styles from './Portfolio.module.sass'
+import CategoryLabels from '../categoryLabels/CategoryLabels'
+import PortfolioCaseStudy from '../../models/generic/portfolioCaseStudy.model'
 
 declare interface PortfolioItemProps {
     data: PortfolioCaseStudy

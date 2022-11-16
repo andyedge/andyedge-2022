@@ -1,15 +1,15 @@
-import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
 import { useRef } from 'react'
-
-import { getArticles, searchArticles, getHeader, getFooter } from '../../src/services/fetch'
-import Entry from '../../src/models/generic/entry.model'
-import ArticleModel from '../../src/models/entities/article.model'
-import Layout from '../../src/components/layout/Layout'
-import LayoutModel from '../../src/models/generic/layout.model'
 import Hero from '../../src/components/hero/Hero'
-import ArticleContent from '../../src/components/articleContent/ArticleContent'
+import Layout from '../../src/components/layout/Layout'
+import Entry from '../../src/models/generic/entry.model'
 import Contact from '../../src/components/contact/Contact'
-import Banner from '../../src/components/banner/Banner'
+import LayoutModel from '../../src/models/generic/layout.model'
+import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
+import ArticleModel from '../../src/models/entities/article.model'
+import ArticleContent from '../../src/components/articleContent/ArticleContent'
+import { getArticles, searchArticles, getHeader, getFooter } from '../../src/services/fetch'
+import RelatedArticles from '../../src/components/articleContent/relatedArticles/RelatedArticles'
+
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const articles: Entry = await getArticles()
@@ -56,6 +56,7 @@ const Article: NextPage<ArticleProps> = ({ pageContent, header, footer } : Artic
                 />
                 <ArticleContent contents={pageContent} scrollToRef={scrollToRef}/>
                 <Contact contents={pageContent.contactContainer} />
+                <RelatedArticles articles={pageContent.relatedArticles}/>
             </div>
         </Layout>
     )
