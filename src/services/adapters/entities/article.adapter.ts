@@ -2,6 +2,7 @@ import { adaptHowItem } from './how.adapter'
 import Entry from '../../../models/generic/entry.model'
 import { Item } from '../../../models/generic/entry.model'
 import Article from '../../../models/entities/article.model'
+import { adaptSeoContent } from '../generic/seoContent.adapter'
 import { adaptStandardContainer } from '../generic/standardContainer.adapter'
 import { adaptContactContainer } from '../generic/contactContainer.adapter'
 
