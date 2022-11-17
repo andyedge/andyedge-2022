@@ -25,15 +25,16 @@ const options = {
         [BLOCKS.PARAGRAPH]: (node: any, children: any) => <Text>{children}</Text>,
         [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
             return (
-                <Image 
-                    alt={node.data.target.fields.description} 
-                    src={node.data.target.fields.file.url} 
-                    width={'2560'}
-                    height={'1440'}
-                    layout={'responsive'}
-                    loader={imageLoader}
-                    unoptimized
-                />
+                <div className='article-image'>
+                    <Image 
+                        alt={node.data.target.fields.description}
+                        src={node.data.target.fields.file.url}
+                        layout={'fill'}
+                        objectFit={'contain'}
+                        loader={imageLoader}
+                        unoptimized
+                    />
+                </div>
             )
         },
         [INLINES.ENTRY_HYPERLINK]: (node: any) => {
