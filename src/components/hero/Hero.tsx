@@ -90,7 +90,7 @@ const Hero = ({ contents, functionType, scrollToRef, scroll }: HeroProps) => {
           )}
         </div>
         {
-          contents.videoUrl || contents?.imagesContainer ?
+          contents.videoUrl || (contents.imagesContainer && contents.imagesContainer.length > 0) ?
             <div className={styles.gallery}>
               {contents.videoUrl ?
                 <VideoComponent
