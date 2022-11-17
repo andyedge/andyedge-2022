@@ -52,7 +52,7 @@ const Article: NextPage<ArticleProps> = ({ pageContent, header, footer } : Artic
                 <Hero
                     contents={pageContent.heroContainer}
                     scrollToRef={scrollToRef}
-                    scroll={true}
+                    scroll={false}
                 />
                 <ArticleContent contents={pageContent} scrollToRef={scrollToRef}/>
                 <Contact contents={pageContent.contactContainer} />
