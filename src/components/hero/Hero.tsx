@@ -1,12 +1,14 @@
 import cn from "classnames";
+import Image from 'next/image'
 import { useState } from "react";
 import RichText from "../RichText";
-import styles from "./Hero.module.sass";
 import Button from "../button/Button";
+import styles from "./Hero.module.sass";
+import CustomImage from '../image/Image';
 import VideoComponent from "../VideoComponent";
+import imageLoader from '../../helpers/imageLoader'
 import ScrollButton from "../scrollButton/ScrollButton";
 import StandardContainer from "../../models/generic/standardContainer.model";
-import CustomImage from '../image/Image';
 
 declare interface HeroProps {
   contents: StandardContainer
@@ -49,7 +51,10 @@ const Hero = ({ contents, functionType, scrollToRef, scroll }: HeroProps) => {
   return (
     <div className={styles.hero}>
       {contents.backgroundImage.image.url && (
-        <CustomImage src={contents.backgroundImage} props={{ className: styles.background_image, priority: true }} />
+        <CustomImage
+          src={contents.backgroundImage}
+          props={{ className: styles.background_image, priority: true, customAttr: { objectFit: 'contain' } }}
+        />
       )}
       <div className={cn("container", styles.container)}>
         <div className={styles.wrap}>
