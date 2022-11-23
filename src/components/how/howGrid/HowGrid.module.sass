@@ -113,6 +113,11 @@
         font-weight: 300
         color: $gray
 
+.iframe
+    position: absolute
+    width: 100%
+    height: 100%
+
 .items_container
     min-height: 880px
     
@@ -137,9 +142,20 @@
         .item_image
             width: 352px
             height: 264px
-            background-color: $gray3
             border-radius: 16px
+            border: solid 1px $gray3
             position: relative
+            cursor: pointer
+            img
+                transition: transform 2s
+        
+        @media (hover: hover)
+        .item_image:hover
+            box-shadow: 0 0 1px 3px $orange
+            img
+                transform: scale(1.1)
+                +m
+                    transform: scale(1)
 
         .item_info
             padding-top: 24px
