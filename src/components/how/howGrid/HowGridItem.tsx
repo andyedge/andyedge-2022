@@ -1,5 +1,9 @@
+import { useState } from 'react'
+import { useRouter } from 'next/router'
 import styles from './HowGrid.module.sass'
 import CustomImage from '../../image/Image'
+import CommonModal from '../../modal/Modal'
+import { prependHttps } from '../../../helpers/functions'
 import HowItem from '../../../models/generic/howItem.model'
 
 declare interface HowGridItemProps {
@@ -7,9 +11,20 @@ declare interface HowGridItemProps {
 }
 
 const HowGridItem = ({ item }: HowGridItemProps) => {
-  const clickFunctionGridItem = () => {
-  }
+  const router = useRouter()
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+  const toggleModal = () => setIsModalOpen(!isModalOpen)
   
+  const clickFunctionGridItem = () => {
+    const formatType = item.format
+    if (formatType === 'Article' || formatType === 'Case Study') {
+      router.push(`/${item.link.url}`)
+    } else {
+      //window.open(prependHttps(item.link.url), '_blank', 'noopener,noreferrer')
+      toggleModal()
+    }
+  }
+
   return (
     <div className={styles.item}>
       <div className={styles.item_image} onClick={clickFunctionGridItem}>
@@ -37,6 +52,14 @@ const HowGridItem = ({ item }: HowGridItemProps) => {
           <h6>{item.description}</h6>
         </div>
       </div>
+      <CommonModal
+        closeModal={toggleModal}
+        isModalOpen={isModalOpen}
+      >
+        <div className={styles.iframe}>
+          <iframe width={'100%'} height={'100%'} src={item.link.url}></iframe>
+        </div>
+      </CommonModal>
     </div>
   )
 }
