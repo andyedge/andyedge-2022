@@ -1,12 +1,12 @@
 import '../src/styles/globals.scss'
 import '../src/styles/app.sass'
 import type { AppProps } from 'next/app'
-import { useRouter }  from 'next/router'
+import { useRouter } from 'next/router'
 import Loader from '../src/components/loader/Loader'
 import { useEffect, useState } from 'react'
 import Script from 'next/script'
 
-const MyApp = ({ Component, pageProps } : AppProps ) => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   const [isLoading, setIsLoading] = useState(true)
   const router = useRouter()
 
@@ -19,7 +19,7 @@ const MyApp = ({ Component, pageProps } : AppProps ) => {
       setIsLoading(false)
     }, 500)
   }
-  
+
   useEffect(() => {
     if (typeof window !== 'undefined') {
       handleFinishLoading()
@@ -40,6 +40,15 @@ const MyApp = ({ Component, pageProps } : AppProps ) => {
 
   return (
     <>
+      <Script id="google-tag-manager" strategy="afterInteractive">
+        {`
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${process.env.GTM_ID}');
+        `}
+      </Script>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
         strategy='afterInteractive'
