@@ -1,16 +1,15 @@
-import Entry, { Item } from '../../../models/generic/entry.model'
+import { sortBy } from 'lodash'
+import { adaptLink } from '../generic/link.adapter'
 import How from '../../../models/entities/how.model'
-import { adaptStandardContainer} from '../generic/standardContainer.adapter'
-import { adaptSeoContent } from '../generic/seoContent.adapter'
+import { adaptImage } from '../generic/image.adapter'
 import HowItem from '../../../models/generic/howItem.model'
 import { adaptPlatform } from '../generic/platform.adapter'
-import { adaptLink } from '../generic/link.adapter'
-import { adaptCategory, adaptCategories } from '../generic/categories.adapter'
+import { adaptCategory } from '../generic/categories.adapter'
+import { adaptSeoContent } from '../generic/seoContent.adapter'
+import Entry, { Item } from '../../../models/generic/entry.model'
 import { getUniqueValuesFromCollection } from '../../../helpers/functions'
-import { sortBy } from 'lodash'
+import { adaptStandardContainer} from '../generic/standardContainer.adapter'
 import { HOW_FILTERS, DATE_FILTER_OPTIONS } from '../../../constants/Constants'
-import { adaptImage } from '../generic/image.adapter'
-
 
 export const adaptHowItem = (item: Item) : HowItem => {
     const { fields } = item 
@@ -47,22 +46,19 @@ export const adaptHowItems = (items: Item[]) : HowItem[] => {
 }
 
 declare interface adapterProps {
-    data: Entry,
-    categories: Entry,
-    platforms: Entry
+    data: Entry
 }
 
-export const adaptHow = ({ data, categories, platforms }: adapterProps): How => {
+export const adaptHow = ({ data }: adapterProps): How => {
     const [how] = data.items
     const { fields } = how
     
     const howItems = sortBy(adaptHowItems(fields.items), 'date').reverse()
-    const platformsAdapted = platforms.items.map((platform: Item) => adaptPlatform(platform))
     const filters = []
 
     filters[HOW_FILTERS.TOPIC] = {
         label: fields.filterTopicLabel,
-        options: adaptCategories(categories.items).map(category => category.name)
+        options: getUniqueValuesFromCollection(howItems, 'category')
     }
 
     filters[HOW_FILTERS.FORMAT] = {
@@ -72,7 +68,7 @@ export const adaptHow = ({ data, categories, platforms }: adapterProps): How => 
 
     filters[HOW_FILTERS.PLATFORM] = {
         label: fields.filterPlatformLabel,
-        options: platformsAdapted.map((platform) => platform.name)
+        options: getUniqueValuesFromCollection(howItems, 'platform')
     }
 
     const dateFilterOptions = []
