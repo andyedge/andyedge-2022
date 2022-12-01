@@ -5,8 +5,14 @@ export const capitalizeFirstLetter = (text: string): string => {
 }
 
 export const getUniqueValuesFromCollection = (data: any[], key: string) => {
-    const items = data.map((item) => item[key])
-    return [...Array.from(new Set(items))]
+    if (key === 'format') {
+        const items = data.map((item) => item[key]).sort()
+        return [...Array.from(new Set(items))]
+    } else {
+        const items = data.map((item) => item[key]?.name)
+        const filteredItems = items.filter(item => item && item !== null).sort()
+        return [...Array.from(new Set(filteredItems))]
+    }
 }
 
 export const getUrlToShare = (sectionId: string) => {

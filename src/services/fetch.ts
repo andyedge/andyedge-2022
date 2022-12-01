@@ -149,9 +149,7 @@ export const getHow = async () => {
     })
 
     return adaptHow({
-        data: how,
-        categories,
-        platforms
+        data: how
     })
 }
 
