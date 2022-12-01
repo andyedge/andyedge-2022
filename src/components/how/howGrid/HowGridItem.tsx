@@ -22,7 +22,6 @@ const HowGridItem = ({ item }: HowGridItemProps) => {
     } else if (formatType === 'External') {
       window.open(prependHttps(item.link.url), '_blank', 'noopener,noreferrer')
     } else {
-      console.log(formatType)
       toggleModal()
     }
   }
@@ -61,11 +60,12 @@ const HowGridItem = ({ item }: HowGridItemProps) => {
         <div className={styles.iframe}>
           {
             item.format === 'Video' ?
-              <iframe src={item.link.url} allowFullScreen={true}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">                
+              <iframe width={'100%'} height={'100%'} src={item.link.url} allowFullScreen={true}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              >                
               </iframe>
               :
-              <iframe src={item.link.url}></iframe>
+              <iframe width={'100%'} height={'100%'} src={item.link.url}></iframe>
           }
 
         </div>
