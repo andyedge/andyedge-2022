@@ -14,7 +14,7 @@ const HowGridItem = ({ item }: HowGridItemProps) => {
   const router = useRouter()
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
   const toggleModal = () => setIsModalOpen(!isModalOpen)
-  
+
   const clickFunctionGridItem = () => {
     const formatType = item.format
     if (formatType === 'Article' || formatType === 'Case Study') {
@@ -22,6 +22,7 @@ const HowGridItem = ({ item }: HowGridItemProps) => {
     } else if (formatType === 'External') {
       window.open(prependHttps(item.link.url), '_blank', 'noopener,noreferrer')
     } else {
+      console.log(formatType)
       toggleModal()
     }
   }
@@ -58,7 +59,15 @@ const HowGridItem = ({ item }: HowGridItemProps) => {
         isModalOpen={isModalOpen}
       >
         <div className={styles.iframe}>
-          <iframe width={'100%'} height={'100%'} src={item.link.url}></iframe>
+          {
+            item.format === 'Video' ?
+              <iframe src={item.link.url} allowFullScreen={true}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">                
+              </iframe>
+              :
+              <iframe src={item.link.url}></iframe>
+          }
+
         </div>
       </CommonModal>
     </div>
