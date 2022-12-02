@@ -119,20 +119,23 @@
     height: 100%
 
 .items_container
-    min-height: 880px
-    
-    .items_row
-        display: grid
-        grid-template-columns: 1fr 1fr 1fr
-        margin-bottom: 48px
-        column-gap: 32px
-        +d
-            column-gap: 20px
-        +t
-            column-gap: 32px
-            grid-template-columns: 1fr 1fr
-        +s
-            grid-template-columns: 100%
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr    
+    column-gap: 32px
+    row-gap: 48px
+    margin-bottom: 72px
+    +d
+        grid-template-columns: 44% 44%
+        justify-content: space-evenly
+    +t
+        grid-template-columns: 1fr 1fr
+        margin-top: 72px
+    +s
+        grid-template-columns: 100%
+
+    .item
+        width: 100%
+        justify-self: center
 
         .category
             top: 12px
@@ -140,7 +143,7 @@
             position: absolute
 
         .item_image
-            width: 352px
+            width: 100%
             height: 264px
             border-radius: 16px
             border: solid 1px $gray3

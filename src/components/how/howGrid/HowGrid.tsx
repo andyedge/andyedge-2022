@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { SetFilterProps } from '../dropdown/Dropdown'
 import How from '../../../models/entities/how.model'
 import HowItem from '../../../models/generic/howItem.model'
@@ -15,11 +15,11 @@ declare interface HowGridProps {
 
 const ITEMS_PER_ROW = 3
 
-const HowGrid = ({ contents } : HowGridProps) => {
+const HowGrid = ({ contents }: HowGridProps) => {
     //Adds "All" option to all filters but Date
     const initialFilters = [...contents.filters].map((filter, index) => {
         const newFilter = cloneDeep(filter)
-        if(index !== HOW_FILTERS.DATE) {
+        if (index !== HOW_FILTERS.DATE) {
             newFilter.options.unshift(OPTIONS_ALL)
         }
         return newFilter
@@ -29,12 +29,12 @@ const HowGrid = ({ contents } : HowGridProps) => {
     const [filteredItems, setFilteredItems] = useState<HowItem[][]>(chunk([...contents.items], ITEMS_PER_ROW))
 
     //Updates selected filter
-    const setFilter = ({ value, index} : SetFilterProps) => {
+    const setFilter = ({ value, index }: SetFilterProps) => {
         const newfilters = [...activeFilters]
         newfilters[index] = value
         setActiveFilters(newfilters)
     }
-    
+
     const getActiveFilterLabels = () => {
         const topicFilterIndex = activeFilters[HOW_FILTERS.TOPIC]
         const formatFilterIndex = activeFilters[HOW_FILTERS.FORMAT]
@@ -68,7 +68,7 @@ const HowGrid = ({ contents } : HowGridProps) => {
 
         newItems = filterItems(newItems)
         //After filter, sorts by date
-        if(activeFilters[HOW_FILTERS.DATE] === DATE_FILTER_OPTIONS.OLDEST) {
+        if (activeFilters[HOW_FILTERS.DATE] === DATE_FILTER_OPTIONS.OLDEST) {
             newItems = sortBy(newItems, 'date')
         }
 
@@ -79,20 +79,18 @@ const HowGrid = ({ contents } : HowGridProps) => {
 
     return (
         <section>
-            <Filters 
-                filters={initialFilters} 
+            <Filters
+                filters={initialFilters}
                 onChange={setFilter}
                 activeFilters={activeFilters}
             />
             <div className={styles.items_container}>
                 {filteredItems.map((rowItems, rowIndex) => (
-                    <ScrollParallax key={rowIndex} initiallyVisible={true}>
-                        <div className={styles.items_row}>
-                            {rowItems.map((item, index) => (
-                                <HowGridItem key={index} item={item}/>
-                            ))}
-                        </div>
-                    </ScrollParallax>
+                    <Fragment key={rowIndex}>
+                        {rowItems.map((item, index) => (
+                            <HowGridItem key={index} item={item} />
+                        ))}
+                    </Fragment>
                 ))}
             </div>
         </section>
