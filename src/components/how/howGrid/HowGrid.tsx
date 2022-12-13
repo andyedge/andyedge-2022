@@ -1,12 +1,11 @@
-import { Fragment, useEffect, useState } from 'react'
-import { SetFilterProps } from '../dropdown/Dropdown'
-import How from '../../../models/entities/how.model'
-import HowItem from '../../../models/generic/howItem.model'
-import styles from './HowGrid.module.sass'
 import Filters from './Filters'
 import HowGridItem from './HowGridItem'
+import styles from './HowGrid.module.sass'
 import { chunk, cloneDeep, sortBy } from 'lodash'
-import ScrollParallax from '../../ScrollParallax'
+import How from '../../../models/entities/how.model'
+import { Fragment, useEffect, useState } from 'react'
+import { SetFilterProps } from '../dropdown/Dropdown'
+import HowItem from '../../../models/generic/howItem.model'
 import { HOW_FILTERS, DATE_FILTER_OPTIONS, OPTIONS_ALL } from '../../../constants/Constants'
 
 declare interface HowGridProps {
@@ -14,6 +13,7 @@ declare interface HowGridProps {
 }
 
 const ITEMS_PER_ROW = 3
+const THRESHOLD = 12
 
 const HowGrid = ({ contents }: HowGridProps) => {
     //Adds "All" option to all filters but Date
@@ -27,6 +27,8 @@ const HowGrid = ({ contents }: HowGridProps) => {
 
     const [activeFilters, setActiveFilters] = useState<number[]>(initialFilters.map(() => 0))
     const [filteredItems, setFilteredItems] = useState<HowItem[][]>(chunk([...contents.items], ITEMS_PER_ROW))
+    const [currentItems, setCurrentItems] = useState<HowItem[]>([...contents.items])
+    const [allItems, setAllItems] = useState<HowItem[]>([...contents.items])
 
     //Updates selected filter
     const setFilter = ({ value, index }: SetFilterProps) => {
@@ -62,11 +64,28 @@ const HowGrid = ({ contents }: HowGridProps) => {
         return items.filter((item) => isTopicItem(item) && isFormatItem(item) && isPlatformItem(item))
     }
 
+    const loadMore = () => {
+        setCurrentItems(allItems)
+        setFilteredItems(chunk(allItems, ITEMS_PER_ROW))
+    }
+
+    const showLoadMoreButton = (): boolean => {
+        const {
+            topicFilter,
+            formatFilter,
+            platformFilter
+        } = getActiveFilterLabels()
+
+
+        return (topicFilter === OPTIONS_ALL && formatFilter === OPTIONS_ALL && platformFilter === OPTIONS_ALL) &&
+            (currentItems.length < allItems.length)
+    }
 
     useEffect(() => {
         let newItems = [...contents.items]
 
         newItems = filterItems(newItems)
+        setCurrentItems(newItems.slice(0, THRESHOLD))
         //After filter, sorts by date
         if (activeFilters[HOW_FILTERS.DATE] === DATE_FILTER_OPTIONS.OLDEST) {
             newItems = sortBy(newItems, 'date')
@@ -74,7 +93,7 @@ const HowGrid = ({ contents }: HowGridProps) => {
 
         //Finally, chunks the array of items. This is only for creating individual scroll parallax effect for each row
         // and it does not involve any filter logic
-        setFilteredItems(chunk(newItems, ITEMS_PER_ROW))
+        setFilteredItems(chunk(newItems.slice(0, THRESHOLD), ITEMS_PER_ROW))
     }, [activeFilters])
 
     return (
@@ -92,6 +111,13 @@ const HowGrid = ({ contents }: HowGridProps) => {
                         ))}
                     </Fragment>
                 ))}
+            </div>
+            <div className={styles.button_container}>
+                {showLoadMoreButton() ? (
+                    <button onClick={loadMore}>
+                        Load More
+                    </button>
+                ) : null}
             </div>
         </section>
     )
