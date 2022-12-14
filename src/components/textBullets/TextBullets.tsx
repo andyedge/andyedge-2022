@@ -17,7 +17,11 @@ const TextBullets = ({ contents, section }: TextBulletsProps) => {
   const bulletsContent = contents.bulletsContainer;
   const images = contents.imagesContainer;
   const isBomou = section === 'bomou';
-  const containerClasses = cn("container", "container-full", isBomou ? styles.container_bomou : styles.container)
+  const containerClasses = cn("container", "container-full",
+    isBomou ? styles.container_bomou : section === 'design_thinking' ? styles.container_design_thinking : styles.container
+  )
+  const galleryClasses = isBomou ? styles.gallery_bomou :
+    section === 'design_thinking' ? styles.gallery_design_thinking : styles.gallery
 
   return (
     <div className={cn(styles.section, styles[section], styles[`section_${section}`])}>
@@ -51,7 +55,7 @@ const TextBullets = ({ contents, section }: TextBulletsProps) => {
             />
           )}
         </div>
-        <div className={isBomou ? styles.gallery_bomou : styles.gallery}>
+        <div className={galleryClasses}>
           {
             images?.map((image: ImageContainer, index: number) => (
               <Fragment key={'imgTxtBullet_' + index}>
@@ -60,7 +64,7 @@ const TextBullets = ({ contents, section }: TextBulletsProps) => {
                   animateIn="fadeInUp"
                   delay={index * 250}
                 >
-                  <CustomImage src={image}/>
+                  <CustomImage src={image} />
                 </ScrollParallax>
               </Fragment>
             ))
