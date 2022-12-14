@@ -7,7 +7,7 @@ import { adaptPlatform } from '../generic/platform.adapter'
 import { adaptCategory } from '../generic/categories.adapter'
 import { adaptSeoContent } from '../generic/seoContent.adapter'
 import Entry, { Item } from '../../../models/generic/entry.model'
-import { getUniqueValuesFromCollection } from '../../../helpers/functions'
+import { getUniqueValuesFromCollection, filterHowPlatform } from '../../../helpers/functions'
 import { adaptStandardContainer} from '../generic/standardContainer.adapter'
 import { HOW_FILTERS, DATE_FILTER_OPTIONS } from '../../../constants/Constants'
 
@@ -52,8 +52,8 @@ declare interface adapterProps {
 export const adaptHow = ({ data }: adapterProps): How => {
     const [how] = data.items
     const { fields } = how
-    
     const howItems = sortBy(adaptHowItems(fields.items), 'date').reverse()
+    const platformOptions = filterHowPlatform(getUniqueValuesFromCollection(howItems, 'platform'))
     const filters = []
 
     filters[HOW_FILTERS.TOPIC] = {
@@ -68,7 +68,7 @@ export const adaptHow = ({ data }: adapterProps): How => {
 
     filters[HOW_FILTERS.PLATFORM] = {
         label: fields.filterPlatformLabel,
-        options: getUniqueValuesFromCollection(howItems, 'platform')
+        options: platformOptions
     }
 
     const dateFilterOptions = []

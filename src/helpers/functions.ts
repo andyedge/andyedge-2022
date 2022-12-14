@@ -15,6 +15,10 @@ export const getUniqueValuesFromCollection = (data: any[], key: string) => {
     }
 }
 
+export const filterHowPlatform = (data: any[]) => {
+    return data.filter(item => item && item !== 'Article' && item !== 'Adobe PDF' && item !== 'Adobe XD')
+}
+
 export const getUrlToShare = (sectionId: string) => {
     let urlToShare = window.location.href;
     let sectionIdStr = '#' + sectionId;
