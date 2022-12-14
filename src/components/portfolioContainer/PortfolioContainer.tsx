@@ -15,7 +15,7 @@ declare interface PortfolioProps {
     contents: Portfolio
 }
 
-const TRESHOLD = 6
+const TRESHOLD = 12
 const PortfolioContainer: FC<PortfolioProps> = ({ contents } : PortfolioProps) => {
     const caseStudies = sortBy([...contents.caseStudies], 'updatedAt').reverse()
     const router = useRouter()

@@ -174,4 +174,33 @@
                 border-radius: 4px
                 overflow: auto
                 margin-right: 16px
-    
+
+.button_container
+    text-align: center
+    margin: 56px auto
+
+    button
+        width: 352px
+        height: 74px
+        border-radius: 90px
+        color: $black
+        font-size: 24px
+        border: solid 1px $gray3
+        background-color: $white
+        font-family: 'SFProDisplay-Bold'
+        transition: all 0.2
+        +dark
+            background-color: $black
+            color: $white
+        +s
+            width: unset
+            height: unset
+            font-size: 18px
+            padding: 16px 32px
+            border-radius: 90px
+
+    button:hover
+        background-color: $gray4
+        +dark
+            background-color: $black
+            box-shadow: 0 0 0 2px $gray2 inset
