@@ -48,7 +48,7 @@ const HowGridItem = ({ item }: HowGridItemProps) => {
             :
             null
         }
-        <div>
+        <div className={styles.post_info}>
           <h5>{item.title}</h5>
           <h6>{item.description}</h6>
         </div>
