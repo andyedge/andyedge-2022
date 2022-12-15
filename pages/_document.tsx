@@ -4,10 +4,6 @@ const Document = () => {
   return (
     <Html>
       <Head>
-        <link
-          href="https://use.typekit.net/tbq1fya.css"
-          rel="stylesheet"
-        />
       </Head>
       <body>        
         <Main />
