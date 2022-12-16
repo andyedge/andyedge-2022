@@ -4,7 +4,7 @@ import Icon from "../icon/Icon";
 
 const ScrollButton = ({ className, onScroll }: any) => {
   return (
-    <button className={cn(styles.scroll, className)} onClick={onScroll}>
+    <button className={cn(styles.scroll, className)} onClick={onScroll} aria-label='Scroll to next section'>
       <div className={styles.line}>
         <Icon name="arrow-down" size={14} />
         <Icon name="arrow-down" size={14} />
