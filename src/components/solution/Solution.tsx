@@ -79,9 +79,7 @@ const Solution = ({ data }: { data: Solution }) => {
                     onClick={() => { showImage(index) }}
                   >
                     <div className={styles.link}>
-                      <div
-                        className={styles.icon}
-                      >
+                      <div className={styles.icon}>
                         <img src={step.image.url} alt={step.image.description} />
                       </div>
                       <div className={styles.subtitle}>{step.title}</div>

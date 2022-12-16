@@ -92,6 +92,7 @@ const VideoComponent = ({ videoUrl, videoClassnames, playing, playingHandler } :
       ></video>
       <button
         className={playButtonClassname}
+        aria-label="Play video"
         style={{
           top: topPosition,
           opacity: playing ? 0 : 1,
