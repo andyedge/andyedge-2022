@@ -12,6 +12,7 @@ const Theme = ({ className }: any) => {
         className={styles.input}
         checked={darkMode.value}
         onClick={darkMode.toggle}
+        aria-label="Toggle dark mode"
         type="checkbox"
         readOnly
       />

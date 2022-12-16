@@ -36,6 +36,7 @@ const ContactField = ({ className, placeholder }: ContactProps) => {
         <button
           className={styles.btn}
           name='subscribe'
+          aria-label='Submit email subscription'
           id='mc-embedded-subscribe'
           type='submit'
         >
