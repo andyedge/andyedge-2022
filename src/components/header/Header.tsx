@@ -55,6 +55,7 @@ const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
         <ContactModal text={data.ctaButton.text} formId={data.formId} className={contactModalClasses} />
         <button
           className={cn(styles.burger, { [styles.active]: visibleNav })}
+          aria-label='Open menu'
           onClick={() => setVisibleNav(!visibleNav)}
         ></button>
       </div>
