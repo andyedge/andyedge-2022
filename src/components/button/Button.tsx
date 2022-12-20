@@ -27,7 +27,7 @@ const Button: FC<ButtonProps> = ({ link, func, size = 'default', scroll = true }
       return (
         <Link href={`/${link.url}`} scroll={scroll}>
           <button className={cn(whiteButtonClass, styles[size])}>
-            <a className={cn(styles.button, iconExists ? styles.button_a : '')}>
+            <a href={`/${link.url}`} className={cn(styles.button, iconExists ? styles.button_a : '')}>
               {link.text}
             </a>
           {link.icon && link.icon?.url !== '' ?

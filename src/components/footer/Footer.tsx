@@ -66,6 +66,7 @@ const Footer: FC<FooterProps> = ({ data } : FooterProps) => {
               <a
                 className={styles.social}
                 href={item.url}
+                aria-label={'Read more on Andyedge ' + item.icon + ' page'}
                 target='_blank'
                 rel='noopener noreferrer'
                 key={index}
