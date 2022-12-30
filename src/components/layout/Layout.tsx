@@ -3,12 +3,14 @@ import Head from 'next/head'
 import Header from '../header/Header'
 import Footer from '../footer/Footer'
 import { useRouter } from 'next/router'
+import { getPageSchema } from '../../helpers/functions'
 import LayoutModel from '../../models/generic/layout.model'
-import Script from 'next/script'
 
 const Layout: FC<LayoutModel> = (props: LayoutModel) => {
   const router = useRouter()
-  const canonicalUrl = (`https://www.andyedge.com` + (router.asPath === "/" ? "" : router.asPath)).split("?")[0];
+  const pageType = router.asPath.split('/')[1]
+  const schema = props.seoContent?.schema ? Object.keys(props.seoContent?.schema) : []
+  const canonicalUrl = (`https://www.andyedge.com` + (router.asPath === "/" ? "" : router.asPath)).split("?")[0]
 
   return (
     <>
@@ -22,37 +24,16 @@ const Layout: FC<LayoutModel> = (props: LayoutModel) => {
         <meta property='og:type' content={props.seoContent?.ogType} />
         <meta property='og:url' content={props.seoContent?.ogUrl} />
         <meta property='og:image' content={props.seoContent?.ogImage.url} />
-        <Script id='schema-script' type="application/ld+json" strategy='afterInteractive'>
-          {`
-            {
-              "@context":"https://schema.org/",
-              "@type":"Article",
-              "name":"${props.seoContent?.title}",
-              ${ratingAverage > 4 ?
-              `"aggregateRating": {
-                    "@type":"AggregateRating",
-                    "ratingValue":${ratingAverage},
-                    "reviewCount":${ratingCount}
-                  },`
-              :
-                ""
-              }
-              "about": "${props.seoContent?.metaDescription}",
-              "author": { "@type": "Person", "name": "Andyedge" },
-              "copyrightYear": "2022",
-              "datePublished": "16/12/2022",
-              "dateModified": "16/12/2022",
-              "description": "${props.seoContent?.metaDescription}",
-              "headline": "${props.seoContent?.title}",
-              ${sourceUrl ? `"image": "${sourceUrl}",` : ""}
-              "inLanguage": "English",
-              "mainEntityOfPage": "${site}articles/${slug}",
-              "publisher": { "@id": "${site}#organization" },
-              "sourceOrganization": ${org},
-              "url": "${site}articles/${slug}"
-            }
-          `}
-        </Script>
+        {
+          schema.length > 0 && props.seoContent ?
+            <script type="application/ld+json" id='schema-script'
+              dangerouslySetInnerHTML={{
+                __html: getPageSchema(pageType, props.seoContent?.schema)
+              }}
+            />
+            :
+            null
+        }
       </Head>
       <Header data={props.header} />
       {props.children}
