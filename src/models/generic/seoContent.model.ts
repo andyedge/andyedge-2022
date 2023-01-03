@@ -1,3 +1,4 @@
+import Schema from "./schema.model"
 import ImageType from "./image.model"
 
 export default interface SeoContent {
@@ -9,4 +10,5 @@ export default interface SeoContent {
     ogUrl: string
     ogType: string
     ogImage: ImageType
+    schema: Schema
 }

@@ -2,6 +2,8 @@ import { adaptImage } from "./image.adapter"
 import { Item } from "../../../models/generic/entry.model"
 import SeoContent from "../../../models/generic/seoContent.model"
 import ImageType from '../../../models/generic/image.model'
+import Schema from "../../../models/generic/schema.model"
+import { adaptSchema } from "./schema.adapter"
 
 const adaptMetaKeywords = (metaKeywords: string[] | undefined) => {
   let metaKeywordsStr = '';
@@ -27,7 +29,8 @@ export const adaptSeoContent = (data: Item): SeoContent => {
       ogDescription: '',
       ogUrl: '',
       ogType: '',
-      ogImage: {} as ImageType
+      ogImage: {} as ImageType,
+      schema: {} as Schema
     }
   }
 
@@ -41,6 +44,7 @@ export const adaptSeoContent = (data: Item): SeoContent => {
     ogDescription: fields.ogDescription || '',
     ogUrl: fields.ogUrl || '',
     ogType: fields.ogType || '',
-    ogImage: adaptImage(fields.ogImage)
+    ogImage: adaptImage(fields.ogImage),
+    schema: adaptSchema(fields.schema)
   }
 }
