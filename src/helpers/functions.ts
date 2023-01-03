@@ -110,11 +110,11 @@ export const getPageSchema = (pageType: string, schema: Schema) => {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "${service}"
+                  "name": "${service}",
                   "aggregateRating": {
                     "@type": "AggregateRating",
                     "ratingValue": "5.0"
-                  },
+                  }
                 }
               }`
           } else {
@@ -123,11 +123,11 @@ export const getPageSchema = (pageType: string, schema: Schema) => {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "${service}"
+                  "name": "${service}",
                   "aggregateRating": {
                     "@type": "AggregateRating",
                     "ratingValue": "5.0"
-                  },
+                  }
                 }
               },`
           }
@@ -146,7 +146,7 @@ export const getPageSchema = (pageType: string, schema: Schema) => {
                 "description": "${schema.description}",
                 "hasOfferCatalog": {
                   "@type": "OfferCatalog",
-                  "name": "${schema.catalogName}",
+                  "name": "${schema.catalogName}"${servicesStr !== '' ? `,` : ""}
                   ${servicesStr !== '' ? `"itemListElement": [\n ${servicesStr} \n]` : ""}
                 }
       }`
