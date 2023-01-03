@@ -89,7 +89,8 @@ export const getPageSchema = (pageType: string, schema: Schema) => {
                 ${articleImgs !== '' ? `"image": [\n ${articleImgs} \n],` : ""}
                 "aggregateRating": {
                     "@type": "AggregateRating",
-                    "ratingValue": "5.0"
+                    "ratingValue": "5.0",
+                    "ratingCount": "5"
                 },
                 "author": {
                     "@type": "Person",
@@ -127,7 +128,8 @@ export const getPageSchema = (pageType: string, schema: Schema) => {
                   "name": "${service}",
                   "aggregateRating": {
                     "@type": "AggregateRating",
-                    "ratingValue": "5.0"
+                    "ratingValue": "5.0",
+                    "ratingCount": "5"
                   }
                 }
               },`
