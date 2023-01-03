@@ -98,7 +98,7 @@ export const getPageSchema = (pageType: string, schema: Schema) => {
                 "genre": "${schema.genre}",
                 "datePublished": "${schema.datePublished}",
                 "dateCreated": "${schema.dateCreated}",
-                "dateModified": "${schema.dateModified}",
+                "dateModified": "${schema.dateModified}"
               }`
     default:
       let servicesStr = ""
