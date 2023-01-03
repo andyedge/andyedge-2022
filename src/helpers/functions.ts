@@ -56,7 +56,7 @@ export const getPageSchema = (pageType: string, schema: Schema) => {
       return `{
                 "@context": "https://schema.org/",
                 "@type": "Organization",
-                "@id": "https://www.andyedge.com",
+                "url": "https://www.andyedge.com",
                 "legalName": "${schema.legalName}",
                 "address": {
                     "@type": "PostalAddress",
