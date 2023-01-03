@@ -113,7 +113,8 @@ export const getPageSchema = (pageType: string, schema: Schema) => {
                   "name": "${service}",
                   "aggregateRating": {
                     "@type": "AggregateRating",
-                    "ratingValue": "5.0"
+                    "ratingValue": "5.0",
+                    "ratingCount": "5"
                   }
                 }
               }`
