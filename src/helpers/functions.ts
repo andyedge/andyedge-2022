@@ -87,11 +87,6 @@ export const getPageSchema = (pageType: string, schema: Schema) => {
                 "headline": "${schema.headline}",
                 "description": "${schema.description}",
                 ${articleImgs !== '' ? `"image": [\n ${articleImgs} \n],` : ""}
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "5.0",
-                    "ratingCount": "5"
-                },
                 "author": {
                     "@type": "Person",
                     "name": "${schema.author}"
