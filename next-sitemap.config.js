@@ -9,7 +9,7 @@ module.exports = {
       case '':
         return {
           loc: path,
-          priority: 1.0,
+          priority: 0.9,
           changefreq: config.changefreq,
           lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
         }
