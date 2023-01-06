@@ -21,9 +21,11 @@ const Footer: FC<FooterProps> = ({ data } : FooterProps) => {
           <div className={styles.col}>
             <div className={styles.box}>
               <Link href='/'>
-                <div className={styles.logo}>
-                  <CustomImage src={{image: data.logo}} />
-                </div>
+                <a style={{marginBottom: 'auto'}}>
+                  <div className={styles.logo}>
+                    <CustomImage src={{image: data.logo}} />
+                  </div>
+                </a>
               </Link>
               <Theme className={styles.theme} />
             </div>
