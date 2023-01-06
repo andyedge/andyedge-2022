@@ -124,11 +124,7 @@
     column-gap: 32px
     row-gap: 48px
     margin-bottom: 72px
-    +d
-        grid-template-columns: 44% 44%
-        justify-content: space-evenly
     +t
-        grid-template-columns: 1fr 1fr
         margin-top: 72px
     +s
         grid-template-columns: 100%
@@ -152,8 +148,17 @@
             transition: box-shadow .2s
             overflow: hidden
             isolation: isolate
+            +dark
+                border-color: $black3
+            +d
+                height: 216px
+            +t-
+                height: 200px
+            +a
+                height: 264px
             img
                 transition: transform 2s
+                object-fit: cover
         
         @media (hover: hover)
         .item_image:hover
@@ -174,9 +179,18 @@
                 border-radius: 4px
                 overflow: auto
                 margin-right: 16px
+                +d
+                    overflow: visible
+
+                .platform_icon
+                    width: 24px
+                    height: 24px
+                    position: relative
         
         .post_info
             max-width: 300px
+            a
+                font-weight: 700
             +t
                 max-width: 260px
             +m

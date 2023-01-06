@@ -5,6 +5,7 @@ import CustomImage from '../../image/Image'
 import CommonModal from '../../modal/Modal'
 import { prependHttps } from '../../../helpers/functions'
 import HowItem from '../../../models/generic/howItem.model'
+import Link from 'next/link'
 
 declare interface HowGridItemProps {
   item: HowItem
@@ -43,13 +44,23 @@ const HowGridItem = ({ item }: HowGridItemProps) => {
         {
           item.platform ?
             <div className={styles.item_platform_icon}>
-              <CustomImage src={{ image: item.platform.icon }} />
+              <div className={styles.platform_icon}>
+                <CustomImage src={{ image: item.platform.icon }} />
+              </div>
             </div>
             :
             null
         }
         <div className={styles.post_info}>
-          <h5>{item.title}</h5>
+          {item.format === 'Article' || item.format === 'Case Study' ? 
+            <Link href={`/${item.link.url}`}>
+              <a>
+                {item.title}
+              </a>              
+            </Link>            
+            :
+            <h5>{item.title}</h5>
+          }          
           <h6>{item.description}</h6>
         </div>
       </div>
