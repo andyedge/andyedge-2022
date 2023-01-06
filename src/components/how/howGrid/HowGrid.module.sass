@@ -148,6 +148,8 @@
             transition: box-shadow .2s
             overflow: hidden
             isolation: isolate
+            +dark
+                border-color: $black3
             +d
                 height: 216px
             +t-
@@ -183,6 +185,7 @@
                 .platform_icon
                     width: 24px
                     height: 24px
+                    position: relative
         
         .post_info
             max-width: 300px
