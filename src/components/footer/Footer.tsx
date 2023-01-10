@@ -54,7 +54,7 @@ const Footer: FC<FooterProps> = ({ data } : FooterProps) => {
             <div className={styles.info_alt}>
               <RichText richText={data.getInTouchContent} />
             </div>
-            <a href='mailto:hi@andyedge.com?subject=Contact form from andyedge.com' className={'button-default'}>{data.button.text}</a>
+            <a href='mailto:hi@andyedge.com?subject=Feedback form from andyedge.com' className={'button-default'}>{data.button.text}</a>
             {/*<ContactModal text={data.button.text} className={'button-default'} formId={data.formId}/>*/}
           </div>
         </div>
