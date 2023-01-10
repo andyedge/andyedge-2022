@@ -43,10 +43,12 @@ const HeaderComponent: FC<HeaderProps> = ({ data } : HeaderProps) => {
               data={data.megaMenu}
               isActive={router.pathname === '/'}
             />
-            <ContactModal text={data.ctaButton.text} formId={data.formId} className={contactModalClasses} />
+            <a href='mailto:hi@andyedge.com?subject=Contact form from andyedge.com' className={contactModalClasses}>{data.ctaButton.text}</a>
+            {/*<ContactModal text={data.ctaButton.text} formId={data.formId} className={contactModalClasses} />*/}
           </nav>
         </div>
-        <ContactModal text={data.ctaButton.text} formId={data.formId} className={contactModalClasses} />
+        <a href='mailto:hi@andyedge.com?subject=Contact form from andyedge.com' className={contactModalClasses}>{data.ctaButton.text}</a>
+        {/*<ContactModal text={data.ctaButton.text} formId={data.formId} className={contactModalClasses} />*/}
         <button
           className={cn(styles.burger, { [styles.active]: visibleNav })}
           aria-label='Open menu'
